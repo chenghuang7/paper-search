@@ -186,6 +186,27 @@
       ]
     },
     {
+      "id": "2608.31013",
+      "title": "TSPFN: A Temporal Tabular Foundation Model for Physiological Time Series Classification",
+      "abstract": "Designing models that generalize effectively in low- to medium-data regimes remains a primary challenge in medical machine learning, particularly for physiological time-series classification. While tabular foundation models such as TabPFN offer an attractive alternative to conventional fine-tuning through in-context learning, they are not designed to capture the temporal dependencies inherent to physiological signals. ~In this paper, we introduce TSPFN, a foundation model that redesigns TabPFN's architecture for time series data. TSPFN integrates structured temporal representations and positional embeddings to capture intra-sample temporal and channel dependencies. To fully leverage its spatio-temporal design, the model is pretrained on 140,000 real-world physiological time series across multiple medical domains. This yields a unified, generalizable framework capable of learning the specificities of medical time series. Experiments across diverse physiological benchmarks demonstrate that TSPFN consistently outperforms standard tabular baselines and TabPFN, and achieves superior cross-domain generalization compared to specialized deep time-series models. All our experiments, ablation studies, and pre-processing scheme are publicly available at https://github.com/Jeremstym/TSPFN",
+      "authors": [
+        "Jérémie Stym-Popper",
+        "Clément Rambour",
+        "Federica Granese",
+        "Nicolas Thome",
+        "Olivier Bernard"
+      ],
+      "published": "2026-08-31T15:58:22Z",
+      "updated": "2026-08-31T15:58:22Z",
+      "url": "https://arxiv.org/abs/2608.31013",
+      "pdf_url": "https://arxiv.org/pdf/2608.31013",
+      "first_seen": "2026-09-06T12:53:50.268403Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
       "id": "2608.30976",
       "title": "A Human-in-the-Loop Autonomous Agent for Industry Time Series Forecasting",
       "abstract": "Real-world time-series forecasting is rarely a one-shot model invocation: practitioners must formulate tasks, connect data and models, incorporate domain expertise, assess prediction plausibility, and communicate uncertainty. Specialized forecasting models provide strong numerical predictions but usually operate in fixed pipelines, while general-purpose large language model (LLM) agents often lack forecasting-specific checks, constraints, and stopping rules. We present CastClaw, a human-in-the-loop autonomous forecasting system built through forecasting-oriented harness engineering. CastClaw connects data, specialized models, analytical tools, user input, and a versioned execution record in one runtime. Users specify the target, horizon, constraints, and hypotheses in natural language. Starting from a supplied or model-generated forecast, CastClaw checks temporal patterns and user constraints; when evidence is missing, it retrieves context, runs an analysis or another model, or asks the user. It then keeps, revises, or escalates the result under explicit stopping conditions. The output contains the final forecast and an execution report recording inputs, evidence, actions, and revisions. In this five-dataset electricity-price setting, CastClaw reports the lowest point-estimate MSE and MAE among 16 baselines. A Nord Pool case demonstrates the inspectable workflow. CastClaw was also validated offline on provincial electricity-load data from North China covering January--June 2026.",
@@ -238,7 +259,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.30502",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -646,6 +669,27 @@
       ]
     },
     {
+      "id": "2608.25019",
+      "title": "EncoTESS: Age-Sensitive Encodings from Raw TESS Light Curves",
+      "abstract": "Main sequence stars of spectral types late F through M exhibit systematic variability in photometric light curves, particularly when they are young. Rotational modulation of starspots manifests as quasi-sinusoidal variability, which enables the measurement of rotation periods. Variability can also be stochastic, as in stellar flaring. However, since measurements of stochastic processes depend on the time of observation, they are typically noisier. Considering that different manifestations of variability have unique observational nuances, models that naturally unify these are incredibly useful for stellar characterization. Towards this goal, we have developed EncoTESS: a Time Series Foundation Model (TSFM) trained on a subset of TESS 2-min light curves. EncoTESS is specifically designed to handle the observational noise, heteroskedastic measurements, irregular sampling, and large data gaps common to TESS data. It is also ~1% of the size of a typical literature TSFM, so can be run easily on a modern laptop. EncoTESS encodes light curves into a fixed-size latent parameter space, which can be used to infer physical stellar properties and recovers light curve summary statistics well. EncoTESS outperforms rotation period and variability amplitude as age indicators for stars that have not converged onto the slow rotator sequence yet; broadly these include K and M stars less than ~100 Myr, and M stars less than ~1 Gyr. We focus on age inference as an application of EncoTESS in this work, but other downstream tasks such as stellar classification could also be explored. The architecture of EncoTESS enables its future extension to TESS light curves of all cadences, and additional surveys such as Kepler and the upcoming PLATO mission. The core EncoTESS framework and library of encodings produced for the stars used in this work are publicly available at https://github.com/philvanlane/encotess.",
+      "authors": [
+        "Phil R. Van-Lane",
+        "Joshua S. Speagle",
+        "Ryan Cloutier",
+        "Christopher A. Theissen",
+        "Gwendolyn M. Eadie",
+        "Ilay Kamai"
+      ],
+      "published": "2026-08-25T18:06:58Z",
+      "updated": "2026-08-25T18:06:58Z",
+      "url": "https://arxiv.org/abs/2608.25019",
+      "pdf_url": "https://arxiv.org/pdf/2608.25019",
+      "first_seen": "2026-09-06T12:53:50.268403Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
       "id": "2608.24697",
       "title": "Single State Update Predictive Coding training for Time Series Forecasting and Anomaly Detection",
       "abstract": "Predictive Coding (PC) is a neural learning paradigm that enables parallelizable neural network layer updates. However, the main bottleneck of PC Networks (PCN) is the sequential backwards error propagation. To tackle this, we introduce a training technique that pairs a Generative PCN with a support Encoding PCN. The two PCNs are trained in parallel to match their neural activations, without sequential propagation. We apply this to time series anomaly detection and show that our approach results in more stable, continuous, online learning.",
@@ -677,7 +721,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.24303",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -701,7 +746,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.24033",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -756,7 +803,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.23728",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -780,7 +828,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.23473",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -846,7 +895,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.23058",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -863,7 +914,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.22968",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -905,7 +958,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.22321",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -923,7 +977,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.28664",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1196,7 +1251,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.20024",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -1218,6 +1275,27 @@
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
         "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2608.20005",
+      "title": "Scale-Aware Pretraining of Time Series Foundation Models via Multi-Patch Token Alignment and Hybrid Masking",
+      "abstract": "Pretraining time series foundation models across heterogeneous datasets necessitates effective handling of varying sampling frequencies. Current methods either employ dataset-specific patch sizes and separate FFNs, leading to fragmented representations, or enforce a fixed patch size that neglects inherent temporal variations. To address this, we propose SATS, featuring a scale-aware token alignment mechanism that treats patch size as an explicit notion of scale. By incorporating a contrastive-inspired alignment regularizer, SATS aligns representation spaces across scales while preserving distinct modeling capacities. Furthermore, a hybrid masking strategy combining random and contiguous masking is introduced to capture multi-scale temporal structures. Experimental results on LSTF benchmarks demonstrate that SATS achieves a 9.2% improvement in MSE and an 8.3% gain in GIFT-Eval MASE compared to competitive baselines. Notably, SATS consistently delivers SOTA performance while achieving a 65.6% increase in model efficiency over advanced baselines, highlighting its effectiveness and scalability in time series pretraining.",
+      "authors": [
+        "Taihua Chen",
+        "Xiang Ma",
+        "Yixin Zhang",
+        "Tailin Zhan",
+        "Manyu Sun",
+        "Lizhen Cui"
+      ],
+      "published": "2026-08-20T13:20:58Z",
+      "updated": "2026-08-20T13:20:58Z",
+      "url": "https://arxiv.org/abs/2608.20005",
+      "pdf_url": "https://arxiv.org/pdf/2608.20005",
+      "first_seen": "2026-09-06T12:53:50.268403Z",
+      "topics": [
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1275,7 +1353,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.19521",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -1454,7 +1534,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.17299",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1583,7 +1664,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.16385",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1717,7 +1799,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.15291",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1758,7 +1841,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.14106",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -1794,7 +1879,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.14054",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -1835,6 +1922,26 @@
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
         "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2608.13741",
+      "title": "GALA: Generation-Aware Cross-Modal Alignment for Text-to-Time-Series Synthesis",
+      "abstract": "Synthesizing time series from natural language is emerging as the most expressive form of controllable time series generation. However, existing text-conditioned generators either take caption embeddings frozen from off-the-shelf text encoders, or adapt the encoder end-to-end, letting the denoising loss shape the embeddings only as a by-product. In either case, the conditioning representation is never deliberately matched to the signal modality, leaving it ill-suited to guide generation. We address this by introducing GALA: Generation-Aware cross-modaL Alignment for text conditional time series generation. GALA is a two-stage approach that first contrastively couples a pretrained text encoder with a time-series foundation model into a shared embedding space with both encoders adapted to generation by an auxiliary generative loss, and then freezes the resulting caption embedding to drive a flow-matching generator. On TSFragment-600K, spanning four domains and three fragment lengths, GALA sets a new state of the art, ranking first in 30 of 36 metric columns and reaching an average rank of 1.08/1.08/1.42 at lengths 24/48/96 against 1.92/2.00/1.75 for the strongest baseline. We further find that generator-internal text encoders force a trade-off between fidelity and caption adherence, whereas conditioning on the aligned embedding breaks it: FID, CTTP, and JFTSD all improve at once. Ablating the auxiliary loss degrades FID, CTTP and JFTSD together, it indicates the generative term is a necessary component of the alignment rather than an add-on.",
+      "authors": [
+        "Haochen Zhang",
+        "Gengwei Zhang",
+        "Laura Yao",
+        "Nicholas Konz",
+        "Tianlong Chen"
+      ],
+      "published": "2026-08-13T19:57:07Z",
+      "updated": "2026-08-17T02:27:06Z",
+      "url": "https://arxiv.org/abs/2608.13741",
+      "pdf_url": "https://arxiv.org/pdf/2608.13741",
+      "first_seen": "2026-09-06T12:53:50.268403Z",
+      "topics": [
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1974,7 +2081,32 @@
       "pdf_url": "https://arxiv.org/pdf/2608.13505",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2608.13283",
+      "title": "Towards Context-Aware Clinical Motion Understanding in Daily Living at Home: Freezing of Gait Detection with Egocentric Vision",
+      "abstract": "Understanding motion in daily living requires context beyond kinematics, because similar inertial patterns during activities of daily living (ADLs) can reflect intentional stopping, object interaction, or pathological movement impairment. Egocentric vision provides task-related context that may help disambiguate these cases. We investigate this challenge through freezing of gait (FOG) detection in Parkinson's disease (PD), a symptom strongly influenced by contextual factors during ADLs. Using synchronized egocentric video, wearable IMUs, and expert-annotated FOG labels collected from 13 PD participants in their homes, we evaluate frozen representations from pretrained ego-video and time-series foundation models, alongside an IMU-based TCN trained from scratch, under leave-one-subject-out evaluation. The IMU-based TCN achieved the strongest event-detection performance, reaching 42.3 F1 and 83.0 AUROC, compared with 32.6 F1 and 77.2 AUROC for V-JEPA2 ego-video features. Although ego-video alone did not outperform IMU-based sensing, it showed above-chance discrimination, and qualitative analyses suggest that egocentric vision may capture FOG-relevant information independent of IMUs. Together, these results support the use of pretrained ego-video representations to add contextual information to wearable-sensor-based clinical motion understanding in daily living.",
+      "authors": [
+        "Vayalet Stefanova",
+        "Diwas Lamsal",
+        "Margot Genbrugge",
+        "Maxim Yudayev",
+        "Christian Schlenstedt",
+        "Moran Gilat",
+        "Bart Vanrumste",
+        "Benjamin Filtjens"
+      ],
+      "published": "2026-08-13T14:16:49Z",
+      "updated": "2026-08-13T14:16:49Z",
+      "url": "https://arxiv.org/abs/2608.13283",
+      "pdf_url": "https://arxiv.org/pdf/2608.13283",
+      "first_seen": "2026-09-06T12:53:50.268403Z",
+      "topics": [
+        "time-series-foundation-models"
       ]
     },
     {
@@ -1994,7 +2126,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.13262",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -2162,7 +2295,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.11359",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -2183,7 +2318,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.11327",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -2394,6 +2530,25 @@
       ]
     },
     {
+      "id": "2608.09497",
+      "title": "SwissCrop25: A National Multi-Year Benchmark for Operational Crop Mapping",
+      "abstract": "Operational crop mapping requires models that generalise across years, resolve fine-grained crop taxonomies, and distinguish cropland from surrounding landscapes. However, existing crop mapping datasets enable evaluation of these requirements only in isolation. We therefore introduce SwissCrop25, a national-scale crop mapping benchmark dataset spanning seven growing seasons (2019-2025). SwissCrop25 combines Sentinel-2 time series, daily temperature observations, a fine-grained 73 crop taxonomy including grassland management types, and 5 explicit non-crop land cover classes. To evaluate realistic deployment conditions, we define a leave-one-year-out protocol with joint cropland delineation and crop classification for benchmarking representative crop mapping architectures. Evaluating U-TAE (convolutional temporal-attention model), TSViT (transformer-based spatio-temporal model), and Galileo (EO foundation model) reveals differences between architectures hidden by conventional benchmarks. In this setting, domain-specific models outperform Galileo, with TSViT achieving the best overall performance and a 12 pp macro-mIoU advantage over U-TAE. SwissCrop25 also exposes substantial interannual distribution shifts and shows that incorporating temperature-derived phenological information improves robustness. Finally, in-season evaluation reveals a trade-off between models, with U-TAE performing better early in the season and TSViT gaining an advantage later through improved rare-class discrimination. SwissCrop25 provides a challenging testbed for evaluating crop mapping systems under realistic operational conditions and is publicly released at https://huggingface.co/datasets/EOA-team/SwissCrop25 .",
+      "authors": [
+        "Thomas Lauber",
+        "Mehmet Ozgur Turkoglu",
+        "Sélène Ledain",
+        "Helge Aasen"
+      ],
+      "published": "2026-08-10T12:03:02Z",
+      "updated": "2026-08-10T12:03:02Z",
+      "url": "https://arxiv.org/abs/2608.09497",
+      "pdf_url": "https://arxiv.org/pdf/2608.09497",
+      "first_seen": "2026-09-06T12:53:50.268403Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
       "id": "2608.08879",
       "title": "Reservoir Computing with Heterogeneous Magnetic Metamaterials",
       "abstract": "Physical reservoir computing utilizes the intrinsic nonlinear and history-dependent dynamics of physical systems to perform machine-learning tasks with minimal training overhead. Here, we introduce a nanomagnetic reservoir computer based on a heterogeneous array of interconnected magnetic nanorings, combined with multi-channel planar Hall effect readout. The device comprises subarrays of rings with systematically varied track widths ranging from 500 nm to 300 nm, enabling access to the heterogeneous dynamics of geometrically diverse magnetic systems within a single reservoir. By applying time-varying input signals as modulations of a driving rotating magnetic field, we evaluate the nanoring reservoir's performance on nonlinear signal transformation and Mackey-Glass time-series prediction tasks. We find that combining outputs from multiple width-dependent channels significantly reduces the normalized root-mean-square error compared to single-channel readout, with the optimal channel combinations depending on task requirements. These results demonstrate that geometric heterogeneity provides an additional, experimentally accessible degree of freedom and complementary computational features. Principal component analysis further reveals that a reduced subset of correlated features captures most of the computationally relevant information while suppressing noise contributions. These results demonstrate that controlled geometric heterogeneity enhances reservoir expressivity and suggest a route toward scalable magnetic computing architectures in which multi-output magnetic metamaterials serve as configurable dynamical building blocks for device networks.",
@@ -2431,7 +2586,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.08825",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -2512,7 +2669,9 @@
       "pdf_url": "https://arxiv.org/pdf/2608.08119",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -2533,7 +2692,8 @@
       "pdf_url": "https://arxiv.org/pdf/2608.08010",
       "first_seen": "2026-09-06T12:17:31.344218Z",
       "topics": [
-        "time-series-forecasting"
+        "time-series-forecasting",
+        "time-series-foundation-models"
       ]
     },
     {
@@ -2617,9 +2777,16 @@
       ]
     }
   ],
-  "last_success": "2026-09-06T12:32:16.299882Z",
-  "last_attempt": "2026-09-06T12:32:16.299882Z",
-  "last_new_ids": [],
+  "last_success": "2026-09-06T12:53:50.268403Z",
+  "last_attempt": "2026-09-06T12:53:50.268403Z",
+  "last_new_ids": [
+    "2608.09497",
+    "2608.13283",
+    "2608.13741",
+    "2608.20005",
+    "2608.25019",
+    "2608.31013"
+  ],
   "error": null,
-  "config_fingerprint": "1f103c4ed7b2c0dd4c75bedb6294c1156683b3fa9791725bf69b066032f8ec5a"
+  "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46"
 }

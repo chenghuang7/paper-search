@@ -11,6 +11,25 @@
         ["forecast", "forecasts", "forecasting", "forecasted", "forecaster", "forecasters", "prediction", "predictions", "predictive", "predicting"]
       ],
       "exclude": []
+    },
+    {
+      "id": "time-series-foundation-models",
+      "name": "时序基础模型",
+      "groups": [
+        ["time series", "time-series"],
+        ["foundation model", "foundation models", "TSFM", "TSFMs", "Chronos", "TimesFM", "Moirai", "Lag-Llama", "TinyTimeMixer"]
+      ],
+      "exclude": []
+    },
+    {
+      "id": "time-series-foundation-model-enhancement",
+      "name": "时序基础模型效果增强",
+      "groups": [
+        ["time series", "time-series"],
+        ["foundation model", "foundation models", "TSFM", "TSFMs", "Chronos", "TimesFM", "Moirai", "Lag-Llama", "TinyTimeMixer"],
+        ["fine tuning", "finetuning", "fine tune", "fine tuned", "adaptation", "adapter", "adapters", "LoRA", "PEFT", "prompt", "prompting", "in context learning", "retrieval", "augmentation", "calibration", "ensemble", "ensembling", "distillation", "test time", "covariates", "exogenous", "residual"]
+      ],
+      "exclude": []
     }
   ]
 }

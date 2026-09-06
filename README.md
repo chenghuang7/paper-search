@@ -35,6 +35,28 @@ python3 -m unittest discover -s tests -v
 
 以后可以直接请助手修改，也可以在 GitHub 网页上自己操作，无需在电脑上安装软件。**检索词保存在 [config.json](config.json)，修改这份 README 中的示例不会改变实际检索。**
 
+### 当前订阅的方向
+
+| 网页主题 | 检索范围 |
+| --- | --- |
+| Time Series Forecasting | 时间序列与预测相关论文 |
+| 时序基础模型 | 时间序列 + foundation model / TSFM 等表述，或 Chronos、TimesFM、Moirai、Lag-Llama、TinyTimeMixer 等模型名称 |
+| 时序基础模型效果增强 | 在“时序基础模型”的条件上，再要求命中下表中至少一个增强方法关键词 |
+
+增强方法关键词按用途分为：
+
+| 方向 | 当前覆盖的关键词 |
+| --- | --- |
+| 微调与适配 | fine tuning、finetuning、fine tune、fine tuned、adaptation、adapter、adapters、LoRA、PEFT |
+| 提示与上下文学习 | prompt、prompting、in context learning |
+| 检索与数据增强 | retrieval、augmentation |
+| 校准、集成与蒸馏 | calibration、ensemble、ensembling、distillation |
+| 推理时适配与外部信息 | test time、covariates、exogenous、residual |
+
+两个新主题不额外强制出现 forecasting，因此也会覆盖基础模型在其他时序任务中的应用。效果增强主题是基础模型主题的子集，重复论文仍只保存一份。关键词只用于发现候选论文，命中不代表论文已经证明效果提升；例如摘要中讨论微调的局限也可能命中。
+
+关键词参考了 [TS-RAG](https://arxiv.org/abs/2503.07649) 的检索增强方向、[FedChronos](https://arxiv.org/abs/2608.01290) 的 LoRA 微调方向，以及 [Google 的上下文微调研究](https://www.research.google/blog/time-series-foundation-models-can-be-few-shot-learners/)。
+
 ### 在 GitHub 上修改并保存
 
 1. 登录拥有本仓库写入权限的 GitHub 账号，打开 [config.json 编辑页面](https://github.com/chenghuang7/paper-search/edit/main/config.json)。也可以在仓库首页点击 `config.json`，再点击右上角的铅笔按钮。
