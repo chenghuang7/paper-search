@@ -31,9 +31,22 @@ python3 -m unittest discover -s tests -v
 
 代码和结果公开；不要在配置或论文数据里放密码。此项目无需任何自定义 Secrets。
 
-## 修改订阅
+## 如何增加或修改检索词
 
-编辑 `config.json`。每个主题的 `groups` 是“组间 AND、组内 OR”：默认要求标题与摘要合并后，既出现时间序列表述，也出现预测表述。大小写不敏感，连字符和空白归一化；`exclude` 中任一词命中就排除。
+以后可以直接请助手修改，也可以在 GitHub 网页上自己操作，无需在电脑上安装软件。**检索词保存在 [config.json](config.json)，修改这份 README 中的示例不会改变实际检索。**
+
+### 在 GitHub 上修改并保存
+
+1. 登录拥有本仓库写入权限的 GitHub 账号，打开 [config.json 编辑页面](https://github.com/chenghuang7/paper-search/edit/main/config.json)。也可以在仓库首页点击 `config.json`，再点击右上角的铅笔按钮。
+2. 按下面的示例修改关键词或增加主题。保留文件中的 `title`、`initial_days`、`overlap_days` 和 `topics` 等其他设置。
+3. 点击右上角 **Commit changes…**，填写简短说明，例如“增加异常检测订阅”；选择直接提交到 **main** 分支，再点击 **Commit changes** 确认。
+4. 保存后会自动启动检索，不用等到第二天。打开 [Actions](https://github.com/chenghuang7/paper-search/actions)，找到最新的 **Daily papers** 任务；等待显示绿色对勾，再刷新[论文网站](https://chenghuang7.github.io/paper-search/)。`Checks` 是代码检查，网站发布结果要看 `Daily papers`。
+
+若任务显示红叉，点击任务名称，再点击 **update-and-publish**，展开标红的步骤查看原因。配置写错时，回到 `config.json` 修正并保存，会自动再跑一次；若只是临时网络问题，可以在失败任务页面右上角点击 **Re-run jobs → Re-run all jobs**（按钮也可能直接显示 **Re-run all jobs**）。
+
+### 看懂关键词规则
+
+下面是一个简化的**单个主题**，位于 `topics` 数组中，不能直接替换整个配置文件：
 
 ```json
 {
@@ -47,7 +60,64 @@ python3 -m unittest discover -s tests -v
 }
 ```
 
-在 `topics` 中追加同结构对象即可添加订阅；`id` 使用唯一小写字母、数字或连字符。关键词是普通文本，不能包含引号、反斜线或换行；不要直接填写 arXiv 查询语法。默认配置包含更多预测词形。匹配基于文字，可能把只是提到预测的论文收入，也可能遗漏完全不同的术语，不等于语义相关性判断。
+- `id`：主题的唯一标识，只使用小写字母、数字和连字符。
+- `name`：网页里显示的主题名称。只修改它不会改变检索范围。
+- `groups`：**同一组是“或”，不同组是“且”**。上述示例要求标题与摘要合并后，既包含 `time series` 或 `time-series`，又包含 `forecasting` 或 `prediction`。
+- `exclude`：排除词。任意一个词命中标题或摘要，就不计入这个主题；`[]` 表示不排除。
+
+常见修改方式：
+
+| 想做什么 | 怎么改 | 效果 |
+| --- | --- | --- |
+| 补充预测的其他说法 | 在预测词所在的方括号中追加 `"predictive"` | 与原来的预测词任选其一，扩大覆盖 |
+| 只关注包含大模型术语的预测论文 | 在 `groups` 中追加一组 `["foundation model", "foundation models", "LLM"]` | 新增一个必须满足的条件，收窄覆盖 |
+| 排除交通方向 | 将 `exclude` 改成 `["traffic"]` | 标题或摘要提到 traffic 的论文会被排除 |
+| 同时关注预测和异常检测，分别浏览 | 在 `topics` 中新增一个主题，参考下一节 | 网站上可以按两个主题分别筛选 |
+
+当前实际配置包含比简化示例更多的预测词形；补充词语时保留已有词即可。匹配大小写不敏感，常见连字符和空白会归一化。词语使用普通文本，不要填写 `AND`、`OR` 等查询语法，也不要在词语里加入引号、反斜线或换行。
+
+### 示例：新增“时间序列异常检测”主题
+
+在 `topics` 中追加主题对象，与原主题之间用英文逗号隔开；已有主题继续保留。下面是一份**可完整替换 `config.json`** 的配置，保留默认预测词并增加异常检测：
+
+```json
+{
+  "title": "时序论文追踪",
+  "initial_days": 30,
+  "overlap_days": 7,
+  "topics": [
+    {
+      "id": "time-series-forecasting",
+      "name": "Time Series Forecasting",
+      "groups": [
+        ["time series", "time-series"],
+        ["forecast", "forecasts", "forecasting", "forecasted", "forecaster", "forecasters", "prediction", "predictions", "predictive", "predicting"]
+      ],
+      "exclude": []
+    },
+    {
+      "id": "time-series-anomaly-detection",
+      "name": "Time Series Anomaly Detection",
+      "groups": [
+        ["time series", "time-series"],
+        ["anomaly detection", "outlier detection"]
+      ],
+      "exclude": []
+    }
+  ]
+}
+```
+
+JSON 使用英文双引号、逗号和方括号，最后一项后面不要加逗号，不支持注释。若已添加其他自定义主题，不要直接用上面的完整示例覆盖，应只追加新的主题对象。
+
+### 修改后会发生什么
+
+- 修改订阅后默认至少补查最近 **30 天**；如有更早的未完成检索窗口，也会继续补抓。
+- 网站会重新计算已有论文匹配的主题；同一篇论文命中多个主题时只保存一份。
+- 删除主题时，从 `topics` 中移除对应对象，并保留至少一个主题。已保存的论文不会从数据文件中删除，但不再匹配任何当前主题的论文会从网页隐藏。
+- 如果只想调整网页上的临时搜索或日期筛选，直接在论文网站操作即可；这不会改变每天自动执行的订阅规则。
+
+关键词匹配可能收录只是提到预测的论文，也可能遗漏使用不同术语的论文，不等于语义相关性判断。
 
 ## 数据与恢复
 
