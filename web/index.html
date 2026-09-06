@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="每日追踪时间序列预测相关 arXiv 论文，浏览标题与原文摘要。">
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="mark" aria-hidden="true">∿</span>{{TITLE}}</a><a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">arXiv ↗</a></header>
+  <main>
+    <div class="heading"><div><p class="eyebrow">RESEARCH WATCH / 01</p><h1>每天，离新发现近一点。</h1><p class="subtitle">时间序列预测 · 论文每日更新</p></div><div class="update"><span class="dot" aria-hidden="true"></span><span id="updated">尚未完成首次检索</span></div></div>
+    <div class="stats" aria-label="论文统计"><div><span>最近一次新增</span><strong id="new-count">—</strong></div><div><span>已收录论文</span><strong id="total-count">0</strong></div><div><span>订阅主题</span><strong id="topic-count">1</strong></div></div>
+    <p id="status" role="status" class="notice"></p>
+    <section aria-label="筛选论文" class="filters">
+      <label class="search">搜索论文<input id="search" type="search" placeholder="搜索标题、摘要或作者…"></label>
+      <label>订阅主题<select id="topic"><option value="">全部主题</option></select></label>
+      <label>提交日期<select id="period"><option value="all">全部日期</option><option value="7">最近 7 天</option><option value="30">最近 30 天</option><option value="custom">自定义日期</option></select></label>
+      <label id="from-label" hidden>开始日期<input id="from" type="date"></label>
+      <label id="to-label" hidden>结束日期<input id="to" type="date"></label>
+    </section>
+    <div class="list-heading"><h2>论文列表 <span id="result-count" aria-live="polite"></span></h2><span>按首次提交时间排序</span></div>
+    <div id="papers"></div>
+    <div id="empty" class="empty" hidden><h3>暂无论文</h3><p>首次检索完成后，相关论文会出现在这里。</p></div>
+    <button id="more" class="more" hidden>加载更多</button>
+    <noscript><p class="notice">请启用 JavaScript，以浏览和筛选论文列表。</p></noscript>
+    <footer><span>原文摘要来自 arXiv，点击标题查看论文详情。</span><span>日期按北京时间显示</span></footer>
+  </main>
+  <script id="paper-data" type="application/json">{{DATA}}</script>
+</body>
+</html>

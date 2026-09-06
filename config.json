@@ -1,0 +1,16 @@
+{
+  "title": "时序论文追踪",
+  "initial_days": 30,
+  "overlap_days": 7,
+  "topics": [
+    {
+      "id": "time-series-forecasting",
+      "name": "Time Series Forecasting",
+      "groups": [
+        ["time series", "time-series"],
+        ["forecast", "forecasts", "forecasting", "forecasted", "forecaster", "forecasters", "prediction", "predictions", "predictive", "predicting"]
+      ],
+      "exclude": []
+    }
+  ]
+}
