@@ -3022,22 +3022,10 @@
       ]
     }
   ],
-  "last_success": "2026-09-07T03:28:13.160751Z",
-  "last_attempt": "2026-09-07T03:28:13.160751Z",
-  "last_new_ids": [
-    "2609.04461",
-    "2609.04736",
-    "2609.04804",
-    "2609.04842",
-    "2609.04864",
-    "2609.04917",
-    "2609.05045",
-    "2609.05136",
-    "2609.05150",
-    "2609.05212",
-    "2609.05235",
-    "2609.05408"
-  ],
+  "last_success": "2026-09-07T03:31:11.638560Z",
+  "last_attempt": "2026-09-07T03:31:11.638560Z",
+  "last_new_ids": [],
   "error": null,
-  "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46"
+  "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
+  "error_detail": null
 }
