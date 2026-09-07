@@ -187,7 +187,7 @@ def sync(config, previous, client, now):
         paper["topics"] = [topic["id"] for topic in config["topics"] if matches(paper, topic)]
     state.update(papers=sorted(papers.values(), key=lambda p: (p["published"], p["id"]), reverse=True),
                  last_success=stamp(now), last_attempt=stamp(now), last_new_ids=sorted(new_ids),
-                 error=None, config_fingerprint=fingerprint)
+                 error=None, error_detail=None, config_fingerprint=fingerprint)
     return state
 
 
@@ -220,7 +220,8 @@ def main():
             LOG.info("完成检索：新增 %d 篇，共 %d 篇", len(state["last_new_ids"]), len(state["papers"]))
         except Exception as error:
             LOG.error("检索失败，保留历史数据: %s", error)
-            state = dict(state, last_attempt=stamp(now), error="本次检索失败，已保留上次结果；下次运行将自动补抓。")
+            state = dict(state, last_attempt=stamp(now), error="本次检索失败，已保留上次结果；下次运行将自动补抓。",
+                         error_detail="{}: {}".format(type(error).__name__, error))
             failed = True
         write_json(args.data, state)
     build(config, state, args.output)

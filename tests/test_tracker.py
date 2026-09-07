@@ -189,6 +189,7 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(saved['papers'], state['papers'])
             self.assertEqual(saved['last_success'], state['last_success'])
             self.assertTrue(saved['error'])
+            self.assertEqual(saved['error_detail'], 'OSError: offline')
             self.assertTrue(Path(directory, 'site/index.html').exists())
 
 

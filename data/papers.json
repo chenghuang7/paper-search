@@ -2,6 +2,251 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.05408",
+      "title": "Towards Scaling Quantum Fine-Tuning of Foundational Time Series Models for Classification",
+      "abstract": "Time-series foundation models produce rich embeddings, but whether quantum models can exploit them, and how far hybrid classical-quantum architectures scale, remains unclear. We address this by fine-tuning Chronos for power-grid event classification (PSML-5) with a quantum head on the model's embeddings. Grouping embeddings by physical sensor type before summarization already surpasses the best published baseline built for this benchmark, and with finer-grained features the quantum head outperforms a larger classical multilayer perceptron on identical inputs by 1.7-2.0 percentage points of balanced accuracy. Yet the gains saturate: past a point, feeding more information to the same fixed-width register yields no improvement. We show the bottleneck is neither the supply of information nor circuit expressiveness, but the bandwidth of the data intake. To overcome this limitation, we introduce the wing module, a self-contained few-qubit circuit that feeds additional information into the core circuit through a sparse, one-way coupling. Under a preregistered four-seed protocol, we attach wings to a fixed 12-qubit core with fixed features. Balanced accuracy increases with each added wing, from 83.6% with no wings (13 qubits, including a post-selection qubit) to 85.2% with two (19 qubits). Ablations establish that a circuit enlarged without new information gains nothing, while a wing fed information from the wrong sample harms accuracy. These results reframe scaling for quantum fine-tuning: added qubits help when they carry added inputs, not merely more parameters. Wings offer a modular and stable route to widening that bandwidth.",
+      "authors": [
+        "Sang Hyub Kim",
+        "Julien Baglio",
+        "Rajiv Krishnakumar",
+        "Chi Chen",
+        "Oliver Knitter",
+        "Jonathan Mei",
+        "Claudio Girotto",
+        "Masako Yamada",
+        "Frederik F. Flöther",
+        "Martin Roetteler"
+      ],
+      "published": "2026-09-04T17:56:24Z",
+      "updated": "2026-09-04T17:56:24Z",
+      "url": "https://arxiv.org/abs/2609.05408",
+      "pdf_url": "https://arxiv.org/pdf/2609.05408",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.05235",
+      "title": "PRICE: A Systematic Study of LLM Adaptation Choices for Bitcoin Price Forecasting",
+      "abstract": "Cryptocurrency markets exhibit extreme volatility and non-stationary dynamics that challenge conventional forecasting methods. Although Large Language Models (LLMs) have shown promise for time series forecasting, the combined effects of adaptation choices remain largely unexplored in financial settings. This study introduces PRICE, a structured approach for adapting LLMs to short-term Bitcoin price forecasting. Built on a 4-bit quantized LLaMA-3 8B model, PRICE investigates how fine-tuning, numerical representation, prompting, inference, and decoding jointly influence forecasting performance. PRICE integrates Parameter-efficient fine-tuning with Low-Rank Adaptation (LoRA), Recursive multi-step inference, Integer-rounded numerical representation, Context-Task-Format (CTF) prompting, and Exact zero-temperature decoding. Ablation studies show that each component contributes to forecasting accuracy and reliability. LoRA enables efficient training on limited hardware, recursive inference improves accuracy, integer-rounded values reduce errors, CTF prompting outperforms Chain-of-Thought, Implicit Chain-of-Thought (iCoT), and few-shot prompting, and zero-temperature decoding improves stability during recursive forecasting. Comparative evaluation against eight transformer-based and time-series foundation models shows that PRICE achieves the lowest forecasting errors on both validation and test sets while maintaining robust performance across evaluation periods. Despite being based on a model primarily pretrained on text rather than time-series data, PRICE achieves competitive or superior performance relative to specialized foundation models. These findings demonstrate that adaptation choices critically determine the accuracy and robustness of LLMs for numerical time-series forecasting.",
+      "authors": [
+        "Maryam Fakhari",
+        "Mehran Safayani"
+      ],
+      "published": "2026-09-04T15:01:38Z",
+      "updated": "2026-09-04T15:01:38Z",
+      "url": "https://arxiv.org/abs/2609.05235",
+      "pdf_url": "https://arxiv.org/pdf/2609.05235",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.05212",
+      "title": "PAC-Bayesian Reconstruction Guarantees for Time Series Variational Autoencoders",
+      "abstract": "Forecasting time series accurately is critical for applications with complex data ranging from energy systems to healthcare and finance. Among current state of the art models, generative latent variable models are increasingly implemented; yet principled generalisation guarantees for modern latent variable models remain limited. In particular, while Variational AutoEncoders are widely used for sequential data, their theoretical analysis is largely restricted to i.i.d. settings. In this work, we develop a PAC-Bayesian framework for latent variables models applied to time series. Building on reconstruction-based bounds, we extend PAC-Bayesian guarantees to Markovian latent structures, capturing temporal dependencies through a sequential generative process. These guarantees do not grow with the length of the trajectory. Our bounds depend on assumptions which are common in the literature; we provide an example framework where they would be verified to show that they are not as restrictive as they may seem.",
+      "authors": [
+        "Chloé Hashimoto-Cullen",
+        "Ghislain Agoua",
+        "Benjamin Guedj",
+        "Sylvain Le Corff"
+      ],
+      "published": "2026-09-04T14:44:20Z",
+      "updated": "2026-09-04T14:44:20Z",
+      "url": "https://arxiv.org/abs/2609.05212",
+      "pdf_url": "https://arxiv.org/pdf/2609.05212",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.05150",
+      "title": "Beyond Stationarity in Time Series: Discovering Causal Structures and Latent Regimes via Markov Blankets",
+      "abstract": "This paper introduces Regime-aware Constraint-Based and Noise-Based causal discovery with Markov Blankets (RCBNB-MB), a novel causal discovery algorithm for time series that relaxes the common assumption of a single, time-consistent causal structure. Time series are typically observed at discrete time points and often exhibit regime changes that challenge the assumption of a static causal structure, a limitation in many real-world dynamic systems. To address this challenge, RCBNB-MB identifies latent causal regimes, defined as subsets of time points within which a stable causal structure holds. The algorithm follows an iterative strategy that segments the time series into regimes and discovers the causal graph within each regime. By leveraging the Markov blanket rather than direct parents, RCBNB-MB gains robustness to errors in causal discovery and preserves predictive information. We provide theoretical guarantees for RCBNB-MB's ability to recover both regime transitions and causal graphs under reasonable assumptions. Furthermore, we validate its effectiveness through extensive experiments on simulated datasets with known ground truth and real-world IT monitoring data, where taking into account regime shifts is critical. Empirical results show that RCBNB-MB systematically outperforms baseline approaches in accurately detecting regime changes and their associated causal graphs, positioning it as a robust and versatile framework for non-stationary time series analysis.",
+      "authors": [
+        "Lei Zan",
+        "Charles K. Assaad",
+        "Emilie Devijver",
+        "Eric Gaussier"
+      ],
+      "published": "2026-09-04T13:52:51Z",
+      "updated": "2026-09-04T13:52:51Z",
+      "url": "https://arxiv.org/abs/2609.05150",
+      "pdf_url": "https://arxiv.org/pdf/2609.05150",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.05136",
+      "title": "MomentQuant: an even more minimalist interval method with linear time complexity for time series classification",
+      "abstract": "Time series data is very common in many real-world applications and in numerous domains, with increasing interest for automated information extraction using machine learning. One of these subfields is time series classification, which consists in assigning a label to each new, unseen time series. Many algorithms have been developed over the past decades, with the trade-off between predictive performance and computational cost being consistently discussed. Quant, an interval-based algorithm extracting quantiles from recursive, fixed, dyadic intervals, was shown to achieve high accuracy, while being very fast. We propose two changes to make this algorithm even faster. The first one is a better optimized implementation of the exact same algorithm. The second one is to derive approximate quantiles, using the Cornish-Fisher expansion, instead of exact quantiles. This change removes the necessity to sort the time series, leading to a smaller computational complexity. We call this novel algorithm MomentQuant. We provide evidence that our implementation of Quant is faster than the original one, and that MomentQuant is even faster than our implementation of Quant, at the cost of a tiny decrease in predictive performance. These improvements are especially relevant for real-life applications, where inference is performed much more often than training.",
+      "authors": [
+        "Johann Faouzi"
+      ],
+      "published": "2026-09-04T13:37:51Z",
+      "updated": "2026-09-04T13:37:51Z",
+      "url": "https://arxiv.org/abs/2609.05136",
+      "pdf_url": "https://arxiv.org/pdf/2609.05136",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.05045",
+      "title": "Tensor-Network Inference in a Field-Coupled XY Model for Portfolio Allocation",
+      "abstract": "We apply tensor-network methods to a field-coupled XY model for long-only portfolio construction. Daily return statistics set asset-specific fields and correlation couplings. Correlation distance, four-point Gromov hyperbolicity, and Ward clustering are used to construct a sparse interaction path. A Fourier-Bessel expansion maps the continuous angular partition function to a finite-current tensor network; bottom-up and top-down contractions then give the one-site marginals and equilibrium cosine scores. A softmax map converts these scores into positive, fully invested portfolio weights. We study five equity markets over continuous ranges of inverse temperature beta and concentration gamma, and compare selected parameter pairs with long-only Markowitz frontiers and standard benchmarks. The same-sample comparisons demonstrate a tractable route from financial time series to network-adjusted allocations; predictive trading performance is outside their scope.",
+      "authors": [
+        "Kartikeya Chowdhry",
+        "G Subrahmanya V. R. K. Rao"
+      ],
+      "published": "2026-09-04T12:08:05Z",
+      "updated": "2026-09-04T12:08:05Z",
+      "url": "https://arxiv.org/abs/2609.05045",
+      "pdf_url": "https://arxiv.org/pdf/2609.05045",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.04917",
+      "title": "Artificial Intelligence in Equity and Crypto Markets: Progress, Profitability Evidence, and the Limits of Automated Investing",
+      "abstract": "Artificial intelligence (AI) now supports investment workflows from data and prediction through research, portfolios, execution, and tool use. Technical capability, however, is not evidence of investment profitability. This critical state-of-the-art review examines public research available through 31 August 2026 on listed equities, exchange-traded funds, centralized crypto spot, perpetual futures, and on-chain markets. We organize evidence with an alpha-translation chain: point-in-time information must yield a stable signal, feasible positions, executable orders, and risk-adjusted returns after costs. Across machine learning, time-series foundation models, financial language models, reinforcement learning, and agents, the examined record shows real but mainly upstream progress in prediction, text processing, portfolio design, and workflow integration. Evidence is thinner for durable net performance. Temporal contamination, repeated selection, survivorship, weak benchmarks, implementation costs, venue mechanics, and capacity can break translation to net alpha. Strong historical results coexist with predictor decay, corrected look-ahead failures, mixed prospective evidence, and few audited live-capital records. Crypto adds informative state but requires separate treatment of spot, perpetual, and decentralized cash flows and execution. Within the public evidence examined here, no general AI architecture is shown to deliver persistent, cross-regime, capacity-aware net alpha. More credible claims require point-in-time data and models, decision-aligned objectives, joint portfolio--execution evaluation, controlled adaptation, prospective tests, and authority-matched governance. These conditions can improve evidence and implementation; they do not guarantee profit.",
+      "authors": [
+        "Linsen Zhu",
+        "Mengqing Cai"
+      ],
+      "published": "2026-09-04T09:19:51Z",
+      "updated": "2026-09-04T09:19:51Z",
+      "url": "https://arxiv.org/abs/2609.04917",
+      "pdf_url": "https://arxiv.org/pdf/2609.04917",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.04864",
+      "title": "MZ-Rain: Moisture-Budget-Guided Zero-Inflated Model for Station-Level Precipitation Nowcasting",
+      "abstract": "Accurate station-level precipitation nowcasting is critical for agriculture, water resource management, and disaster prevention, which typically is formulated as a time series forecasting problem. However, conventional time-series modeling techniques face two major challenges in addressing station-level precipitation nowcasting: (1) Lack of Physics-Guided Modeling}, where meteorological variables are treated as a homogeneous set without accounting for their distinct roles in precipitation formation, leads to predictions that deviate from the physical processes governing precipitation. (2) Severe zero inflation in precipitation, where dry intervals dominate the dataset, obscuring meaningful precipitation patterns and complicating the predictive modeling. To address these challenges, we propose \\textbf{MZ-Rain}, a moisture-budget-guided zero-inflated sLSTM framework for station-level precipitation nowcasting. Guided by the moisture budget equation, MZ-Rain decomposes the precipitation formation process into process-specific pathways corresponding to moisture storage, moisture transport, surface evaporation, and precipitation persistence, and captures their temporal evolution through dedicated sLSTM branches. To account for the zero-inflated nature of precipitation, MZ-Rain introduces an adaptive Tweedie modeling strategy that adaptively modulates the rainfall mean while jointly learning precipitation occurrence as an auxiliary task, enabling the model to better balance dry-wet discrimination and quantitative precipitation estimation. Extensive experiments across diverse geographical and climatic regimes demonstrate that MZ-Rain consistently outperforms strong baselines on multiple evaluation metrics, including CSI, FAR, MSE, and MAE. In particular, the model exhibits superior skill in forecasting heavy precipitation events, while benefiting from physically grounded process modeling.",
+      "authors": [
+        "Yifang Zhang",
+        "Shengwu Xiong",
+        "Henan Wang",
+        "Wenjie Yin",
+        "Yuqiang Zhang",
+        "Chen Zhou",
+        "Hua Chen",
+        "Qile Zhao",
+        "Pengfei Duan"
+      ],
+      "published": "2026-09-04T08:24:52Z",
+      "updated": "2026-09-04T08:24:52Z",
+      "url": "https://arxiv.org/abs/2609.04864",
+      "pdf_url": "https://arxiv.org/pdf/2609.04864",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.04842",
+      "title": "MMTClinic: Multimodal, Multilingual Time Series Question Answering and Reasoning Benchmark for Clinical Domain",
+      "abstract": "Time-series data in clinical settings is crucial for capturing dynamic changes in a patient's health over time, enabling timely diagnosis, personalized treatment, and early detection of critical events. However, the development of clinically reliable and linguistically inclusive medical AI systems remains a significant challenge, primarily due to the lack of multimodal, multilingual, and time-series-grounded benchmarks that reflect the complexity of real-world clinical scenarios. To fill this gap, we present MMTClinic, a benchmark designed to evaluate large language models (LLMs) on complex reasoning and question-answering tasks involving clinical time-series. MMTClinic combines text, medical images, and multivariate physiological signals and includes 30,000 QA pairs (15,000 multiple choice questions (MCQs) and 15,000 open-ended questions) across five languages: English, Hindi, Bengali, Marathi, and Tamil. These questions cover three important clinical tasks---mortality prediction, heart rate forecasting, and SOFA score estimation. We evaluate 13 state-of-the-art LLMs in zero-shot, few-shot, and chain-of-thought settings. Our evaluation reveals notable differences in model performance across tasks, languages, and modalities, highlighting current limitations in clinical reasoning capabilities. MMTClinic provides a valuable resource for advancing multilingual, multimodal, and time-series-aware medical AI research. The dataset will be made publicly available on successful acceptance of the work.",
+      "authors": [
+        "Sourav Malakar",
+        "Harshit Nigam",
+        "Akash Ghosh",
+        "Sriparna Saha",
+        "Amlan Chakrabarti",
+        "Saptarsi Goswami",
+        "Priti Singh"
+      ],
+      "published": "2026-09-04T07:59:19Z",
+      "updated": "2026-09-04T07:59:19Z",
+      "url": "https://arxiv.org/abs/2609.04842",
+      "pdf_url": "https://arxiv.org/pdf/2609.04842",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.04804",
+      "title": "MedFlow: Class-Aware Multi-Scale Generation for Medical Time-Series Synthesis",
+      "abstract": "Synthetic medical time-series generation can alleviate data scarcity and support the development of reliable clinical prediction models. However, existing methods mainly focus on matching the overall distribution and temporal dynamics of real data, which does not necessarily ensure strong downstream utility on imbalanced medical datasets. Clinically informative patterns often occur at heterogeneous temporal scales, while rare minority-class characteristics can be obscured by dominant population patterns. To address these challenges, we propose MedFlow, a class-aware multi-scale flow matching framework for medical time-series synthesis. MedFlow employs a vector-quantized multi-scale tokenizer to represent medical sequences at complementary temporal resolutions, capturing both coarse clinical trends and fine-grained dynamics. We further introduce Token Marginal Guidance, which incorporates class-conditional token statistics directly into the flow matching process to steer generation toward class-specific regions of the learned tokens. This mechanism strengthens minority-class patterns, while preserving the global and tail distributions of real data. Experiments on four public datasets covering electronic health records, EEG, and ECG signals demonstrate that MedFlow consistently outperforms recent state-of-the-art diffusion-based baselines across downstream prediction tasks. On average, it improves AUPRC by 5.8%, reduces Context-FID by 88.6%, and achieves 3.8$\\times$ higher sampling throughput.",
+      "authors": [
+        "Yanhao Huang",
+        "Shibo Feng",
+        "Wanjin Feng",
+        "Peilin Zhao",
+        "Chunyan Miao"
+      ],
+      "published": "2026-09-04T07:02:12Z",
+      "updated": "2026-09-04T07:02:12Z",
+      "url": "https://arxiv.org/abs/2609.04804",
+      "pdf_url": "https://arxiv.org/pdf/2609.04804",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.04736",
+      "title": "A Quantile-Based Kumaraswamy-Teissier autoregressive moving average models",
+      "abstract": "This paper introduces a quantile-based Kumaraswamy-Teissier autoregressive moving average (KTARMA) model for positive-valued time series. Leveraging the flexibility of the extended Kumaraswamy-Teissier distribution within an observation-driven framework, the random component of the distribution is conditioned on the historical process and time-varying covariates, and is parameterized explicitly via its $ρ$-th conditional quantile, where $ρ\\in (0,1)$. To capture temporal dependence, the systematic component maps an ARMA-type structure to this conditional quantile via an appropriate link function. For inference, we implement a conditional maximum likelihood framework and derive explicit analytical expressions for the resulting score vector and conditional information matrix, followed by the development of model diagnostic and forecasting procedures. The finite-sample performance of the developed estimators is evaluated through a Monte Carlo simulation study across various parameter configurations and quantile levels. Finally, the practical utility of the study is demonstrated by modeling monthly rainfall data over the Northwest Himalayas (2001-2025), where 525 grids are grouped into four homogeneous zones using a Self-Organizing Map and relevant atmospheric variables and large-scale climate indices are incorporated as predictive regressors. Out-of-sample forecasting evaluations reveal that the KTARMA model delivers highly competitive predictive performance, achieving consistently lower mean squared errors across all identified zones compared to KARMA and $β$ARMA models.",
+      "authors": [
+        "Kamana Mishra",
+        "Tanmay Kayal",
+        "Sarita Azad"
+      ],
+      "published": "2026-09-04T05:07:00Z",
+      "updated": "2026-09-04T05:07:00Z",
+      "url": "https://arxiv.org/abs/2609.04736",
+      "pdf_url": "https://arxiv.org/pdf/2609.04736",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.04461",
+      "title": "A Roadmap for MEG Foundation Models",
+      "abstract": "Foundation models are beginning to reshape brain-signal analysis by moving the field beyond task-specific decoding pipelines toward reusable models pretrained on broad neural datasets. Magnetoencephalography (MEG) is a compelling but still underdeveloped target for this shift: it captures human cortical dynamics at millisecond resolution while offering stronger spatial interpretability than EEG, making it especially valuable for source-resolved studies of perception, language, cognition, and clinical brain function. Yet MEG foundation models remain at an early stage, with only a small number of MEG-specific and MEG-inclusive multi-modal models, modest pretraining corpora, and emerging but still limited benchmarks. This perspective lays down the basic concepts needed to understand MEG foundation models and provides a didactic overview of the field's key design choices, including tokenization, sensor- versus source-space representations, sensor-geometry encoding, backbone architectures, self-supervised objectives, and pretraining data. We then offer a roadmap for future development, organized around native MEG pretraining, adaptation of EEG foundation models, transfer from generic time-series models, and multi-modal integration with EEG, fMRI, MRI, behaviour, and stimulus features. We highlight the need for coordinated infrastructure, including diverse and reusable MEG datasets, rigorous evaluation across subjects, sites, tasks, and clinical settings, and responsible data-sharing practices that address consent, privacy, access, and governance.",
+      "authors": [
+        "Philipp Thölke",
+        "Hamza Abdelhedi",
+        "Yorguin Mantilla-Ramos",
+        "Fouad Lbakali",
+        "Oumayma Gharbi",
+        "Catherine Duclos",
+        "Annalisa Pascarella",
+        "Vanessa Hadid",
+        "Oiwi Parker Jones",
+        "Karim Jerbi"
+      ],
+      "published": "2026-09-03T20:43:26Z",
+      "updated": "2026-09-03T20:43:26Z",
+      "url": "https://arxiv.org/abs/2609.04461",
+      "pdf_url": "https://arxiv.org/pdf/2609.04461",
+      "first_seen": "2026-09-07T03:28:13.160751Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
       "id": "2609.03937",
       "title": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
       "abstract": "Retrieval-augmented generation (RAG) complements parametric models with retrieved external evidence. The same idea is attractive for continuous-output regression, but directly reusing retrieved target values is often not robust when samples differ in output level, numerical scale, or local dynamics. Moreover, conventional forecasting pipelines generally use residuals for model optimization and error diagnosis, but do not retain individual historical residual examples as memory that can be accessed at inference time.For multivariate time-series forecasting, we propose RATL, a plug-in residual-retrieval and feedback-correction method. RATL freezes a base forecaster to construct retrieval keys and turns its historical forecast residuals into a train-only memory specific to that base model. At inference time, RATL retrieves residual trajectories from similar historical contexts subject to causal availability constraints, then uses a set-aware router operating over forecast blocks and variables to select and combine these trajectories. Experiments show that historical residuals matched to the current context contain reusable forecasting information and that RATL improves frozen base forecasters in most experimental settings. Ablations further show that learned routing strengthens raw residual feedback, while validation-based correction-strength selection limits residual over-injection.On real-world benchmarks, we use iTransformer as the primary frozen base forecaster, compare against multiple strong forecasting baselines, and test transferability across backbones. The results show that RATL can further improve base-forecaster performance in most settings.Overall, RATL shifts the retrieved object from historical target values to base-model-specific historical forecast errors, providing a plug-in, residual-memory-based paradigm for learned feedback correction in continuous-output forecasting.",
@@ -823,7 +1068,7 @@
         "Jingchao Ni"
       ],
       "published": "2026-08-24T16:40:25Z",
-      "updated": "2026-08-24T16:40:25Z",
+      "updated": "2026-09-03T18:53:47Z",
       "url": "https://arxiv.org/abs/2608.23473",
       "pdf_url": "https://arxiv.org/pdf/2608.23473",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -2777,9 +3022,22 @@
       ]
     }
   ],
-  "last_success": "2026-09-06T12:55:19.527226Z",
-  "last_attempt": "2026-09-07T03:25:04.067679Z",
-  "last_new_ids": [],
-  "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
+  "last_success": "2026-09-07T03:28:13.160751Z",
+  "last_attempt": "2026-09-07T03:28:13.160751Z",
+  "last_new_ids": [
+    "2609.04461",
+    "2609.04736",
+    "2609.04804",
+    "2609.04842",
+    "2609.04864",
+    "2609.04917",
+    "2609.05045",
+    "2609.05136",
+    "2609.05150",
+    "2609.05212",
+    "2609.05235",
+    "2609.05408"
+  ],
+  "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46"
 }
