@@ -2,14 +2,15 @@ name: Daily papers
 
 on:
   schedule:
-    # 01:17 UTC = 09:17 Asia/Shanghai
-    - cron: '17 1 * * *'
+    # Check hourly; fetch once after 09:17 Asia/Shanghai, retry missed/failed runs.
+    - cron: '17 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - 'config.json'
       - 'paper_tracker.py'
+      - 'scripts/**'
       - 'web/**'
       - 'tests/**'
       - '.github/workflows/daily.yml'
@@ -38,13 +39,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Check whether today's update is due
+        id: gate
+        run: python scripts/schedule_gate.py --event "${{ github.event_name }}" >> "$GITHUB_OUTPUT"
       - name: Verify tracker
+        if: steps.gate.outputs.run == 'true'
         run: python -m unittest discover -s tests -v
       - name: Fetch papers and build site
+        if: steps.gate.outputs.run == 'true'
         id: update
         continue-on-error: true
         run: python paper_tracker.py update
       - name: Persist papers and run status
+        if: steps.gate.outputs.run == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -54,14 +61,26 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Configure Pages
+        if: steps.gate.outputs.run == 'true'
         uses: actions/configure-pages@v5
       - name: Upload site
+        if: steps.gate.outputs.run == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
       - name: Publish Pages
+        if: steps.gate.outputs.run == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Record successful retrieval and publication
+        if: steps.gate.outputs.run == 'true' && steps.update.outcome == 'success'
+        run: |
+          python scripts/schedule_gate.py --record
+          git add data/deployment.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record successful daily publication'
+            git push origin HEAD:main
+          fi
       - name: Report retrieval failure after publishing saved results
         if: steps.update.outcome == 'failure'
         run: |
