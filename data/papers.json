@@ -2778,8 +2778,8 @@
     }
   ],
   "last_success": "2026-09-06T12:55:19.527226Z",
-  "last_attempt": "2026-09-06T12:55:19.527226Z",
+  "last_attempt": "2026-09-07T03:25:04.067679Z",
   "last_new_ids": [],
-  "error": null,
+  "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46"
 }
