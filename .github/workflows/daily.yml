@@ -2,7 +2,7 @@ name: Daily papers
 
 on:
   schedule:
-    # Check hourly; fetch once after 09:17 Asia/Shanghai, retry missed/failed runs.
+    # Check hourly; fetch once after 02:17 Asia/Shanghai, retry missed/failed runs.
     - cron: '17 * * * *'
   workflow_dispatch:
   push:

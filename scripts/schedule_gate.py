@@ -1,4 +1,4 @@
-"""Hourly scheduler: update once daily after 09:17 China time, retry failures."""
+"""Hourly scheduler: update once daily after 02:17 China time, retry failures."""
 import argparse
 import json
 from datetime import datetime, timezone, timedelta
@@ -12,7 +12,7 @@ def should_run(event, checkpoint, now):
     if event != "schedule":
         return True
     local = now.astimezone(CHINA)
-    due = local.replace(hour=9, minute=17, second=0, microsecond=0)
+    due = local.replace(hour=2, minute=17, second=0, microsecond=0)
     if local < due:
         return False
     value = checkpoint.get("last_published_success")

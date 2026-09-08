@@ -9,21 +9,21 @@ def at(value):
 
 
 class ScheduleTests(unittest.TestCase):
-    def test_wait_until_0917_beijing(self):
-        self.assertFalse(should_run("schedule", {}, at("2026-09-07T01:16:00Z")))
-        self.assertTrue(should_run("schedule", {}, at("2026-09-07T01:17:00Z")))
+    def test_wait_until_0217_beijing_across_utc_date_boundary(self):
+        self.assertFalse(should_run("schedule", {}, at("2026-09-06T18:16:00Z")))
+        self.assertTrue(should_run("schedule", {}, at("2026-09-06T18:17:00Z")))
 
     def test_missed_trigger_retries_later_same_day(self):
         old = {"last_published_success": "2026-09-06T12:55:19Z"}
-        self.assertTrue(should_run("schedule", old, at("2026-09-07T03:17:00Z")))
+        self.assertTrue(should_run("schedule", old, at("2026-09-06T19:17:00Z")))
 
     def test_success_today_skips_remaining_checks(self):
-        current = {"last_published_success": "2026-09-07T01:18:00Z"}
-        self.assertFalse(should_run("schedule", current, at("2026-09-07T03:17:00Z")))
+        current = {"last_published_success": "2026-09-06T18:18:00Z"}
+        self.assertFalse(should_run("schedule", current, at("2026-09-07T00:17:00Z")))
 
-    def test_early_manual_run_does_not_replace_morning_update(self):
-        early = {"last_published_success": "2026-09-07T00:10:00Z"}
-        self.assertTrue(should_run("schedule", early, at("2026-09-07T01:17:00Z")))
+    def test_early_manual_run_does_not_replace_daily_update(self):
+        early = {"last_published_success": "2026-09-06T17:10:00Z"}
+        self.assertTrue(should_run("schedule", early, at("2026-09-06T18:17:00Z")))
 
     def test_manual_and_push_always_run(self):
         current = {"last_published_success": "2026-09-07T01:18:00Z"}
