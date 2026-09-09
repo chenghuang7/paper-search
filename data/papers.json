@@ -2,6 +2,414 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.09140",
+      "title": "NOAH: Learning the Full Patient Journey. A Longitudinal Multimodal Time-Aware Model for Representation and Forecasting",
+      "abstract": "The digitization of healthcare has generated vast, longitudinal, and multimodal patient records over a lifetime, yet fully exploiting these data to represent and predict patient state trajectories remains a critical challenge. Current AI models often struggle to capture the complex, irregular temporal dynamics and inherent stochasticity of real-world multimodal patient data. Existing AI approaches for modeling longitudinal patient records are predominantly discriminative, limited to a few modalities, constrained by closed categorical vocabularies, treating time as a monotonic inductive bias, or they are limited in forecasting future patient states. We introduce NOAH, a time-aware, task-agnostic, generative transformer model representing and forecasting the full multimodal patient journey. NOAH features a novel bidirectional time integration and a variational latent space to capture the continuous evolution of patient states and the stochasticity of clinical trajectories. Built from over 559 million clinical events from 431,000 hospital visits of 299,000 patients across the MIMIC dataset family, NOAH natively processes medical images, time-series and numeric signals, categorical events, as well as structured and unstructured clinical records. NOAH is the first truly holistic generative model in its field, enabling autoregressive forecasting with optional time control, zero-shot classification, and counterfactual intervention simulation. It generates highly informative and predictive patient state representations that demonstrate strong performance in probing for clinical outcomes, 15 ICD chapters, and 29 comorbidities, as well as in time-to-event prediction. Seamlessly handling diverse modalities and complex temporal dynamics, NOAH provides a versatile, task-agnostic, scalable foundation for intelligent predictive systems in personalized clinical care and digital medicine.",
+      "authors": [
+        "Tobias Susetzky",
+        "Raphael Rehms",
+        "Dmitrii Seletkov",
+        "Özgün Turgut",
+        "Michelle Espranita Liman",
+        "Lisa Steinhelfer",
+        "Rickmer Braren",
+        "Daniel Rueckert"
+      ],
+      "published": "2026-09-08T17:56:13Z",
+      "updated": "2026-09-08T17:56:13Z",
+      "url": "https://arxiv.org/abs/2609.09140",
+      "pdf_url": "https://arxiv.org/pdf/2609.09140",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.09062",
+      "title": "Multi-Task Learning for Sparsely-Labeled Time Series: A Case Study on Cold-Hardiness Modeling",
+      "abstract": "We present a real-world case study of multi-task learning (MTL) for temporal process modeling from limited data with temporally sparse labels. Specifically, we investigate multi-task learning for the important agricultural problem of predicting grape cold hardiness, which is the temperature at which lethal freezing occurs. Cold hardiness changes in response to weather and is difficult to measure directly in the field. Thus, growers rely on predictions to decide when to apply costly frost mitigation measures. We apply recurrent neural networks (RNNs) for daily cold-hardiness prediction from time series weather data. A major challenge is that the cold hardiness response varies across plant cultivars and ground-truth data for each cultivar is temporally sparse and limited. To address this challenge, we investigate multi-task learning (MTL) approaches for combining data, where different tasks correspond to different cultivars. We develop a variety of MTL architectures and evaluate them in both MTL and transfer learning settings. Our results show significant differences between architectures and that certain architectures are able to consistently outperform single-task learning and state-of-the-art scientific models. Additionally, we show similar results for the qualitatively different, but related, task of budbreak prediction. Further, improved accuracy for budbreak and cold hardiness is achieved by a single MTL model that simultaneously learns both tasks.",
+      "authors": [
+        "Aseem Saxena",
+        "Paola Pesántez-Cabrera",
+        "Jonathan Magby",
+        "Markus Keller",
+        "Alan Fern"
+      ],
+      "published": "2026-09-08T17:17:25Z",
+      "updated": "2026-09-08T17:17:25Z",
+      "url": "https://arxiv.org/abs/2609.09062",
+      "pdf_url": "https://arxiv.org/pdf/2609.09062",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.08772",
+      "title": "It's All in the Way You Say It: The Role of Information Representation in LLM-Based Glycemic-Event Prediction",
+      "abstract": "Large Language Models (LLMs) are increasingly being investigated for physiological time-series prediction, yet their effectiveness may depend not only on the model itself, but also on how physiological information is represented and presented at inference time. This study investigates prompt-based general-purpose LLMs for postprandial hyperglycemia and hypoglycemia prediction in individuals with type 1 diabetes. Using the OhioT1DM dataset, we evaluate multiple open-weight LLMs under zero-shot and few-shot inference across prediction horizons of 30, 60, and 90 minutes. The analysis varies both the textual representation of the available physiological information and the amount of information exposed to the model, ranging from glucose observations alone to derived descriptors and additional contextual variables related to insulin, meals, carbohydrates, and physical activity. Performance is compared with conventional patient-specific supervised models and with Gluco-LLM, a language-model-based architecture explicitly adapted to glucose time-series forecasting. Results show a marked task-dependent behavior. Conventional supervised models achieve the strongest performance for hyperglycemia prediction, whereas the best observed prompt-based LLM configurations improve performance for hypoglycemia across all investigated horizons. The effectiveness of prompt-based inference is also strongly influenced by how physiological information is represented, while providing additional contextual information does not lead to a systematic improvement. Overall, these findings highlight physiological information representation as a central design factor in prompt-based LLM approaches to glycemic-event prediction.",
+      "authors": [
+        "Andrea Apicella",
+        "Pasquale Arpaia",
+        "Matteo Orefice",
+        "Andrea Pollastro",
+        "Roberto Prevete"
+      ],
+      "published": "2026-09-08T14:07:03Z",
+      "updated": "2026-09-08T14:07:03Z",
+      "url": "https://arxiv.org/abs/2609.08772",
+      "pdf_url": "https://arxiv.org/pdf/2609.08772",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.08554",
+      "title": "Not All Variables Agree: Reliability-Aware Variable-Wise Gradient Surgery for Multivariate Time-Series Forecasting",
+      "abstract": "In data-driven training, multivariate time-series forecasting is usually optimized with a scalar loss averaged over samples, variables, and horizons. This averaging is convenient, but the optimizer sees only the aggregated gradient, which does not reveal whether the variable-wise contributions align or oppose one another. To quantify how often this disagreement arises, we measure the variable-wise gradients directly and find that 30.6% of their pairwise cosine similarities are negative on average across seven datasets. However, conflict and harm are not the same thing. Under shared training 35 of the 64 variables do worse than a full-input single-target oracle, and the harmed fraction is not reliably predicted by how often gradients conflict. We propose Per-Variable Surgery (PV-Surgery), an optimizer-side training strategy for backbones with cache-compatible layers. One backward pass builds variable-wise gradient proxies from output-side signals and keeps the pointwise forecasting loss. Reliability-aware selection targets layers whose proxy sums closely approximate their shared-gradient slices. Conditional pooling forms anchor and conflict pools without dropping variables. Common-direction surgery aligns variable or pooled gradients with their normalized mean and restores input norms to avoid reweighting. In experiments across five backbones, seven datasets, and four horizons, PV-Surgery lowers MSE by 3.61% and MAE by 2.93% on average. For multivariate forecasting, this indicates that the variable-wise structure hidden by mean-loss training is a usable optimization signal.",
+      "authors": [
+        "Jinwoo Park",
+        "Hyeongwon Kang",
+        "Pilsung Kang"
+      ],
+      "published": "2026-09-08T10:38:13Z",
+      "updated": "2026-09-08T10:38:13Z",
+      "url": "https://arxiv.org/abs/2609.08554",
+      "pdf_url": "https://arxiv.org/pdf/2609.08554",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.08530",
+      "title": "Equation free data-driven modelling of chaotic processes",
+      "abstract": "We introduce a method for constructing predictive models of non cyclic physical processes directly from time-series data, without assuming an underlying differential equation. The observations define a discrete evolution rule whose recurrent behaviour captures the essential dynamics of the process. Analysing this behaviour across multiple geometric scales leads to probabilistic models in the form of Markov chains. Hyperbolicity criteria identify when these models provide a consistent statistical description of the data. The method is inspired by, and illustrated through, the analysis of a biological imaging data set referred to as the Cell Process.",
+      "authors": [
+        "Aurora Poggi",
+        "Marco Martens",
+        "Hjalmar Brismar",
+        "Ozan Oktem",
+        "Liviana Palmisano"
+      ],
+      "published": "2026-09-08T10:18:05Z",
+      "updated": "2026-09-08T10:18:05Z",
+      "url": "https://arxiv.org/abs/2609.08530",
+      "pdf_url": "https://arxiv.org/pdf/2609.08530",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.08375",
+      "title": "IPM-FM: A Foundation Model with Consensus Feature Selection for Industrial Process Monitoring",
+      "abstract": "Industrial process monitoring is fundamental to the safety and economic performance of modern process plants. Current practice remains a one-task-one-model paradigm that is label-inefficient and prone to degradation under operating drift. Foundation models have reshaped language, vision, and generic time-series forecasting, but it has not been adapted to industrial process monitoring. This setting poses domain-specific challenges, including safety-critical decisions and asymmetric sampling between process variables and laboratory measurements. We propose the industrial process monitoring foundation model (IPM-FM). It first learns general-purpose representations from unlabeled industrial process data through self-supervised pretraining, then adapts to specific monitoring tasks using a small amount of task-labeled data, and finally produces calibrated predictions through an uncertainty-aware prediction head. IPM-FM integrates a self-supervised Informer backbone with a multi-criteria consensus feature selector, a recursive lag-feature regression head, and a calibrated Monte Carlo dropout uncertainty module. On a seven-year hydrotreater dataset for diesel flash-point soft sensing, IPM-FM attains an RMSE of 2.99, $R^2$ of 0.50, and 97\\% coverage of its 95\\% predictive interval, outperforming the strongest classical and from-scratch sequence baselines by 8.3\\% and 14.6\\% in RMSE respectively, supporting the viability of a unified pretraining--adaptation framework for industrial process monitoring.",
+      "authors": [
+        "Liang Cao",
+        "Weide Liu",
+        "Yan Qin",
+        "Jun Cheng",
+        "Weisi Lin",
+        "Bhushan Gopaluni"
+      ],
+      "published": "2026-09-08T07:43:04Z",
+      "updated": "2026-09-08T07:43:04Z",
+      "url": "https://arxiv.org/abs/2609.08375",
+      "pdf_url": "https://arxiv.org/pdf/2609.08375",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.08286",
+      "title": "HypLTSF: A Hyperbolic Geometric View of Multi-Scale Hierarchies for Long-Term Time Series Forecasting",
+      "abstract": "Multi-scale modeling has become an effective approach for long-term time series forecasting, capturing temporal patterns that range from fine-grained local dynamics to coarse global trends. Representations across these temporal scales are inherently hierarchical, with coarser scales abstracting and aggregating information from finer ones. While existing approaches readily exchange information across these scales, the hierarchy itself is typically left as an emergent byproduct of such interactions rather than captured as a geometric structure in its own right. In this paper, we introduce HypLTSF, a framework that endows the multi-scale hierarchy with a concrete geometric form by embedding scale-wise representations into the Poincaré ball, whose exponentially expanding volume naturally accommodates hierarchical structures. To align this geometry with the temporal hierarchy, HypLTSF imposes two constraints: (1) a radial constraint that orders embeddings by their level of abstraction, and (2) an angular constraint that groups fine-scale patterns sharing a common coarser-scale ancestor. Extensive experiments on long-term time series forecasting benchmarks show that HypLTSF achieves state-of-the-art performance, suggesting that explicitly modeling the multi-scale hierarchy as a geometric structure is effective for forecasting.",
+      "authors": [
+        "Namwoo Kim",
+        "Hyungryul Baik",
+        "Yoonjin Yoon"
+      ],
+      "published": "2026-09-08T05:55:40Z",
+      "updated": "2026-09-08T05:55:40Z",
+      "url": "https://arxiv.org/abs/2609.08286",
+      "pdf_url": "https://arxiv.org/pdf/2609.08286",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.08078",
+      "title": "A Machine Learning Framework for Predicting Restaurant Food Waste to Support Sustainable Food Management",
+      "abstract": "Food waste in the restaurant sector poses a substantial challenge to environmental sustainability and economic efficiency. This paper presents an exploratory machine learning framework for estimating daily restaurant food waste quantities from operational and contextual features. A structured dataset was constructed by integrating restaurant demand records, meteorological data and temporal event indicators, yielding 77,980 records across 27 features. Because large-scale ground-truth food waste measurements are not publicly available, the target variable was derived from operationally justified assumptions, with the complete construction formula and controlled stochastic variability disclosed for full reproducibility. Four supervised regression models, namely Linear Regression, Decision Tree, Random Forest and Gradient Boosting, were evaluated under a chronological 70-30 train-test split that respects the temporal ordering of restaurant operations, augmented by 5-fold time-series cross-validation. All reported metrics are explicitly scoped to performance against the constructed target and do not imply validation against measured food waste. Ensemble methods consistently outperformed linear baselines. Random Forest attained an MAE of 6.19 kg, RMSE of 8.36 kg and $R^2$ of 0.817 on the realistic feature subset following systematic exclusion of algebraically leakage-prone variables. Feature importance analysis identified menu diversity, operational area and temporal activity patterns as the primary predictive drivers. The full dataset, target construction formula, codebase and experimental configurations are publicly released to support reproducibility and future extension to empirically measured waste data.",
+      "authors": [
+        "Md Mehedi Hasan Naeem",
+        "Md Ashraful Islam",
+        "Moumita Barua",
+        "Ishtiyak Ahmmad Araf",
+        "Md. Arefin Haque Mahir"
+      ],
+      "published": "2026-09-08T00:43:53Z",
+      "updated": "2026-09-08T00:43:53Z",
+      "url": "https://arxiv.org/abs/2609.08078",
+      "pdf_url": "https://arxiv.org/pdf/2609.08078",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.07930",
+      "title": "A Multimodal Label Forecasting Method for Aperiodic Visuo-Motor Time Series",
+      "abstract": "Deep learning models have been increasingly applied to Time Series Forecasting (TSF) in recent years. Transformer-based and MLP-based models have both been used effectively on many real-world TSF regression benchmarks, and there is ongoing debate as to which family of methods is best. While these benchmarks have drawn much attention, it is also worth noting that many current datasets and methods assume approximate periodicity in the time series. In this work, we focus on a new TSF task without periodicity: anticipating falls during humanoid locomotion, on the basis of egocentric vision and proprioception. When the locomotion trajectories are sufficiently diverse, periodicity is violated. We contribute two new benchmark datasets (one from simulation, one from real hardware), showing that periodicity is violated and recent deep TSF methods struggle on these benchmarks. We also propose a novel deep learning architecture that exploits both endogenous and exogenous variables and a training process that rigorously enforces i.i.d sampling of training examples. Our results show statistically significant improvement over prior art in multiple experimental conditions, by 12.73% or more on the real data and 10.40% or more on the simulation data. Code and datasets will be available upon acceptance.",
+      "authors": [
+        "Borui He",
+        "Garrett E Katz"
+      ],
+      "published": "2026-09-07T19:45:14Z",
+      "updated": "2026-09-07T19:45:14Z",
+      "url": "https://arxiv.org/abs/2609.07930",
+      "pdf_url": "https://arxiv.org/pdf/2609.07930",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.07756",
+      "title": "Decomposition-Guided Diffusion Language Models for Inertial Confinement Fusion Prediction",
+      "abstract": "Inertial confinement fusion (ICF) is a leading pathway toward clean energy, but each shot at the National Ignition Facility costs on the order of one million dollars, making accurate AI surrogates a high-value target. We study exogenous-driven ICF waveform prediction, where a 512-step neutron-rate diagnostic must be inferred directly from a laser pulse and target design parameters, with no historical response observed. The regime stresses standard time-series predictors with temporal sparsity (picosecond peak in a nanosecond window), input-output scale mismatch (under 300 real shots), and peak sensitivity (picosecond timing). We propose ICF-DLM, to our knowledge the first LM-based ICF predictor, combining (i) a physics-typed decomposition into yield $Y_{DT}$, peak timing $t_{\\mathrm{peak}}$, and local waveform $w_{\\mathrm{local}}$; (ii) bidirectional denoising that defers commitment to peak location; and (iii) a physics-driven PPO reward re-injecting metric structure across numeric tokens. On ICFBench (50K simulations + 232 experimental shots), ICF-DLM cuts peak-timing error from 11.6 to 9.2 steps over a matched autoregressive LLaMA-3-8B and outperforms classical sequence models and LLM-based time-series predictors. Beyond ICF, the recipe shows potential to address science domains with low data and sparse events.",
+      "authors": [
+        "Xiang Zhang",
+        "Varchas Gopalaswamy",
+        "Rahman Ejaz",
+        "Riccardo Betti",
+        "Dongfang Liu"
+      ],
+      "published": "2026-09-07T17:00:02Z",
+      "updated": "2026-09-07T17:00:02Z",
+      "url": "https://arxiv.org/abs/2609.07756",
+      "pdf_url": "https://arxiv.org/pdf/2609.07756",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.07493",
+      "title": "Improving Multivariate Time Series Classification with Class-Wise Training and Model Aggregation",
+      "abstract": "In this paper, we propose a class-wise dimension (channel) selection framework for Multivariate Time Series Classification (MTSC). Rather than applying a single global dimension selection process, the proposed approach independently identifies informative dimensions for each class. A dedicated learning process is subsequently performed for each class, followed by a fusion stage for final prediction. The objective is to improve the generation of discriminative feature representations while reducing the influence of noisy or non-informative dimensions. The proposed framework is evaluated using MiniRocket, a random kernel-based baseline method. Experimental results indicate that class-wise dimension selection improves the quality of extracted representations and can enhance classification performance, particularly in high-dimensional settings. These findings suggest that incorporating class-specific information into the training process represents a promising direction for MTSC, improving robustness through consistent gains across heterogeneous datasets, and interpretability through the explicit identification of class-relevant dimensions.",
+      "authors": [
+        "Mouhamadou Mansour Lo",
+        "Gildas Morvan",
+        "Mathieu Rossi",
+        "Fabrice Morganti",
+        "David Mercier"
+      ],
+      "published": "2026-09-07T13:41:33Z",
+      "updated": "2026-09-07T13:41:33Z",
+      "url": "https://arxiv.org/abs/2609.07493",
+      "pdf_url": "https://arxiv.org/pdf/2609.07493",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.07257",
+      "title": "Bayesian Generalized Network Autoregressive Model with Structured Shrinkage and Persistence Priors",
+      "abstract": "We propose a Bayesian generalized network autoregressive (BGNAR) model for multivariate time series whose component series are associated with the nodes of a known network. The proposed framework combines the parsimonious network structure of the generalized network autoregressive (GNAR) model with structured shrinkage and persistence priors adapted from Bayesian vector autoregressive (BVAR) modeling. We adapt Minnesota-type shrinkage to both own-lag and network-lag coefficients, with prior variances decreasing over temporal lags and, for network effects, neighborhood orders. A hierarchical prior on the own-lag coefficients allows information to be shared across nodes while retaining node-specific heterogeneity. We further adapt the sum-of-coefficients and dummy-initial-observation priors to the GNAR parameterization. Posterior inference is performed using a Gibbs sampler. Simulation studies show that BGNAR can use the same deliberately over-specified temporal and neighborhood structure across datasets without dataset-specific BIC order selection, while maintaining forecasting accuracy comparable to BIC-selected GNAR and outperforming the unrestricted BVAR benchmark in the settings considered. The structured prior regularizes weakly supported coefficients toward zero within this fixed model. Posterior distributions for the dynamic coefficients and posterior predictive distributions for future observations provide direct quantification of parameter and predictive uncertainty. An application to a wind-speed network demonstrates that BGNAR achieves point-forecast performance comparable to GNAR while additionally providing posterior inference on own-lag and network-lag effects and posterior predictive uncertainty.",
+      "authors": [
+        "Seongmin Kim",
+        "Kyusoon Kim"
+      ],
+      "published": "2026-09-07T09:13:42Z",
+      "updated": "2026-09-07T09:13:42Z",
+      "url": "https://arxiv.org/abs/2609.07257",
+      "pdf_url": "https://arxiv.org/pdf/2609.07257",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.06984",
+      "title": "AF-Mamba: Efficient Long-Term Signal Modeling for Early Prediction of Atrial Fibrillation Onset",
+      "abstract": "Atrial fibrillation (AF) is the most common cardiac arrhythmia and is associated with increased risks of stroke and heart failure. The growing availability of wearable and portable ECG monitoring enables continuous assessment of cardiac rhythm outside clinical settings. Predicting AF before its onset could provide additional lead time for timely clinical assessment and potentially improve the management of patients at risk of AF-related complications. This study focuses on predicting AF onset one hour in advance using long-term RR intervals (RRIs). To address this challenge, we propose a deep learning architecture that integrates temporal convolutional networks (TCNs) for local features encoding with Mamba, a selective state-space model capable of long-range sequence modeling. This hybrid TCN-Mamba design enables efficient training and inference on one-hour input windows, overcoming limitations of Transformers' quadratic scaling and recurrent networks' vanishing gradients. In subject-wise 5-fold testing, the proposed model achieved a sensitivity of 0.889, specificity of 0.943, F1-score of 0.813, AUROC of 0.974, and AUPRC of 0.933. In paired cross-dataset holdout evaluation, AF-Mamba maintained discriminative performance across unseen AF and NSR datasets, achieving a mean AUROC of 0.897. Compared against state-of-the-art AF prediction models and general time-series models, AF-Mamba achieved competitive predictive performance while providing a favorable performance-efficiency trade-off for long RRI sequences. These findings demonstrate the potential of AF-Mamba for accurate AF prediction one hour in advance and real-time continuous ambulatory monitoring.",
+      "authors": [
+        "Yongbin Lee",
+        "Ki H. Chon"
+      ],
+      "published": "2026-09-07T03:19:49Z",
+      "updated": "2026-09-07T03:19:49Z",
+      "url": "https://arxiv.org/abs/2609.06984",
+      "pdf_url": "https://arxiv.org/pdf/2609.06984",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.06866",
+      "title": "The H-IAR Model for Irregular Multispectral Time Series. Quaternion Formulation, Mapping of Resilience Indicators, and Exploratory Identification of Forest Edges",
+      "abstract": "We propose the Hypercomplex Irregular Autoregressive (\\HIAR) model, a quaternion extension of the \\IAR/\\CIAR/\\BIAR{} family for four-component observations at irregular times. Temporal dependence is represented by a real power of a quaternion parameter and estimated in state-space form through the Gaussian innovation likelihood of the Kalman filter, conditional on the adopted covariance specifications. Across 12,000 Monte Carlo fits, mean absolute bias decreased with sample size and ranged from 0.0009 to 0.0023 at $N=300$. We applied the model to 30,824 Sentinel-2 pixel series covering the Mata de Santa Genebra ARIE from 2020 to 2023. The optimizer reported successful numerical termination in 98.73\\% of the fits; the median $\\|{\\Phihat}\\|$ was 0.6248, 3,872 pixels met the operational high-persistence threshold ($\\|{\\Phihat}\\}\\geq0.95$), and the median residual RMSE for band B8 was 5.1551 percentage points. The results demonstrate the computational feasibility of \\HIAR{} and its ability to generate descriptors of multispectral persistence, vector dynamics, predictive error, and spatial discontinuities potentially associated with forest edges.",
+      "authors": [
+        "Bruno Goncalves C. Filho",
+        "Angelo Calil BianchiBruno Goncalves C. Filho",
+        "Aluisio Pinheiro"
+      ],
+      "published": "2026-09-06T22:48:19Z",
+      "updated": "2026-09-06T22:48:19Z",
+      "url": "https://arxiv.org/abs/2609.06866",
+      "pdf_url": "https://arxiv.org/pdf/2609.06866",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.06656",
+      "title": "Assessing Covariate-Informed Grid Load Forecasting with a Time-Series Foundation Model",
+      "abstract": "Modern power systems are growing increasingly complex as they integrate diverse generation sources to meet rising demand, making accurate load forecasting challenging. Recent advances in time-series foundation models (TSFMs) resulted in promising performance in zero-shot univariate load forecasting tasks. However, real-world load forecasting often involves multiple target variables and requires the integration of exogenous variables, raising important questions about the utility of TSFMs in realistic settings. In this study, we position Chronos-2, a recently developed model by Amazon, as a representative multi-channel TSFM that supports univariate, multivariate, and covariate-informed forecasting, and conduct a systematic investigation of how such models can be used for real-world load forecasting. While prior work has evaluated Chronos-2 on a limited number of energy-related tasks in a zero-shot setting, its performance relative to established task-specific deep learning models and its behavior when adapted using task-specific historical data remains insufficiently understood. In this work, we evaluate Chronos-2 on two real-world utility datasets, ISO New England and ENTSO-E, and benchmark it against widely used task-specific deep learning models. Our results show that Chronos-2 benefits substantially from task-specific fine-tuning and achieves strong short-horizon forecasting performance, but its zero-shot accuracy lags behind task-specific models and its forecasting error grows more rapidly with increasing forecast steps. Overall, this study provides a detailed characterization of the strengths and limitations of TSFMs such as Chronos-2 in grid load forecasting and offers practical insights into how a pretrained TSFM can be effectively adapted for operational load forecasting applications.",
+      "authors": [
+        "Varsha Pendyala",
+        "Yiwei Fu",
+        "Weizhong Yan",
+        "Nurali Virani"
+      ],
+      "published": "2026-09-06T15:09:12Z",
+      "updated": "2026-09-06T15:09:12Z",
+      "url": "https://arxiv.org/abs/2609.06656",
+      "pdf_url": "https://arxiv.org/pdf/2609.06656",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.06402",
+      "title": "A Dirichlet-Quantile Bootstrap approach for the probabilistic resampling of time series",
+      "abstract": "This work presents DPQBootstrap, a probabilistic resampling method for time series based on a Dirichlet quantile bootstrap and rank-based temporal reconstruction. The method aims to generate pseudo-series that preserve the main characteristics of the original series, including variability, quantiles, extreme values, and part of its temporal dependence. A simulation study compares DPQBootstrap with the Maximum Entropy Bootstrap implemented in the meboot package across eight simulation scenarios. The results show that DPQBootstrap achieves 106 wins over 86 for meboot according to the Interval Score, indicating a strong ability to preserve the statistical properties of the original time series. In addition, an empirical application was conducted within a Bayesian ARMA forecasting framework, with and without DPQBootstrap integration. The results indicate that incorporating DPQBootstrap can improve point forecast accuracy and the quality of predictive intervals, particularly when combined with appropriately specified ARMA models.",
+      "authors": [
+        "Ahmed Hamimes",
+        "Abdennour Boulesnane"
+      ],
+      "published": "2026-09-06T05:42:10Z",
+      "updated": "2026-09-06T05:42:10Z",
+      "url": "https://arxiv.org/abs/2609.06402",
+      "pdf_url": "https://arxiv.org/pdf/2609.06402",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.06395",
+      "title": "Autonomous Chaotic Time Series Prediction using Physical Neuromorphic Networks",
+      "abstract": "Physical reservoir computing (PRC) with neuromorphic networks offers a promising approach to brain-inspired information processing, exploiting emergent nonlinear dynamics of physical neural networks as a computational resource. This study demonstrates fully autonomous closed-loop prediction of the Mackey--Glass (MG) chaotic time series using a simulated neuromorphic nanowire network as the physical reservoir. Two strategies are evaluated: the virtual node (VN) method, which expands the feature space by temporal multiplexing of reservoir states, and a non-VN approach that uses all physical node readouts directly without temporal multiplexing. Results are reported for two values of the MG time delay parameter, $τ= 18$ and $τ= 21$, the latter representing a more complex chaotic regime not previously evaluated for this class of physical reservoir. Over a short prediction horizon of $T = 100$ timesteps, the VN approach achieves autonomous prediction accuracies of $90.4$% and $89.7$% at $τ= 18$ and $τ= 21$, respectively, while the non-VN approach achieves $81.5$% and $76.2$%. Long-horizon analysis over $T = 500$ timesteps shows that both approaches reproduce the qualitative attractor structure and dominant spectral content of the true MG signal, with trajectories remaining bounded throughout. These results suggest that the intrinsic dynamics of neuromorphic nanowire networks are sufficient to support meaningful autonomous chaotic time series prediction without virtual node augmentation, and that performance may improve further as physical network sizes scale to the millions of nodes achievable in hardware. As this study uses simulated networks, extrapolation to physically fabricated large-scale arrays remains to be validated experimentally.",
+      "authors": [
+        "Akshaya Rajesh",
+        "Yinhao Xu",
+        "Wave Ngampruetikorn",
+        "Zdenka Kuncic"
+      ],
+      "published": "2026-09-06T05:11:09Z",
+      "updated": "2026-09-06T05:11:09Z",
+      "url": "https://arxiv.org/abs/2609.06395",
+      "pdf_url": "https://arxiv.org/pdf/2609.06395",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.06117",
+      "title": "STQA: A Benchmark for Stock-Focused Tabular Question Answering over Historical and Forecasted Data",
+      "abstract": "Stock market analysis inherently requires composite reasoning over historical records and future projections, yet existing benchmarks remain fragmented across isolated tasks. We introduce STQA (Stock-focused Tabular Question Answering), an end-to-end benchmark designed to systematically evaluate natural-language question answering over historical data, numerical forecasts, and forecast-based reasoning. Built on a large-scale financial dataset, STQA covers 4,417 stocks and contains 31,400 question-answer pairs derived from expert-crafted templates, accompanied by fine-grained intent and slot annotations. To operationalize this benchmark, we present SQFRS (Stock Query-Forecast-Reasoning System), an agent-based unified framework that orchestrates SQL retrieval and time-series forecasting tools. Experiments demonstrate that while current large language models perform well on historical queries, forecast-based reasoning poses a substantial challenge, revealing critical bottlenecks in tool coordination and reasoning under uncertainty. The dataset and code are available at https://github.com/xuxubaobaoan/STQA_Project. STQA thus serves as a rigorous testbed for future research on trustworthy, tool-augmented financial agents.",
+      "authors": [
+        "Baoxu An",
+        "Wenmian Yang",
+        "Zhensheng Wang",
+        "Weijia Jia"
+      ],
+      "published": "2026-09-05T14:32:40Z",
+      "updated": "2026-09-05T14:32:40Z",
+      "url": "https://arxiv.org/abs/2609.06117",
+      "pdf_url": "https://arxiv.org/pdf/2609.06117",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.06008",
+      "title": "Cadence: Error-Bounded Lossy Compression of Demand Time Series with a Time-Series Foundation Model",
+      "abstract": "We present Cadence, an error-bounded lossy compressor for numeric time series pairing a 330M-parameter time-series foundation model (Google TimesFM-3) with an adaptive arithmetic coder, guaranteeing $|\\hat{x}_t-x_t|\\leτ$ on every sample. One negative result constrains the design space: for lossless coding a foundation model is worth nothing, because bits saved are logarithmic in predictor accuracy, $Δb=\\log_2(\\mathrm{MAE_{old}}/\\mathrm{MAE_{new}})$. So the $1.51\\times$ advantage TimesFM-3 holds over a 32-tap linear predictor buys 0.60 bits of 20.28, a median gain of +0.03%. Error-bounded coding escapes this at one point: once a forecast lands inside the band the residual index is zero and the sample nearly free. Cadence contributes: (1) an adaptive range coder with context-modelled binarization, beating xz/zstd on real indices by 9.7% (15/15) and reversing a finding from a general-purpose back end; (2) a determinism result -- predictions are not bit-identical across batch sizes, and no PyTorch configuration repairs this, forcing group size and execution device into the container format; and (3) domain localization on corpora postdating any plausible training cutoff. On 49 EIA-930 balancing-authority demand series (2026) Cadence gains 13.3% over the best of six classical predictors, and 28.3% on 50 MTA ridership series (2026): 21.4% median over 297 series-tolerance pairs, winning all 297. Against downsampling, what time-series databases deploy for retention, its guaranteed worst-case error is $28$--$56\\times$ tighter at equal size. End-to-end, once the context bootstrap is paid for, gains run from 6.8% at six months of hourly data to 15.1% asymptotically. Attempting to falsify the domain claim on SDRBench, theory predicts failure and delivers: -0.8% median, 0 of 27 pairs gaining. Three further negative results and eight retracted claims are reported in full.",
+      "authors": [
+        "Roberto Tacconelli"
+      ],
+      "published": "2026-09-05T10:25:09Z",
+      "updated": "2026-09-05T10:25:09Z",
+      "url": "https://arxiv.org/abs/2609.06008",
+      "pdf_url": "https://arxiv.org/pdf/2609.06008",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.06006",
+      "title": "Memory in Deep Time-Series Models",
+      "abstract": "Deep learning for time series has progressed through successive architectural paradigms, from recurrent networks and transformers to structured state-space models, retrieval-augmented predictors, foundation models, and tool-using agents. These developments are typically studied in isolation, organized by architecture or modeling era. We argue that they can instead be viewed through a common question of \\emph{how does a time-series model retain and access information beyond its immediate input?} This question is motivated by a fundamental limitation of conventional time-series modeling: information relevant to a prediction may lie far beyond a feasible input window, while compressing history into a fixed-size state can discard information that may become useful later. We formulate this challenge as a \\emph{memory} problem and organize existing time-series methods along a spectrum from internal memory, encoded in parameters and fixed-size states, to external memory that is addressable, retrievable, and increasingly maintained by agents. We then develop a unified taxonomy of memory mechanisms and review three classes of external memory, including explicit modules, retrieval augmentation, and agentic stores, under a common framework for what is retained, how it is written and accessed, and how it persists. A cross-cutting analysis maps these mechanisms to time-series tasks and identifies gaps in both methods and evaluation. We conclude by outlining open problems in building memory systems that can selectively retain, retrieve, revise, and forget information as temporal environments evolve. The result is a framework for studying memory as a first-class dimension of time series modeling, independent of the underlying backbone.",
+      "authors": [
+        "Minh Hoang Nguyen",
+        "Huu Hiep Nguyen",
+        "Manh Nguyen",
+        "Van Dai Do",
+        "Dung Nguyen",
+        "Hung Le"
+      ],
+      "published": "2026-09-05T10:19:17Z",
+      "updated": "2026-09-05T10:19:17Z",
+      "url": "https://arxiv.org/abs/2609.06006",
+      "pdf_url": "https://arxiv.org/pdf/2609.06006",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.05883",
+      "title": "Fixed-smoothing Uniform Inference for Quantile Regression",
+      "abstract": "This paper develops fixed-smoothing (fixed-b, fixed-K) inference methods for time-series quantile regression that are robust to heteroskedasticity and autocorrelation. Our approach is uniformly valid over quantile levels and accounts for dependence both over time and across quantiles. It enables the construction of uniform confidence bands, Wald, and Sup-t tests for joint hypotheses, and tests of shape restrictions, providing a unified framework for assessing heterogeneity in quantile effects. A key challenge is that, under weak dependence, uniform inference for quantile regression processes is generally non-pivotal because the limiting distributions depend on the long-run covariance structure across quantiles. To address this issue, we develop two complementary approaches. The uniform-in-$τ$ method estimates the covariance structure and simulates the non-pivotal limiting distribution. For certain tests involving a finite collection of quantile levels, the stack-Wald method delivers pivotal fixed-smoothing inference. We establish the asymptotic validity of both approaches. Simulation results show that the proposed methods substantially improve size control relative to existing HAC-based procedures while maintaining good power. An application to predictive quantile regressions for stock returns reveals substantial heterogeneity in predictive effects across both quantiles and forecast horizons.",
+      "authors": [
+        "Kaicheng Chen",
+        "Antonio F. Galvao",
+        "Seunghwa Rho",
+        "Timothy J. Vogelsang",
+        "Jungmo Yoon"
+      ],
+      "published": "2026-09-05T05:11:39Z",
+      "updated": "2026-09-05T05:11:39Z",
+      "url": "https://arxiv.org/abs/2609.05883",
+      "pdf_url": "https://arxiv.org/pdf/2609.05883",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.05408",
       "title": "Towards Scaling Quantum Fine-Tuning of Foundational Time Series Models for Classification",
       "abstract": "Time-series foundation models produce rich embeddings, but whether quantum models can exploit them, and how far hybrid classical-quantum architectures scale, remains unclear. We address this by fine-tuning Chronos for power-grid event classification (PSML-5) with a quantum head on the model's embeddings. Grouping embeddings by physical sensor type before summarization already surpasses the best published baseline built for this benchmark, and with finer-grained features the quantum head outperforms a larger classical multilayer perceptron on identical inputs by 1.7-2.0 percentage points of balanced accuracy. Yet the gains saturate: past a point, feeding more information to the same fixed-width register yields no improvement. We show the bottleneck is neither the supply of information nor circuit expressiveness, but the bandwidth of the data intake. To overcome this limitation, we introduce the wing module, a self-contained few-qubit circuit that feeds additional information into the core circuit through a sparse, one-way coupling. Under a preregistered four-seed protocol, we attach wings to a fixed 12-qubit core with fixed features. Balanced accuracy increases with each added wing, from 83.6% with no wings (13 qubits, including a post-selection qubit) to 85.2% with two (19 qubits). Ablations establish that a circuit enlarged without new information gains nothing, while a wing fed information from the wrong sample harms accuracy. These results reframe scaling for quantum fine-tuning: added qubits help when they carry added inputs, not merely more parameters. Wings offer a modular and stable route to widening that bandwidth.",
@@ -244,6 +652,22 @@
       "topics": [
         "time-series-foundation-models",
         "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.05561",
+      "title": "Rollcast: Proper-Score Gated Rolling Anchors for Adaptive Probabilistic Time-Series Forecasting",
+      "abstract": "Rollcast is a probabilistic forecasting method for univariate time series that combines a compact set of rolling statistical anchors rather than relying on a single global model. Rolling means, medians, extrema, regression endpoints, and quantiles define candidate forecast locations and a representation of the current state. A state-dependent softmax gate learns anchor probabilities by minimizing negative log predictive density, while residual distributions retrieved from similar historical states provide local uncertainty. Recursive simulation propagates the resulting mixture over multiple forecast horizons. The method is evaluated in a Monte Carlo study covering eight data-generating processes, including autoregressive, random-walk, local-trend, threshold, regime-switching, stochastic-volatility, heavy-tailed, and variance-break dynamics. Across 2,000 independent fitted series, Rollcast is compared with the true conditional predictive distribution generated by an oracle simulator. Overall empirical coverage is 86.2% for nominal 90% intervals and 91.5% for nominal 95% intervals. Predictive intervals are on average 13.6% wider than the oracle at the 90% level, while CRPS is 14.4% higher than oracle CRPS. Performance is closest to the oracle under autoregressive, threshold, stochastic-volatility, heavy-tailed, and variance-break dynamics, while local trends and regime switching are more challenging. The results indicate that Rollcast can construct competitive probabilistic forecasts from simple, interpretable local summaries, while also identifying limitations in calibration and recursive uncertainty propagation.",
+      "authors": [
+        "Giancarlo Vercellino"
+      ],
+      "published": "2026-09-03T18:50:29Z",
+      "updated": "2026-09-03T18:50:29Z",
+      "url": "https://arxiv.org/abs/2609.05561",
+      "pdf_url": "https://arxiv.org/pdf/2609.05561",
+      "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
       ]
     },
     {
@@ -3022,9 +3446,32 @@
       ]
     }
   ],
-  "last_success": "2026-09-08T19:54:44.681937Z",
-  "last_attempt": "2026-09-08T19:54:44.681937Z",
-  "last_new_ids": [],
+  "last_success": "2026-09-09T19:46:51.853258Z",
+  "last_attempt": "2026-09-09T19:46:51.853258Z",
+  "last_new_ids": [
+    "2609.05561",
+    "2609.05883",
+    "2609.06006",
+    "2609.06008",
+    "2609.06117",
+    "2609.06395",
+    "2609.06402",
+    "2609.06656",
+    "2609.06866",
+    "2609.06984",
+    "2609.07257",
+    "2609.07493",
+    "2609.07756",
+    "2609.07930",
+    "2609.08078",
+    "2609.08286",
+    "2609.08375",
+    "2609.08530",
+    "2609.08554",
+    "2609.08772",
+    "2609.09062",
+    "2609.09140"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null
