@@ -2,6 +2,86 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.10357",
+      "title": "A Later Test Set Is Not a New Domain: Pretraining Familiarity Survives a Contamination-Free Hold-Out",
+      "abstract": "Time-series foundation models are evaluated almost exclusively on public archives that predate them, so a strong score cannot be separated from having seen the test set during pretraining. The obvious remedy is a hold-out that postdates the models. We build one: thirteen forecasters -- four classical, three trained per dataset, six pretrained -- on seven groups drawn from five domains, every observation published after the last model was released, and every dataset rebuildable without an API key. Under this protocol pretrained models win 5 of 7 groups, lose one to a Theta baseline, and on daily exchange rates are indistinguishable from a seasonal naive forecast, along with every other method tested. We then ask what separates the wins from the losses, and report a negative result: the two intrinsic properties one would reach for -- seasonal strength and spectral entropy, measured on the input window -- do not account for the pattern, and seasonal strength is if anything negatively associated with the advantage. What does track it is corpus familiarity. Our largest gain (28% lower MASE than the best classical method, on weekly Wikipedia pageviews) falls on Wikipedia pageviews, the domain TimesFM's authors describe as the bulk of its pretraining corpus, at the same granularities and differing only in time window. Within the pretrained family, where every model forecasts identical series so that series difficulty cancels, the TimesFM family outranks the Chronos family by -0.53 ranks on Wikipedia against -0.09 everywhere else (1,500 vs. 754 series, Mann-Whitney p < 1e-5). We conclude that a temporal hold-out removes memorisation of a window but not familiarity with a domain, that benchmarks therefore need domain hold-outs stated relative to disclosed corpora, and that the practitioner's question is less which model is better than whether their domain is one the model was raised on.",
+      "authors": [
+        "Mahdi Naser Moghadasi",
+        "Faezeh Ghaderi"
+      ],
+      "published": "2026-09-09T15:52:55Z",
+      "updated": "2026-09-09T15:52:55Z",
+      "url": "https://arxiv.org/abs/2609.10357",
+      "pdf_url": "https://arxiv.org/pdf/2609.10357",
+      "first_seen": "2026-09-10T19:42:43.980909Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.09780",
+      "title": "The changing optical and X-ray emission of the dormant $γ$ Cas star HD 45314",
+      "abstract": "$γ$ Cas stars are Oe/Be stars that exhibit bright and hard X-ray emission. HD45314 belonged to this category, but lost its $γ$ Cas characteristics as its circumstellar disc started to fade away. The star was monitored in optical spectroscopy, optical photometry, and X-ray spectroscopy to follow its variability on timescales of hours to years. Time series of magnitudes, colours, line equivalent widths and violet over red peak intensity ratios were analysed with Fourier methods to uncover possible periodicities. For five years, HD45314 exhibited oscillations of its magnitude and line strengths on a timescale of 230 d. It then declined towards a nearly disc-free stage and is now slowly rebuilding its disc. During these phases, the violet over red peak intensity ratio exhibited a modulation on a timescale of about 1190 d. Over the whole campaign, prominent short-term photometric variations, notably at a frequency of 3.369 d$^{-1}$, were probably due to $β$ Cep-type pulsations. The amplitude of these pulsations was stronger during phases of overall brightness changes. In parallel, the X-ray spectrum switched to a low state at the onset of the oscillation phase and has remained in this low state since then. Some residual hard emission is nonetheless observed. HD45314's long-term optical variations bear resemblance with the predictions of smooth particle hydrodynamics calculations, although a close look does reveal some inconsistencies. Unlike some other $γ$ Cas stars, where the X-ray emission remained nearly constant despite major changes of the circumstellar disc, HD45314's X-ray properties changed dramatically as the disc begun to dissipate. These differences might arise from a wider orbital separation between the Oe star and its putative white dwarf companion or from the ablation of the disc by the radiation field of the Oe star.",
+      "authors": [
+        "G. Rauw",
+        "Y. Nazé",
+        "E. Bryssinck",
+        "W. Vollmann",
+        "J. Guarro Fló",
+        "X. Dupont",
+        "M. A. Smith",
+        "C. Motch",
+        "G. W. Henry",
+        "J. Robrade",
+        "A. de Bruin",
+        "S. Charbonnel",
+        "A. Favaro",
+        "P. Fricker",
+        "O. Garde",
+        "O. Gayrard",
+        "S. Güssregen",
+        "F. Houpert",
+        "M. Larsson",
+        "R. Leadbeater",
+        "V. Lecocq",
+        "P. Le Dû",
+        "T. Lester",
+        "L. Mulato",
+        "T. Petit",
+        "R. Pomillo",
+        "O. Thizy",
+        "F. Weil"
+      ],
+      "published": "2026-09-09T06:31:02Z",
+      "updated": "2026-09-09T06:31:02Z",
+      "url": "https://arxiv.org/abs/2609.09780",
+      "pdf_url": "https://arxiv.org/pdf/2609.09780",
+      "first_seen": "2026-09-10T19:42:43.980909Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.09586",
+      "title": "Distillation of Synthetic Data for Time Series Foundation Models",
+      "abstract": "Time series foundation models (TSFMs) are increasingly pre-trained on synthetically generated time series trajectories, where the data generating process is known. Current pre-training recipes are based on loss objectives which compare TSFM outputs to realized future values of each trajectory. We instead propose loss objectives which compare TSFM outputs to the conditional forecast distribution of each trajectory, a procedure we call synthetic data distillation (SDD). SDD corresponds to a Rao-Blackwellization of the training objective, in that it leaves the expectation of stochastic gradients unchanged while provably reducing the covariance of the stochastic gradient under the Loewner partial ordering. We empirically validate SDD on a TSFM model family of sizes from $4$M to $2.5$B parameters, and observe faster convergence of validation loss at every model size: on Gaussian Process data, SDD attains or improves upon the Status Quo loss whilst requiring $10\\%-40\\%$ less training iterations.",
+      "authors": [
+        "Niloy Biswas",
+        "Noureddine El Karoui"
+      ],
+      "published": "2026-09-09T01:15:46Z",
+      "updated": "2026-09-09T01:15:46Z",
+      "url": "https://arxiv.org/abs/2609.09586",
+      "pdf_url": "https://arxiv.org/pdf/2609.09586",
+      "first_seen": "2026-09-10T19:42:43.980909Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
       "id": "2609.09140",
       "title": "NOAH: Learning the Full Patient Journey. A Longitudinal Multimodal Time-Aware Model for Representation and Forecasting",
       "abstract": "The digitization of healthcare has generated vast, longitudinal, and multimodal patient records over a lifetime, yet fully exploiting these data to represent and predict patient state trajectories remains a critical challenge. Current AI models often struggle to capture the complex, irregular temporal dynamics and inherent stochasticity of real-world multimodal patient data. Existing AI approaches for modeling longitudinal patient records are predominantly discriminative, limited to a few modalities, constrained by closed categorical vocabularies, treating time as a monotonic inductive bias, or they are limited in forecasting future patient states. We introduce NOAH, a time-aware, task-agnostic, generative transformer model representing and forecasting the full multimodal patient journey. NOAH features a novel bidirectional time integration and a variational latent space to capture the continuous evolution of patient states and the stochasticity of clinical trajectories. Built from over 559 million clinical events from 431,000 hospital visits of 299,000 patients across the MIMIC dataset family, NOAH natively processes medical images, time-series and numeric signals, categorical events, as well as structured and unstructured clinical records. NOAH is the first truly holistic generative model in its field, enabling autoregressive forecasting with optional time control, zero-shot classification, and counterfactual intervention simulation. It generates highly informative and predictive patient state representations that demonstrate strong performance in probing for clinical outcomes, 15 ICD chapters, and 29 comorbidities, as well as in time-to-event prediction. Seamlessly handling diverse modalities and complex temporal dynamics, NOAH provides a versatile, task-agnostic, scalable foundation for intelligent predictive systems in personalized clinical care and digital medicine.",
@@ -706,6 +786,30 @@
       "url": "https://arxiv.org/abs/2609.03603",
       "pdf_url": "https://arxiv.org/pdf/2609.03603",
       "first_seen": "2026-09-06T12:17:31.344218Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.09195",
+      "title": "CompEvo: Competition-Induced Evolution for Multi-Agent in News-Driven Time Series Forecasting",
+      "abstract": "News-driven time series forecasting uses evolving textual events together with historical observations to predict future values, supporting applications such as market risk monitoring and resource scheduling. In multi-agent settings, two challenges still remain. The first is degeneration of thought, where agents converge to similar evidence-seeking behaviors. The second is insufficient theoretical grounding, where strategy updates are often heuristic and lack a principled formulation. To address the above challenges, we propose CompEvo, a competition-induced evolution framework for multi-agent news-driven time series forecasting. For theoretical grounding, we introduce an evolutionary game formulation to guarantee equilibrium existence and optimization convergence. Building on this formulation, we construct a trainable multi-agent evolution framework that integrates strategy execution, fitness-based differentiable selection, and competition-induced strategy evolution. CompEvo enables heterogeneous agents to explore diverse news evidence, converts forecasting feedback into differentiable influence weights, and evolves agent strategies under competitive pressure to preserve effective logic while maintaining diversity. Experiments on four real-world datasets show that CompEvo reduces RMSE by 27.3% and MAPE by 26.2% on average over strong baselines. Further analysis indicates that CompEvo successfully maintains diverse and specialized agent behaviors.",
+      "authors": [
+        "Yuxuan Zhang",
+        "Yangyang Feng",
+        "Yong Guan",
+        "Daifeng Li",
+        "Kexin Zhang",
+        "Junlan Chen",
+        "Bowen Deng",
+        "Jun Liu",
+        "Zehua Zeng"
+      ],
+      "published": "2026-09-03T03:12:23Z",
+      "updated": "2026-09-03T03:12:23Z",
+      "url": "https://arxiv.org/abs/2609.09195",
+      "pdf_url": "https://arxiv.org/pdf/2609.09195",
+      "first_seen": "2026-09-10T19:42:43.980909Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -3446,31 +3550,13 @@
       ]
     }
   ],
-  "last_success": "2026-09-09T19:46:51.853258Z",
-  "last_attempt": "2026-09-09T19:46:51.853258Z",
+  "last_success": "2026-09-10T19:42:43.980909Z",
+  "last_attempt": "2026-09-10T19:42:43.980909Z",
   "last_new_ids": [
-    "2609.05561",
-    "2609.05883",
-    "2609.06006",
-    "2609.06008",
-    "2609.06117",
-    "2609.06395",
-    "2609.06402",
-    "2609.06656",
-    "2609.06866",
-    "2609.06984",
-    "2609.07257",
-    "2609.07493",
-    "2609.07756",
-    "2609.07930",
-    "2609.08078",
-    "2609.08286",
-    "2609.08375",
-    "2609.08530",
-    "2609.08554",
-    "2609.08772",
-    "2609.09062",
-    "2609.09140"
+    "2609.09195",
+    "2609.09586",
+    "2609.09780",
+    "2609.10357"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
