@@ -2,6 +2,185 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.11872",
+      "title": "Evaluating Time-Series Foundation Models and Multimodal Dietary Context for CGM Forecasting",
+      "abstract": "Continuous glucose monitoring (CGM) provides high-frequency measurements of glucose dynamics and enables short-term glucose forecasting for diabetes management. Although time-series foundation models have shown strong general forecasting ability, their effectiveness for CGM prediction and the added value of multimodal dietary context remain unclear. We conduct a comprehensive empirical study using eight public CGM datasets spanning Type 1 diabetes, Type 2 diabetes, and non-diabetes populations. Under a unified protocol across multiple context lengths and prediction horizons, zero-shot foundation models did not consistently outperform strong task-specific baselines such as Elastic Net and PatchTST. In contrast, lightweight fine-tuning substantially improved forecasting performance. For example, fine-tuned Chronos-Bolt reduced RMSE by 6.5%-18.4% in the T1D cohort and by 8.6%-18.2% in the non-diabetes/T2D cohort, with comparable improvements in both in-distribution and out-of-distribution test settings. We further evaluate multimodal dietary context using CGMacros, which provides temporally aligned CGM signals, food images, and macronutrient records. A residual-based fusion framework reduced overall RMSE by approximately 3% and postprandial RMSE by approximately 15% relative to the CGM-only baseline. Moreover, Chronos-based CGM representations were more strongly correlated with observed postprandial glucose increments than representations from LSTM and CatBoost, even after those models incorporated additional dietary modalities, suggesting that pretrained temporal representations better preserve meal-induced excursion patterns. These findings show that foundation models require CGM-specific adaptation for reliable forecasting and that dietary context provides clinically meaningful signals beyond CGM alone, especially during postprandial periods.",
+      "authors": [
+        "Bowen Zhang",
+        "Hsiu-Wen Cheng",
+        "Hongyu Yang",
+        "Evie L. Shen",
+        "Joleen Vansomphone",
+        "Yuna Li",
+        "Kerry Zhou",
+        "Zitian Qu",
+        "Suning Zhao",
+        "Xiangning Deng",
+        "Hua Zhou",
+        "Jin J. Zhou"
+      ],
+      "published": "2026-09-10T17:43:29Z",
+      "updated": "2026-09-10T17:43:29Z",
+      "url": "https://arxiv.org/abs/2609.11872",
+      "pdf_url": "https://arxiv.org/pdf/2609.11872",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.11639",
+      "title": "LoaDiff: Conditional Generation of Electricity Consumption Time Series for Energy Analytics",
+      "abstract": "The energy transition is reshaping residential electricity consumption through the increasing adoption of distributed generation, electrified appliances, and demand-response programs. Understanding these evolving behaviors requires access to granular smart-meter data for applications such as load forecasting, appliance detection, and demand-side flexibility analysis. However, such data are subject to strict access restrictions and data-protection regulations. Thus, realistic synthetic alternatives are necessary. In this paper, we introduce LoaDiff, a diffusion-based generative model for year-long, sub-hourly smart-meter load curves. LoaDiff supports flexible conditioning on static household attributes, such as appliance ownership, and dynamic contextual variables, including calendar information and outdoor temperature. We evaluate the model against multiple generative baselines on three residential electricity-consumption datasets. Our experiments assess four complementary dimensions: fidelity and diversity, training-record memorization risk, downstream utility for load forecasting and appliance detection, and conditional controllability under alternative temperature conditions. The results show that LoaDiff generates realistic and diverse load profiles, achieves a favorable trade-off between generation quality and limited evidence of memorization, preserves information useful for downstream energy applications, and responds coherently to changes in conditioning variables.",
+      "authors": [
+        "Mariia Baranova",
+        "Adrien Petralia",
+        "Etienne Le Naour",
+        "Nathan Etourneau",
+        "Guillaume Hofmann",
+        "Themis Palpanas"
+      ],
+      "published": "2026-09-10T14:46:30Z",
+      "updated": "2026-09-10T14:46:30Z",
+      "url": "https://arxiv.org/abs/2609.11639",
+      "pdf_url": "https://arxiv.org/pdf/2609.11639",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.11575",
+      "title": "Market-Informed Networks for Modeling and Forecast Evaluation of Financial Extremes",
+      "abstract": "Modeling the joint distribution of extreme values in high-dimensional financial time series is challenging because extremes are sparse and locally extreme observations are not necessarily extreme relative to their full marginal distribution. To address this, we introduce a time-dependent network Hüsler-Reiss model in which market-informed adjacency matrices determine how strongly observations contribute to the estimation. We propose binary and weighted specifications, including the Joint Extremes Adjacency Matrix (JEAM) which combines information about individual extremeness with historical patterns of joint extreme movements. In the forecasting evaluation part, covering one-minute stock returns from three sectors of the S&P 100, JEAM achieves the best out-of-sample log scores for both tail directions; improving scores by 12.5-13.6% in the lower tail and 11.4-14.9% in the upper tail. The results show that incorporating market-informed network structures in the estimation, improves forecast evaluation of extremes across time series.",
+      "authors": [
+        "Ayla Jungbluth",
+        "Johannes Lederer",
+        "Simon Trimborn"
+      ],
+      "published": "2026-09-10T14:10:43Z",
+      "updated": "2026-09-10T14:10:43Z",
+      "url": "https://arxiv.org/abs/2609.11575",
+      "pdf_url": "https://arxiv.org/pdf/2609.11575",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.11282",
+      "title": "When Does Text Inform? Benchmarking Information-Theoretic Metrics for Multimodal Time-Series Forecasting",
+      "abstract": "Multimodal forecasting models that combine time series with text annotations promise richer prediction through textual context, but how do we know whether a text annotation meaningfully contributes to the forecasters prediction? This is an information-theoretic question, but to evaluate whether information-theoretic metrics can reliably measure the predictive value an annotation provides, a ground truth benchmark is needed, and none currently exist. We create a synthetic time series signal with annotations in three categories: semantically correct, incorrect, and irrelevant. Because the data generation process is fully controlled, ground-truth information content is known exactly, enabling principled evaluation of six complementary mutual information estimators (KSG, MINE, InfoNCE, CCA, PID and V-information). We show that all six estimators identify correct annotations as most informative, and are able to audit the quality of mixed text corpora, choosing the annotations that result in the best downstream forecasting results without the need for model training. Our benchmark identifies limitations of each estimator, and these are validated on seven real-world datasets, which show how estimator performance differs on weak signals. Finally, we establish practical rules for implementing these metrics for annotation auditing and fusion selection.",
+      "authors": [
+        "Emma Andrews",
+        "Gianmarco Mengaldo"
+      ],
+      "published": "2026-09-10T09:15:47Z",
+      "updated": "2026-09-10T09:15:47Z",
+      "url": "https://arxiv.org/abs/2609.11282",
+      "pdf_url": "https://arxiv.org/pdf/2609.11282",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.11206",
+      "title": "CryptoL: Towards Scale Dominance and Physics Constraints Mitigation in Financial Multivariate Time Series Forecasting",
+      "abstract": "Cryptocurrency forecasting presents a distinctive combination of extreme cross-asset scale heterogeneity, non-stationary dynamics, and structural dependencies among Open, High, Low, and Close (OHLC) variables. We present CryptoL, a unified framework designed to address these challenges within multivariate time-series forecasting. CryptoL evaluates forecasting error in context-normalized coordinates within the RevIN pipeline, preventing inverse normalization from introducing an additional squared-scale weighting into the MSE objective. We formally characterize this effect through the empirical risk and parameter-gradient geometry, establishing the conditions under which large-scale assets can disproportionately influence shared-model optimization. Beyond loss-space normalization, CryptoL examines channel-independent and channel-dependent normalization for OHLC data, showing that a shared channel-dependent affine transformation preserves candle-order relations that independent channel transformations need not preserve. The framework further incorporates scale-adaptive numerical stabilization to reduce distortions caused by a fixed normalization constant across assets spanning many orders of magnitude, together with a soft feasibility loss that penalizes violations of the defining OHLC inequalities. Experiments across heterogeneous cryptocurrency assets evaluate these components through controlled ablations and demonstrate improvements in forecasting accuracy, training stability, and the frequency of financially valid OHLC predictions relative to the considered baselines. CryptoL therefore provides an integrated approach to scale-balanced optimization, structure-preserving normalization, numerical stabilization, and constraint-aware cryptocurrency forecasting.",
+      "authors": [
+        "Yalda Taheri",
+        "Mohammad Hassan Heydari",
+        "Armon Rasooli",
+        "Maryam Amirshahkarami",
+        "Mohammad Ebrahim Mahdavi",
+        "Hossein Karshenas"
+      ],
+      "published": "2026-09-10T08:12:59Z",
+      "updated": "2026-09-10T08:12:59Z",
+      "url": "https://arxiv.org/abs/2609.11206",
+      "pdf_url": "https://arxiv.org/pdf/2609.11206",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.11135",
+      "title": "Bidirectional Multimodal Fusion of Sky Images and Time-Series for Solar Forecasting with Large Language Models",
+      "abstract": "Short-term photovoltaic (PV) power and global horizontal irradiance (GHI) forecasts are essential for effective dispatch, reserve scheduling, and grid operations. At these forecasting horizons, errors are predominantly driven by cloud induced ramps: relying solely on historical numerical data may struggle to anticipate an incoming cloud, making ground-based sky images a crucial complementary physical signal. Furthermore, forecast performance is highly sensitive to location and local observing conditions, creating a strong need for site-specific data that are often scarce. Recently, large language models (LLMs) have demonstrated competitive performance and high data efficiency in time-series forecasting. Despite their success, existing LLM-based forecasting methods remain predominantly unimodal, relying primarily on historical numerical time-series data. Effectively incorporating sky imagery into an LLM-based forecasting framework remains under-explored and an open challenge. In this paper, we propose SolCloudLLM, an LLM-based multimodal forecasting framework. SolCloudLLM aligns sky-image patches with time-series patches and fuses their corresponding representations through bidirectional multimodal fusion, yielding a unified representation that is subsequently mapped into the embedding space of an LLM. Extensive experiments on the SIRTA and SKIPP'D datasets demonstrate that SolCloudLLM consistently outperforms the best baseline methods in MSE across all forecasting horizons, achieving a maximum relative MSE reduction of 25.4%. Stratified analysis further indicates that the benefits of multimodal fusion are concentrated primarily under cloudy conditions. Notably, SolCloudLLM achieves the best performance in nearly all few-shot settings, whereas other deep learning baselines experience substantial performance degradation and are frequently outperformed by the non-learning physical method.",
+      "authors": [
+        "Ken Chen",
+        "Maneesha Perera",
+        "Wei Wang",
+        "Sachith Seneviratne",
+        "Hansani Weeratunge",
+        "Saman Halgamuge"
+      ],
+      "published": "2026-09-10T06:26:02Z",
+      "updated": "2026-09-10T06:26:02Z",
+      "url": "https://arxiv.org/abs/2609.11135",
+      "pdf_url": "https://arxiv.org/pdf/2609.11135",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.10772",
+      "title": "Solar Flare Prediction Using a Hybrid Convolutional Neural Network and Transformer Model",
+      "abstract": "Solar flares are intense bursts of electromagnetic radiation that occur when stored magnetic energy in the Sun's atmosphere is suddenly released. They are categorized into five classes -- from least to most powerful: A, B, C, M, and X -- with each successive class representing a ten-fold increase in energy output. The electromagnetic radiation emitted by the stronger classes (C, M, and X) is capable of causing significant disruptions to communication systems, satellites, and power grids on Earth. Accurate prediction of solar flares is crucial for mitigating their adverse effects and ensuring the functionality of critical infrastructure. This research introduces a novel model named ResNet-Transformer, which combines a convolutional neural network (CNN), ResNet50, with a standard Transformer architecture. The hybrid model effectively processes both spatial and time-series data derived from solar images to predict the occurrence, class (C, M, and X), and probability of solar flares within 24-hour, 36-hour, and 72-hour windows. This hybrid deep learning model represents the first of its kind in the domain of image-based, multiclass solar flare prediction. We evaluated the model's performance using a comprehensive set of metrics, including weighted precision, recall, and F1 score, together with balanced accuracy, the Matthews correlation coefficient (MCC), Cohen's kappa, and the area under the receiver operating characteristic curve (ROC-AUC). Results show that ResNet-Transformer surpasses traditional machine learning methods, such as support vector machines (SVMs) and standalone CNN models, across all evaluated metrics. This study highlights the potential of integrating convolutional neural networks with Transformers to enhance predictive capabilities in solar physics, paving the way for more reliable and timely solar flare forecasting.",
+      "authors": [
+        "Mason Cao",
+        "Junwei Zhao"
+      ],
+      "published": "2026-09-09T19:20:23Z",
+      "updated": "2026-09-09T19:20:23Z",
+      "url": "https://arxiv.org/abs/2609.10772",
+      "pdf_url": "https://arxiv.org/pdf/2609.10772",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.10767",
+      "title": "Weighted Empirical Risk Minimization for Machine Learning under Long-Range Dependence: Exact Pathwise Rates and Learning-Error Geometry",
+      "abstract": "We develop an exact almost-sure learning theory for smooth parametric models trained by regularly weighted empirical risk minimization on long-range dependent data. The training observations are generated from a fixed finite window of a stationary Gaussian sequence, and the sample weights are regularly varying. If the loss gradient at the population minimizer has Wiener-chaos rank $m$ and a nonzero low-frequency coefficient, then, in the long-memory interior regime, the finite-lag score reduces on the iterated-logarithm scale to a single weighted Hermite chaos. This yields an almost-sure Bahadur representation, an exact limsup law for the learned parameter, and, for $m\\ge2$, the functional cluster set of the complete learning trajectory. The polynomial learning exponent is determined by the memory parameter and the chaos rank and is invariant under the admissible power weighting, whereas the sharp pathwise constant and cluster geometry depend on the weights. In the rank-one case, global optimization over the admissible power exponents shows that every optimizer is positive. Time-series prediction and classification examples illustrate the results.",
+      "authors": [
+        "Elina Moldavskaya"
+      ],
+      "published": "2026-09-09T19:16:17Z",
+      "updated": "2026-09-09T19:16:17Z",
+      "url": "https://arxiv.org/abs/2609.10767",
+      "pdf_url": "https://arxiv.org/pdf/2609.10767",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.10705",
+      "title": "Predictions for astrometric microlensing in Gaia",
+      "abstract": "ESA's astrometric space mission Gaia is uniquely positioned for microlensing studies thanks to its all-sky coverage and simultaneous astrometric and photometric observations. In Gaia Data Release 4 (DR4), astrometric time series will be published for the first time, providing a rich dataset for isolated stellar remnant searches. In anticipation of DR4, we prepared tools for fitting photometric and 1D astrometric measurements. We tested the recovery of true event parameters and population distributions with Gaia-like observations. We created a mock survey of microlensing events mirroring Gaia DR4's design. The events were generated using dedicated Galactic simulations to provide realistic expectations on stellar and dark lens yields. For selected events, we simulated observations following Gaia's scanning law and precision, using the astromet package. Such simulations are needed to interpret forthcoming data; they also enable testing inference tools with known ground truth. We used nested sampling to infer full posterior distributions and compare them with the true lens parameters. Our simulation predicts $322 \\pm 70$ microlensing events with astrometric signals above Gaia precision thresholds; $209 \\pm 57$ of them have detectable photometric signals. Among those, $82 \\pm 9$ and $49 \\pm 7$, respectively, have remnant lenses. To assess Gaia's capabilities in constraining remnant mass distributions, we modelled $49$ events from this sample. We recovered the true Einstein times and radii for most events. Microlensing parallax measurements are consistent with true values but uncertain, limiting mass determination. We recommend focusing on events with bright sources or anomalous fits to optimize dark lens searches. We make available the mock Gaia time-series dataset, as well as a toolkit repository for working with the data format, fitting models, and visualizing results.",
+      "authors": [
+        "Zofia Kaczmarek",
+        "David Sweeney",
+        "Łukasz Wyrzykowski",
+        "Ulrich Bastian"
+      ],
+      "published": "2026-09-09T18:01:33Z",
+      "updated": "2026-09-09T18:01:33Z",
+      "url": "https://arxiv.org/abs/2609.10705",
+      "pdf_url": "https://arxiv.org/pdf/2609.10705",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.10357",
       "title": "A Later Test Set Is Not a New Domain: Pretraining Familiarity Survives a Contamination-Free Hold-Out",
       "abstract": "Time-series foundation models are evaluated almost exclusively on public archives that predate them, so a strong score cannot be separated from having seen the test set during pretraining. The obvious remedy is a hold-out that postdates the models. We build one: thirteen forecasters -- four classical, three trained per dataset, six pretrained -- on seven groups drawn from five domains, every observation published after the last model was released, and every dataset rebuildable without an API key. Under this protocol pretrained models win 5 of 7 groups, lose one to a Theta baseline, and on daily exchange rates are indistinguishable from a seasonal naive forecast, along with every other method tested. We then ask what separates the wins from the losses, and report a negative result: the two intrinsic properties one would reach for -- seasonal strength and spectral entropy, measured on the input window -- do not account for the pattern, and seasonal strength is if anything negatively associated with the advantage. What does track it is corpus familiarity. Our largest gain (28% lower MASE than the best classical method, on weekly Wikipedia pageviews) falls on Wikipedia pageviews, the domain TimesFM's authors describe as the bulk of its pretraining corpus, at the same granularities and differing only in time window. Within the pretrained family, where every model forecasts identical series so that series difficulty cancels, the TimesFM family outranks the Chronos family by -0.53 ranks on Wikipedia against -0.09 everywhere else (1,500 vs. 754 series, Mann-Whitney p < 1e-5). We conclude that a temporal hold-out removes memorisation of a window but not familiarity with a domain, that benchmarks therefore need domain hold-outs stated relative to disclosed corpora, and that the practitioner's question is less which model is better than whether their domain is one the model was raised on.",
@@ -348,6 +527,22 @@
       "url": "https://arxiv.org/abs/2609.06866",
       "pdf_url": "https://arxiv.org/pdf/2609.06866",
       "first_seen": "2026-09-09T19:46:51.853258Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.10589",
+      "title": "Halo: Improving forecast accuracy through heteroscedastic estimation",
+      "abstract": "Heteroscedastic forecasting, where a network estimates a scale parameter alongside a location parameter, is normally motivated by uncertainty quantification. This paper shows it also improves the point estimate, in contrast to reported negative results for heteroscedastic estimation outside time series. Halo is a modification that reuses an existing deep forecaster's architecture, giving it a second output for the scale of its implied distribution and training it under the matching negative log likelihood. Adapting three state-of-the-art models --- a transformer, a graph network paired with a variational autoencoder, and a single-layer convolutional network --- under both Gaussian and Laplacian losses demonstrates the phenomenon. On the five electricity price markets of a standard forecasting benchmark, Halo improves MSE and MAE in 28 of 30 model-market-metric comparisons, cutting average MSE by 2.6% to 16.5% and average MAE by 1.7% to 11.0%. Two findings emerge: (1) whether the scale estimate comes from a second projection head or from a full parallel network matters far less than whether the network estimates scale, and (2) the improvement holds under the hyperparameters already tuned for the point-estimate baseline, so retuning is optional.",
+      "authors": [
+        "Adam Cataldo"
+      ],
+      "published": "2026-09-06T18:03:06Z",
+      "updated": "2026-09-06T18:03:06Z",
+      "url": "https://arxiv.org/abs/2609.10589",
+      "pdf_url": "https://arxiv.org/pdf/2609.10589",
+      "first_seen": "2026-09-11T19:44:00.321841Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -3550,13 +3745,19 @@
       ]
     }
   ],
-  "last_success": "2026-09-10T19:42:43.980909Z",
-  "last_attempt": "2026-09-10T19:42:43.980909Z",
+  "last_success": "2026-09-11T19:44:00.321841Z",
+  "last_attempt": "2026-09-11T19:44:00.321841Z",
   "last_new_ids": [
-    "2609.09195",
-    "2609.09586",
-    "2609.09780",
-    "2609.10357"
+    "2609.10589",
+    "2609.10705",
+    "2609.10767",
+    "2609.10772",
+    "2609.11135",
+    "2609.11206",
+    "2609.11282",
+    "2609.11575",
+    "2609.11639",
+    "2609.11872"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
