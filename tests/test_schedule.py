@@ -9,6 +9,11 @@ def at(value):
 
 
 class ScheduleTests(unittest.TestCase):
+    def test_server_cooldown_applies_to_scheduled_and_manual_runs(self):
+        for event in ('schedule', 'push', 'workflow_dispatch'):
+            self.assertFalse(should_run(event, {}, at('2026-09-07T03:17:00Z'), '2026-09-07T05:00:00Z'))
+            self.assertTrue(should_run(event, {}, at('2026-09-07T05:00:00Z'), '2026-09-07T05:00:00Z'))
+
     def test_wait_until_0217_beijing_across_utc_date_boundary(self):
         self.assertFalse(should_run("schedule", {}, at("2026-09-06T18:16:00Z")))
         self.assertTrue(should_run("schedule", {}, at("2026-09-06T18:17:00Z")))

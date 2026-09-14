@@ -9,10 +9,12 @@ import re
 import shutil
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -74,12 +76,38 @@ def matches(paper, topic):
             and not any(contains(text, term) for term in topic.get("exclude", [])))
 
 
-def make_query(topic):
+def make_query(topic, candidate_only=False):
+    keyword_groups = topic["groups"]
+    if candidate_only:
+        # Every match must satisfy every group. Querying just one required group
+        # gives a superset; matches() still applies ALL groups and exclusions.
+        # Short queries avoid sending long Boolean expressions to the API.
+        keyword_groups = [min(keyword_groups, key=lambda group: sum(len(term) for term in group))]
     groups = ["(" + " OR ".join('(ti:"{0}" OR abs:"{0}")'.format(term.strip()) for term in group) + ")"
-              for group in topic["groups"]]
+              for group in keyword_groups]
     # arXiv supports submittedDate filtering, but no lastUpdatedDate filter.
     # Sort updates descending and stop locally at the checkpoint instead.
     return " AND ".join(groups)
+
+
+class RetryLaterError(RuntimeError):
+    def __init__(self, message, retry_not_before):
+        super().__init__(message)
+        self.retry_not_before = retry_not_before
+
+
+def retry_deadline(value, now):
+    """Honor either form of Retry-After; use one minute when absent/invalid."""
+    fallback = now + timedelta(seconds=60)
+    try:
+        if value and value.strip().isdigit():
+            return max(fallback, now + timedelta(seconds=int(value.strip())))
+        parsed = parsedate_to_datetime(value)
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return max(fallback, parsed)
+    except (TypeError, ValueError, OverflowError):
+        return fallback
 
 
 class ArxivClient:
@@ -87,28 +115,52 @@ class ArxivClient:
         self.opener = opener
         self.sleep = sleep
         self.last_request = None
+        self.response_cache = {}
 
     def request(self, url):
+        if url in self.response_cache:
+            return self.response_cache[url]
         for attempt in range(3):
             if self.last_request is not None:
                 self.sleep(max(0, 3.1 - (time.monotonic() - self.last_request)))
             self.last_request = time.monotonic()
             try:
-                request = urllib.request.Request(url, headers={"User-Agent": "TimeSeriesPaperTracker/1.0 (personal academic digest)"})
+                request = urllib.request.Request(url, headers={
+                    "User-Agent": "TimeSeriesPaperTracker/1.1 (+https://github.com/chenghuang7/paper-search)",
+                    "Accept": "application/atom+xml, application/xml;q=0.9, */*;q=0.1",
+                })
                 with self.opener(request, timeout=45) as response:
-                    return response.read()
+                    payload = response.read()
+                self.response_cache[url] = payload
+                return payload
+            except urllib.error.HTTPError as error:
+                retry_after = error.headers.get("Retry-After") if error.headers else None
+                try:
+                    detail = " ".join(error.read(500).decode("utf-8", errors="replace").split())[:240]
+                except OSError:
+                    detail = ""
+                finally:
+                    error.close()
+                message = "arXiv HTTP {}: {}".format(error.code, detail or error.reason)
+                if error.code == 429 or (error.code == 503 and retry_after):
+                    deadline = stamp(retry_deadline(retry_after, datetime.now(timezone.utc)))
+                    raise RetryLaterError(message + "; retry after " + deadline, deadline) from error
+                if error.code not in (408, 500, 502, 503, 504) or attempt == 2:
+                    raise RuntimeError(message) from error
+                LOG.warning("%s，将在 %d 秒后重试", message, 10 * 2 ** attempt)
+                self.sleep(10 * 2 ** attempt)
             except Exception as error:
                 if attempt == 2:
                     raise
                 LOG.warning("请求失败，将重试 (%d/3): %s", attempt + 1, error)
-                self.sleep(2 ** (attempt + 1))
+                self.sleep(10 * 2 ** attempt)
 
     def fetch(self, topic, start, end):
         offset, expected = 0, None
         previous_updated = None
         seen = set()
         while True:
-            params = {"search_query": make_query(topic), "start": offset,
+            params = {"search_query": make_query(topic, candidate_only=True), "start": offset,
                       "max_results": 100, "sortBy": "lastUpdatedDate", "sortOrder": "descending"}
             payload = self.request("https://export.arxiv.org/api/query?" + urllib.parse.urlencode(params))
             feed = ET.fromstring(payload)
@@ -187,7 +239,7 @@ def sync(config, previous, client, now):
         paper["topics"] = [topic["id"] for topic in config["topics"] if matches(paper, topic)]
     state.update(papers=sorted(papers.values(), key=lambda p: (p["published"], p["id"]), reverse=True),
                  last_success=stamp(now), last_attempt=stamp(now), last_new_ids=sorted(new_ids),
-                 error=None, error_detail=None, config_fingerprint=fingerprint)
+                 error=None, error_detail=None, retry_not_before=None, config_fingerprint=fingerprint)
     return state
 
 
@@ -216,12 +268,15 @@ def main():
     if args.command == "update":
         now = datetime.now(timezone.utc)
         try:
+            if state.get("retry_not_before") and now < date(state["retry_not_before"]):
+                raise RetryLaterError("arXiv 要求等待至 " + state["retry_not_before"], state["retry_not_before"])
             state = sync(config, state, ArxivClient(), now)
             LOG.info("完成检索：新增 %d 篇，共 %d 篇", len(state["last_new_ids"]), len(state["papers"]))
         except Exception as error:
             LOG.error("检索失败，保留历史数据: %s", error)
             state = dict(state, last_attempt=stamp(now), error="本次检索失败，已保留上次结果；下次运行将自动补抓。",
-                         error_detail="{}: {}".format(type(error).__name__, error))
+                         error_detail="{}: {}".format(type(error).__name__, error),
+                         retry_not_before=getattr(error, "retry_not_before", None))
             failed = True
         write_json(args.data, state)
     build(config, state, args.output)

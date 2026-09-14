@@ -1,9 +1,13 @@
 import copy
+import io
 import json
 import sys
 import tempfile
 import unittest
+import urllib.error
+import urllib.parse
 from datetime import timedelta
+from email.message import Message
 from pathlib import Path
 from unittest.mock import patch
 from xml.sax.saxutils import escape
@@ -124,6 +128,59 @@ class SyncTests(unittest.TestCase):
 
 
 class ApiTests(unittest.TestCase):
+    def test_shared_candidate_query_keeps_full_local_filtering(self):
+        queries = [tracker.make_query(topic, candidate_only=True) for topic in CONFIG['topics']]
+        self.assertEqual(len(set(queries)), 1)
+        self.assertNotIn('forecasting', queries[0])
+        self.assertIn('ti:"time series"', queries[0])
+        self.assertFalse(tracker.matches(paper(title='Time series classification', abstract='A classifier.'), CONFIG['topics'][0]))
+
+    def test_successful_responses_are_reused_within_a_run(self):
+        response = unittest.mock.MagicMock()
+        response.__enter__.return_value.read.return_value = feed([paper()])
+        opener = unittest.mock.Mock(return_value=response)
+        client = tracker.ArxivClient(opener=opener, sleep=unittest.mock.Mock())
+        for topic in CONFIG['topics']:
+            list(client.fetch(topic, NOW - timedelta(days=7), NOW))
+        self.assertEqual(opener.call_count, 1)
+        self.assertIn('application/atom+xml', opener.call_args.args[0].get_header('Accept'))
+
+    def test_http_406_reports_body_without_repeating_rejected_request(self):
+        error = urllib.error.HTTPError('https://export.arxiv.org/api/query', 406, 'Not Acceptable', Message(), io.BytesIO(b'Query not accepted'))
+        opener = unittest.mock.Mock(side_effect=error)
+        client = tracker.ArxivClient(opener=opener, sleep=unittest.mock.Mock())
+        with self.assertRaisesRegex(RuntimeError, 'arXiv HTTP 406: Query not accepted'):
+            client.request('https://export.arxiv.org/api/query')
+        self.assertEqual(opener.call_count, 1)
+
+    def test_rate_limit_stops_requests_and_records_retry_deadline(self):
+        headers = Message()
+        headers['Retry-After'] = '7200'
+        error = urllib.error.HTTPError('https://export.arxiv.org/api/query', 429, 'Too Many Requests', headers, io.BytesIO(b'Rate exceeded.'))
+        opener = unittest.mock.Mock(side_effect=error)
+        client = tracker.ArxivClient(opener=opener, sleep=unittest.mock.Mock())
+        before = tracker.datetime.now(tracker.timezone.utc)
+        with self.assertRaises(tracker.RetryLaterError) as caught:
+            client.request('https://export.arxiv.org/api/query')
+        self.assertGreaterEqual(tracker.date(caught.exception.retry_not_before), before + timedelta(seconds=7200))
+        self.assertEqual(opener.call_count, 1)
+
+    def test_retry_after_supports_http_dates_and_missing_values(self):
+        self.assertEqual(tracker.retry_deadline('Sun, 06 Sep 2026 04:00:00 GMT', NOW), tracker.date('2026-09-06T04:00:00Z'))
+        for value in (None, '', 'bad', '0'):
+            self.assertEqual(tracker.retry_deadline(value, NOW), NOW + timedelta(seconds=60))
+
+    def test_transient_server_failure_retries(self):
+        error = urllib.error.HTTPError('https://export.arxiv.org/api/query', 503, 'Service Unavailable', Message(), io.BytesIO(b'Temporarily unavailable'))
+        response = unittest.mock.MagicMock()
+        response.__enter__.return_value.read.return_value = b'ok'
+        opener = unittest.mock.Mock(side_effect=[error, response])
+        sleep = unittest.mock.Mock()
+        client = tracker.ArxivClient(opener=opener, sleep=sleep)
+        self.assertEqual(client.request('https://export.arxiv.org/api/query'), b'ok')
+        self.assertEqual(opener.call_count, 2)
+        sleep.assert_any_call(10)
+
     def client(self, pages):
         client = tracker.ArxivClient()
         client.request = unittest.mock.Mock(side_effect=pages)
@@ -166,6 +223,17 @@ class ApiTests(unittest.TestCase):
 
 
 class BuildTests(unittest.TestCase):
+    def test_cli_respects_persisted_rate_limit_without_network_request(self):
+        state = blank()
+        state['retry_not_before'] = '2099-01-01T00:00:00Z'
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory, 'papers.json')
+            tracker.write_json(path, state)
+            with patch.object(sys, 'argv', ['paper_tracker.py', 'update', '--data', str(path), '--output', str(Path(directory, 'site'))]), patch.object(tracker.ArxivClient, 'fetch') as fetch:
+                self.assertEqual(tracker.main(), 1)
+                fetch.assert_not_called()
+            self.assertEqual(tracker.read_json(path)['retry_not_before'], state['retry_not_before'])
+
     def test_escape_embedded_data_and_relative_assets(self):
         state = tracker.sync(CONFIG, blank(), FakeClient([paper(abstract='Time series forecasting </script><script>alert(1)</script>')]), NOW)
         with tempfile.TemporaryDirectory() as directory:

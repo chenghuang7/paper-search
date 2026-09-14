@@ -8,7 +8,13 @@ ROOT = Path(__file__).resolve().parents[1]
 CHINA = timezone(timedelta(hours=8))
 
 
-def should_run(event, checkpoint, now):
+def should_run(event, checkpoint, now, retry_not_before=None):
+    if retry_not_before:
+        try:
+            if now < datetime.fromisoformat(retry_not_before.replace("Z", "+00:00")):
+                return False
+        except (ValueError, TypeError):
+            pass
     if event != "schedule":
         return True
     local = now.astimezone(CHINA)
@@ -44,7 +50,8 @@ def main():
             checkpoint = json.loads(checkpoint_path.read_text())
         except (FileNotFoundError, json.JSONDecodeError):
             checkpoint = {}
-        run = should_run(args.event, checkpoint, datetime.now(timezone.utc))
+        state = json.loads((ROOT / "data/papers.json").read_text())
+        run = should_run(args.event, checkpoint, datetime.now(timezone.utc), state.get("retry_not_before"))
         print("run=" + str(run).lower())
 
 
