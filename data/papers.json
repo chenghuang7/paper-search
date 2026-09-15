@@ -2,6 +2,387 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.15519",
+      "title": "Predictability Measures for Power Quality Time Series in Medium-Term Forecasting",
+      "abstract": "Medium-term forecasting of Power Quality (PQ) parameters, on horizons of weeks to about one year, supports proactive maintenance and the early detection of limit exceedances in transmission network monitoring. Its practical value, however, depends on knowing in advance which time series can be forecast reliably at all. This article addresses that question in two stages, based on 2,807 weekly time series of PQ parameters from a long-term measurement campaign at 66 sites in the German transmission system, covering the 110 kV, 220 kV, and 380 kV levels. First, eight forecasting models are benchmarked. The STL-ARIMA hybrid achieves the highest accuracy, with an average sMAPE of 17.63% and a lower error than the seasonal naive benchmark for 72% of the time series, while accuracy varies substantially across PQ parameters and measurement sites. Second, model-free features computed from the training set alone are evaluated as measures of intrinsic predictability. SVD entropy and the Crest Factor correlate strongly with the realized forecast accuracy of all eight models and are used in a logistic regression to estimate the probability of a poor forecast before any model is applied. The resulting measures allow operators to separate time series suitable for automated forecasting from those requiring manual review.",
+      "authors": [
+        "Peter Feistel",
+        "Max Domagk",
+        "Jan Meyer",
+        "Marco Lindner"
+      ],
+      "published": "2026-09-14T13:09:27Z",
+      "updated": "2026-09-14T13:09:27Z",
+      "url": "https://arxiv.org/abs/2609.15519",
+      "pdf_url": "https://arxiv.org/pdf/2609.15519",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.15483",
+      "title": "GSLAD: Prototype-Regularized Graph Structure Learning for Multivariate Time Series Anomaly Detection",
+      "abstract": "Unsupervised multivariate time series anomaly detection methods typically identify anomalies through forecasting, reconstruction, or representation discrepancies. However, industrial faults may first alter inter-variable structural patterns while individual trajectories remain close to normal, resulting in weak anomaly signals. In this paper, we propose GSLAD, a prototype-regularized graph structure learning framework that uses structural deviations for anomaly scoring. GSLAD adopts a two-phase training strategy. First, a condition-aware graph learner and a graph-based forecaster are optimized with predictive supervision. The inferred normal graphs are then clustered into multiple structural prototypes representing different normal operating regimes, with edge-wise variability characterizing structural uncertainty. Deviations from these prototypes regularize the graph learner in the second phase, encouraging stable and regime-specific structural patterns. During inference, uncertainty-normalized structural deviation is combined with predictive deviation for anomaly scoring. Experiments on four industrial benchmarks demonstrate strong overall performance of GSLAD and confirm the effectiveness of structural deviation for anomaly detection and diagnosis.",
+      "authors": [
+        "Zepeng Zhang",
+        "Fuad Khuri",
+        "Keivan Faghih Niresi",
+        "Olga Fink"
+      ],
+      "published": "2026-09-14T12:37:48Z",
+      "updated": "2026-09-14T12:37:48Z",
+      "url": "https://arxiv.org/abs/2609.15483",
+      "pdf_url": "https://arxiv.org/pdf/2609.15483",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.15344",
+      "title": "Parameter-Efficient Adaptation of Pretrained Language Models for Time-Series Forecasting",
+      "abstract": "We study the adaptation of pretrained language models to univariate time-series forecasting through a parameter-efficient transfer learning framework, with the goal of understanding which design choices drive effective cross-modal transfer. While language models operate on discrete textual tokens, time series consist of continuous numerical observations with temporal dependencies. To bridge this modality gap, we project fixed-length time-series patches directly into the embedding space of a pretrained GPT-2 backbone, bypassing textual tokenization and treating the Transformer as a generic sequence encoder. Through controlled ablation studies on seven benchmark datasets spanning energy, weather, traffic, and finance, we analyze the effects of (i)~representation strategy (continuous embeddings versus textual serialisation), (ii)~adaptation regime (frozen backbone versus partial or full fine-tuning), (iii)~architectural components such as adapters, pooling strategies, and prediction heads, and (iv)~input context length. Continuous patch-based embeddings consistently outperform textual prompting and randomly initialised backbones. The adapted pipeline attains MASE within the range of specialised forecasting architectures while updating less than 1\\% of total model parameters. Results further indicate that freezing the pretrained backbone and training lightweight projection and adapter modules provides a favourable accuracy--efficiency trade-off with stable behaviour across varying context lengths.",
+      "authors": [
+        "Tamanna Kumavat",
+        "Georg Brunner",
+        "Kyriakos Flouris"
+      ],
+      "published": "2026-09-14T10:30:59Z",
+      "updated": "2026-09-14T10:30:59Z",
+      "url": "https://arxiv.org/abs/2609.15344",
+      "pdf_url": "https://arxiv.org/pdf/2609.15344",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.15087",
+      "title": "Beyond Numerical Time Series: A Unified Benchmark for Multimodal Forecasting with Heterogeneous Context",
+      "abstract": "Most time series forecasting benchmarks remain numerical-centric and provide limited support for evaluating contextual information that shapes real-world temporal dynamics. Existing multimodal benchmarks also suffer from limited data and context coverage, fragmented evaluation settings, and overreliance on aggregate evaluation. In this paper, we propose \\textbf{MUSE-Bench}, a unified benchmark for multimodal time series forecasting with heterogeneous context. It comprises fourteen datasets across eight domains and six types of context: metadata, events, holidays, news, images, and numerical covariates. We evaluate diverse forecasting paradigms, including statistical, data-specific, foundation, multimodal, and general-purpose LLM forecasting methods under shared non-overlapping forecast windows, common target observations, and consistent point and probabilistic metrics. Extensive experiments yield three main findings. First, numerical time series foundation models dominate the overall ranking, while Aurora, the evaluated multimodal foundation model, trails the leading numerical TSFMs but outperforms all evaluated data-specific models. Second, ablations show that external context improves the four evaluated context-aware models, whereas incorrect or temporally misaligned context degrades performance. Third, general-purpose LLMs perform poorly as direct forecasters, and LLM-guided refinement does not yield consistent improvements. MUSE-Bench enables systematic evaluation of how forecasting models utilize context and provides a foundation for future multimodal forecasting research.",
+      "authors": [
+        "Peng Chen",
+        "Zhihao Zhuang",
+        "Hongzhou Chen",
+        "Junhao Huang",
+        "Aiping Yang",
+        "Mengsen Wu",
+        "Yiding Liu",
+        "Xilin Dai",
+        "Zewei Dong"
+      ],
+      "published": "2026-09-14T06:01:16Z",
+      "updated": "2026-09-14T06:01:16Z",
+      "url": "https://arxiv.org/abs/2609.15087",
+      "pdf_url": "https://arxiv.org/pdf/2609.15087",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.14718",
+      "title": "Are Gradient Boosting Models Suitable for Intermittent Demand Forecasting?",
+      "abstract": "Demand forecasting is critical in modern industry, offering opportunities to reduce costs and gain competitive advantage through improved inventory management. However, forecasting becomes particularly challenging for products with intermittent demand, where demand occurs infrequently and time series contain many zero observations. Such dynamics are common across diverse sectors, such as industrial organizations, consumer goods, aviation, automotive, and electronics. Motivated by these challenges, this paper explores the potential of gradient boosting models to improve forecasting performance. We evaluate statistical, specialized, machine learning, and ensemble approaches across multiple datasets. The results show that specialized methods achieve the strongest performance among individual models, while gradient boosting on its own tends to underperform. However, combining a machine learning model with a specialized approach improves forecasting accuracy by up to 10%, demonstrating that even simple ensembles can outperform single models. Overall, the findings highlight the value of combining machine learning with domain-specific forecasting techniques for intermittent demand.",
+      "authors": [
+        "Vladislav Kislinskii",
+        "Mazhar Hameed"
+      ],
+      "published": "2026-09-13T18:23:23Z",
+      "updated": "2026-09-13T18:23:23Z",
+      "url": "https://arxiv.org/abs/2609.14718",
+      "pdf_url": "https://arxiv.org/pdf/2609.14718",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.14576",
+      "title": "Towards foundation models for insurance risk modelling",
+      "abstract": "Claim narratives, images and sensor data contain information about insured risks that is difficult to use through existing actuarial models. Foundation models learn patterns from large datasets before being adapted to particular tasks. By turning these high-dimensional sources into variables or numerical representations, they could help insurers use more of the information they already collect, potentially reducing the experience needed to develop each application. For example, a language model could identify a worsening injury in a new claim note, allowing a reserving model to recognise the change in expected cost before the payments reveal the deterioration. In this paper, we review language, vision, geospatial, time series, tabular and scientific models, explaining existing insurance applications and potential future uses. Scientific models extend this approach to future weather and climate conditions: their simulations can inform loss estimates once local hazards are linked to asset damage, repair costs and insurance coverage. We propose a process to connect these model outputs to actuarial calculations and to assess their predictive contribution, stability and compliance with rules on information use. Evaluating these applications is difficult when final claim costs become known only after long delays, large losses are rare or patterns learned elsewhere fail to transfer to the target portfolio. Richer data can reveal private information and support finer risk classification, which can change access to insurance. Reusing the same models across insurers also creates dependence on shared predictions and providers.",
+      "authors": [
+        "Christopher Blier-Wong"
+      ],
+      "published": "2026-09-13T15:00:58Z",
+      "updated": "2026-09-13T15:00:58Z",
+      "url": "https://arxiv.org/abs/2609.14576",
+      "pdf_url": "https://arxiv.org/pdf/2609.14576",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.14011",
+      "title": "Convergent Emergence of In-Context Learning Across Modalities",
+      "abstract": "Few-shot in-context learning (ICL), the capacity of a model to infer abstract patterns from input-output examples provided in its prompt and apply them to new inputs, has been extensively studied in large language models trained for next-token prediction on human text. Recently, few-shot ICL has been demonstrated in autoregressive genomic models as well. This raises a question: does ICL emerge broadly across domains, and if so, what common structure is shared? To address both, we develop a controlled cross-modality framework that instantiates the same task suite in a variety of modalities to test what we call the Convergent Emergence Hypothesis: the idea that few-shot ICL, when it emerges, shares a common cross-modality difficulty profile - i.e., tasks that benefit from ICL in one modality tend to benefit in others. We show that paired-mapping ICL emerges across six modalities (language, genome, integer sequences, time series, images, and proteins), surpasses controlled baselines, and has correlated per-task effects across five of them. Together, these results provide support for the Convergent Emergence Hypothesis in some modalities, but not all.",
+      "authors": [
+        "Nathan Breslow",
+        "Seungwook Han",
+        "Daniel Hyunsoo Lee",
+        "Aayush Mishra",
+        "Anqi Liu",
+        "Daniel Khashabi"
+      ],
+      "published": "2026-09-12T15:55:30Z",
+      "updated": "2026-09-12T15:55:30Z",
+      "url": "https://arxiv.org/abs/2609.14011",
+      "pdf_url": "https://arxiv.org/pdf/2609.14011",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.13956",
+      "title": "Tabby: An Open Pretraining Recipe for Time Series Foundation Models",
+      "abstract": "In this report, we release Tabby, a long context probabilistic time series foundation model, together with a complete and open recipe of how it was built. Tabby adopts an encoder-only patch Transformer architecture and concentrates the contributions on the data and the training procedure. The pretraining corpus combines an extended real-world collection, GIFT-Eval-Pretrain+ and BLAST, with synthetic data from KernelSynth and CauKerV2, an online generator that composes temporal dynamics through randomly sampled structural causal models. Training couples a progressive convergence schedule, which yields reusable intermediate checkpoints, with a deep quantile supervision objective for intermediate layers. The resulting 145M parameter backbone supports contexts of up to 8,192 observations and serves forecasting, classification, and anomaly detection, while a prompt-tuning module further improves in-distribution forecasting performance with the pretrained weights frozen. Tabby achieves competitive zero-shot forecasting performance on GIFT-Eval and the out-of-distribution TIME benchmark, while the same pretrained backbone also supports classification on the UCR Archive and zero-shot anomaly detection on TSB-AD-U. We release training pipeline and model as open source at huawei-noah/trustworthyAI.",
+      "authors": [
+        "Shifeng Xie",
+        "Bahaeddine Abdessalem",
+        "Zehao Xiao",
+        "Youssef Attia El Hili",
+        "Ambroise Odonnat",
+        "Zhiwei Dong",
+        "Lei Zan",
+        "Themis Palpanas",
+        "Jianfeng Zhang",
+        "Lujia Pan",
+        "Keli Zhang",
+        "Malik Tiomoko"
+      ],
+      "published": "2026-09-12T13:58:39Z",
+      "updated": "2026-09-12T13:58:39Z",
+      "url": "https://arxiv.org/abs/2609.13956",
+      "pdf_url": "https://arxiv.org/pdf/2609.13956",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.13789",
+      "title": "PPDL: A Real-world Industrial User Retention Ratio Forecasting Framework Integrating Physical Priors with Deep Learning",
+      "abstract": "In multi-channel paid user acquisition, early and accurate prediction of user retention at the channel level is crucial for optimizing budget allocation. User retention curves display a pronounced temporal pattern: an initial period of high churn transitions into long-term stability. This pattern is further characterized by regular fluctuations attributable to seasonality and exhibits high serial autocorrelation. These intrinsic properties make such curves highly suitable for analysis within a time-series forecasting framework. However, forecasting user retention ratio for large-scale short-video platform faces three major challenges: significant heterogeneity across channels, pronounced global trend of decay followed by saturation, and short look-back windows. To address these challenges, we propose PPDL, a novel forecasting framework that integrates physical priors with deep learning. We first introduce a trend-residual decomposition component. The trend is modeled using the Weibull distribution, whose parameters are learned via a Multilayer Perceptron (MLP). Secondly, for the residual component, we design an auxiliary embedding module on top of a deep learning backbone to maintain the channel identity awareness. Finally, to enhance the model's sensitivity to trends, we design a Multiscale Trend-penalized loss function. The proposed approach PPDL is validated through comprehensive experiments on industrial-scale datasets, covering three applications with an average of 30+ channels each. Experimental results show that PPDL achieves improvements across different backbones and significantly outperforms existing online solutions.",
+      "authors": [
+        "Zibo Zhao",
+        "Zhengxiong Guan",
+        "Chaoli Zhang",
+        "Linyuan Geng",
+        "Xuanbing Zhu",
+        "Zhonglong Zheng",
+        "Fan Wu"
+      ],
+      "published": "2026-09-12T08:04:45Z",
+      "updated": "2026-09-12T08:04:45Z",
+      "url": "https://arxiv.org/abs/2609.13789",
+      "pdf_url": "https://arxiv.org/pdf/2609.13789",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.13640",
+      "title": "FlowTSFM: Turning Encoder Depth into Quantile Transport",
+      "abstract": "Encoder-based time series foundation models (TSFMs) typically rely on deep stacks of independently parameterized Transformer layers, where only the final forecast is supervised and intermediate representations have no explicit predictive role. We introduce FlowTSFM, an encoder architecture that interprets depth as a recurrent transport process: a single Transformer block is iteratively applied with shared parameters, while a quantile-flow objective supervises intermediate states along a prescribed trajectory from a prior distribution toward the final forecast. The objective combines pinball forecasting loss with path-level position matching. With only 38.8M parameters, FlowTSFM achieves competitive performance on GIFT-Eval and TIME, remaining within 1.8-4.6% MASE of stronger baselines while using approximately $3\\times$ fewer parameters than a 12-layer Chronos-2 model (119.5M). Beyond accuracy, we introduce CosMean, a scale-free diagnostic measuring whether recurrent updates consistently align toward the final prediction. Under a matched intermediate-state probing protocol, FlowTSFM achieves a CosMean score of 0.919 compared with 0.350 for Chronos-2, suggesting that recurrent parameter sharing combined with path supervision is associated with substantially more structured predictive trajectories at a favorable accuracy-efficiency trade-off.",
+      "authors": [
+        "Bahaeddine Abdessalem",
+        "Shifeng Xie",
+        "Zehao Xiao",
+        "Youssef Attia El Hili",
+        "Ambroise Odonnat",
+        "Jianfeng Zhang",
+        "Lujia Pan",
+        "Keli Zhang",
+        "Malik Tiomoko"
+      ],
+      "published": "2026-09-12T01:29:17Z",
+      "updated": "2026-09-12T01:29:17Z",
+      "url": "https://arxiv.org/abs/2609.13640",
+      "pdf_url": "https://arxiv.org/pdf/2609.13640",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.13453",
+      "title": "A Machine Learning API for Earth Observation Data Cubes Based on openEO",
+      "abstract": "Earth Observation (EO) data are increasingly organized as spatio-temporal data cubes, while machine learning (ML) methods operate on tabular feature matrices or structured tensor inputs. This mismatch forces platform-specific transformations that are difficult to reproduce or transfer across cloud infrastructures. The openEO specification provides a unified interface for EO data access and processing across heterogeneous backends, but lacks a standardized approach for ML integration. We propose a process-level ML specification for openEO structured into three stages: model initialization, model actions (training, tuning, inference, validation), and model management. It supports classical algorithms such as Random Forest and SVM, as well as deep learning architectures for time-series and spatial patch-based modeling, including TempCNN, Temporal Attention Encoders, and foundation model inference. Three prototype implementations in R and Python demonstrate feasibility across diverse technology stacks. A crop type mapping use case demonstrates cross-backend interoperability by submitting an identical process graph to independent R and Python backends and comparing predictions and evaluation metrics. Two further use cases demonstrate deep learning on time series and foundation model inference, each executed on a dedicated backend. The prototypes reveal, however, that full cross-backend portability requires deeper harmonization of serialization formats and execution semantics than the process level alone can enforce; backend library versions and preprocessing conventions outside the specification's boundary also affect reproducibility. Addressing both through explicit backend conformance profiles represents the most important near-term direction. The specification advances the reproducibility, portability, and accessibility of ML workflows on EO data cubes across cloud platforms.",
+      "authors": [
+        "Brian Pondi",
+        "Jonas Hurst",
+        "Rolf Simoes",
+        "Jonas Starke",
+        "Marius Appel",
+        "Edzer Pebesma"
+      ],
+      "published": "2026-09-11T19:14:52Z",
+      "updated": "2026-09-11T19:14:52Z",
+      "url": "https://arxiv.org/abs/2609.13453",
+      "pdf_url": "https://arxiv.org/pdf/2609.13453",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.13125",
+      "title": "A Hybrid LSTM-XGBoost Framework for Multi-Horizon Stock Return Prediction Across Diversified Equity Portfolios",
+      "abstract": "Accurate prediction of equity returns remains a major challenge in computational finance due to the non-stationary, nonlinear, and low signal-to-noise ratio nature of financial time series. This paper proposes a hybrid two-stage architecture that combines a long short-term memory (LSTM) network with an XGBoost gradient-boosted regressor for multi-horizon stock return prediction across a diversified panel of 14 U.S. equities spanning six industry sectors. The LSTM component, comprising two stacked layers with 64 hidden units, processes 60-day sliding windows of five sequential market features to produce 64-dimensional temporal embeddings that encode learned sequential market dynamics. These embeddings are concatenated with 14 hand-crafted technical indicators to form a 78-dimensional hybrid feature vector, which is subsequently passed to an XGBoost regressor tuned via 3-fold cross-validation grid search. The framework is trained on a multi-stock pooled corpus using strict chronological splits and per-stock MinMaxScaling to prevent look-ahead bias, and evaluated across four prediction horizons of 30, 90, 252, and 365 trading days. Experimental results demonstrate that the hybrid model achieves a test RMSE of 0.0949 on the 30-day horizon, roughly one-third that of the standalone LSTM baseline, while marginally matching or surpassing the XGBoost-Only baseline across the majority of stocks. Directional accuracy rises with horizon length, reaching 97.6% at 365 days; we show, however, that this largely tracks the high base rate of positive long-horizon returns in the sample, and we therefore benchmark directional accuracy against a naive always-positive predictor and treat the above-base-rate gap at short horizons as the more informative signal. A composite investment scoring framework derived from multi-horizon predictions is further proposed to support portfolio ranking and decision support.",
+      "authors": [
+        "Seif ElDein Mostafa",
+        "Yahia Ahmed",
+        "Farah Datwish",
+        "Marwa Solayman"
+      ],
+      "published": "2026-09-11T17:51:47Z",
+      "updated": "2026-09-11T17:51:47Z",
+      "url": "https://arxiv.org/abs/2609.13125",
+      "pdf_url": "https://arxiv.org/pdf/2609.13125",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.13345",
+      "title": "Beyond Point Forecasts: A Survey on Probabilistic Forecasting for Time Series and Spatiotemporal Data",
+      "abstract": "Probabilistic forecasting is central to decision-making under uncertainty, yet its methodological landscape has become increasingly fragmented across temporal and spatiotemporal forecasting, statistical modeling, machine learning, and deep generative modeling. This survey develops a unified perspective by organizing probabilistic forecasting methods according to where and how uncertainty is introduced into the forecasting pipeline. Our taxonomy connects model-agnostic approaches including ensembles and distribution-free calibration, with model-intrinsic approaches spanning Bayesian modeling, parametric predictive distributions, distributional regression, and modern generative models, and further examines the emerging role of time series foundation models. Beyond methodological synthesis, we identify the assumptions, computational demands, and forms of uncertainty represented by different paradigms, and translate these distinctions into data-driven and domain-specific guidance for method selection. We complement the survey with a cross-paradigm empirical study on univariate, multivariate, and spatiotemporal forecasting tasks. The results reveal that no single uncertainty-quantification paradigm dominates across settings. Calibration, sharpness, predictive accuracy, and computational efficiency can lead to substantially different model preferences, while expressive generative models and zero-shot foundation models exhibit markedly different accuracy-efficiency trade-offs. Lastly, we identify unresolved challenges surrounding uncertainty in evolving dependency structures, physics-informed predictive distributions, forecasting extreme events, handling count-valued, directional, and continuous-time series, and the development of unified software resources. Our survey provides both a conceptual framework and a practical roadmap for probabilistic forecasting research.",
+      "authors": [
+        "Donia Besher",
+        "Rajdeep Pathak",
+        "Madhurima Panja",
+        "Tanujit Chakraborty"
+      ],
+      "published": "2026-09-11T13:26:47Z",
+      "updated": "2026-09-11T13:26:47Z",
+      "url": "https://arxiv.org/abs/2609.13345",
+      "pdf_url": "https://arxiv.org/pdf/2609.13345",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.12793",
+      "title": "VertiFuseX: Generalizable Financial Forecasting via Multi-Stream Temporal Fusion",
+      "abstract": "Stock price prediction remains challenging due to the non-stationary and noisy nature of financial time series. Existing deep learning models often rely on rigid decision-level fusion, ad hoc hyperparameter tuning, and compressed final-layer outputs, causing information loss, overfitting, and limited cross-market generalization. We propose VertiFuseX, a hybrid LSTM architecture using penultimate-layer vertical fusion of multi-scale temporal representations. VertiFuseX stacks and reweights penultimate features from LSTM, Bi-LSTM, and St-LSTM branches, integrates a parallel DNN stream, and jointly optimizes all components via backpropagation under a fixed hyperparameter configuration. This preserves richer intermediate temporal information across scales. Evaluated on 15 years (2010-2024) of closing prices from 10 global equity indices using strict chronological out-of-sample testing with the final 365 trading days held out, VertiFuseX achieves 30-54% MAPE reductions and over 40% improvements in MAE and RMSE versus LSTM-based baselines, and outperforms seven state-of-the-art models across 33 metric-dataset comparisons. Ablation studies confirm penultimate-layer fusion drives these gains over final-layer fusion and decision-level ensembling. Gradient-based saliency analysis shows consistent emphasis on mid-range dependencies at lags 9-15 days. Economic validation via algorithmic trading simulation under extreme market regimes shows reduced maximum drawdowns and superior risk-adjusted returns. With 675k parameters, a 2.6 MB memory footprint, and 1.5 ms/sample inference latency, VertiFuseX offers a lightweight, interpretable, deployment-ready framework for robust financial forecasting.",
+      "authors": [
+        "Aashish Bohra",
+        "Vivek Vijay"
+      ],
+      "published": "2026-09-11T12:54:25Z",
+      "updated": "2026-09-11T12:54:25Z",
+      "url": "https://arxiv.org/abs/2609.12793",
+      "pdf_url": "https://arxiv.org/pdf/2609.12793",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.12710",
+      "title": "Perturbational Validity for Foundation Models of Brain Dynamics: A Controlled Proof-of-Principle Simulation",
+      "abstract": "Foundation models for human brain recordings are usually evaluated by signal reconstruction, future-state prediction, and transfer to downstream tasks. However, these benchmarks do not establish whether a transferred model remains valid when the system is actively perturbed. We define perturbational validity as the preservation, after limited system-specific adaptation, of the conditional distribution of future trajectories given the current state and a controlled input, and we evaluate it at three levels: time-series accuracy, dynamical-structure similarity, and responses to perturbations excluded from calibration. We demonstrate the framework in an oracle-drift simulation of stochastic bistable systems. Two otherwise identical multilayer perceptrons were trained on drift evaluations from passive or input-driven trajectories. Next, for each held-out system the shared weights were frozen and only a three-dimensional embedding was adapted, with a correctly specified cubic model fitted from scratch as comparator. With two to five system-specific evaluations, perturbational pretraining yielded lower errors in recovering controlled flow, landscape geometry, finite-run occupancy, response distributions, and dose-transition curves. The advantage was reproduced across five independent runs, persisted under full-network adaptation of the passive model, and was attributable to input excitation rather than transition-state coverage: excitation alone lowered controlled-flow error 1.94-fold relative to coverage alone, in five of five runs. The cubic model became competitive as calibration grew, showing that the benefit is specific to few-shot transfer. This controlled demonstration does not test recovery of dynamics from noisy or partially observed brain recordings. It shows why passive prediction should be complemented by prospective evaluation under controlled inputs.",
+      "authors": [
+        "José C. Garcí Alanis",
+        "Sarah Alizadeh",
+        "Marco Rothermel",
+        "Bita Shariatpanahi",
+        "Mina Kheirkhah",
+        "Stefan G. Hofmann",
+        "Tim Hahn",
+        "Hamidreza Jamalabadi"
+      ],
+      "published": "2026-09-11T11:05:48Z",
+      "updated": "2026-09-11T11:05:48Z",
+      "url": "https://arxiv.org/abs/2609.12710",
+      "pdf_url": "https://arxiv.org/pdf/2609.12710",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.12639",
+      "title": "Explaining Time Series Forecasting with Horizon-Resolved Attribution",
+      "abstract": "Recent advances in explaining time series (TS) models have produced methods that identify which past values a prediction depends on. However, most existing methods return a single importance vector, assuming that every predicted step depends on the same past values. In this paper, we show that this assumption does not hold, as different forecast steps depend on different past values. Motivated by this observation, we propose Horizon-Resolved eXplanation (HRX), which adds a horizon axis to the explanation, so that every forecast step receives its own importance map. HRX is a simple yet effective plug-in framework with three components: 1) an estimator that reads these maps out of any differentiable forecaster without modifying the TS backbone, 2) an evaluation protocol that validates the horizon axis by measuring how much a single forecast step changes when the inputs an importance map ranks highest are removed, and 3) a rank criterion that predicts in advance whether the axis is worth resolving on a given TS. We further show that this step-wise dependence is low-dimensional, as the explanations of all steps are built from a few shared maps whose number does not grow with the forecast length. Extensive experiments across various backbones and datasets show that the improvement comes from the horizon axis and holds for estimators of previous explanation methods. Code is available at https://github.com/seunghan96/HRX.",
+      "authors": [
+        "Seunghan Lee",
+        "Jun Seo",
+        "Jaehoon Lee",
+        "Junhyeok Kang",
+        "Sangjun Han",
+        "Sungdong Yoo",
+        "Minjae Kim",
+        "Tae Yoon Lim",
+        "Dongwan Kang",
+        "Hwanil Choi",
+        "Soonyoung Lee",
+        "Wonbin Ahn"
+      ],
+      "published": "2026-09-11T09:38:24Z",
+      "updated": "2026-09-11T09:38:24Z",
+      "url": "https://arxiv.org/abs/2609.12639",
+      "pdf_url": "https://arxiv.org/pdf/2609.12639",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.12412",
+      "title": "HoliBench: A Cross-Platform Benchmarking and Deployment Toolkit for Foundation Models in CPS-IoT Applications",
+      "abstract": "Foundation models, including large language models, vision-language models, and time-series foundation models, are increasingly deployed on embedded and edge platforms for CPS and IoT applications, where energy, latency, and memory are as critical as task accuracy. Existing benchmarking tools evaluate model capability in isolation, reporting accuracy assuming sufficient compute, while hardware profiling tools remain platform-specific and mutually incompatible. As a result, users lack a unified workflow for making deployment decisions across heterogeneous devices. We present HoliBench, a modular benchmarking and deployment toolkit that jointly characterizes accuracy, latency, and energy across platforms from single-board computers to GPU servers. Its platform abstraction layer calibrates cross-device measurement, and the toolkit supports multiple model modalities, inference engines, concurrencies, and existing evaluation harnesses. An interactive interface exposes constraint-aware configuration selection over a design space that is profiled once and reused across studies. Using HoliBench, we characterize 20 models across 7 device types, 3 quantization levels, 8 inference backends, and over 30 tasks, surfacing tradeoffs that existing tools miss: quantization reduces latency only on hardware with low-precision support, accuracy gains show diminishing returns relative to energy, and for autoregressive workloads, average inference power is approximately constant across output lengths. We further find that single-model profiles compose under sequential co-resident execution. In a multi-model CPS deployment, standalone profiles predict combined-pipeline latency and power within 1.2% and 2.5%, enabling deployment exploration without exhaustively profiling every pipeline configuration. We release HoliBench as open-source infrastructure for deployment-aware evaluation of foundation models.",
+      "authors": [
+        "Inesh Chakrabarti",
+        "Zejun Xiong",
+        "Pragya Sharma",
+        "Mani Srivastava"
+      ],
+      "published": "2026-09-11T04:03:20Z",
+      "updated": "2026-09-11T04:03:20Z",
+      "url": "https://arxiv.org/abs/2609.12412",
+      "pdf_url": "https://arxiv.org/pdf/2609.12412",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.12101",
+      "title": "Competence-Gated Pooling of Language Models and Priors for Event Forecasting",
+      "abstract": "In hybrid forecasting, a language model is often one of several available signals. A system may already have a market, crowd, or statistical forecast and must decide whether the model adds useful information or should be ignored. The relevant target is therefore not standalone model accuracy, but relative competence, defined as the model's marginal value beyond the available external forecast. Under Brier loss, we characterize when model disagreement can improve an external forecast and derive the gain from using domain-specific rather than global pooling weights. We then introduce a competence gate that estimates domain-level source weights from resolved outcomes, shrinks uncertain estimates toward a global weight, and recalibrates the pooled forecast. Across 2,357 resolved binary questions and five language models, the gate improves the main external baseline from 0.0771 to 0.0732 Brier and significantly outperforms global forecast combinations. The gain remains significant under leakage controls and against a leakage-safe time-series prior on the pooled structured set, with separate evidence on FRED. In contrast, the gate gives no significant improvement on the official ForecastBench market subset, where it largely defers to the market. Across four Qwen models, verbal confidence does not reliably identify when the model outperforms the external forecast, while outcome-estimated competence supports better abstention decisions. These results provide a practical approach for selective model use based on measured marginal value.",
+      "authors": [
+        "Aditi Tiwari",
+        "Aashrith Bandaru",
+        "Heng Ji"
+      ],
+      "published": "2026-09-10T18:28:32Z",
+      "updated": "2026-09-10T18:28:32Z",
+      "url": "https://arxiv.org/abs/2609.12101",
+      "pdf_url": "https://arxiv.org/pdf/2609.12101",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.11872",
       "title": "Evaluating Time-Series Foundation Models and Multimodal Dietary Context for CGM Forecasting",
       "abstract": "Continuous glucose monitoring (CGM) provides high-frequency measurements of glucose dynamics and enables short-term glucose forecasting for diabetes management. Although time-series foundation models have shown strong general forecasting ability, their effectiveness for CGM prediction and the added value of multimodal dietary context remain unclear. We conduct a comprehensive empirical study using eight public CGM datasets spanning Type 1 diabetes, Type 2 diabetes, and non-diabetes populations. Under a unified protocol across multiple context lengths and prediction horizons, zero-shot foundation models did not consistently outperform strong task-specific baselines such as Elastic Net and PatchTST. In contrast, lightweight fine-tuning substantially improved forecasting performance. For example, fine-tuned Chronos-Bolt reduced RMSE by 6.5%-18.4% in the T1D cohort and by 8.6%-18.2% in the non-diabetes/T2D cohort, with comparable improvements in both in-distribution and out-of-distribution test settings. We further evaluate multimodal dietary context using CGMacros, which provides temporally aligned CGM signals, food images, and macronutrient records. A residual-based fusion framework reduced overall RMSE by approximately 3% and postprandial RMSE by approximately 15% relative to the CGM-only baseline. Moreover, Chronos-based CGM representations were more strongly correlated with observed postprandial glucose increments than representations from LSTM and CatBoost, even after those models incorporated additional dietary modalities, suggesting that pretrained temporal representations better preserve meal-induced excursion patterns. These findings show that foundation models require CGM-specific adaptation for reliable forecasting and that dietary context provides clinically meaningful signals beyond CGM alone, especially during postprandial periods.",
@@ -129,6 +510,28 @@
       ]
     },
     {
+      "id": "2609.11993",
+      "title": "FINESSE: An Agent-Based Simulator and Benchmark Dataset for Multimodal Financial Event Sequences",
+      "abstract": "Machine learning research in financial services is limited by the scarcity of representative open-source datasets. Existing resources are often narrowly focused on a single modality or task and fail to reflect the structured, multimodal, and dynamic nature inherent to many problems in financial services. In this paper, we introduce FINESSE, a Financial Event Sequence Simulation Environment, an agent-based simulation framework for generating synthetic, structured datasets composed of multiple interdependent event streams. Each stream corresponds to a distinct financial behavior such as transactions, payments, account status changes, and policy interventions, each with unique action spaces, schemas and variable types. These streams are coupled through agents' latent evolving states, enabling the simulation of temporally rich interactions. We also introduce FINESSE-Bench, a benchmark dataset generated by the simulator, supporting four representative tasks: balance forecasting, transaction fraud detection, missed payment prediction, and next event prediction. We report baseline results using methods from time series forecasting, event sequence modeling, temporal graphs, and temporal point processes. We release the FINESSE framework, including the simulator and dataset to accelerate research on structured, multimodal event sequence modeling challenges in financial services.",
+      "authors": [
+        "Tyler Farnan",
+        "Benjamin Eng",
+        "Adam Abate",
+        "Xirui Hou",
+        "Rizal Fathony",
+        "Nam H. Nguyen",
+        "Senthil Kumar"
+      ],
+      "published": "2026-09-09T20:24:09Z",
+      "updated": "2026-09-09T20:24:09Z",
+      "url": "https://arxiv.org/abs/2609.11993",
+      "pdf_url": "https://arxiv.org/pdf/2609.11993",
+      "first_seen": "2026-09-15T21:23:42.787432Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.10772",
       "title": "Solar Flare Prediction Using a Hybrid Convolutional Neural Network and Transformer Model",
       "abstract": "Solar flares are intense bursts of electromagnetic radiation that occur when stored magnetic energy in the Sun's atmosphere is suddenly released. They are categorized into five classes -- from least to most powerful: A, B, C, M, and X -- with each successive class representing a ten-fold increase in energy output. The electromagnetic radiation emitted by the stronger classes (C, M, and X) is capable of causing significant disruptions to communication systems, satellites, and power grids on Earth. Accurate prediction of solar flares is crucial for mitigating their adverse effects and ensuring the functionality of critical infrastructure. This research introduces a novel model named ResNet-Transformer, which combines a convolutional neural network (CNN), ResNet50, with a standard Transformer architecture. The hybrid model effectively processes both spatial and time-series data derived from solar images to predict the occurrence, class (C, M, and X), and probability of solar flares within 24-hour, 36-hour, and 72-hour windows. This hybrid deep learning model represents the first of its kind in the domain of image-based, multiclass solar flare prediction. We evaluated the model's performance using a comprehensive set of metrics, including weighted precision, recall, and F1 score, together with balanced accuracy, the Matthews correlation coefficient (MCC), Cohen's kappa, and the area under the receiver operating characteristic curve (ROC-AUC). Results show that ResNet-Transformer surpasses traditional machine learning methods, such as support vector machines (SVMs) and standalone CNN models, across all evaluated metrics. This study highlights the potential of integrating convolutional neural networks with Transformers to enhance predictive capabilities in solar physics, paving the way for more reliable and timely solar flare forecasting.",
@@ -250,7 +653,7 @@
         "Noureddine El Karoui"
       ],
       "published": "2026-09-09T01:15:46Z",
-      "updated": "2026-09-09T01:15:46Z",
+      "updated": "2026-09-14T07:27:14Z",
       "url": "https://arxiv.org/abs/2609.09586",
       "pdf_url": "https://arxiv.org/pdf/2609.09586",
       "first_seen": "2026-09-10T19:42:43.980909Z",
@@ -3745,22 +4148,31 @@
       ]
     }
   ],
-  "last_success": "2026-09-11T19:44:00.321841Z",
-  "last_attempt": "2026-09-15T13:34:54.414840Z",
+  "last_success": "2026-09-15T21:23:42.787432Z",
+  "last_attempt": "2026-09-15T21:23:42.787432Z",
   "last_new_ids": [
-    "2609.10589",
-    "2609.10705",
-    "2609.10767",
-    "2609.10772",
-    "2609.11135",
-    "2609.11206",
-    "2609.11282",
-    "2609.11575",
-    "2609.11639",
-    "2609.11872"
+    "2609.11993",
+    "2609.12101",
+    "2609.12412",
+    "2609.12639",
+    "2609.12710",
+    "2609.12793",
+    "2609.13125",
+    "2609.13345",
+    "2609.13453",
+    "2609.13640",
+    "2609.13789",
+    "2609.13956",
+    "2609.14011",
+    "2609.14576",
+    "2609.14718",
+    "2609.15087",
+    "2609.15344",
+    "2609.15483",
+    "2609.15519"
   ],
-  "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
+  "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
-  "error_detail": "RetryLaterError: arXiv HTTP 429: Rate exceeded.; retry after 2026-09-15T13:37:20.537153Z",
-  "retry_not_before": "2026-09-15T13:37:20.537153Z"
+  "error_detail": null,
+  "retry_not_before": null
 }
