@@ -3746,7 +3746,7 @@
     }
   ],
   "last_success": "2026-09-11T19:44:00.321841Z",
-  "last_attempt": "2026-09-15T01:29:15.872583Z",
+  "last_attempt": "2026-09-15T07:46:08.830325Z",
   "last_new_ids": [
     "2609.10589",
     "2609.10705",
@@ -3761,6 +3761,6 @@
   ],
   "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
-  "error_detail": "RetryLaterError: arXiv HTTP 429: Rate exceeded.; retry after 2026-09-15T01:30:16.112956Z",
-  "retry_not_before": "2026-09-15T01:30:16.112956Z"
+  "error_detail": "RetryLaterError: arXiv HTTP 429: Rate exceeded.; retry after 2026-09-15T07:47:09.013025Z",
+  "retry_not_before": "2026-09-15T07:47:09.013025Z"
 }
