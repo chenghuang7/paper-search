@@ -20,6 +20,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 ATOM = {"a": "http://www.w3.org/2005/Atom", "o": "http://a9.com/-/spec/opensearch/1.1/"}
 LOG = logging.getLogger("paper_tracker")
+ARXIV_USER_AGENT = (
+    "Mozilla/5.0 (X11; Linux x86_64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/131.0.0.0 Safari/537.36"
+)
 
 
 def stamp(value):
@@ -126,7 +131,7 @@ class ArxivClient:
             self.last_request = time.monotonic()
             try:
                 request = urllib.request.Request(url, headers={
-                    "User-Agent": "TimeSeriesPaperTracker/1.1 (+https://github.com/chenghuang7/paper-search)",
+                    "User-Agent": ARXIV_USER_AGENT,
                     "Accept": "application/atom+xml, application/xml;q=0.9, */*;q=0.1",
                 })
                 with self.opener(request, timeout=45) as response:

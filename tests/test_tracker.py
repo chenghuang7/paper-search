@@ -144,6 +144,7 @@ class ApiTests(unittest.TestCase):
             list(client.fetch(topic, NOW - timedelta(days=7), NOW))
         self.assertEqual(opener.call_count, 1)
         self.assertIn('application/atom+xml', opener.call_args.args[0].get_header('Accept'))
+        self.assertTrue(opener.call_args.args[0].get_header('User-agent').startswith('Mozilla/5.0 '))
 
     def test_http_406_reports_body_without_repeating_rejected_request(self):
         error = urllib.error.HTTPError('https://export.arxiv.org/api/query', 406, 'Not Acceptable', Message(), io.BytesIO(b'Query not accepted'))
