@@ -8,6 +8,7 @@ import urllib.error
 import urllib.parse
 from datetime import timedelta
 from email.message import Message
+from email.utils import format_datetime
 from pathlib import Path
 from unittest.mock import patch
 from xml.sax.saxutils import escape
@@ -46,6 +47,28 @@ def feed(papers, total=None, offset=0):
     return ('<feed xmlns="http://www.w3.org/2005/Atom" xmlns:o="http://a9.com/-/spec/opensearch/1.1/">'
             '<o:totalResults>{}</o:totalResults><o:startIndex>{}</o:startIndex>{}</feed>'.format(
                 len(papers) if total is None else total, offset, ''.join(entries))).encode()
+
+
+def oai_feed(papers, token=None, deleted=False):
+    records = []
+    for item in papers:
+        versions = '<r:version version="v1"><r:date>{}</r:date></r:version>'.format(
+            format_datetime(tracker.date(item['published'])))
+        if item['updated'] != item['published']:
+            versions += '<r:version version="v2"><r:date>{}</r:date></r:version>'.format(
+                format_datetime(tracker.date(item['updated'])))
+        records.append('<record><header><identifier>oai:arXiv.org:{0}</identifier>'
+                       '<datestamp>2026-09-06</datestamp></header><metadata><r:arXivRaw>'
+                       '<r:id>{0}</r:id><r:title>{1}</r:title><r:abstract>{2}</r:abstract>'
+                       '<r:authors>{3}</r:authors>{4}</r:arXivRaw></metadata></record>'.format(
+                           item['id'], escape(item['title']), escape(item['abstract']),
+                           escape(', '.join(item['authors'])), versions))
+    if deleted:
+        records.append('<record><header status="deleted"><identifier>oai:arXiv.org:0001.00001</identifier></header></record>')
+    continuation = '' if token is None else '<resumptionToken>{}</resumptionToken>'.format(escape(token))
+    return ('<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" '
+            'xmlns:r="http://arxiv.org/OAI/arXivRaw/"><ListRecords>{}{}</ListRecords></OAI-PMH>'.format(
+                ''.join(records), continuation)).encode()
 
 
 class MatchingTests(unittest.TestCase):
@@ -128,6 +151,43 @@ class SyncTests(unittest.TestCase):
 
 
 class ApiTests(unittest.TestCase):
+    def test_requests_wait_31_seconds_after_response_and_cache_needs_no_wait(self):
+        clock = [0.0]
+        starts = []
+        def sleep(seconds):
+            clock[0] += seconds
+        def opener(*args, **kwargs):
+            starts.append(clock[0])
+            clock[0] += 17
+            response = unittest.mock.MagicMock()
+            response.__enter__.return_value.read.return_value = b'ok'
+            return response
+        client = tracker.ArxivClient(opener=opener, sleep=sleep, clock=lambda: clock[0])
+        client.request('https://export.arxiv.org/api/query?start=0')
+        client.request('https://export.arxiv.org/api/query?start=100')
+        self.assertEqual(starts, [0, 48])
+        completed = clock[0]
+        client.request('https://export.arxiv.org/api/query?start=0')
+        self.assertEqual(clock[0], completed)
+        self.assertEqual(len(starts), 2)
+
+    def test_transient_retry_also_waits_after_error_body_is_read(self):
+        clock = [0.0]
+        starts = []
+        def sleep(seconds):
+            clock[0] += seconds
+        def opener(*args, **kwargs):
+            starts.append(clock[0])
+            clock[0] += 5
+            if len(starts) == 1:
+                raise urllib.error.HTTPError('https://oaipmh.arxiv.org/oai', 503, 'Unavailable', Message(), io.BytesIO(b'Temporary error'))
+            response = unittest.mock.MagicMock()
+            response.__enter__.return_value.read.return_value = b'ok'
+            return response
+        client = tracker.ArxivClient(opener=opener, sleep=sleep, clock=lambda: clock[0])
+        self.assertEqual(client.request('https://oaipmh.arxiv.org/oai'), b'ok')
+        self.assertEqual(starts, [0, 36])
+
     def test_shared_candidate_query_keeps_full_local_filtering(self):
         queries = [tracker.make_query(topic, candidate_only=True) for topic in CONFIG['topics']]
         self.assertEqual(len(set(queries)), 1)
@@ -180,7 +240,7 @@ class ApiTests(unittest.TestCase):
         client = tracker.ArxivClient(opener=opener, sleep=sleep)
         self.assertEqual(client.request('https://export.arxiv.org/api/query'), b'ok')
         self.assertEqual(opener.call_count, 2)
-        sleep.assert_any_call(10)
+        sleep.assert_any_call(31)
 
     def client(self, pages):
         client = tracker.ArxivClient()
@@ -223,6 +283,86 @@ class ApiTests(unittest.TestCase):
         self.assertGreaterEqual(sleep.call_count, 2)
 
 
+class OaiTests(unittest.TestCase):
+    def client(self, pages):
+        client = tracker.OaiClient(CONFIG['topics'])
+        client.request = unittest.mock.Mock(side_effect=pages)
+        return client
+
+    def test_pages_shared_across_topics_and_opaque_token_encoded_once(self):
+        token = 'verb%3DListRecords%26skip%3D1300'
+        client = self.client([oai_feed([paper()], token=token),
+                              oai_feed([paper(id='2609.00002', title='Time series foundation model forecasting')])])
+        state = tracker.sync(CONFIG, blank(), client, NOW)
+        self.assertEqual(len(state['papers']), 2)
+        self.assertEqual(client.request.call_count, 2)
+        self.assertEqual(state['source'], 'oai')
+        query = urllib.parse.parse_qs(urllib.parse.urlsplit(client.request.call_args_list[1].args[0]).query)
+        self.assertEqual(query, {'verb': ['ListRecords'], 'resumptionToken': [token]})
+
+    def test_dates_come_from_versions_not_metadata_or_announcement_date(self):
+        original = paper(published='2026-09-01T12:13:14Z', updated='2026-09-04T15:16:17Z')
+        state = tracker.sync(CONFIG, blank(), self.client([oai_feed([original])]), NOW)
+        self.assertEqual(state['papers'][0]['published'], original['published'])
+        self.assertEqual(state['papers'][0]['updated'], original['updated'])
+
+    def test_incremental_metadata_overlap_keeps_delayed_announcements(self):
+        first = tracker.sync(CONFIG, blank(), self.client([oai_feed([], deleted=True)]), NOW)
+        # Submitted several days before the latest metadata announcement.
+        late = paper(published='2026-09-04T12:00:00Z')
+        client = self.client([oai_feed([late])])
+        result = tracker.sync(CONFIG, first, client, NOW + timedelta(days=3))
+        query = urllib.parse.parse_qs(urllib.parse.urlsplit(client.request.call_args.args[0]).query)
+        self.assertEqual(query['from'], ['2026-09-05'])
+        self.assertEqual(result['last_new_ids'], [late['id']])
+
+    def test_migration_and_changed_keywords_keep_full_backfill_window(self):
+        previous = tracker.sync(CONFIG, blank(), FakeClient([]), NOW)
+        client = self.client([oai_feed([], deleted=True)])
+        first = tracker.sync(CONFIG, previous, client, NOW + timedelta(days=10))
+        query = urllib.parse.parse_qs(urllib.parse.urlsplit(client.request.call_args.args[0]).query)
+        self.assertEqual(query['from'], ['2026-08-30'])
+        config = copy.deepcopy(CONFIG)
+        config['topics'][0]['exclude'] = ['traffic']
+        client = self.client([oai_feed([], deleted=True)])
+        tracker.sync(config, first, client, NOW + timedelta(days=11))
+        query = urllib.parse.parse_qs(urllib.parse.urlsplit(client.request.call_args.args[0]).query)
+        self.assertEqual(query['from'], ['2026-08-18'])
+
+    def test_revisions_and_deleted_records_do_not_create_new_papers(self):
+        first = tracker.sync(CONFIG, blank(), self.client([oai_feed([paper()])]), NOW)
+        revised = paper(abstract='Revised time series prediction.', updated='2026-09-07T00:00:00Z')
+        old = paper(id='2001.00001', published='2020-01-01T00:00:00Z', updated='2026-09-07T00:00:00Z')
+        result = tracker.sync(CONFIG, first, self.client([oai_feed([revised, old], deleted=True)]), NOW + timedelta(days=1))
+        self.assertEqual(result['last_new_ids'], [])
+        self.assertEqual(len(result['papers']), 1)
+        self.assertEqual(result['papers'][0]['abstract'], revised['abstract'])
+
+    def test_failed_later_page_does_not_advance_or_mutate_state(self):
+        previous = tracker.sync(CONFIG, blank(), FakeClient([paper()]), NOW)
+        original = copy.deepcopy(previous)
+        client = self.client([oai_feed([paper(id='2609.00002')], token='next'), OSError('offline')])
+        with self.assertRaises(OSError):
+            tracker.sync(CONFIG, previous, client, NOW + timedelta(days=1))
+        self.assertEqual(previous, original)
+
+    def test_protocol_errors_duplicates_and_bad_metadata_are_not_success(self):
+        invalid = oai_feed([paper()]).replace(b'<r:id>2609.00001</r:id>', b'<r:id>2609.00002</r:id>')
+        error = b'<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"><error code="badResumptionToken">expired</error></OAI-PMH>'
+        for pages in ([invalid], [error], [b'<html/>'], [oai_feed([])],
+                      [oai_feed([paper()], token='next'), oai_feed([paper()])],
+                      [oai_feed([paper()], token='next'), oai_feed([], token='again')]):
+            with self.subTest(pages=pages):
+                with self.assertRaises(ValueError):
+                    tracker.sync(CONFIG, blank(), self.client(pages), NOW)
+
+    def test_no_records_match_is_valid_but_not_after_a_continuation(self):
+        empty = b'<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"><error code="noRecordsMatch">none</error></OAI-PMH>'
+        self.assertEqual(tracker.sync(CONFIG, blank(), self.client([empty]), NOW)['papers'], [])
+        with self.assertRaises(ValueError):
+            tracker.sync(CONFIG, blank(), self.client([oai_feed([paper()], token='next'), empty]), NOW)
+
+
 class BuildTests(unittest.TestCase):
     def test_cli_respects_persisted_rate_limit_without_network_request(self):
         state = blank()
@@ -230,7 +370,7 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory, 'papers.json')
             tracker.write_json(path, state)
-            with patch.object(sys, 'argv', ['paper_tracker.py', 'update', '--data', str(path), '--output', str(Path(directory, 'site'))]), patch.object(tracker.ArxivClient, 'fetch') as fetch:
+            with patch.object(sys, 'argv', ['paper_tracker.py', 'update', '--data', str(path), '--output', str(Path(directory, 'site'))]), patch.object(tracker.OaiClient, 'fetch') as fetch:
                 self.assertEqual(tracker.main(), 1)
                 fetch.assert_not_called()
             self.assertEqual(tracker.read_json(path)['retry_not_before'], state['retry_not_before'])
@@ -252,7 +392,7 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory, 'papers.json')
             tracker.write_json(path, state)
-            with patch.object(sys, 'argv', ['paper_tracker.py', 'update', '--data', str(path), '--output', str(Path(directory, 'site'))]), patch.object(tracker.ArxivClient, 'fetch', side_effect=OSError('offline')):
+            with patch.object(sys, 'argv', ['paper_tracker.py', 'update', '--data', str(path), '--output', str(Path(directory, 'site'))]), patch.object(tracker.OaiClient, 'fetch', side_effect=OSError('offline')):
                 self.assertEqual(tracker.main(), 1)
             saved = tracker.read_json(path)
             self.assertEqual(saved['papers'], state['papers'])

@@ -1,6 +1,6 @@
 # 时序论文追踪
 
-每天检索 arXiv 上的 **Time Series Forecasting** 相关论文，生成可以部署到 GitHub Pages 的中文网页。支持原文摘要展开、日期筛选、标题/摘要/作者搜索、多主题订阅。无需大模型、API 密钥或第三方 Python 依赖。
+每天获取 arXiv 上的 **Time Series Forecasting** 相关论文，生成可以部署到 GitHub Pages 的中文网页。当前使用 arXiv 官方 OAI-PMH 增量元数据接口，在本地按关键词筛选，避免依赖持续返回 406 的搜索接口。支持原文摘要展开、日期筛选、标题/摘要/作者搜索、多主题订阅。无需大模型、API 密钥或第三方 Python 依赖。
 
 ## 本地运行
 
@@ -11,7 +11,7 @@ python3 paper_tracker.py update
 python3 -m http.server 8000 --directory dist
 ```
 
-打开 http://localhost:8000 。首次检索需要能访问 `export.arxiv.org`。只生成网页、不联网检索：
+打开 http://localhost:8000 。当前配置需要能访问 `oaipmh.arxiv.org`。每次网络请求结束后至少等待 **31 秒**再发下一次；首次补抓可能需要几十分钟，后续只读取新增或变动的元数据。只生成网页、不联网检索：
 
 ```sh
 python3 paper_tracker.py build
@@ -27,7 +27,7 @@ python3 -m unittest discover -s tests -v
 
 目标更新时间为北京时间每天 **凌晨 02:17**（对应前一天 UTC 18:17）。GitHub 每小时第 17 分钟触发一次检查：02:17 之前跳过；当天 02:17 之后尚未成功检索并发布，就执行补抓与发布。成功后，当天后续检查直接跳过，不重复检索。如果某次触发遗漏或执行失败，后续小时会再次尝试。
 
-凌晨抓取可让已有论文提前准备好，但 arXiv 常规新批次在美东时间 20:00 发布，对应北京时间次日夏令时 08:00、冬令时 09:00。因此，凌晨抓取成功后，当天早上刚发布的新论文会留到下一天的抓取；如需提前查看，可手动运行。发布安排参见 [arXiv 官方说明](https://info.arxiv.org/help/availability.html)。
+凌晨抓取可让已有论文提前准备好，但 arXiv 常规新批次在美东时间 20:00 发布，对应北京时间次日夏令时 08:00、冬令时 09:00；OAI 元数据通常在美东时间 22:30 左右提供。因此，凌晨抓取成功后，当天上午才发布的论文会留到下一天的抓取；如需提前查看，可在元数据更新后手动运行。参见 [论文发布安排](https://info.arxiv.org/help/availability.html)和 [OAI 更新时间](https://info.arxiv.org/help/oa/index.html#update-schedule)。
 
 每小时触发配置在 `.github/workflows/daily.yml`；每日起始时间在 `scripts/schedule_gate.py`。修改配置、网页或检索器并推送到 `main`，以及手动运行，都会执行、不受每日检查限制；若 arXiv 明确要求等待，仍需等到该时间之后。Actions 定时事件可能延迟甚至被丢弃，补偿检查只能降低漏更概率，不能保证准点；不需要本地电脑开机。
 
@@ -64,7 +64,7 @@ python3 -m unittest discover -s tests -v
 ### 在 GitHub 上修改并保存
 
 1. 登录拥有本仓库写入权限的 GitHub 账号，打开 [config.json 编辑页面](https://github.com/chenghuang7/paper-search/edit/main/config.json)。也可以在仓库首页点击 `config.json`，再点击右上角的铅笔按钮。
-2. 按下面的示例修改关键词或增加主题。保留文件中的 `title`、`initial_days`、`overlap_days` 和 `topics` 等其他设置。
+2. 按下面的示例修改关键词或增加主题。保留文件中的 `title`、`source`、`initial_days`、`overlap_days` 和 `topics` 等其他设置。
 3. 点击右上角 **Commit changes…**，填写简短说明，例如“增加异常检测订阅”；选择直接提交到 **main** 分支，再点击 **Commit changes** 确认。
 4. 保存后会自动启动检索，不用等到第二天。打开 [Actions](https://github.com/chenghuang7/paper-search/actions)，找到最新的 **Daily papers** 任务；等待显示绿色对勾，再刷新[论文网站](https://chenghuang7.github.io/paper-search/)。`Checks` 是代码检查，网站发布结果要看 `Daily papers`。
 
@@ -109,6 +109,7 @@ python3 -m unittest discover -s tests -v
 ```json
 {
   "title": "时序论文追踪",
+  "source": "oai",
   "initial_days": 30,
   "overlap_days": 7,
   "topics": [
@@ -150,13 +151,15 @@ JSON 使用英文双引号、逗号和方括号，最后一项后面不要加逗
 - `data/papers.json` 保存论文、arXiv ID、首次提交/修订/发现时间、主题、上次成功时间和运行状态。
 - `data/deployment.json` 仅在检索和 Pages 发布都成功后更新，用于判断当天是否完成更新；单独抓取成功而发布失败不会阻止后续小时重试。
 - 检索失败的技术原因保存在 `data/papers.json` 的 `error_detail`，成功后清除，便于区分接口超时、分页异常等问题；网页只显示简短提示。
-- 首次收录最近 30 天提交的论文；常规运行从上次成功时间前 7 天开始补抓。停跑期间的窗口不会随着今天前移而丢掉。
-- arXiv API 只公开支持 `submittedDate` 日期过滤；为捕获旧论文修订，本项目按 `lastUpdatedDate` 倒序分页，在本地到达窗口起点后停止。为减少复杂查询和重复请求，API 只查询每个主题的一个必需关键词组，完整的分组及排除规则仍在本地执行；同一轮相同候选页复用，三个时序主题共享候选数据。
-- 请求使用 Chrome 格式的 User-Agent，并声明接受 Atom/XML 格式；这只是请求头兼容性设置，不会启动真正的浏览器。每次请求至少间隔 3.1 秒。网络超时及临时服务端错误最多尝试 3 次，重试等待 10、20 秒。406 等普通请求错误立即记录原因，不反复发送同一请求。
+- 首次收录最近 30 天提交的论文；从旧搜索接口迁移时，保留原成功时间并回看 7 天补抓。停跑期间的窗口不会随着今天前移而丢掉。
+- `config.json` 的 `source` 当前为 `oai`：从 `oaipmh.arxiv.org` 分页读取所有学科的增量元数据，三个主题共用同一批数据，在本地执行完整分组及排除规则。连续成功后的元数据同步从上次成功日期前一天开始，兼顾日期粒度并减少重复下载；论文收录窗口仍保留 7 天回看，避免把周末延迟公告的论文漏掉。修改关键词时仍补查至少 30 天。
+- OAI 返回的元数据变更日期与论文提交日期不同。本项目使用 `arXivRaw` 中的版本历史获取准确的首次提交、修订时间，保留原始作者文本，不把抓取或公告日期当作论文发表日期。无关论文的元数据只在内存中过滤，不写入仓库。
+- 仍保留 `source: "api"` 供搜索接口恢复后切换，省略 `source` 时也使用这一兼容模式。该模式按 `lastUpdatedDate` 倒序分页，查询每个主题的一个必需关键词组，再在本地完整筛选；当前云端的 406 故障发生在这个搜索接口，修改关键词时请保留 `source: "oai"`。
+- 请求使用 Chrome 格式的 User-Agent，并声明接受 Atom/XML 格式；这只是请求头兼容性设置，不会启动真正的浏览器。无并发请求，每次网络请求结束后至少等待 **31 秒**才发下一次，缓存命中不发请求。网络超时及临时服务端错误最多尝试 3 次，重试等待 31、62 秒。406 等普通请求错误立即记录原因，不反复发送同一请求。
 - 429 限流或带 `Retry-After` 的 503 会停止本轮抓取，并将最早重试时间保存在 `retry_not_before`；支持秒数和 HTTP 日期，缺少有效值时至少等待一分钟。定时检查、推送触发和手动运行都遵守这一等待时间。旧数据与成功检查点保留，之后仍会补抓，不把失败显示成成功。
 - `429 / Rate exceeded.` 不一定表示本程序被封禁；[arXiv 官方曾说明](https://groups.google.com/a/arxiv.org/g/api/c/pNB3lnxf4mQ)，这种响应也可能来自服务整体容量不足。修改 User-Agent 不能保证恢复访问，仍应遵守等待时间；是否恢复以实际完整检索结果为准。
 - ID 去掉 `v1`、`v2` 等版本后去重，修订替换原记录，不算新增。初次遇到远早于窗口的旧论文修订不会作为新论文收录。超过 7 天的异常索引延迟可能漏检，可暂时扩大 `overlap_days` 后手动运行。
-- 任何主题或分页失败都不提交部分论文结果，也不前移成功时间；仅记录失败状态，下一次从原检查点补抓。结果集在分页期间变化、分页异常或到达 API 上限时也会明确失败。
+- 任何主题或分页失败都不提交部分论文结果，也不前移成功时间；仅记录失败状态，下一次从原检查点补抓。OAI 错误响应、重复记录、失效或重复分页标记，以及搜索 API 的结果集变化都会明确报错，不把不完整数据标成成功。OAI 单轮最多 120 页，工作流最多运行 90 分钟。
 - 修改订阅会至少重新检索最近 30 天，并重新计算已有论文主题；不再匹配当前主题的旧记录保留在数据文件中，但网页隐藏。
 - 网页按首次提交时间倒序、北京时间显示。新增标签表示最近一次成功检索首次收录，初次回填也会标为新增；它不等于当天刚发表。
 
@@ -170,4 +173,4 @@ JSON 使用英文双引号、逗号和方括号，最后一项后面不要加逗
 
 [DailyArXiv](https://github.com/zezhishao/DailyArXiv) 的 Time Series 栏目也是产品参考，未复制其代码。
 
-协议依据：[arXiv API 手册](https://info.arxiv.org/help/api/user-manual.html)、[GitHub Pages 文档](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)、[GitHub 定时工作流说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)。仅覆盖 arXiv，不保证覆盖所有会议、期刊；不包含推送、收藏同步、AI 总结或全文下载。
+协议依据：[arXiv OAI 文档](https://info.arxiv.org/help/oa/index.html)、[arXiv API 手册](https://info.arxiv.org/help/api/user-manual.html)、[GitHub Pages 文档](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)、[GitHub 定时工作流说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)。仅覆盖 arXiv，不保证覆盖所有会议、期刊；不包含推送、收藏同步、AI 总结或全文下载。

@@ -1,5 +1,6 @@
 {
   "title": "时序论文追踪",
+  "source": "oai",
   "initial_days": 30,
   "overlap_days": 7,
   "topics": [
