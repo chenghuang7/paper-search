@@ -238,19 +238,27 @@ class OaiClient(ArxivClient):
         self.metadata_since = None
         self.window = None
         self.candidates = []
+        self.stats = {"pages": 0, "records": 0, "duplicates": 0}
 
     def fetch(self, topic, start, end):
         window = (stamp(start), stamp(end))
         if self.window != window:
             # Keep only matching papers in memory. Unrelated metadata is not stored.
-            self.candidates = list(self.harvest(start, end))
+            self.stats = {"pages": 0, "records": 0, "duplicates": 0}
+            candidates = {}
+            for incoming in self.harvest(start, end):
+                old = candidates.get(incoming["id"])
+                if old is None or (date(incoming["updated"]), date(incoming["metadata_updated"])) >= (
+                        date(old["updated"]), date(old["metadata_updated"])):
+                    candidates[incoming["id"]] = incoming
+            self.candidates = list(candidates.values())
             self.window = window
         yield from self.candidates
 
     def harvest(self, start, end):
         params = {"verb": "ListRecords", "metadataPrefix": "arXivRaw",
                   "from": (self.metadata_since or start).date().isoformat(), "until": end.date().isoformat()}
-        tokens, seen = set(), set()
+        tokens, seen, signatures = set(), set(), set()
         for page in range(1, 121):
             url = "https://oaipmh.arxiv.org/oai?" + urllib.parse.urlencode(params)
             payload = self.request(url)
@@ -272,7 +280,16 @@ class OaiClient(ArxivClient):
             if not entries:
                 raise ValueError("arXiv OAI 返回空分页但未声明 noRecordsMatch")
             LOG.info("OAI：读取第 %d 页，%d 条元数据，全部主题共用", page, len(entries))
+            self.stats["pages"] += 1
+            self.stats["records"] += len(entries)
+            new_records = 0
             for record in entries:
+                signature = hashlib.sha256(ET.tostring(record)).digest()
+                if signature in signatures:
+                    self.stats["duplicates"] += 1
+                    continue
+                signatures.add(signature)
+                new_records += 1
                 header = record.find("o:header", OAI)
                 if header is None:
                     raise ValueError("arXiv OAI 记录缺少 header")
@@ -294,7 +311,7 @@ class OaiClient(ArxivClient):
                 if header.findtext("o:identifier", namespaces=OAI) != "oai:arXiv.org:" + paper_id:
                     raise ValueError("arXiv OAI 记录标识与论文 ID 不一致")
                 if paper_id in seen:
-                    raise ValueError("arXiv OAI 分页出现重复，未保存不完整结果")
+                    self.stats["duplicates"] += 1
                 seen.add(paper_id)
                 candidate = {"id": paper_id, "title": field("title"), "abstract": field("abstract")}
                 if not any(matches(candidate, topic) for topic in self.topics):
@@ -318,13 +335,21 @@ class OaiClient(ArxivClient):
                 # from the version history, never the feed/harvest timestamp.
                 if updated > end:
                     continue
+                metadata_updated = header.findtext("o:datestamp", namespaces=OAI)
+                if not metadata_updated:
+                    raise ValueError("arXiv OAI 记录缺少元数据更新时间")
+                if re.fullmatch(r"\d{4}-\d{2}-\d{2}", metadata_updated):
+                    metadata_updated += "T00:00:00Z"
                 yield dict(candidate, authors=[field("authors")], published=stamp(published),
-                           updated=stamp(updated), url="https://arxiv.org/abs/" + paper_id,
+                           updated=stamp(updated), metadata_updated=stamp(date(metadata_updated)),
+                           url="https://arxiv.org/abs/" + paper_id,
                            pdf_url="https://arxiv.org/pdf/" + paper_id)
+            if not new_records:
+                raise ValueError("arXiv OAI 整页重复，分页未向前推进")
             token = records.findtext("o:resumptionToken", namespaces=OAI)
             if not token or not token.strip():
                 return
-            if not entries or token in tokens:
+            if token in tokens:
                 raise ValueError("arXiv OAI 分页标记异常，未保存不完整结果")
             tokens.add(token)
             # Tokens are opaque, including any percent signs in their contents.
@@ -365,7 +390,7 @@ def sync(config, previous, client, now):
     state.update(papers=sorted(papers.values(), key=lambda p: (p["published"], p["id"]), reverse=True),
                  last_success=stamp(now), last_attempt=stamp(now), last_new_ids=sorted(new_ids),
                  error=None, error_detail=None, retry_not_before=None, config_fingerprint=fingerprint,
-                 source=getattr(client, "source", "api"))
+                 source=getattr(client, "source", "api"), retrieval_stats=getattr(client, "stats", None))
     return state
 
 
@@ -393,6 +418,7 @@ def main():
     failed = False
     if args.command == "update":
         now = datetime.now(timezone.utc)
+        client = None
         try:
             if state.get("retry_not_before") and now < date(state["retry_not_before"]):
                 raise RetryLaterError("arXiv 要求等待至 " + state["retry_not_before"], state["retry_not_before"])
@@ -403,7 +429,8 @@ def main():
             LOG.error("检索失败，保留历史数据: %s", error)
             state = dict(state, last_attempt=stamp(now), error="本次检索失败，已保留上次结果；下次运行将自动补抓。",
                          error_detail="{}: {}".format(type(error).__name__, error),
-                         retry_not_before=getattr(error, "retry_not_before", None))
+                         retry_not_before=getattr(error, "retry_not_before", None),
+                         retrieval_stats=getattr(client, "stats", None))
             failed = True
         write_json(args.data, state)
     build(config, state, args.output)

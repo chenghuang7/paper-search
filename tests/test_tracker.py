@@ -306,6 +306,25 @@ class OaiTests(unittest.TestCase):
         self.assertEqual(state['papers'][0]['published'], original['published'])
         self.assertEqual(state['papers'][0]['updated'], original['updated'])
 
+    def test_duplicate_records_merge_latest_version_even_when_pages_are_out_of_order(self):
+        newer = paper(abstract='Revised time series forecasting.', updated='2026-09-05T00:00:00Z')
+        older = paper()
+        client = self.client([oai_feed([newer], token='next'),
+                              oai_feed([older, newer, paper(id='2609.00002')])])
+        state = tracker.sync(CONFIG, blank(), client, NOW)
+        self.assertEqual(len(state['papers']), 2)
+        self.assertEqual(next(p for p in state['papers'] if p['id'] == older['id'])['abstract'], newer['abstract'])
+        self.assertEqual(state['last_new_ids'], ['2609.00001', '2609.00002'])
+        self.assertEqual(state['retrieval_stats'], {'pages': 2, 'records': 4, 'duplicates': 2})
+
+    def test_same_version_prefers_latest_metadata_datestamp(self):
+        revised = paper(abstract='Corrected time series forecasting metadata.')
+        latest_page = oai_feed([revised], token='next').replace(b'2026-09-06</datestamp>', b'2026-09-07</datestamp>')
+        client = self.client([latest_page, oai_feed([paper()])])
+        state = tracker.sync(CONFIG, blank(), client, NOW + timedelta(days=1))
+        self.assertEqual(state['papers'][0]['abstract'], revised['abstract'])
+        self.assertEqual(state['papers'][0]['metadata_updated'], '2026-09-07T00:00:00Z')
+
     def test_incremental_metadata_overlap_keeps_delayed_announcements(self):
         first = tracker.sync(CONFIG, blank(), self.client([oai_feed([], deleted=True)]), NOW)
         # Submitted several days before the latest metadata announcement.
