@@ -2,6 +2,109 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.28434",
+      "title": "Predicting the Progression of Adolescent Idiopathic Scoliosis",
+      "abstract": "Adolescent Idiopathic Scoliosis is defined as a lateral curvature of the spine that develops during adolescence, without known cause. The condition can result in significant pain and disability, and often progresses rapidly during adolescence. The objective of this paper is to predict the progression of the condition in a temporal sequence from ages 9 to 24, as measured from a sequence of Dual X-ray Absorptiometry (DXA) scans. To this end, we train a transformer model that takes in the curve of the spine to predict curve progression. The model is trained using a large-scale synthetic dataset of spine curves and their time series, covering different curve types and different progression patterns. We show that the model is able to generalise from synthetic to real data by evaluating it on a dataset of real DXA scans covering multiple time points. We find that fine-tuning the model on real data gives a significant boost to performance. The model is able to accurately predict spine curve progression in both scoliosis and normal cases.",
+      "authors": [
+        "Owen Pullen, Amir Jamaludin, Andrew Zisserman"
+      ],
+      "published": "2026-09-23T17:33:31Z",
+      "updated": "2026-09-23T17:33:31Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.28434",
+      "pdf_url": "https://arxiv.org/pdf/2609.28434",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.27614",
+      "title": "Model-agnostic noise reduction for high-dimensional time series data",
+      "abstract": "We develop a model-agnostic framework for noise reduction in high-dimensional time series that explicitly targets optimal recovery of a low-dimensional latent dynamic component contaminated by observational white noise. Under the assumption that the latent dynamics live in a low-dimensional linear dynamic subspace, we characterize the optimal linear projection onto the dynamic subspace and provide a geometric description of the residual error in terms of the relative orientation of the signal and noise spaces. We propose estimators for the dynamic subspace and the optimal projection based on lagged covariance matrices, bootstrap dimension selection, and a low-rank representation of the structured noise. Under mild conditions, the resulting denoised series is shown to converge to its population target at the usual parametric rate. Simulations show that the proposed method can substantially improve subspace estimation, reconstruction error, and one-step-ahead forecast accuracy compared with both orthogonal projection-based denoising and the raw data. The approach is illustrated by empirical applications to high-dimensional stock returns and to a 20-variate time series of macroeconomic indicators.",
+      "authors": [
+        "Bram Wouters, Cees Diks"
+      ],
+      "published": "2026-09-23T09:34:36Z",
+      "updated": "2026-09-23T09:34:36Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.27614",
+      "pdf_url": "https://arxiv.org/pdf/2609.27614",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.27531",
+      "title": "Semiparametric Inference for Dynamic Causal Effects from Observational Time Series",
+      "abstract": "In observational time series, statistical inference for dynamic causal effects of a one-time intervention across horizons is complicated by high-dimensional observed pre-treatment information, unmeasured confounding, and serial dependence. To address these challenges, we develop a semiparametric framework for inference from a single serially dependent time series, integrating debiased machine learning with instrumental variables through buffered block cross-fitting. Under geometric beta-mixing, we derive non-asymptotic bounds on estimation error, asymptotic normality at each fixed horizon, and feasible inference that accommodates serial dependence. We further show how learner-specific prediction guarantees under temporal dependence can be used to verify the nuisance-rate conditions required for orthogonal inference. In a monetary-policy application with 468 months and 1464 lagged FRED-MD controls, we show an instrumented policy tightening lowers housing starts at medium horizons, with sensitivity analyses that support the finding.",
+      "authors": [
+        "Shibo Yu, Yan Chen, Jin-Hong Du and Guodong Li"
+      ],
+      "published": "2026-09-23T08:26:11Z",
+      "updated": "2026-09-23T08:26:11Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.27531",
+      "pdf_url": "https://arxiv.org/pdf/2609.27531",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.27473",
+      "title": "Learning Where to Look: A Shared Relative-Alignment Module for Time-Series Forecasting and PPG-to-Vital-Sign Reconstruction",
+      "abstract": "PPG-to-vital-sign reconstruction turns a wrist-worn photoplethysmogram into clinical waveforms such as the ECG. Long-horizon multivariate time-series forecasting underpins planning in energy, weather, and traffic. Both generate a target sequence from a condition sequence, and current models hard-code where each target position reads it, as a same-position copy or seasonal recurrence, so neither transfers between tasks. We propose ROOSTER, one conditioning module that handles vital-sign reconstruction and time-series forecasting alike by learning this correspondence. Its core is a periodic-comb bias over the target-condition offset whose center, period, and sharpness are learned per head, so one module settles on the identity alignment or a seasonal lag and reports which it found. On vital-sign reconstruction from PPG, ROOSTER outperformed the published baselines on four heart-rate and respiratory-rate benchmarks. On multivariate time-series forecasting, it achieved the best horizon-averaged MSE on four benchmarks and outperformed the forecasting model it extends on 20 of 24 dataset-horizon settings under matched three-seed training. An ablation study indicated that the relative bias, not content matching, carried the alignment.",
+      "authors": [
+        "Ragamayi Puli, Shunya Nagashima"
+      ],
+      "published": "2026-09-23T07:38:10Z",
+      "updated": "2026-09-23T07:38:10Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.27473",
+      "pdf_url": "https://arxiv.org/pdf/2609.27473",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.27385",
+      "title": "Forecast Workflow Bench: Evaluating Language-Model Decisions with Budgeted Forecast Tools",
+      "abstract": "Time-series foundation models (TSFMs) provide forecasts for operational decisions, but accuracy alone does not determine their value. Evaluating agents that use these models requires measuring decision quality and forecast cost. FWBench evaluates this capability on 1,251 electricity and cycle-hire cases using fixed forecast tools and simulated capacity contracts. Agents select models, histories and horizons, then submit capacities to minimize a stated loss-cost objective. We evaluated two hosted and eight local configurations, including small language models, and tested local models with and without TSFMs. GPT-6 Astra bought inexpensive short-horizon forecasts selectively, using 2.5% of the budget, and outperformed fixed policies when the saved decisions were scored with three loss-cost weightings. FWBench enables reproducible evaluation of how language models select and use time-series forecasts to make decisions under cost constraints.",
+      "authors": [
+        "Shunya Nagashima"
+      ],
+      "published": "2026-09-23T05:35:40Z",
+      "updated": "2026-09-23T05:35:40Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.27385",
+      "pdf_url": "https://arxiv.org/pdf/2609.27385",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.27188",
+      "title": "Learning Dissipative Dynamics with Dissipativity-by-Construction Discrete-Time Neural Networks",
+      "abstract": "Dissipativity is a fundamental system-theoretic property closely related to stability, passivity, and input--output stability, and is particularly important in robotics, where learned dynamics models are often embedded within feedback control loops. However, most existing approaches for learning dissipative dynamics are based on continuous-time formulations, which require ODE solvers during training or inference and can therefore be computationally expensive. Moreover, because practical implementations are inherently discrete-time, direct discretization of a continuous-time passive system does not necessarily preserve passivity, motivating the need for explicit discrete-time guarantees. This study proposes a method for learning incrementally dissipative dynamics from input--output time-series data using a deep multilayer perceptron formulated directly in discrete time. Through a constrained parameterization and a dedicated training procedure, the proposed model guarantees incremental dissipativity by construction rather than through regularization. Lyapunov-based analysis establishes the corresponding dissipativity and stability guarantees, while simulations on robotic dynamical systems demonstrate competitive prediction accuracy, computational efficiency, and consistent preservation of incremental dissipativity compared with baseline methods.",
+      "authors": [
+        "Tuan Luong, Hyungpil Moon"
+      ],
+      "published": "2026-09-23T00:49:49Z",
+      "updated": "2026-09-23T00:49:49Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.27188",
+      "pdf_url": "https://arxiv.org/pdf/2609.27188",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.26696",
       "title": "Reading the Sky to Forecast the Ground: Physics-Informed Link-State Forecasting for LEO Networks at Any Location",
       "abstract": "In this paper, we introduce Gnomon, a physics-informed system that forecasts user-perceived low-Earth-orbit (LEO) downlink throughput, uplink throughput, and round-trip time (RTT) under different levels of trace availability. Gnomon's physics layer reconstructs the serving geometry and four-leg bent-pipe attenuation from public weather, orbital, routing, and licensing data. Based on what is available, Gnomon conditions on the target terminal's own history (Mode 1), measurements from nearby publicly reachable dishes (Mode 2), or the physical covariates alone (Mode 3) to predict the link state: Modes 1 and 2 share a fine-tuned time-series foundation model, while Mode 3 uses a compact boosted-tree estimator. All three modes expose a common output interface and can be selected without retraining. We evaluate Gnomon using 8,260 minutes of 1 Hz measurements collected at nine sites across five states in the U.S. We train on three sites and hold out the remaining six sites and their serving beams. On these unseen sites, the own-trace mode reduces downlink-throughput and RTT prediction error by 17% and 11% relative to the strongest published baseline and, to our knowledge, provides the first LEO uplink forecasts. The neighbor-trace mode requires no on-site hardware, while the covariate-only mode reduces downlink-throughput and RTT error by 24.6% and 78.8% relative to the only prior covariate-only forecaster. Moreover, experiments show that Gnomon provides calibrated quantile bands and improves adaptive-bitrate streaming driven over real TCP flows on replayed Starlink links.",
@@ -352,6 +455,23 @@
       ]
     },
     {
+      "id": "2609.26822",
+      "title": "HARN: Hierarchical Associative Resonance Network for Event-Driven Multi-Timeframe Forecasting",
+      "abstract": "Financial time series evolve across multiple temporal resolutions, challenging forecasting systems to incorporate newly available information without repeatedly recomputing unchanged representations. We introduce HARN, a Hierarchical Associative Resonance Network for event-driven multi-timeframe forecasting. HARN maintains persistent representations across temporal levels and updates each level only when its corresponding completed bar becomes available. The architecture combines causal multi-scale temporal encoding, gated associative memory, cross-level resonance, and hierarchical evidence aggregation, with forecasting performed in basis-point space and reconstructed to the original price scale. We evaluate HARN on four assets spanning equity, foreign exchange, and commodity markets using multiple random seeds and component ablations. HARN achieves competitive reconstructed-price forecasting errors against single-timeframe PatchTST and TimeXer baselines, while ablations reveal the effects of removing individual components across assets and timeframes. A code-level audit further examines consistency between the implementation and the defined event-driven causal protocol. The results position HARN as a persistent multi-timeframe forecasting framework rather than evidence of universal predictive superiority.",
+      "authors": [
+        "Nabeel Ahmad Saidd"
+      ],
+      "published": "2026-09-20T11:58:07Z",
+      "updated": "2026-09-20T11:58:07Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.26822",
+      "pdf_url": "https://arxiv.org/pdf/2609.26822",
+      "first_seen": "2026-09-24T19:11:24.421134Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.23516",
       "title": "ITSY: Causal Discovery From Irregular Time-Series Data",
       "abstract": "Structural causal models for time series recover contemporaneous and lagged effects, but most methods require complete observation windows and become misspecified when samples are missing. We introduce ITSY, the first continuous-optimization method for causal discovery from irregular time series under a linear model. ITSY reformulates the structural equation so that prediction uses the nearest available history rather than the possibly missing current slice, and jointly imputes missing values while learning both graphs. A weighted reconstruction objective corrects the noise transformation induced by this reformulation. Across synthetic regimes varying missingness, scale, graph density, and noise, and on a real world benchmark, ITSY consistently improves graph recovery over representative SCM-based baselines, demonstrating the effectiveness of the proposed method. The results establish a focused solution for irregular linear first-order dynamics and clarify the assumptions required for nonlinear or higher-order extensions.",
@@ -389,13 +509,13 @@
     {
       "id": "2609.23378",
       "title": "Leaky-integrator reconstruction: taming error accumulation in recursive differenced time-series forecasting",
-      "abstract": "We introduce leaky-integrator reconstruction, a training-free method that cures the error accumulation of recursive differenced forecasting. Our first contribution is diagnostic: predicting one-step changes and integrating them by cumulative summation, the standard remedy for non-stationarity, is a discrete integrator with a pole on the unit circle, and we show this makes recursive rollout of a nonlinear model diverge, its 336-step error reaching several times that of a well-behaved forecaster (normalised MAE 1.6-3.8 versus about 0.8) across every neural architecture tested. Our second, central contribution is the fix: move the pole inside the unit circle with a leaky integrator H(z) = 1/(1 - gamma z^-1), gamma < 1, which provably bounds the accumulated error variance. Applied at reconstruction time with a single fixed gamma=0.9 (no retraining, a two-line change to any deployed one-step or foundation-model forecaster), it shrinks error at every horizon, the mean gain over seven diverging architectures and twenty datasets growing from ~3% at H=24 to 23% at H=96, 37% at H=192 and 51% (43-74% across those architectures) at H=336 (78% with an oracle pole). Crucially, it is provably inert where no pathology exists (stable or joint predictors already at the irreducible rate), making it a safe, general default.",
+      "abstract": "Recursive differenced forecasting, the standard remedy for non-stationarity, predicts one-step changes and integrates them by cumulative summation. We show that this reconstruction is a discrete integrator with a pole on the unit circle, so the biased increment errors of a learned nonlinear model are summed without bound and the rollout diverges: at 336 steps its normalised MAE reaches 1.6-3.8 for every neural architecture tested, against 0.80 for a stable linear recursion. We then introduce leaky-integrator reconstruction, a training-free fix that moves the pole inside the unit circle with H(z) = 1/(1 - gamma z^-1), gamma < 1, bounding the accumulation of the model's own increment errors. Applied post hoc with a single fixed gamma=0.9 (no retraining, a two-line change to any deployed one-step or foundation-model forecaster), it beats the traditional recursive integrator at every horizon, with the mean gain over seven diverging architectures and twenty datasets growing from ~3% at H=24 to 23% at H=96, 37% at H=192 and 51% at H=336 (43-75% across those architectures; 78% with an oracle pole), bringing all of them to 0.87-0.97. Based on these extensive empirical experiments, adding a leaky integrator thus improves recursive differenced time-series forecasting.",
       "authors": [
         "Zijiang Yang"
       ],
       "published": "2026-09-20T05:59:33Z",
-      "updated": "2026-09-20T05:59:33Z",
-      "metadata_updated": "2026-09-22T00:00:00Z",
+      "updated": "2026-09-23T07:23:53Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.23378",
       "pdf_url": "https://arxiv.org/pdf/2609.23378",
       "first_seen": "2026-09-23T01:03:01.516195Z",
@@ -965,8 +1085,8 @@
         "Benjamin J\\\"ager, Nick Erickson, L\\'eo Grinsztajn, Felix Birkel, Klemens Fl\\\"oge, Oscar Key, K\\\"ur\\c{s}at Kaya, Jonas K\\\"ubler, Ad\\`ele Frankel, Tobias Schr\\\"oder, Anurag Garg, Jan Hendrik Metzen, David Salinas, Simon Bing, Kristina Collins, Tuana \\c{C}elik, Vahid Balazadeh, Lydia Sidhoum, Tom\\'as Pereda, Brendan Roof, Andrej Tschalzev, Siyuan Guo, Philipp Singer, Lennart Purucker, Jake Robertson, Marie Salmon, Philipp Jund, Jerry Chen, Diana Kriuchkova, Arthur Cahu, Eliott Kalfon, Adrian Hayler, Georg Grab, Vitor Monteiro, Lilly Wehrhahn, Dominik Safaric, Clara Cornu, Alan Arazi, Rylee Grace, Simone Alessi, Mihir Manium, Bernhard Sch\\\"olkopf, Yann LeCun, Madelon Hulsebos, Sauraj Gambhir, Noah Hollmann, Frank Hutter"
       ],
       "published": "2026-09-15T22:38:29Z",
-      "updated": "2026-09-15T22:38:29Z",
-      "metadata_updated": "2026-09-17T00:00:00Z",
+      "updated": "2026-09-22T17:28:29Z",
+      "metadata_updated": "2026-09-24T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.17895",
       "pdf_url": "https://arxiv.org/pdf/2609.17895",
       "first_seen": "2026-09-23T01:03:01.516195Z",
@@ -5051,17 +5171,25 @@
       ]
     }
   ],
-  "last_success": "2026-09-23T20:23:30.867730Z",
-  "last_attempt": "2026-09-23T20:23:30.867730Z",
-  "last_new_ids": [],
+  "last_success": "2026-09-24T19:11:24.421134Z",
+  "last_attempt": "2026-09-24T19:11:24.421134Z",
+  "last_new_ids": [
+    "2609.26822",
+    "2609.27188",
+    "2609.27385",
+    "2609.27473",
+    "2609.27531",
+    "2609.27614",
+    "2609.28434"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 6,
-    "records": 7693,
+    "pages": 8,
+    "records": 10200,
     "duplicates": 0
   }
 }
