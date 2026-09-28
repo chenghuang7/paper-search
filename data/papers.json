@@ -2,6 +2,250 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.31512",
+      "title": "Tolerable Inflation, Intolerable Uncertainty",
+      "abstract": "Numerical inflation targets anchor beliefs. Across euro-area and US professional forecasts, inflation swaps and options, and realized inflation, uncertainty about inflation is compressed at the announced number and kinks exactly there. This paper identifies a cost of the same design that, to our knowledge, has not been shown before, and that appears in second moments only. Within the workhorse New Keynesian model, tolerating part of the inflation a supply shock produces is optimal, yet the optimal tolerated share is not identified: optimal look-through and an unwarranted drift of the effective target are observationally equivalent in the inflation history, so a central bank cannot demonstrate that a warranted deviation is warranted, ex post as much as in real time. Agents holding finite, heterogeneous patience then generate predictive variance that is flat below the target and rises linearly with the expected overshoot above it -- an observational-equivalence bill, zero at the announced number and accumulating with the point-years inflation spends above it. The first-order benefit of the number stands; what the cost changes is how inflation uncertainty must be measured. The distance from target explains 70% of the variation in professional forecast variance, and the bill lies within that component; Normalized Uncertainty -- to our knowledge the first such correction -- removes it. The purge changes inference substantially: on French loan-level data, raw dispersion is unrelated to corporate loan rates, while one standard deviation of the purged measure is associated with rates 89 basis points higher, and cross-country growth and time-series results shift similarly. Conventional measures of inflation uncertainty partly record inflation's distance from its anchor rather than uncertainty about the outlook.",
+      "authors": [
+        "Eric Vansteenberghe"
+      ],
+      "published": "2026-09-25T16:52:38Z",
+      "updated": "2026-09-25T16:52:38Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31512",
+      "pdf_url": "https://arxiv.org/pdf/2609.31512",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31448",
+      "title": "ViSTA: A Simple Bridge Extends Visual Alignment to Clinical Time-Series Understanding in Multimodal LLMs",
+      "abstract": "Clinical prediction models estimate risk from patient measurements, while large language models support medical text understanding and question answering. Yet their language capabilities do not ensure accurate prediction from structured, high-dimensional clinical time series. Improving this ability would connect risk estimation with flexible questions about a patient's evolving condition. We introduce ViSTA, a compact adapter that incorporates irregular numerical measurements into a pretrained vision-language model's chart representations. It learns corrections to visual tokens while leaving all pretrained parameters unchanged. On MIMIC-IV, ViSTA has the highest mean scores among the compared adaptations on all four metrics for acute kidney injury and mortality prediction across models with 2-9 billion parameters. With 0.516 million trainable parameters, the 2-billion-parameter model reaches an area under the ROC curve of 0.7376 for acute kidney injury, compared with GPT-5.6 Sol's 0.7380 with text input and high reasoning effort. Training for temporal question answering yields 69.27% accuracy at 4 billion parameters with over 90% fewer trainable parameters than low-rank adaptation using charts or numerical text, at a 2.82-4.88 percentage-point accuracy gap. ViSTA extends pretrained language models to numerical prediction and temporal questions.",
+      "authors": [
+        "Junyi Gao, Yu Shi, Pingzhao Hu, Ewen M Harrison"
+      ],
+      "published": "2026-09-25T16:06:29Z",
+      "updated": "2026-09-25T16:06:29Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31448",
+      "pdf_url": "https://arxiv.org/pdf/2609.31448",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31351",
+      "title": "Progressive Memory Transformer: Memory-Aware Attention for Time-Series",
+      "abstract": "Time-series carry structure simultaneously at multiple scales (fine-grained variation, mid-range motifs, and global properties) and downstream tasks operate at correspondingly different scales. Most existing self-supervised learning approaches supervise representations globally via instance-level contrastive losses and limited temporal neighborhood supervision, but do not explicitly exploit the structural hierarchy. We propose a learning framework that explicitly enforces a structural hierarchy across three scales independently: a local objective for token continuity, a mid-range objective for window-level motifs, and a global objective for sequence-level agreement. Realizing this framework requires the backbone to expose a representation at each scale; we introduce \\textbf{Progressive Memory Transformer} (PMT), which augments a transformer with writable, window-aligned memory that exposes the mid-range scale alongside the token and sequence-level representations conventional transformers already provide. Across seven UCR/UEA/UCI classification benchmarks, a cue-retention probe, and forecasting benchmarks, PMT learns representations that probe well at the global, mid-range, and local scales---strong low-label classification (1--5\\% labels), competitive forecasting performance across multiple horizons, and quantitative and qualitative evidence that memory states capture mid-range motifs.",
+      "authors": [
+        "Tord Sture Stangeland, Andreas K\\\"ohler, Steffen M{\\ae}land, Ad\\'in Ram\\'ires Rivera"
+      ],
+      "published": "2026-09-25T14:49:42Z",
+      "updated": "2026-09-25T14:49:42Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31351",
+      "pdf_url": "https://arxiv.org/pdf/2609.31351",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31259",
+      "title": "Sensitivity-driven Personalization of a Glucoregulatory Model for Digital Twin Therapeutics in Type 1 Diabetes",
+      "abstract": "Digital twins are increasingly used in diabetes research, but reproducing individual glucose dynamics requires accurate identification of glucoregulatory model parameters. Traditional sensitivity analysis can identify influential parameters, yet a ranking based on limited conditions may miss parameters that matter during specific disturbances or for particular individuals. We therefore examine both the magnitude and timing of parameter influence across dynamic input-output conditions and assess whether a common ranking holds across participants. We analyze the Hovorka glucoregulatory model using data from 192 participants receiving automated insulin delivery therapy in the Type 1 Diabetes and Exercise Initiative dataset. We extend Sobol sensitivity analysis to time series and rank parameter influence under four conditions: full-day profiles, isolated meal disturbances, insulin bolus injections, and postprandial responses. We combine the condition-specific results into a global ranking and use it to select parameters for participant-specific identification. Compared with population parameters, identification restricted to the sensitivity-derived subset reduces the root mean square error of 60-minute glucose predictions by 60%, to approximately 31 mg/dL. These findings suggest that a global ranking can capture parameter influence across individuals and dynamic conditions. By narrowing the parameters requiring identification, this approach reduces computational cost and could accelerate the development of personalized diabetes digital twins.",
+      "authors": [
+        "Clara Escorihuela-Altaba, Vihangkumar V. Naik, Eleonora Manzoni, Jose Garcia-Tirado"
+      ],
+      "published": "2026-09-25T13:38:15Z",
+      "updated": "2026-09-25T13:38:15Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31259",
+      "pdf_url": "https://arxiv.org/pdf/2609.31259",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31206",
+      "title": "Self-Supervised Representation Learning: From Spectral Foundation Models to Auroral Emission Spectra",
+      "abstract": "Auroral spectrographs such as the Auroral Spectrograph In Skibotn (ASIS) record hundreds of thousands of emission spectra, but only a few hundred can be labelled by an expert. To exploit the rest, we pretrain a 1D Vision Transformer with a masked autoencoder on 223,000 unlabelled spectra. Without labels, its representation recovers the emission-line intensity ratios that physicists use to diagnose the precipitating particles (R^2 0.91 vs. 0.77 for an untrained control) and, under one linear probe, classifies as well as 13 features designed by experts. Fine-tuned, the model outperforms the previous supervised auroral classifier on its own benchmark (macro-AP 88.5 vs. 77.8), reaches 0.870 mAP, and exceeds the same architecture trained from scratch by +0.159 with 10% of the labels; attribution shows that it uses both N2+ bands. Could an existing pretrained model replace it? Two astronomical spectral foundation models and a time-series model transfer according to their spectral window: SpectraFM, trained in the infrared, falls below the untrained control, whereas SpecFormer, trained in the optical, approaches in-domain pretraining without reaching it.",
+      "authors": [
+        "Matthieu Le Lain, Ga\\\"el Cessateur, S\\'ebastien Lef\\`evre"
+      ],
+      "published": "2026-09-25T12:45:06Z",
+      "updated": "2026-09-25T12:45:06Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31206",
+      "pdf_url": "https://arxiv.org/pdf/2609.31206",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.31190",
+      "title": "Dynamic factor and double PCA models for partially observed survival curves: Forecasting demand in short-term rental markets",
+      "abstract": "This paper develops prediction models for population-level survival curves observed over time and sampled from a heterogeneous mix of populations. We consider a discrete-time setting where each curve is only partially observed and forecasts of the remaining trajectory are needed for downstream decision making. Our approach recasts cross-population heterogeneity into a multivariate sampling model. We propose two forecasting models for partially observed curves: a full factor analysis model that extends a general factor representation to incorporate the partially observed survival curve, and a double PCA model. The methodology is motivated by demand forecasting in short-term rental markets, where market-level occupancy paths can be viewed as survival curves over the booking horizon and where forecasts of future occupancy feed into dynamic pricing algorithms. We apply the models to the newly released Wheelhouse dataset, which contains time series of market occupancy curves for 500 markets from 2017 to 2022. Model performance is assessed using the integrated quadratic distance, and we compare the proposed PCA-based methods to Holt's linear trend model across multiple forecast horizons. The results show that the proposed models yield accurate and stable forecasts of the remaining survival trajectory and generally outperform Holt's method, particularly at longer horizons.",
+      "authors": [
+        "Marthe Elisabeth Aastveit and Alex Lenkoski and Thordis Thorarinsdottir"
+      ],
+      "published": "2026-09-25T12:22:00Z",
+      "updated": "2026-09-25T12:22:00Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31190",
+      "pdf_url": "https://arxiv.org/pdf/2609.31190",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31162",
+      "title": "WorldTS: World Modeling for Multimodal Covariate-aware Time Series Forecasting",
+      "abstract": "Time series forecasting is typically framed as learning a direct mapping from historical to future observations in the observation space. However, sequences of observations generally provide only a partial view of the dynamics of the underlying system, with future observations being shaped by latent dynamics. Recent latent-space forecasting methods thus achieve improved performance by predicting future observations from latent-space representations of historical observations rather than directly forecasting future observations in the observation space. Next, while future observations are also shaped by external factors, how to incorporate external, often multimodal, information into forecasting, so that it can shape latent-state formation and evolution directly, remains underexplored. We propose WorldTS, a world-modeling based forecasting framework that integrates multimodal covariates directly into the forecasting to further improve forecasting performance. Specifically, WorldTS employs a two-stage training strategy. First, it learns forecasting-relevant latent state dynamics conditioned on multimodal covariates, yielding encoded future states. Next, the learned state dynamics are frozen, and an observation decoder is trained to map the predicted future states back to future observations. Extensive experiments on 21 real-world datasets offer insight into WorldTS and its effectiveness.",
+      "authors": [
+        "Yuhan Zhu, Xiangfei Qiu, Hanyin Cheng, Wangmeng Shen, Chenjuan Guo, Bin Yang, Jilin Hu, Christian S. Jensen"
+      ],
+      "published": "2026-09-25T11:54:18Z",
+      "updated": "2026-09-25T11:54:18Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31162",
+      "pdf_url": "https://arxiv.org/pdf/2609.31162",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31157",
+      "title": "Bayesian Tensor Autoencoder with Physics-informed Predictive Prior for Multi-dimensional Time Series Anomaly Detection",
+      "abstract": "Multi-dimensional time series, inherently tensorial, are common in practice. Despite great progress in time series anomaly detection, most existing methods are confined to uni-/multi-variate time series. When handling multi-dimensional time series using these methods, reshaping operations are required, which inevitably break the intrinsic correlations and thus lead to performance degradation. In uni-/multi-variate time series anomaly detection, AutoEncoders (AEs) are widely adopted and generally categorized into reconstruction-based and prediction-based AEs. The reconstruction-based AE utilizes the current observation for reconstruction, while the prediction-based AE utilizes the historical information to predict the current observation. Thus, the two AEs utilize different information. To bridge the gap between reconstruction-based and prediction-based AEs, so as to fully leverage the available information and thus further enhance performance, we propose a predictive prior and incorporate it into the reconstruction-based AE. It may not be very difficult to conceive this idea, but designing the predictive prior so that it can work for tensor anomaly detection is non-trivial. Specifically, to avoid breaking the intrinsic correlations within the multi-dimensional time series, we use the tensor AE as the backbone. To incorporate the predictive prior into the reconstruction-based AE, we propose a Bayesian fusion approach and our analysis reveals that this approach can enhance the modeling capability of the model for normal data. To mitigate the over-generalization problem of AE, we incorporate physical laws, i.e. tensor low-rank decomposition rules, into the neural networks in the predictive prior, leading to the Physics-informed Predictive Prior Tensor AE (PPPTAE) framework. Experimental results on real-world datasets demonstrate the effectiveness of the proposed method.",
+      "authors": [
+        "Jianan Liu, Chunguang Li"
+      ],
+      "published": "2026-09-25T11:52:35Z",
+      "updated": "2026-09-25T11:52:35Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31157",
+      "pdf_url": "https://arxiv.org/pdf/2609.31157",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.31038",
+      "title": "Aurora-X: Built for Extreme Time Series Forecasting",
+      "abstract": "Time series foundation models (TSFMs) enable cross-domain forecasting, but their development as general-purpose forecasters remains constrained by underexplored training potential and limited architectural versatility. To address these challenges, we introduce Aurora-X, a billion-scale TSFM with a progressive curriculum and a unified architecture. We first use channel-independent pretraining to learn temporal patterns, then introduce cross-variable dependencies, varied context and horizon lengths, and future covariates if available during midtraining. Variable-resolution post-training further enables an adjustable temporal span per token at inference. With fixed model weights, this supports longer histories under a fixed token budget or fewer tokens for the same history, enabling test-time scaling. With a versatile architecture, Aurora-X supports cross-variable modeling, covariate conditioning, and parallel decoding of future patches for probabilistic forecasting. These are supported by a novel pattern-guided mixture-of-experts that expands model capacity through sparse activation and uses shallow patch similarities to constrain deep-layer routing, guiding expert specialization across heterogeneous time series. Furthermore, we propose an implicit quantile network head that predicts arbitrary quantiles to characterize predictive distributions, enhancing probabilistic forecasting flexibility. Comprehensive experiments on GIFT-Eval, TIME, FEV-Bench, TFB, and DAG-Bench demonstrate state-of-the-art forecasting performance against pretrained TSFMs and task-specific supervised models.",
+      "authors": [
+        "Xingjian Wu, Chenjuan Guo, Xiangfei Qiu, Zhigang Hu, Hanyin Cheng, Peng Chen, Yang Shu, Jilin Hu, Bin Yang"
+      ],
+      "published": "2026-09-25T09:32:22Z",
+      "updated": "2026-09-25T09:32:22Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.31038",
+      "pdf_url": "https://arxiv.org/pdf/2609.31038",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.30929",
+      "title": "EPOC: Endpoint-Preserving Online Correction With Compressed Residual State for Multi-Horizon Time Series Forecasting",
+      "abstract": "Completed multi-horizon forecasts provide residual feedback for a fixed forecaster, but retaining full residual blocks increases auxiliary state. We propose Endpoint-Preserving Online Correction (EPOC) with a compressed residual state. It stores low-order discrete cosine transform (DCT) coefficients and the final value of the preceding residual block. Within each channel, the endpoint is shared across component-wise online ridge regressions that also use current-forecast coefficients. The fitted DCT correction is blended with the base forecast. We evaluate eight multivariate series with DLinear and PatchTST, three seeds, and two training variants, yielding 96 matched fixed-base conditions at a 24-step horizon. EPOC achieves mean condition-wise reductions in mean squared error (MSE) and mean absolute error (MAE) of 15.40% and 9.35% from the uncorrected base, respectively, with a median of 6,352 B in retained auxiliary arrays. It has lower paired MSE than the $\\delta$-Adapter, COSA, FAC, and OMPB in a majority of conditions and uses less state than each. Full ELF achieves the largest mean MSE reduction, 19.29%, but its median retained state is 474,048 B ($\\times$75 relative to EPOC). Equal-size summary controls favor the endpoint by 1.65--2.20% in paired MSE; a coefficient-reconstructed endpoint yields similar accuracy to the observed endpoint, highlighting its role as a shared input. Increasing the retained DCT component count from 4 to 8 adds 1.00 percentage point of MSE reduction for 5,728 B. On jointly trained bases, EPOC lowers MSE by 16.69--20.15% relative to globally blended TEFL-style adapters applied to the same base. The code and numerical records are available at https://github.com/keiotakmin/endpoint-preserving-residual-correction.",
+      "authors": [
+        "Takumi Fujimoto, Hiroaki Nishi"
+      ],
+      "published": "2026-09-25T07:43:49Z",
+      "updated": "2026-09-25T07:43:49Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.30929",
+      "pdf_url": "https://arxiv.org/pdf/2609.30929",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.30880",
+      "title": "EXAONE Demand 1.0: A Time Series Foundation Model for Demand Forecasting",
+      "abstract": "Time series foundation models (TSFMs) are pretrained on series from diverse domains, where demand series make up only a small fraction. Demand data has properties that such corpora rarely contain: Short histories, frequent zeros, censoring by stock-outs, and exogenous events that the series does not record. To this end, we propose EXAONE Demand, built on 1) a demand-specific corpus and 2) a demand-aware adapter. For the corpus, we assemble 11.3M series and 48.4B observations from 73 sources, and a synthetic generator supplies the behaviour that open demand data under-represents. For the adapter, we attach low-rank branches to a frozen general-domain backbone, one for each of the four demand classes (smooth, intermittent, erratic, and lumpy), and a router that reads eight scale-free statistics of the input series decides how much each branch contributes. We build EXAONE Demand in two versions, one trained on real-world and synthetic demand together and one trained on the synthetic corpus alone. On 22 held-out datasets, both versions outperform 36 TSFMs, and real-world demand adds a gain over synthetic data alone.",
+      "authors": [
+        "Seunghan Lee, Sangjun Han, Jun Seo, Junhyeok Kang, Jaehoon Lee, Tae Yoon Lim, Dongwan Kang, Hwanil Choi, Minjae Kim, Sungdong Yoo, Soonyoung Lee, Wonbin Ahn"
+      ],
+      "published": "2026-09-25T06:37:39Z",
+      "updated": "2026-09-25T06:37:39Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.30880",
+      "pdf_url": "https://arxiv.org/pdf/2609.30880",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.30753",
+      "title": "Skill Profiling with Attributable Reasoning (SPAR): A Wearable Analysis System for Boxing",
+      "abstract": "A punch is a ballistic, full-body action driven by a kinetic chain running from the legs through the trunk to the arm, where a small sequencing error separates a scoring strike from a miss. Wearable sensors can capture this movement in the gym, but most deployable systems only classify which punch was thrown rather than assess how well it was thrown. We present Skill Profiling with Attributable Reasoning (SPAR), an eight-IMU garment and pressure-insole system that classifies each punch as expert or novice and treats an explanation of that prediction as feedback. Feedback is only useful if the person receiving it can act on it, so SPAR explains the prediction at three tiers, a per-joint attribution for the analyst, a counterfactual over kinetic-chain layers for the coach, and a plain-language narrative of the two for the athlete. Across 17 participants and 4,713 punches, SPAR reaches a leave-one-participant-out AUC of 0.842 (95% CI [0.769, 0.907] over participants). A frozen time-series foundation model encodes the joint-angle and plantar-force series, and a small transformer trained on the cohort classifies the encoding. We audit the two quantitative tiers and report six themes from a thematic analysis of interviews with six practicing boxing coaches.",
+      "authors": [
+        "Nibraas Khan, Hanchen David Wang, Enya Bullard, Ritam Ghosh, Ruj Haan, Aarav Agrawal, Meiyi Ma, Nilanjan Sarkar"
+      ],
+      "published": "2026-09-25T03:28:50Z",
+      "updated": "2026-09-25T03:28:50Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.30753",
+      "pdf_url": "https://arxiv.org/pdf/2609.30753",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.30721",
+      "title": "When 10,000 Windows Are Not 10,000 Tests: Auditing Statistical Confidence in Sliding-Window Time-Series Classification",
+      "abstract": "Sliding-window classifiers are often evaluated on thousands of overlapping test windows, even though neighboring predictions share observations and remain nested within recordings and subjects. Subject-disjoint evaluation prevents one form of leakage but does not make those test windows independent. We present a practical audit that maps three claims - performance on observed recordings, future recordings from observed subjects, and unseen subjects - to explicit aggregation rules and established dependence-robust inference. At 75% overlap, controlled simulations give 16.9% Type-I error for IID observed-record inference and 7.2% for session-centered Bartlett-HAC: a substantial improvement with residual miscalibration. Audits of frozen WISDM and HARTH predictions show that nearly fourfold growth in test rows yields only 1.75-1.94-fold variance-equivalent information growth. At that overlap, fixed-record paired Accuracy-difference intervals are 1.22-1.66 times the IID widths; this inflation is not universal at zero overlap. On HARTH, paired Accuracy-difference intervals include zero across three overlap settings, whereas Macro-F1 favors MiniROCKET. Independent recomputation, common-session checks, class-level results, and separately seeded calibration make the audit's scope and limitations inspectable. The resulting workflow distinguishes additional predictions from additional independent evidence.",
+      "authors": [
+        "Xinze Shi, Litian Zhang, Binrui Shi"
+      ],
+      "published": "2026-09-25T02:49:00Z",
+      "updated": "2026-09-25T02:49:00Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.30721",
+      "pdf_url": "https://arxiv.org/pdf/2609.30721",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.30397",
+      "title": "A Synthetic Ground-Truth Framework for the Evaluation of Explainable AI Methods",
+      "abstract": "Evaluating explainable Artificial Intelligence (XAI) methods is a challenging task due to the lack of reliable evaluation procedures and, in particular, the absence of ground truth explanations. In the literature, existing evaluation approaches typically assess explanations by measuring their fidelity with respect to the predictions of a black-box model. However, such evaluation strategies only quantify the degree to which an explanation reproduces the model's output, without ensuring that the explanation correctly reflects the underlying decision process. As a consequence, different explanations may achieve similar fidelity scores while providing inconsistent or misleading interpretations of the model behavior. In this paper, we propose a framework for the evaluation of XAI methods based on synthetic ground truth. The proposed approach relies on controlled interventions to generate synthetic datasets in which the importance of input components can be determined by design. This enables the construction of ground truth explanations that are directly aligned with the behavior of the model under analysis. The framework is instantiated across three data domains, namely binary images, tabular data, and time series, allowing a comprehensive assessment of explanation methods in heterogeneous settings. Experimental results obtained by evaluating nine widely used XAI methods show significant limitations in current techniques and highlight the importance of synthetic, intervention-based benchmarks for a reliable assessment of explanation quality.",
+      "authors": [
+        "Miquel Mir\\'o-Nicolau, Francesco Spinnato, Riccardo Guidotti"
+      ],
+      "published": "2026-09-24T18:04:03Z",
+      "updated": "2026-09-24T18:04:03Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.30397",
+      "pdf_url": "https://arxiv.org/pdf/2609.30397",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.29814",
       "title": "SwitchPFN: Shared Switching Dynamics for Frozen In-Context Time Series Classification",
       "abstract": "Tabular foundation models (TFMs) provide a promising route to time-series classification, but their effectiveness depends on how sequential data are converted into tabular representations. Existing representations face two challenges: global aggregation can lose the order of temporal evolution, while features computed in independently fitted coordinate systems may not have consistent meanings across sequences. We therefore view representation design for TFMs as a problem in its own right: the representation should preserve local temporal transitions while maintaining a shared feature definition across samples. We propose SwitchPFN, which learns a shared projection and regime codebook from the training sequences, making local dynamic operators and transition features directly comparable across samples. Across the evaluated benchmarks, SwitchPFN achieves the highest mean accuracy among the evaluated methods, improving over the strongest baseline by 4.47% relatively. Ablation studies, parameter sensitivity analyses, and reduced-training-data experiments further examine the contributions of the representation, its main design choices, and its behavior when labeled data are limited.",
@@ -119,6 +363,23 @@
       "url": "https://arxiv.org/abs/2609.28607",
       "pdf_url": "https://arxiv.org/pdf/2609.28607",
       "first_seen": "2026-09-25T18:38:05.349172Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.28199",
+      "title": "Transferable Evidence Reconstruction for Longitudinal Glucose Representations",
+      "abstract": "Long physiological recordings contain many routine measurements, while predictive information often lies in rare events, sustained burden, and recurring patterns. These properties can be computed as label-free evidence, but directly using them as features leaves limited labeled data to separate reproducible associations from sample-specific ones. Learning to reconstruct evidence can exploit unlabeled recordings, yet joint reconstruction does not explicitly require the decoding rule to transfer across individuals. We introduce transferable evidence reconstruction (TER): a Ridge regressor fits evidence from representations in one group and predicts it in an identity-disjoint group without refitting. The transfer error trains the encoder through the differentiable fit. For continuous glucose monitoring (CGM), clock-aware encoding preserves the multi-day content and timing needed for evidence recovery. Matched interventions connect the gains to reduced fitting-group sensitivity, with structured targets improving on raw recovery. Across ten leading CGM and time-series baselines, TER sets a new best metric on 12/14 phenotype tasks and exceeds the strongest prior overall PR-AUC/ROC-AUC/Macro-F1 by 4.95/4.43/0.66 percentage points; the PR-AUC and ROC-AUC gains are $2.6\\times$ and $2.2\\times$ the respective gaps between the two strongest baselines. Meal-response and future-CGM studies further demonstrate predictive utility. TER thus uses meaningful signal properties to supervise not only what a representation preserves, but how reliably it can be read across individuals.",
+      "authors": [
+        "Tian Zhou, Bingqing Peng, Linxiao Yang, Wenwei Wang, Mengni Ye, Beverly Jin, Zuyi Zhu, Jinjie Gu, Liang Sun"
+      ],
+      "published": "2026-09-23T14:38:38Z",
+      "updated": "2026-09-25T01:14:50Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.28199",
+      "pdf_url": "https://arxiv.org/pdf/2609.28199",
+      "first_seen": "2026-09-28T22:02:30.993606Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -3738,8 +3999,8 @@
         "Alexander Marusov, Dmitry Anikin, Alexey Zaytsev"
       ],
       "published": "2026-08-20T13:51:07Z",
-      "updated": "2026-09-24T17:17:49Z",
-      "metadata_updated": "2026-09-25T00:00:00Z",
+      "updated": "2026-09-25T06:59:07Z",
+      "metadata_updated": "2026-09-28T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.20052",
       "pdf_url": "https://arxiv.org/pdf/2608.20052",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -5308,17 +5569,33 @@
       ]
     }
   ],
-  "last_success": "2026-09-27T18:25:43.678877Z",
-  "last_attempt": "2026-09-27T18:25:43.678877Z",
-  "last_new_ids": [],
+  "last_success": "2026-09-28T22:02:30.993606Z",
+  "last_attempt": "2026-09-28T22:02:30.993606Z",
+  "last_new_ids": [
+    "2609.28199",
+    "2609.30397",
+    "2609.30721",
+    "2609.30753",
+    "2609.30880",
+    "2609.30929",
+    "2609.31038",
+    "2609.31157",
+    "2609.31162",
+    "2609.31190",
+    "2609.31206",
+    "2609.31259",
+    "2609.31351",
+    "2609.31448",
+    "2609.31512"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 3,
-    "records": 2752,
+    "pages": 2,
+    "records": 2270,
     "duplicates": 0
   }
 }
