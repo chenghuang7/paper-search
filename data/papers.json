@@ -2,6 +2,285 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2609.40359",
+      "title": "Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text",
+      "abstract": "We find that major reported improvements in decoding words from non-invasive brain recordings are largely reproducible without any brain data. In the influential work of d'Ascoli et al. (2025), time series of brain activity from subjects perceiving continuous speech are segmented into fixed-length windows starting at each word. A neural network then generates predictions for all of the words in a sentence together. Neighbouring windows partially overlap, implicitly revealing the interval between words. Since these intervals indicate the duration of the words spoken, and different words tend to have different durations - for example, \"the\" is much shorter than \"supercalifragilisticexpialidocious\" - the neural network can improve its predictions of words without relying on the underlying brain activity. Consistent with this, the method reaches 22.0% balanced accuracy on synthetic signals containing no brain information, compared with 22.3% on real brain recordings. To prevent the network from learning this shortcut, we make a single, simple change. Instead of jointly encoding all windows in a sentence, we process each independently. As a result, the neural network achieves better performance by learning underlying word-specific information from brain recordings. This makes two existing strategies become much more effective than before. Both aggregating predictions from distinct neural responses to the same word and using a pretrained LLM as a linguistic prior now substantially improve results. On our perceived speech benchmark, this simple recipe (SimpleB2T) achieves a word error rate of 36.6% with five observations per word, approaching past invasive speech decoding performance, albeit under different conditions. The results in this work expose an important shortcut in brain-to-text decoding and show that removing it leads to a simple and considerably more effective strategy.",
+      "authors": [
+        "Dulhan Jayalath and Oiwi Parker Jones"
+      ],
+      "published": "2026-09-30T17:59:52Z",
+      "updated": "2026-09-30T17:59:52Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.40359",
+      "pdf_url": "https://arxiv.org/pdf/2609.40359",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.40265",
+      "title": "OpenTSLM TeeMoE: A Unified Time-Series Language Model for Forecasting, Contextual Prediction, and Reasoning",
+      "abstract": "Real-world time-series applications increasingly require models that can handle time series forecasting, context-conditioned prediction, and language-based temporal reasoning. Yet current time-series foundation models remain fragmented across these capabilities: numerical specialists often provide the strongest forecasts, while language-based models offer broader contextual understanding and analysis. A central challenge is to unify these heterogeneous capabilities without reducing their individual performance. We introduce OpenTSLM TeeMoE, a generalist time-series language model that can forecast directly from observed time series, reason over textual context and temporal patterns, and synthesize and refine predictions from external numerical forecasting specialists. We independently train three low-rank experts for forecast aggregation, native forecasting, and temporal analysis over a shared backbone. A learned LoRA mixture-of-experts controller then weights their frozen parameter updates for each request. Our proposed model achieves strong performance on widely used benchmarks for time series forecasting, context-conditioned prediction, and language-based temporal reasoning, ranking among the top three on GIFT-Eval by mean MASE rank, Context is Key by RCRPS, and TimeSeriesExam by accuracy.",
+      "authors": [
+        "Tony Chen, Timo Stoffregen, Maxwell Xu, Thomas Kaar, Martin Maritsch, Geremia Pompei, Nicolas Zumarraga, Robert Jakob, Paul Schmiedmayer, Patrick Langer, Juncheng Liu"
+      ],
+      "published": "2026-09-30T17:43:22Z",
+      "updated": "2026-09-30T17:43:22Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.40265",
+      "pdf_url": "https://arxiv.org/pdf/2609.40265",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.40117",
+      "title": "Beyond Model Ranking: Regime Diagnosis for Distributional-Statistical Misspecification in Industrial Time-Series Forecasting",
+      "abstract": "Time-series forecasting models achieve strong benchmark performance but exhibit severe systematic bias in industrial deployments. This train--deploy gap is conventionally attributed to temporal-structural errors or distribution shifts. We characterize a complementary source that these explanations overlook: canonical losses embed fixed statistical priors, while industrial demand mixes benign and pathological regimes---zero-inflation, skewness, high variability---in which these priors are systematically violated. The induced bias persists even under perfect temporal modeling, remains in a distributional-shape component that normalization cannot remove, and creates an aggregation trade-off invisible to aggregate metrics. We turn these observations into an evaluation toolkit centered on the Regime-wise Relative Bias Vector (RBV): a metric-agnostic, regime-decomposed diagnostic that audits how pooled training allocates systematic mismatch across pathological subpopulations. A controlled attribution analysis decomposes RBV into a model-independent intrinsic floor, set by each loss's estimand, and an excess component attributable to training, tracing observed bias to the loss rather than the model. A large-scale study---13 loss objectives, 3 seeds, 60,000+ series spanning RetailShiftBench and M5, with random-split controls---shows that regime-aware diagnosis separates optimization-type from bias-type failure, and that regime-aware training resolves the pooling-induced bias that capacity scaling cannot, for mean-type losses. A formal structural observation, that risk under evaluation-distribution contamination is affine in the pathology mixture weight, grounds these findings. Our work complements model ranking with mechanism-grounded, regime-oriented evaluation.",
+      "authors": [
+        "Pengyu Nie, Chenglang Xu, Yaoshi Chen, Chaogan Ren, Wei Hu, Chao Yang, Jiangong Zhang"
+      ],
+      "published": "2026-09-30T16:43:26Z",
+      "updated": "2026-09-30T16:43:26Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.40117",
+      "pdf_url": "https://arxiv.org/pdf/2609.40117",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.40071",
+      "title": "Grounding Time-Series Foundation Models in Digital Twin Topology for Predictive Maintenance",
+      "abstract": "Digital twins increasingly support downstream analytical tasks that depend on time-series data, motivating interest in time-series foundation models (TSFMs) as scalable backbones. However, TSFMs are primarily pretrained for temporal continuation and often underperform on unseen tasks such as regression, and systematic empirical comparisons against state-of-the-art dedicated models in digital twin contexts remain limited. This paper makes three contributions. First, we benchmark five well-known TSFMs with frozen backbones on remaining useful life (RUL) prediction using the C-MAPSS dataset, finding that multivariate architectures substantially outperform univariate ones, particularly under varying operating conditions. This raises a deeper question: when cross-channel dependencies can be modeled through pretrained weights, target-task adaptation, and digital twin-derived representations, how much does each contribute, and are they complementary? Second, we propose a topology-informed fusion approach in which topological constraints, derived from the asset structure the digital twin stores among its information models, explicitly shape cross-attention, so that fused representations respect the physical system's local connectivity rather than relying on unconstrained all-to-all interactions. Third, we conduct an ablation study across C-MAPSS subsets of varying operational complexity that isolates the three sources and their interactions. The sources prove complementary rather than redundant, and topology-constrained attention outperforms unconstrained fusion, though by a small margin, enabling a frozen TSFM informed by digital twin representations to remain competitive or in some cases exceed state-of-the-art performance on this regression task.",
+      "authors": [
+        "Sizhe Ma, Katherine A. Flanigan, Mario Berg\\'es"
+      ],
+      "published": "2026-09-30T16:24:35Z",
+      "updated": "2026-09-30T16:24:35Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.40071",
+      "pdf_url": "https://arxiv.org/pdf/2609.40071",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.39810",
+      "title": "A Comprehensive Benchmark of Source-Free Universal Domain Adaptation on Time Series Representations",
+      "abstract": "Source-Free Universal Domain Adaptation (SF-UniDA) extends Universal Domain Adaptation by removing access to source data at adaptation time while still handling label-set mismatches between domains. Despite growing interest in this setting for image data, no benchmark exists for time series, which are more challenging. We present the first SF-UniDA benchmark on time series. In addition, we provide the first study of pretrained foundation models as feature extractors for time series domain adaptation. In this context, we identify a critical and previously underexplored limitation of all existing SF-UniDA methods: the inference threshold for unknown-sample rejection is highly sensitive. We address this by proposing a plug-in auto-thresholding module that can be integrated into any SF-UniDA method. Experiments on three well-known time series datasets confirm the suitability of this module. They also highlight that foundation models do not systematically outperform classical backbones and that SF-UniDA tailored for time series is yet to be developed.",
+      "authors": [
+        "Romain Mussard, Fannia Pacheco, Maxime Berar, Paul Honeine, Gilles Gasso"
+      ],
+      "published": "2026-09-30T14:18:26Z",
+      "updated": "2026-09-30T14:18:26Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39810",
+      "pdf_url": "https://arxiv.org/pdf/2609.39810",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.39792",
+      "title": "TopTimeNet: Topologically-assisted time-series classification model",
+      "abstract": "Distinguishing periodic from chaotic dynamics in a time series is a fundamental challenge in both physics and engineering. Yet, end-to-end learned architectures must discover both a representation and a decision boundary from data, at substantial cost. We introduce TopTimeNet, which decouples these tasks: a fixed, non-learned stage extracts a $42$-dimensional geometric and topological descriptor from Takens delay embeddings and persistent homology, and a lightweight learnable stage performs classification. On a benchmark of $49$ nonlinear dynamical systems, a $1{,}638$-parameter configuration matches the mean accuracy of one with $33\\times$ more trainable parameters. Additionally, this approach delivers mean accuracy comparable to convolutional neural networks and surpasses the average performance of converged Transformer models, while requiring three to four orders of magnitude fewer trainable parameters. Robustness also depends sharply on where noise is introduced: TopTimeNet degrades gracefully under perturbations to its precomputed features, but degrades sharply when noise is introduced into the raw signal and the full feature-extraction pipeline is recomputed, showing that robustness to perturbations of the precomputed features does not imply robustness of the complete raw-signal-to-prediction pipeline. These results show that decoupling fixed geometric and topological feature construction from a lightweight discriminative stage can achieve comparable classification accuracy with substantially fewer trainable parameters.",
+      "authors": [
+        "Sharareh Sayyad and Sophia Bazzi"
+      ],
+      "published": "2026-09-30T14:11:00Z",
+      "updated": "2026-09-30T14:11:00Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39792",
+      "pdf_url": "https://arxiv.org/pdf/2609.39792",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39789",
+      "title": "Pseudo-Label-Triggered Retraining from Forecast Errors for Online Time Series Forecasting",
+      "abstract": "Real-world time series forecasting systems operate under non-stationary data streams, where forecasting performance may degrade over time. Although retraining can recover the performance, it incurs non-trivial computational and operational costs. Under limited deployment resources, the key challenge is therefore not only how to retrain but also when to retrain. While existing retraining policies often rely on indirect indicators such as drift alarms or model staleness, we instead use realized forecast errors as direct deployment feedback. In this paper, we propose PILOT (Pseudo-label-Informed Learned Online Trigger), an online retraining framework that learns when to retrain from forecast-error dynamics. Since ground-truth retraining labels are unavailable, PILOT constructs a pseudo-label from future increases in forecast error and trains a lightweight scorer to predict it from observed error states. At deployment, PILOT uses only completed forecast errors and serves as a plug-in module for arbitrary forecasting backbones without architectural modification. We evaluate PILOT under standard multivariate forecasting settings across eight benchmarks with three representative backbones---DLinear, iTransformer, and TimesNet. Across all three backbones, PILOT achieves state-of-the-art average-rank performance among retraining policies while maintaining a favorable performance--efficiency trade-off.",
+      "authors": [
+        "Yeryeong Kwak and Yoo-Min Jung and Jonghun Park"
+      ],
+      "published": "2026-09-30T14:10:20Z",
+      "updated": "2026-09-30T14:10:20Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39789",
+      "pdf_url": "https://arxiv.org/pdf/2609.39789",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39741",
+      "title": "The Nixtlaverse: An Open-Source Ecosystem for Forecasting",
+      "abstract": "Large forecasting applications often combine statistical, machine-learning, and neural models. These families solve the same problem but differ in fitted state, training procedures, and how they parallelize work. Forecasting software must therefore either hide these differences behind a single estimator interface, or keep the families in separate packages, forcing users to rewrite data preparation and evaluation for every package. We present the Nixtlaverse, an ecosystem of open-source Python libraries for time series forecasting, as a case study of a third design: all libraries share the same long-format panel data and keyed forecast outputs, while every model family keeps its own specialized implementation. We demonstrate this design through three use cases on the public M5 competition data. First, we evaluate statistical, machine-learning, and neural models, and an external engine from a separate ecosystem, in a single rolling-origin evaluation with per-series and hierarchy-weighted metrics. Second, we profile runtime and peak memory from 100 to 30,490 series and locate each family's bottleneck: statistical fitting scales approximately linearly in the number of series, feature construction dominates machine-learning memory, and neural training time is nearly independent of panel size under a fixed training budget. Third, we reconcile the forecasts of multiple engines, including the external one, over all 42,840 series of the M5 hierarchy, with sparse reconciliation where dense implementations exhausted memory. These use cases establish the costs, boundaries, and utility of shared data and output contracts. The Nixtlaverse has seen substantial public distribution, scholarly reuse, and adoption through other forecasting frameworks, and is released under permissive open-source licenses with public datasets, reproducible examples, and verifiable benchmark artifacts.",
+      "authors": [
+        "Olivier Sprangers, Max Mergenthaler Canseco, Marco Peixeiro, Saul Caballero Ramirez, Mariana Menchero Garc\\'ia, Jing-Qiang Goh, Han Wang, Nikhil Gupta, Rogelio Melo, Senbong Gee, Cristian Challu"
+      ],
+      "published": "2026-09-30T13:43:49Z",
+      "updated": "2026-09-30T13:43:49Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39741",
+      "pdf_url": "https://arxiv.org/pdf/2609.39741",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39489",
+      "title": "Towards Robust Time Series Learning via Capacity-Centric Modulation",
+      "abstract": "Sample-level reliability heterogeneity is common in deep time series learning. Standard training pipelines apply a uniform regularization setting to all samples, which can under-regularize corrupted samples and over-restrict clean samples. Common robustness approaches filter observations in data space or impose priors on latent representations. We propose Capacity-Centric Modulation (CCM) as a complementary, sample-adaptive regularization principle. Under this principle, we introduce SACM (Sample-Adaptive Capacity Modulation), a task-agnostic framework that exploits spectral sparsity to assign sample-wise dropout probabilities along internal activation paths. SACM integrates into existing backbones without architectural redesign and preserves the deterministic inference pipeline. Across 301 real-world dataset-backbone pairs covering 9 forecasting, 32 classification, and 4 anomaly-detection datasets, SACM reduces forecasting MSE by 6.7% on average and improves classification accuracy and point-adjusted F1 by 3.04% and 17.05%, respectively, relative to unmodified backbones, with zero test-time overhead.",
+      "authors": [
+        "Siru Zhong, Senzhang Wang, James T. Kwok, Yuxuan Liang"
+      ],
+      "published": "2026-09-30T10:51:23Z",
+      "updated": "2026-09-30T10:51:23Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39489",
+      "pdf_url": "https://arxiv.org/pdf/2609.39489",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39484",
+      "title": "CAMOS: Coupled Oscillatory State-Space Model for Multimodal Clinical Time-Series",
+      "abstract": "Longitudinal clinical cohorts are multimodal, irregularly sampled and pervasively incomplete: in ADNI, positron emission tomography and cerebrospinal fluid assays are absent from roughly half of all visits. Linear state-space models handle irregular sampling gracefully but treat a missing modality by masking the input, leaving the transition operator untouched. We prove that this is a representational limitation: the latent state of any linear state-space layer whose transition operator does not depend on the availability pattern is an additive function of the availability indicators, so no such layer can represent an interaction between two modalities being jointly present or jointly absent. We propose CAMOS, which gives each modality a bank of second-order oscillators coupled through a matrix that sits inside the differential equation and is gated by availability, so the transition operator itself becomes a function of which measurements were taken. Coupling invalidates the analysis of uncoupled oscillatory models, and we restore it: a per-channel Gershgorin budget makes the effective stiffness positive definite uniformly over all $2^M$ availability patterns and all gaps, an energy argument charges amplification to availability transitions rather than sequence length, and a channel factorization preserves exact associative parallel scans. On ADNI, CAMOS outperforms uncoupled oscillatory state-space models and clinical fusion models on same-visit staging, landmark prediction and longitudinal forecasting, and under zero-shot transfer to OASIS-3 it is the only model that avoids collapse to the majority class.",
+      "authors": [
+        "Maxx Richard Rahman, Mostafa Hammouda, Wolfgang Maass"
+      ],
+      "published": "2026-09-30T10:47:01Z",
+      "updated": "2026-09-30T10:47:01Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39484",
+      "pdf_url": "https://arxiv.org/pdf/2609.39484",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39445",
+      "title": "Raw-Routed Mixture of Adapters: A Causal Intervention for Routing Collapse in Time Series Foundation Models",
+      "abstract": "Time series foundation models (TSFMs) commonly adapt to new data by attaching a single trainable head to a frozen backbone, a one-size-fits-all setup that underfits heterogeneous regimes. Replacing the head with a mixture of experts is the standard upgrade, but on instance-normalized backbones (the dominant TSFM design class) it fails: routing entropy collapses to zero and one expert absorbs every input, a failure we call normalization-induced routing collapse. Standard MoE rescue mechanisms do not repair it, because the cause is in the router's input, not its optimization. Pre-encoder normalization strips the statistics a router would need to tell regimes apart. A mutual-information decomposition makes this precise and yields a signal-ratio that, computed before training, predicts dataset vulnerability (Spearman $\\rho = -0.88$). Eight causal controls, including a vision-modality replication, isolate instance normalization as the cause. The prescription is a minimal causal intervention: Raw-Routed Mixture of Adapters (RR-MoA), which routes on the raw, pre-normalization input. Under a strictly frozen backbone, RR-MoA wins 54/54 comparisons against the strongest fixed adapter and significantly outperforms LoRA, TRACE, AdaMix, and full fine-tuning. The effect generalizes across six backbones and an imputation task. Frozen RR-MoA also beats full fine-tuning by 12-79% (the Frozen Paradox); two architecturally distinct variants confirm the principle generalizes beyond this specific router.",
+      "authors": [
+        "Hung Phan, Thuy T. Nguyen, Minh Ngoc Dinh, Nhat-Quang Tran"
+      ],
+      "published": "2026-09-30T10:18:59Z",
+      "updated": "2026-09-30T10:18:59Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39445",
+      "pdf_url": "https://arxiv.org/pdf/2609.39445",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2609.39406",
+      "title": "Inferring Causal Relations between Two Sequences of Events with Language Models",
+      "abstract": "Causal AI is a branch of Artificial Intelligence which helps understand and reason about cause and effect relationships, not just patterns or correlations. Causal discovery aims to infer elements of the underlying causal structure--often represented as a directed graph--from observational and, when available, interventional data. While causal discovery is the fundamental step for moving beyond mere associations toward genuine understanding, and thus the basic building block of causal AI, it becomes intrinsically difficult when causal relations must be inferred from single observations. In such situations, standard causal discovery methods cannot be used and one has to identify causal relations from limited amount of information. This is typically the case for, e.g., sequences of events produced by different alarms which need to be analyzed on the fly to detect abnormal phenomena, which are usually rare. We show in this study that it is possible to leverage the predictive power of Large Language Models (LLMs) to infer causal relations between only two sequences of events. This approach, which is validated on both synthetic and real data, provides better results than standard causal discovery algorithms on several time series data, even though these data were converted into smaller, single observed sequences.",
+      "authors": [
+        "Nishchal Prasad, Eric Gaussier, Emilie Devijver, Alexander Obeid Guzman, Armen Aghasaryan, Gregor G\\\"ossler"
+      ],
+      "published": "2026-09-30T09:51:33Z",
+      "updated": "2026-09-30T09:51:33Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39406",
+      "pdf_url": "https://arxiv.org/pdf/2609.39406",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39386",
+      "title": "When, Not How Much: Evaluating Time-Series Foundation Models on Sparse Events",
+      "abstract": "Pretrained time-series foundation models (TSFMs) are evaluated as forecasters of future values, yet for sparse series many decisions depend only on which future periods contain activity. Standard benchmarks do not assess this. On five sparse datasets, we rank positions within forecast windows that contain both events and zeros. The released point forecasts of 12 TSFMs improve chance-corrected average precision over training-free references by at most 0.031, and in chance-corrected AUC the median TSFM falls below them on every dataset. With event supervision, linear probes of six frozen backbones improve on their backbone's point forecast in 29 of 30 backbone--dataset pairs. Averaging the predicted quantiles instead of taking their median improves the ranking of most TSFMs that forecast the median, and on two datasets the strongest such outputs rival the probes. The probes' advantage over raw-context learners depends on the dataset, and under the same probe, pretrained features outperform randomly initialized ones for five of six backbones. For sparse-event ranking, released point forecasts thus add little over simple references, whereas lightweight event heads on frozen TSFMs rank events better than these forecasts, and the best of them exceed gradient-boosted trees trained on the raw context on three of the five datasets. More broadly, assessing pretrained forecasters on tasks beyond value forecasting requires reporting their outputs, supervised probes of their representations, and raw-context and randomized controls side by side, since each supports a different conclusion.",
+      "authors": [
+        "Daniel Schoess and Florian von Wangenheim"
+      ],
+      "published": "2026-09-30T09:34:57Z",
+      "updated": "2026-09-30T09:34:57Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39386",
+      "pdf_url": "https://arxiv.org/pdf/2609.39386",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2609.39337",
+      "title": "WinoTS: Wavelet-based Self-Distillation for Time Series Models",
+      "abstract": "Self-supervised pre-training of time series models is currently dominated by next-token prediction and reconstruction objectives. In continuous-valued domains, these paradigms often waste model capacity on high-frequency, point-wise noise at the expense of learning invariant structure. While invariance-based self-distillation has proven highly effective in computer vision, its application to temporal data remains largely underexplored. Effectively adapting such methods to time series requires carefully designed augmentations: spatial operations like cropping can shift the timing of repeating cycles or distort the signal, while basic jittering may provide limited variation. We introduce Wavelet-based self-distillation for time series (WinoTS), an invariance-based pre-training paradigm designed specifically for temporal signals. At its core, WinoTS leverages time-frequency augmentations to construct multi-scale structural views without distorting underlying signal dynamics. Across extensive evaluations, WinoTS outperforms state-of-the-art baselines in long-term forecasting, cross-domain zero-shot transfer, and unsupervised anomaly detection. Notably, linear probing on frozen WinoTS representations frequently surpasses fully supervised models trained from scratch. Systematic ablations demonstrate that WinoTS is a flexible, architecture-agnostic framework yielding gains across time series backbones, and establish that time-frequency transformations provide a principled alternative to vision-style spatial augmentations.",
+      "authors": [
+        "Noam Major, Kathy Razmadze, Yoli Shavit"
+      ],
+      "published": "2026-09-30T09:06:05Z",
+      "updated": "2026-09-30T09:06:05Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39337",
+      "pdf_url": "https://arxiv.org/pdf/2609.39337",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.39257",
+      "title": "From Benchmarks to Production: Transferring Time Series Anomaly Detection Methods for Electricity Production Monitoring",
+      "abstract": "Accurate forecasting of electricity production is essential for maintaining the operational efficiency and strategic planning of energy utilities. In industrial settings, such forecasts are generated daily to ensure supply-demand balance and optimal management of production assets. However, the increasing complexity of modern power systems and data flows poses significant challenges for ensuring the reliability and consistency of these forecasts. This paper addresses the problem of anomaly detection in short-term production forecasts at EDF, formulated as identifying atypical intra-day patterns that may signal data quality issues or operational irregularities. We introduce TAMIS, a scalable and interpretable system that analyzes daily production time series to automatically detect anomalous days based on deviations from historical patterns learned from past data. Designed for human-in-the-loop workflows, TAMIS surfaces top-ranked anomalies through an automated daily newsletter, enabling efficient expert review and continuous monitoring. An extensive experimental evaluation on real-world industrial data demonstrates that TAMIS achieves the best accuracy-efficiency trade-off compared to baseline methods. To foster further research and reproducibility, we publicly release the anonymized application datasets used in our study.",
+      "authors": [
+        "Nicolas Vautier, Paul Caron, Nardi Xhepi, F\\'elicie Bizeul, Manel Boumghar, Christophe Degouy, Paul Boniol"
+      ],
+      "published": "2026-09-30T08:20:20Z",
+      "updated": "2026-09-30T08:20:20Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.39257",
+      "pdf_url": "https://arxiv.org/pdf/2609.39257",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2609.38719",
+      "title": "FlapKAD: A Simulation Dataset of Coupled Wing Kinematics and Aerodynamic Dynamics for Flapping-Wing Aerial Vehicles",
+      "abstract": "Experimental investigation and modeling of flapping-wing aerial vehicles are limited by the scarcity of large-scale records that temporally align wing kinematics, aerodynamic responses, and flight states. Existing datasets are often limited in scale and affected by measurement noise and temporal misalignment between rapidly varying wing motion and the associated dynamic response, particularly during high-frequency flapping. We introduce FlapKAD, an episode-structured simulation dataset comprising 2,000 rigid-wing flight episodes and 720,152 valid time steps, with bilateral wing kinematics, aerodynamic responses, and flight states recorded synchronously within a common clock. FlapKAD supports a unified bidirectional sequence-prediction benchmark constructed from the same temporally aligned episodes. The forward task predicts future vertical force coefficients and body vertical velocity from histories of realized flap and twist angles, whereas the inverse task reconstructs future flap- and twist-angle trajectories from the corresponding response histories. A benchmark of eight representative time-series architectures across multiple prediction horizons reveals direction- and horizon-dependent model behavior, systematically higher reconstruction errors for twist angle than for flap angle, and no consistent advantage from increased architectural complexity. FlapKAD provides a reproducible dataset and benchmark for studying coupled wing-kinematic, aerodynamic, and flight-state dynamics in flapping-wing aerial vehicles.",
+      "authors": [
+        "Haichuan Li"
+      ],
+      "published": "2026-09-30T00:53:15Z",
+      "updated": "2026-09-30T00:53:15Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
+      "url": "https://arxiv.org/abs/2609.38719",
+      "pdf_url": "https://arxiv.org/pdf/2609.38719",
+      "first_seen": "2026-10-01T19:32:32.741917Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2609.38058",
       "title": "Latent Inference-Time Guidance of Time Series Foundation Models",
       "abstract": "Time Series Foundation Models (TSFMs) currently provide state-of-the-art results in forecasting tasks. They are available out-of-the-box and rely on in-context learning to make their predictions, which makes the quality of their performance highly sensitive to the user-selected lookback, covariates, horizon and training data distributions. In practise, the quality of the forecasts are variable but complementary, which highlights the need for a principled ensembling approach, rather than selecting the best context. This paper introduces Latent Inference-Time Guidance for TSFMs, which adaptively combines a pool of TSFM forecasts through a time-dependent latent space with independent components. The framework comes equipped with identifiability and reconstruction guarantees, whilst maintaining the off-the-shelf aspect of foundation models. We provide experiments on datasets at various frequencies and from multiple domains: these show that the approach is competitive with traditional ensembling approaches.",
@@ -116,8 +395,8 @@
         "Donguk Kwon, Wooseok Jeong, Dongha Lee"
       ],
       "published": "2026-09-29T08:02:33Z",
-      "updated": "2026-09-29T08:02:33Z",
-      "metadata_updated": "2026-09-30T00:00:00Z",
+      "updated": "2026-09-30T03:40:25Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.36966",
       "pdf_url": "https://arxiv.org/pdf/2609.36966",
       "first_seen": "2026-09-30T19:21:54.097764Z",
@@ -1110,13 +1389,13 @@
     {
       "id": "2609.28607",
       "title": "fable.intermittent: benchmarking probabilistic forecasting methods for intermittent time series",
-      "abstract": "Intermittent time series are common in spare-parts demand and retail sales. Since the cost of forecast errors is typically asymmetric, decisions such as inventory control require the full predictive distribution rather than a point forecast. Many probabilistic forecasting methods have been proposed; their implementations, however, are scattered across different software frameworks, making it difficult to compare them systematically. We introduce fable.intermittent, an R package that implements several probabilistic forecasting methods for intermittent series within the fable framework. The package allows several models to be fitted and evaluated on a collection of time series through a single, simple forecasting pipeline. We also introduce TWEES, a new exponential smoothing model with a Tweedie predictive distribution. Fitting TWEES requires repeated evaluation of the computationally demanding Tweedie density. We also release the R package tweedieDistr, whose implementation of the Tweedie distribution is substantially faster than the existing one while preserving the same numerical accuracy. We evaluate the methods implemented in fable.intermittent on four datasets, also released in the package.",
+      "abstract": "Intermittent time series are common in spare-parts demand and retail sales. Since the cost of forecast errors is typically asymmetric, decisions such as inventory control require the full predictive distribution rather than a point forecast. Many probabilistic forecasting methods have been proposed; their implementations, however, are scattered across different software frameworks, making it difficult to compare them systematically. We introduce $\\textbf{fable.intermittent}$, an R package that implements several probabilistic forecasting methods for intermittent series within the $\\textbf{fable}$ framework. The package allows several models to be fitted and evaluated on a collection of time series through a single, simple forecasting pipeline. We also introduce TWEES, a new exponential smoothing model with a Tweedie predictive distribution. Fitting TWEES requires repeated evaluation of the computationally demanding Tweedie density. We also release the R package $\\textbf{tweedieDistr}$, whose implementation of the Tweedie distribution is substantially faster than the existing one while preserving the same numerical accuracy. We evaluate the methods implemented in $\\textbf{fable.intermittent}$ on four datasets, also released in the package.",
       "authors": [
         "Stefano Damato, Lorenzo Zambon, Giorgio Corani, Dario Azzimonti"
       ],
       "published": "2026-09-23T16:37:33Z",
-      "updated": "2026-09-23T16:37:33Z",
-      "metadata_updated": "2026-09-25T00:00:00Z",
+      "updated": "2026-09-29T18:59:17Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.28607",
       "pdf_url": "https://arxiv.org/pdf/2609.28607",
       "first_seen": "2026-09-25T18:38:05.349172Z",
@@ -4284,18 +4563,11 @@
       "title": "ChorusTIC: Training-Free Multivariate Time Series Classification via Chorus In-Context Learning",
       "abstract": "Time series classification underpins applications in healthcare, sensing, and industrial monitoring. Although time series foundation models support forecasting and transferable representation learning, classification still typically requires fitting a task-specific classifier on each target dataset, while individual channels of multivariate inputs are often encoded independently. We introduce ChorusTIC, a classification-native foundation model for in-context classification across heterogeneous channel configurations without target-task parameter updates. ChorusTIC combines episode-consistent Random Subchannel Slot Concatenation with a shared dual-axis encoder to model temporal and cross-channel interactions and map variable channel configurations into a fixed-width representation independent of the original channel count. It then calibrates feature axes using context-derived distributions and predicts query labels through leakage-protected in-context learning. We pretrain ChorusTIC solely on synthetic labeled episodes comprising context and query sets that share a task background, with classes distinguished by sparse temporal or cross-channel rules. Evaluations on the complete UEA-30 and UCR-128 archives show strong full-context and low-label performance without target-specific classifier fitting.",
       "authors": [
-        "Juntao Fang",
-        "Shifeng Xie",
-        "Ruichu Cai",
-        "Shengji Zheng",
-        "Zijian Li",
-        "Keli Zhang",
-        "Lujia Pan",
-        "Themis Palpanas",
-        "Zhifeng Hao"
+        "Juntao Fang, Shifeng Xie, Ruichu Cai, Shengji Zheng, Zijian Li, Keli Zhang, Lujia Pan, Themis Palpanas, Zhifeng Hao"
       ],
       "published": "2026-08-25T03:45:24Z",
-      "updated": "2026-08-25T03:45:24Z",
+      "updated": "2026-09-30T07:19:35Z",
+      "metadata_updated": "2026-10-01T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.24033",
       "pdf_url": "https://arxiv.org/pdf/2608.24033",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -6322,17 +6594,25 @@
       ]
     }
   ],
-  "last_success": "2026-09-30T19:21:54.097764Z",
-  "last_attempt": "2026-09-30T19:21:54.097764Z",
+  "last_success": "2026-10-01T19:32:32.741917Z",
+  "last_attempt": "2026-10-01T19:32:32.741917Z",
   "last_new_ids": [
-    "2609.36619",
-    "2609.36966",
-    "2609.37078",
-    "2609.37255",
-    "2609.37435",
-    "2609.37694",
-    "2609.37715",
-    "2609.38058"
+    "2609.38719",
+    "2609.39257",
+    "2609.39337",
+    "2609.39386",
+    "2609.39406",
+    "2609.39445",
+    "2609.39484",
+    "2609.39489",
+    "2609.39741",
+    "2609.39789",
+    "2609.39792",
+    "2609.39810",
+    "2609.40071",
+    "2609.40117",
+    "2609.40265",
+    "2609.40359"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -6340,8 +6620,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 9,
-    "records": 10501,
+    "pages": 11,
+    "records": 13769,
     "duplicates": 0
   }
 }
