@@ -2,6 +2,165 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.02058",
+      "title": "Foundations without Fundamentals: Zero-Shot Blind Spots in Time Series FMs",
+      "abstract": "Despite the success of Time Series Foundation Models (TSFMs) on broad benchmarks, their ability to internalize basic temporal logic, especially in settings supported by exogenous covariates, remains under-examined. We introduce SimpleTimeBench, a diagnostic univariate and multivariate \"unit test\" suite for primitives such as monotonic trends, periodic signals and leading indicator covariates, scenarios where near-perfect forecasts should be trivial. Surprisingly, prominent multivariate TSFMs (Chronos-2, Moirai and Toto) frequently produce suboptimal zero-shot forecasts for these inputs. While fine-tuning Chronos-2 improves its behaviour on specific tasks, we show that this adaptation degrades performance on other fundamental patterns rather than enhancing its generalizable foundational capabilities. This reveals a gap between pre-training scale and basic temporal reasoning, suggesting that current TSFMs could potentially lack the inductive biases needed to capture simple predictable functions. We further demonstrate that these failures are not merely synthetic curiosities: they persist in real-world sensor forecasting, where TSFMs consistently underutilize leading indicators available in observed covariates. This inability to capture simple relationships limits the practical utility and reliability of current multivariate models.",
+      "authors": [
+        "Nafiseh Ghoroghchian, Haipeng Zhang, Shuyi Han, Alex Labach, George Stein"
+      ],
+      "published": "2026-10-01T17:02:16Z",
+      "updated": "2026-10-01T17:02:16Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02058",
+      "pdf_url": "https://arxiv.org/pdf/2610.02058",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.01955",
+      "title": "Do Your Own Research: Learning to Forecast by Learning to Search",
+      "abstract": "Outcome-based reinforcement learning can train language models to forecast real-world events, but prior forecasting work either freezes research context before training or deploys agentic research only at test time, so the skill of gathering evidence is never shaped by the reward. We introduce an agentic forecasting environment, dataset, and harness built from 2,100+ resolved Polymarket questions; the agent acquires its own context at rollout time (web search, page reading, and financial time series, all restricted by layered leak filtering to information published before each question's cutoff), and we train Qwen3.5-35B-A3B (3B active parameters) on it with single-epoch GRPO under a Brier-score reward. Training changes how the agent interacts with information: calibration improves 30-40%, and search attempts fall from 3.8 to 2.25 per rollout as evidence discipline is learned. Evaluated in an identical harness against four frontier models, the trained policy also finishes ahead of every frontier model tested at evidence-based forecasting, including Claude Opus 4.5 (soft-Brier 0.254 vs. 0.256, n=265), at about 5% of the inference cost, and its margin is widest on the hardest questions, the ones the crowd itself had not decided. We release the environment, dataset, and per-rollout records as a reusable harness for temporal forecasting agents.",
+      "authors": [
+        "Yusuf Afifi, Artur Kiulian, Anton Polishko, Mykola Khandoga, Hamudi Naanaa, Alina Krasnobrizha"
+      ],
+      "published": "2026-10-01T16:12:58Z",
+      "updated": "2026-10-01T16:12:58Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.01955",
+      "pdf_url": "https://arxiv.org/pdf/2610.01955",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.01842",
+      "title": "On the Divergence of Accuracy and Mechanism Consistency in Time Series World Models",
+      "abstract": "A time series world model (TSWM) predicts a controlled system's state from its observed history and planned actions and exogenous inputs. Current approaches build forecasters with actions as covariates, trained and evaluated on prediction error under the executed plan. Yet world models compare unexecuted plans, but their responses to changed plans remain untested. We ask which design choices matter and whether accurate forecasters respond to changed plans as real systems do. We address both with a formalization and benchmark. The formalization separates state, actions and exogenous inputs, distinguishes continuous, mode and event actions, and introduces mechanism consistency, a metric built on declared action-state relations with known directions, such as a vasopressor raising blood pressure: it checks whether shifting an action moves the forecast in the declared direction. The benchmark consolidates eight public datasets with real actions from engineered infrastructure and clinical care, varying prediction space, plan fusion and plan encoding across seven backbones and five seeds. First, a frozen latent prediction space lowers MAE by 9.9% over observation space and gated output fusion lowers it by 12.7% over input concatenation on average, with both improving all eight datasets; temporal plan encoding changes average MAE by at most 2.2%. Second, prediction error and mechanism consistency diverge: the lowest-error configuration is at or below chance in consistency on four of five datasets with declared mechanisms, and no design choice avoids this. Finally, directional supervision, a loss penalizing the wrong-signed part of the response to a shifted action, significantly raises consistency on penalized mechanisms with no change in MAE. Together they give TSWMs a recipe: a frozen latent space and output-side fusion for accuracy, and a training objective for mechanism consistency.",
+      "authors": [
+        "Haochen Zhang, Jiaheng Guo, Zhen Xu, Zachary Plotkin, Nicholas Konz, Zhen Tan, Tianlong Chen"
+      ],
+      "published": "2026-10-01T15:10:09Z",
+      "updated": "2026-10-01T15:10:09Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.01842",
+      "pdf_url": "https://arxiv.org/pdf/2610.01842",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.01831",
+      "title": "Pooling Helps, Learned Weighting Hurts In-Context: Decomposing Group Attention",
+      "abstract": "Group attention, introduced by the time series forecasting model Chronos-2, attends over the variates of a group at a fixed patch index and serves both multivariate (MV) and in-context learning (ICL) forecasting. Rather than evaluating this cross-variate attention design as a whole, we ask which part of the mechanism earns the benefit and probe its applicability to both MV and ICL regimes. By editing the attention matrix $\\alpha$ at inference we separate the two pathways a head comprises: V/O, which projects a weighted summary of the group, and Q/K, which decides the weights. Uniform pooling (V/O without any Q/K weighting) is positive on 18 of our 20 sensor-network configurations, while the learned weighting (Q/K) splits by group type: its contribution is positive or negligible for MV, but materially degrades 8 of the 10 sensor-network ICL configurations, leaving 4 of them worse than univariate inference. By isolating the impact of different layers, we find that uniforming $\\alpha$ in the first block alone improves every ICL configuration we test.",
+      "authors": [
+        "Michael Fore, James Mason Inder, Mrishika Nair, Praneetha Vaddamanu, Sharlina Keshava"
+      ],
+      "published": "2026-10-01T15:05:41Z",
+      "updated": "2026-10-01T15:05:41Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.01831",
+      "pdf_url": "https://arxiv.org/pdf/2610.01831",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.01800",
+      "title": "LineupRL: Verifiable Reinforcement Learning for Time Series Captioning via Caption-to-Series Identification",
+      "abstract": "Time series captioning is a fundamental step in time series understanding and can also serve as the bridge between signal and natural language. Supervised fine-tuning (SFT) relies on a larger model's captions and cannot exceed their quality. Reinforcement learning (RL) can, but its rewards were designed for other modalities and other tasks, and they transfer poorly to open-ended generation in the time series domain. We address this by proposing LineupRL, a reinforcement learning with verifiable rewards (RLVR) pipeline whose reward is caption-to-series identification. The reward model is a frozen large language model (LLM) verifier that reads the generated caption and the candidate time series as raw values, never the chart, and must pick the described time series from multiple distractors. Matching is a far lighter demand on the verifier than writing questions or judging a caption, so an off-the-shelf LLM can supply the reward. Across two captioning benchmarks, and on forecasting and reconstruction where the predictor sees only the caption, LineupRL outperforms SFT and RL baselines on every metric. The 3B vision language model (VLM) trained by LineupRL also outperforms, at 1/24 of the parameters, the 72B VLM whose captions the SFT baseline is distilled from. Our case study shows that LineupRL resists reward hacking, and that the captioner it trains both traces the trend and names the values at key points.",
+      "authors": [
+        "Haochen Zhang, Laura Yao, Zachary Plotkin, Gengwei Zhang, Tianlong Chen"
+      ],
+      "published": "2026-10-01T14:43:21Z",
+      "updated": "2026-10-01T14:43:21Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.01800",
+      "pdf_url": "https://arxiv.org/pdf/2610.01800",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.01320",
+      "title": "ProtoFlow: Prototype-Guided Flow Matching for Multivariate Time Series Forecasting",
+      "abstract": "Generative modeling has shown strong promise for multivariate time mseries (MTS) forecasting, especially scale to high-dimensional settings. Diffusion-based methods achieve competitive performance but typically require many sampling steps at inference. VAE-based non-iterative forecasting frameworks have therefore emerged as an efficient alternative. Within this line of work, vector quantization (VQ) enables controllable latent space modeling by mapping multivariate series into compact discrete representations. Existing VQ-based forecasting methods, however, typically rely on autoregressive (AR) token generation, which suffers from exposure bias and training-inference mismatch. Flow matching provides an efficient non-autoregressive alternative for latent forecasting, but existing formulations usually initialize transport from a generic Gaussian prior. We instead observe that the trained VQ codebook already captures representative latent prototypes and can thus serve as a more informative prior for flow matching. Based on this insight, we propose ProtoFlow, a forecasting framework that combines vector-quantized autoencoding with Prototype-prior Flow matching. Our method first maps multivariate sequences into a discrete latent space, then constructs a structured prior from the learned codebook, and finally learns a DiT-based rectified flow to transport samples from this prior to future latent representations conditioned on historical observations. By replacing generic noise initialization with a learned prototype prior, ProtoFlow avoids the rollout mismatch of AR token prediction and promotes faster training convergence. Extensive experiments on benchmark datasets show that it consistently achieves superior forecasting performance with efficient inference.",
+      "authors": [
+        "Shibo Feng, Wanjin Feng, Yang Qiu, Deheng Ye, Peilin Zhao, Chunyan Miao"
+      ],
+      "published": "2026-10-01T08:48:18Z",
+      "updated": "2026-10-01T08:48:18Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.01320",
+      "pdf_url": "https://arxiv.org/pdf/2610.01320",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.01223",
+      "title": "Have an LLM Write Your Anomaly Detector: Autonomous Discovery of Compact, Interpretable Detectors for Time Series",
+      "abstract": "Time-series anomaly detection trades off predictive accuracy, computational efficiency, and interpretability. We use a large language model not as the detector but as the author of one: an autonomous research loop in which the model repeatedly edits a single short NumPy program under a leakage-free objective, keeping the best-scoring detector it finds. The loop discovers two compact detectors, one for univariate and one for multivariate series, that describe short windows by their local spectral features and compare them with the training-region distribution through a covariance-aware distance. On the TSB-AD benchmark these detectors lead the field across metrics, ahead of the strongest classical, deep, and foundation-model baselines including Time-RCD, yet they train no network and use no GPU, and the multivariate detector is faster than every similarly performing baseline. LLM-driven program search is thus a practical route to accurate, efficient, and transparent detectors.",
+      "authors": [
+        "David Berghaus"
+      ],
+      "published": "2026-10-01T07:26:09Z",
+      "updated": "2026-10-01T07:26:09Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.01223",
+      "pdf_url": "https://arxiv.org/pdf/2610.01223",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.00978",
+      "title": "Generalist Representation, Specialist Detection: TS-Router for Time-Series Anomaly Detection",
+      "abstract": "Time-series anomaly detection (TSAD) is difficult to generalize across datasets because heterogeneous temporal dynamics imply different notions of normality and favor different detection criteria. While time-series foundation models provide transferable representations, coupling them with a fixed anomaly-scoring mechanism can overlook this variation. This motivates a different perspective on foundation-model-based TSAD: using foundation models to coordinate specialized anomaly criteria rather than directly imposing a universal one. Based on this view, we propose \\textbf{TS-Router}, a generalist-representation, specialist-detection framework that estimates the relative competence of heterogeneous anomaly detectors from pretrained temporal representations and selects suitable specialists for each target series. To avoid relying on specialist-performance labels from real tasks, we derive soft competence supervision from specialists' relative performance on labeled simulated tasks. At deployment, routing requires no target anomaly labels, and only the selected specialists are fitted unsupervisedly on the target series. We bound Top-\\(k\\) set-competence regret under representation coverage and conditional competence stability. Across 16 real-world benchmarks and four complementary evaluation metrics, TS-Router achieves the best overall average rank. Controlled ablations with multiple frozen TSFM encoders further support the use of pretrained representations for competence estimation and adaptive specialist selection. The code is available at https://anonymous.4open.science/r/TS-Router-D8FF.",
+      "authors": [
+        "Tian Lan, Yifei Gao, Yimeng Lu, Xuming An, Meng Wang, Yue Pan, Wenjun He, Chenghao Liu, Chen Zhang"
+      ],
+      "published": "2026-10-01T03:15:18Z",
+      "updated": "2026-10-01T03:15:18Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.00978",
+      "pdf_url": "https://arxiv.org/pdf/2610.00978",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.00589",
+      "title": "Foundation or Formula? A Simulation-Based Comparison of Google's TimesFM-3 and Classical Time-Series Models",
+      "abstract": "Time-series foundation models such as Google's TimesFM-3 forecast series they were never trained on, but whether they should replace classical methods such as ARIMA and exponential smoothing is hard to settle on public benchmarks, because few benchmark datasets are absent from every model's pre-training corpus. This exploratory study compares TimesFM-3 with classical methods on data generated from nine known processes, which the model cannot have seen. Across 7200 series and a pre-registered protocol with a 12-step horizon, neither family dominates. TimesFM-3's error is never more than 1.31 times that of the best method in a scenario, whereas every classical method's is at least 2.2 times somewhere; the largest classical failures occur with only two seasonal cycles, where the automatic methods fall back to non-seasonal models. With four or more cycles automatic ARIMA is 21-24% more accurate than TimesFM-3 on seasonal ARIMA data. Among five foundation models this robustness is specific to TimesFM-3, and it holds only at short horizons: at steps 25 to 48 the three foundation models tested there forecast a decline on a saturating process whose level stays flat, and automatic ARIMA has the smaller worst case elsewhere. On intermittent demand TimesFM-3 shows no advantage over simple benchmarks built from the history. Randomised parameters, heavy-tailed noise and outliers leave these patterns qualitatively unchanged; on the official test period of 1000 M4 monthly series TimesFM-3 is level with the fifth- to seventh-ranked M4 entries, behind the four best, and on 101 macroeconomic series observed after the models' documented training data it is statistically level with the classical methods. The study characterises the behaviour of a black-box model, not the reasons for it, and its findings are conditional on the processes and horizons examined.",
+      "authors": [
+        "Ebrahim Khaled Ebrahim, Somaia Mohamed Ali, Ahmed El-Kotory"
+      ],
+      "published": "2026-09-30T18:52:46Z",
+      "updated": "2026-09-30T18:52:46Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.00589",
+      "pdf_url": "https://arxiv.org/pdf/2610.00589",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
       "id": "2609.40359",
       "title": "Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text",
       "abstract": "We find that major reported improvements in decoding words from non-invasive brain recordings are largely reproducible without any brain data. In the influential work of d'Ascoli et al. (2025), time series of brain activity from subjects perceiving continuous speech are segmented into fixed-length windows starting at each word. A neural network then generates predictions for all of the words in a sentence together. Neighbouring windows partially overlap, implicitly revealing the interval between words. Since these intervals indicate the duration of the words spoken, and different words tend to have different durations - for example, \"the\" is much shorter than \"supercalifragilisticexpialidocious\" - the neural network can improve its predictions of words without relying on the underlying brain activity. Consistent with this, the method reaches 22.0% balanced accuracy on synthetic signals containing no brain information, compared with 22.3% on real brain recordings. To prevent the network from learning this shortcut, we make a single, simple change. Instead of jointly encoding all windows in a sentence, we process each independently. As a result, the neural network achieves better performance by learning underlying word-specific information from brain recordings. This makes two existing strategies become much more effective than before. Both aggregating predictions from distinct neural responses to the same word and using a pretrained LLM as a linguistic prior now substantially improve results. On our perceived speech benchmark, this simple recipe (SimpleB2T) achieves a word error rate of 36.6% with five observations per word, approaching past invasive speech decoding performance, albeit under different conditions. The results in this work expose an important shortcut in brain-to-text decoding and show that removing it leads to a simple and considerably more effective strategy.",
@@ -99,8 +258,8 @@
         "Sharareh Sayyad and Sophia Bazzi"
       ],
       "published": "2026-09-30T14:11:00Z",
-      "updated": "2026-09-30T14:11:00Z",
-      "metadata_updated": "2026-10-01T00:00:00Z",
+      "updated": "2026-10-01T13:15:32Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.39792",
       "pdf_url": "https://arxiv.org/pdf/2609.39792",
       "first_seen": "2026-10-01T19:32:32.741917Z",
@@ -140,6 +299,25 @@
       "first_seen": "2026-10-01T19:32:32.741917Z",
       "topics": [
         "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.00405",
+      "title": "RACE: Residual-Aware Test-Time Adaptation for Neighbor-Rich Time-Series Foundation Model Forecasting",
+      "abstract": "Time-series foundation models (TSFMs) perform strongly across forecasting tasks, but their per-series inference is ill-suited to neighbor-rich forecasting, where each query has access to related but nonidentical historical series. Continuous glucose monitoring (CGM) and Web/cloud workloads exemplify this setting: CGM trajectories share physiological patterns but vary across individuals, devices, and conditions, while Web/cloud workloads combine common operating regimes with non-stationarity, heavy tails, and bursts. These histories share useful structure, yet neighbors are not equally relevant. Existing methods either fine-tune TSFMs for each target domain, incurring additional costs and offering limited transferability across backbones, or append retrieved series without verifying whether they support the current forecast. The key challenges are conflicting residual evidence from neighboring series and residual patterns that vary across TSFMs and forecasting tasks. We formulate test-time neighborhood scaling: using same-domain neighbor evidence without modifying the backbone. We propose RACE (Residual-Aware Correction of Forecasting Errors), a two-stage framework for using historical neighbors. We first retrieve query-compatible neighbors, align their residuals to the query scale, and aggregate coherent evidence into the training-free RACE-TF correction. Full RACE then uses a lightweight, domain-specific Gate to determine when applying the correction is beneficial, with a reusable training workflow across TSFM backbones. Across four TSFMs, RACE improves all three domain-aggregate metrics on both primary domains, with the largest gains on high-error queries. Within each domain, a Gate trained on one TSFM transfers to other backbones without adaptation, and the resulting pipeline improves all 72 cross-backbone metric comparisons over the matched frozen targets.",
+      "authors": [
+        "Hao-Nan Shi, Tong Wu, Chen-Cong Sun, Yuan Jiang, Han-Jia Ye, De-Chuan Zhan"
+      ],
+      "published": "2026-09-30T13:14:38Z",
+      "updated": "2026-09-30T13:14:38Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.00405",
+      "pdf_url": "https://arxiv.org/pdf/2610.00405",
+      "first_seen": "2026-10-02T18:25:48.298952Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
       ]
     },
     {
@@ -1389,13 +1567,13 @@
     {
       "id": "2609.28607",
       "title": "fable.intermittent: benchmarking probabilistic forecasting methods for intermittent time series",
-      "abstract": "Intermittent time series are common in spare-parts demand and retail sales. Since the cost of forecast errors is typically asymmetric, decisions such as inventory control require the full predictive distribution rather than a point forecast. Many probabilistic forecasting methods have been proposed; their implementations, however, are scattered across different software frameworks, making it difficult to compare them systematically. We introduce $\\textbf{fable.intermittent}$, an R package that implements several probabilistic forecasting methods for intermittent series within the $\\textbf{fable}$ framework. The package allows several models to be fitted and evaluated on a collection of time series through a single, simple forecasting pipeline. We also introduce TWEES, a new exponential smoothing model with a Tweedie predictive distribution. Fitting TWEES requires repeated evaluation of the computationally demanding Tweedie density. We also release the R package $\\textbf{tweedieDistr}$, whose implementation of the Tweedie distribution is substantially faster than the existing one while preserving the same numerical accuracy. We evaluate the methods implemented in $\\textbf{fable.intermittent}$ on four datasets, also released in the package.",
+      "abstract": "Intermittent time series are common in spare-parts demand and retail sales. Since the cost of forecast errors is typically asymmetric, decisions such as inventory control require the full predictive distribution rather than a point forecast. Many probabilistic forecasting methods have been proposed; their implementations, however, are scattered across different software frameworks, making it difficult to compare them systematically. We introduce fable$.$intermittent, an R package that implements several probabilistic forecasting methods for intermittent series within the fable framework. The package allows several models to be fitted and evaluated on a collection of time series through a single, simple forecasting pipeline. We also introduce TWEES, a new exponential smoothing model with a Tweedie predictive distribution. Fitting TWEES requires repeated evaluation of the computationally demanding Tweedie density. We also release the R package tweedieDistr, whose implementation of the Tweedie distribution is substantially faster than the existing one while preserving the same numerical accuracy. We evaluate the methods implemented in fable$.$intermittent on four datasets, also released in the package.",
       "authors": [
         "Stefano Damato, Lorenzo Zambon, Giorgio Corani, Dario Azzimonti"
       ],
       "published": "2026-09-23T16:37:33Z",
-      "updated": "2026-09-29T18:59:17Z",
-      "metadata_updated": "2026-10-01T00:00:00Z",
+      "updated": "2026-10-01T03:18:50Z",
+      "metadata_updated": "2026-10-02T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.28607",
       "pdf_url": "https://arxiv.org/pdf/2609.28607",
       "first_seen": "2026-09-25T18:38:05.349172Z",
@@ -6594,25 +6772,19 @@
       ]
     }
   ],
-  "last_success": "2026-10-01T19:32:32.741917Z",
-  "last_attempt": "2026-10-01T19:32:32.741917Z",
+  "last_success": "2026-10-02T18:25:48.298952Z",
+  "last_attempt": "2026-10-02T18:25:48.298952Z",
   "last_new_ids": [
-    "2609.38719",
-    "2609.39257",
-    "2609.39337",
-    "2609.39386",
-    "2609.39406",
-    "2609.39445",
-    "2609.39484",
-    "2609.39489",
-    "2609.39741",
-    "2609.39789",
-    "2609.39792",
-    "2609.39810",
-    "2609.40071",
-    "2609.40117",
-    "2609.40265",
-    "2609.40359"
+    "2610.00405",
+    "2610.00589",
+    "2610.00978",
+    "2610.01223",
+    "2610.01320",
+    "2610.01800",
+    "2610.01831",
+    "2610.01842",
+    "2610.01955",
+    "2610.02058"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -6620,8 +6792,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 11,
-    "records": 13769,
+    "pages": 9,
+    "records": 10471,
     "duplicates": 0
   }
 }
