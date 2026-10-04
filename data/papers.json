@@ -6772,8 +6772,8 @@
       ]
     }
   ],
-  "last_success": "2026-10-03T21:17:30.968493Z",
-  "last_attempt": "2026-10-03T21:17:30.968493Z",
+  "last_success": "2026-10-04T21:27:28.246917Z",
+  "last_attempt": "2026-10-04T21:27:28.246917Z",
   "last_new_ids": [],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -6781,8 +6781,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 6,
-    "records": 6722,
+    "pages": 3,
+    "records": 3352,
     "duplicates": 0
   }
 }
