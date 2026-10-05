@@ -2,6 +2,214 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.03623",
+      "title": "Beyond Idealized Orbits: Realistic Network Topology and Spatio-Temporal Traffic Emulation for LEO Satellite Constellations",
+      "abstract": "Large low-earth orbit (LEO) satellite constellations are revolutionizing network access globally by delivering potential high-capacity, low-latency communication, fueling innovation and accelerating research in advanced space-based non-terrestrial network architectures. Consequently, a research testbed that allows flexibility in designing realistic network routing schemes, traffic load balancing and inter-shell communication methods to emulate real-world multi-shell network becomes an important tool for industry developers and academic researchers. This study broadens the scope of the SpaceNet testbed, now including emulation of multi-shell constellations and computation of routes with the existing global web of terrestrial terminals. Furthermore, the testbed produces accurate trends in return trip time (RTT) and throughput metrics due to its support of high-level congestion modeling and the necessary local and global congestion routing. To evaluate the efficacy of the testbed, the network performance of emulated results for the Starlink constellation is evaluated and compared with data from real Ping and iPerf tests between Starlink terminals. Two important communication scenarios have been discussed that highlight the testbed's potential for realistic multi-shell topology generation and handling various types of traffic distribution with well-informed congestion routing. Predictions of network performance using SpaceNet accurately addresses temporal behaviors for different traffic levels with strong temporal predictability in its throughput and RTT time-series, as well as enhanced ground truth coverage within a 95% confidence interval.",
+      "authors": [
+        "Suryansh Aryan, Josh Smith, Alexa Houck, Rahul V. Chintalapati, Alexander Kedrowitsch, Jeffrey H. Reed, Nishith D. Tripathi, Samantha Parry Kenyon"
+      ],
+      "published": "2026-10-02T17:19:13Z",
+      "updated": "2026-10-02T17:19:13Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03623",
+      "pdf_url": "https://arxiv.org/pdf/2610.03623",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.03494",
+      "title": "Most-Recent Anchoring with Recurrent Ordering for Time Series Forecasting",
+      "abstract": "Long-term forecasting models commonly process all patches in a look-back window using the same fixed stack. Older contextual patches and recent evidence therefore receive the same computational depth. Yet the information closest to the forecast and the more distant context do not contribute equally. Uniform processing leaves this distinction unexpressed in the architecture. We propose MARO, a Most-Recent Anchoring with Recurrent Ordering model that processes the look-back window from the most recent patch to the oldest. The most recent patch serves as the anchor. It initializes the latent state and conditions each subsequent step, so older patches are folded into a representation that remains centered on recent evidence. A single shared module is reused at every step, so extending the scan further into the past introduces no additional parameters. Intermediate states retained during the scan allow the forecast head to weigh short and long portions of the history separately. This expresses recency through the order of recurrent refinement. Extensive experiments across multiple real-world time series datasets show that MARO achieves state-of-the-art performance on both long-term and short-term forecasting tasks.Ablation studies examine the contribution of the main architectural components.",
+      "authors": [
+        "Jung Min Choi, Ngoc Son Le, Ibram Abdelmalak, Vijaya Krishna Yalavarthi, Lars Schmidt-Thieme"
+      ],
+      "published": "2026-10-02T15:55:56Z",
+      "updated": "2026-10-02T15:55:56Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03494",
+      "pdf_url": "https://arxiv.org/pdf/2610.03494",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.03491",
+      "title": "Dual-Context Analog Retrieval for Time Series Forecasting",
+      "abstract": "Most long-term time-series forecasting models map the look-back window directly to the full horizon in a single pass. While efficient, this design does not explicitly identify which historical states are most relevant to different future segments or exploit what followed those states. Analog forecasting addresses this by retrieving past states similar to the present and using their observed continuations, but single nearest matches can be unreliable and overlapping patches may produce redundant candidates. We propose DuoTS, a Dual-Context Time Series forecasting model that uses retrieved evidence without relying on it exclusively. DuoTS first produces a base forecast with a parallel patch encoder and linear prediction head, then progressively refines it one future patch at a time. Each refinement combines two views: a current context that attends to recent tokens and captures the latest dynamics, and a detail context that provides distinct retrieved analogs together with their subsequent trajectories. Patch-wise refinement allows the model to balance these views across the forecast horizon and associate each future segment with evidence appropriate to its temporal distance from the present. Experiments on multiple real-world datasets show that DuoTS achieves state-of-the-art performance, while ablations confirm the contribution of each context. The refinement mechanism is also model-agnostic, requiring only an encoded look-back window and the future-patch position, and can therefore be integrated into existing forecasting models.",
+      "authors": [
+        "Jung Min Choi, Ngoc Son Le, Ibram Abdelmalak, Vijaya Krishna Yalavarthi, Lars Schmidt-Thieme"
+      ],
+      "published": "2026-10-02T15:54:56Z",
+      "updated": "2026-10-02T15:54:56Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03491",
+      "pdf_url": "https://arxiv.org/pdf/2610.03491",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.03452",
+      "title": "Causal Representation Learning with Instantaneous and Lagged Relations via Nonstationarity",
+      "abstract": "Causal representation learning for time-series data aims to identify latent states and their causal relations from observations. In this setting, an important challenge is to model both lagged causal relations across observation intervals and faster causal effects that appear as instantaneous relations within an interval, while accounting for nonstationarity in time-series data. However, methods that jointly handle these causal relations and nonstationarity remain limited. To address this gap, we establish sufficient conditions for identifying latent states up to component permutation and component-wise invertible transformations, and their instantaneous and lagged causal structures up to the same permutation, using an observed auxiliary variable, such as time or a condition label, associated with changes in transition-noise distributions. Based on these results, we propose iCReN, a framework that uses contrastive learning with discrete or continuous auxiliary variables to learn latent representations and estimate their instantaneous and lagged causal structures. Experiments demonstrate accurate recovery of latent states and both instantaneous and lagged causal structures on synthetic data and the utility of the learned representations for downstream forecasting on real-world data.",
+      "authors": [
+        "Tatsuya Yamada, Hiroshi Morioka, Yoshinobu Kawahara"
+      ],
+      "published": "2026-10-02T15:32:43Z",
+      "updated": "2026-10-02T15:32:43Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03452",
+      "pdf_url": "https://arxiv.org/pdf/2610.03452",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.03147",
+      "title": "TSGuard: A Real-Time Framework for Detecting and Imputing Missing Data in Streaming Time Series",
+      "abstract": "Streaming sensor applications routinely suffer from delayed or missing observations caused by faults, communication losses, or environmental interference. Although recent imputation methods exploit temporal and spatial dependencies effectively, most either assume offline access to future observations or prioritize throughput without enforcing domain plausibility. We present TSGuard, a real-time demonstration system for monitoring, validating, and imputing missing values in streaming time series. TSGuard combines a lightweight graph-aware temporal imputation model with constraint-aware validation, fallback estimation, and operator-facing explanations. Rather than treating imputation as an isolated prediction task, TSGuard integrates it into a broader data-quality loop: detect problematic observations, impute missing values, validate estimated against physical and spatial constraints, and either retain the original value as a plausible anomaly or replace it when it violates domain constraints. Using environmental sensing as a motivating setting, the demo enables users to inspect delayed sensors, compare imputers, define constraints, and validate flagged values in real time. The combination of lightweight online spatiotemporal imputation, domain-aware validation, and explicit retain-or-replace decisions is our central contribution, while interactive explanations make these decisions inspectable and actionable. for operators.",
+      "authors": [
+        "Imane Hocine, Asma Abboura, Soror Sahri, Abhijith Senthilkumar, Yacine Hakimi, Gr\\'egoire Danoy"
+      ],
+      "published": "2026-10-02T11:18:04Z",
+      "updated": "2026-10-02T11:18:04Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03147",
+      "pdf_url": "https://arxiv.org/pdf/2610.03147",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.02866",
+      "title": "DIVINE: Simple Cross-Market Stock Pretraining via Diverse Indicator Reconstruction",
+      "abstract": "Financial time-series pretraining typically learns from masked observations, contrastive relations, or future outcomes---yet existing objectives struggle to simultaneously avoid future-supervision uncertainty and maintain return-prediction alignment. We propose DIVINE (DIVerse INdicator rEconstruction), a simple cross-market pretraining framework that reconstructs technical indicators from raw OHLCV history. Computed from observed price-volume history, technical indicators provide consistently defined supervision across markets while summarizing diverse market dynamics with established relevance to return prediction. Pretrained jointly on six-equity market datasets, DIVINE reconstructs 77 targets derived from 16 standard indicators and transfers only the learned encoder to downstream stock ranking. Across all six markets, DIVINE achieves the strongest average portfolio performance with a lightweight 0.05M-parameter encoder, outperforming pretraining baselines and matching or exceeding substantially larger financial foundation models, while remaining robust and data-efficient. Systematic analyses show that indicator diversity and market diversity provide complementary gains in transfer. Together, these results suggest that supervision design and cross-market diversity---rather than model scale---are the key drivers of strong, transferable financial representations.",
+      "authors": [
+        "Kuan-Yu Chen, Shu-Cheng Zheng, Yu-Chen Den, Wei-Cheng Liao, Tien-Hao Chang"
+      ],
+      "published": "2026-10-02T06:04:56Z",
+      "updated": "2026-10-02T06:04:56Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02866",
+      "pdf_url": "https://arxiv.org/pdf/2610.02866",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.02865",
+      "title": "On Unlearning for Time-series Forecasting",
+      "abstract": "Time-series forecasting is widely used in sensitive domains. Models in these settings are often trained on longitudinal user- or entity-level records, which may later require removal because they contain sensitive or proprietary information or have been corrupted by sensor failures. To address such deletion requests without costly retraining, machine unlearning has been widely studied as a practical mechanism for privacy protection and data governance. However, the application of machine unlearning to time series prediction has not yet been well realized; this is mainly due to the following unique challenges: Gradient-based unlearning can be unstable because a deleted observation participates in multiple causally connected forecasting windows, causing parameter updates to propagate beyond the requested interval and degrade retained forecasting utility. Label-guided updating offers a more controlled alternative, but continuous and context-dependent forecasts lack a suitable replacement target, while the exact-retrained output is unavailable during unlearning. Moreover, the remaining support for a deleted temporal pattern is highly non-uniform. Some affected windows retain structurally similar counterparts in the retained data, whereas others become underrepresented or isolated. We present RDTU, a Residual Diffusion framework for time-series unlearning. RDTU first uses a retained-set neural tangent kernel predictor to obtain a deletion-compatible base forecast. Then it quantifies the global and local structural support of each affected window using the volume contribution of the retained-reference data. Then a diffusion model generates a residual correction that estimates the counterfactual forecast, yielding a pseudo-label field that guides a lightweight model update. Experiments show that RDTU consistently produces unlearned models that most closely match exact retraining.",
+      "authors": [
+        "Zeyu Shi, Yanhui Luo, Ziming Hong, Chongyang Gao, Kezhen Chen, Shanshan Ye, Lixu Wang"
+      ],
+      "published": "2026-10-02T06:03:44Z",
+      "updated": "2026-10-02T06:03:44Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02865",
+      "pdf_url": "https://arxiv.org/pdf/2610.02865",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.02777",
+      "title": "Efficient conformal prediction intervals for time series: Online PID-Expert aggregation",
+      "abstract": "For a given point forecaster, proportional-integral-derivative (PID) calibration configurations can attain similar overall coverage yet produce different interval widths. We introduce PID-Expert, an online aggregation method for improving the efficiency of conformal prediction intervals for time series. PID-Expert combines thresholds from a fixed library of PID calibrators, each evolving under its own coverage feedback. Aggregation weights depend on normalized interval width and miscoverage, while a shared multiplier adapts the miscoverage penalty using feedback from the reported interval. We establish local regret bounds for weighted expert losses under the realized multiplier sequence and, separately, a pathwise upper bound on time-averaged aggregate miscoverage, with control in expectation and almost surely under a stability condition. Across four simulation settings and two real-data applications, PID-Expert produces narrower mean intervals than a prespecified Conformal PID benchmark while keeping overall empirical coverage close to the nominal level. Compared with expert selection and equal averaging, aggregation generally provides a more balanced coverage--width trade-off across forecasting settings. Rolling analyses further reveal local coverage--efficiency trade-offs, particularly following abrupt distributional shifts. Overall, PID-Expert reduces reliance on a single PID configuration while improving interval efficiency.",
+      "authors": [
+        "Guodong Liu, Yanfei Kang, Ren Miao, Xiaoqian Wang"
+      ],
+      "published": "2026-10-02T04:07:51Z",
+      "updated": "2026-10-02T04:07:51Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02777",
+      "pdf_url": "https://arxiv.org/pdf/2610.02777",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.02608",
+      "title": "Time Series Forecasting Benchmarks Need Scenario-Grounded Stress Testing",
+      "abstract": "Time series forecasting (TSF) increasingly drives decisions in transportation, energy, finance, healthcare, and infrastructure, yet current evaluation remains overly narrow: standard benchmarks reward low held-out error, while robustness studies typically reduce failure to Gaussian noise, random masking, or bounded adversarial perturbations. This obscures the real failure modes of deployed forecasting systems. Input-side anomalies are not merely noisier inputs: they often reflect structured events that alter temporal dynamics, break cross-variable dependencies, induce regime shifts, or propagate from faulty sensors to downstream decisions. These semantic, causal, and system-level failures cannot be faithfully captured by i.i.d. perturbations alone. The rise of TSF foundation models makes this evaluation gap more urgent, as unauditable pretraining corpora make held-out generalization increasingly unreliable. We therefore advocate scenario-grounded stress testing. Each test instance should include historical inputs and future targets, together with a semantic scenario, an explicit failure operator, and a measurable difficulty level. This shift makes evaluation interpretable, attributable, and deployment-relevant and friendly, enabling the community to ask not only which model is accurate, but under what conditions it fails and why.",
+      "authors": [
+        "Yuyang Zhao, Lian Xu, Hao Xue"
+      ],
+      "published": "2026-10-02T00:01:12Z",
+      "updated": "2026-10-02T00:01:12Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02608",
+      "pdf_url": "https://arxiv.org/pdf/2610.02608",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.02515",
+      "title": "IGNITE Tokamak World Model Architecture",
+      "abstract": "We introduce IGNITE, a generative world foundation model for fusion plasma behavior simulation trained in a self-supervised manner from over a decade of unlabeled experimental data at the DIII-D National Fusion Facility. The core of IGNITE is a dynamics model that can simulate DIII-D discharges from a given set of actuator trajectories. These trajectories can be supplied or generated on-the-fly from a textual prompt or from desired experimental outcomes. The model architecture consists of several spatio-temporal tokenizers that embed the different input modalities, including time-series like spatio-temporal measurement data, image sequences, and high-resolution spectrograms, each of which collected at vastly different time scales. The backbone is composed of an auto-regressive dynamics model that has the capacity to predict entire DIII-D discharges given initial latent plasma states and actuator trajectories over a theoretical infinite horizon. IGNITE paves the way towards efficient AI-driven experimental planning and world modeling for nuclear fusion.",
+      "authors": [
+        "Peter Steiner, Azarakhsh Jalalvand, Nathaniel Chen, Kouroche Bouchiat, Ricardo Shousha, SangKyeun Kim, Egemen Kolemen"
+      ],
+      "published": "2026-10-01T21:37:44Z",
+      "updated": "2026-10-01T21:37:44Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02515",
+      "pdf_url": "https://arxiv.org/pdf/2610.02515",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.02497",
+      "title": "LiteEMG-FM: An Efficient and Deployable Foundation Model for Robust EMG Sensing",
+      "abstract": "Electromyography (EMG) signals vary substantially across individuals, body regions, recording sessions, and sensing hardware, limiting the generalization of models for assistive devices and human-computer interaction. Existing time-series foundation models are also computationally expensive for real-time wearable deployment and often fail to capture EMG-specific time-frequency characteristics. We present LiteEMG-FM, an efficient hybrid CNN-Transformer foundation model for practical EMG sensing. Pretrained on 16 diverse upper- and lower-limb EMG datasets, LiteEMG-FM learns representations that generalize across users and datasets. For resource-constrained deployment, we implement a hierarchical wake-up architecture in which a lightweight, always-on 1D-CNN filters rest and non-target activity and activates LiteEMG-FM only for valid gestures. We evaluate full inference offloading, split inference, and full on-device processing, characterizing their trade-offs in latency, power consumption, and memory footprint. Across diverse evaluation settings, LiteEMG-FM outperforms state-of-the-art time-series foundation models and supervised baselines, particularly under zero-calibration cross-participant and data-scarce conditions. These results demonstrate that LiteEMG-FM is an effective, efficient, and deployable foundation model for EMG applications.",
+      "authors": [
+        "Tianhao Wu, Xu Wu, Amirmohammad Radmehr, Jiawei Yu, Yi Wu, Phuc Nguyen, Jian Liu"
+      ],
+      "published": "2026-10-01T21:19:51Z",
+      "updated": "2026-10-01T21:19:51Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02497",
+      "pdf_url": "https://arxiv.org/pdf/2610.02497",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.02357",
+      "title": "Conformal Prediction for Time Series with Deep Sequence Models",
+      "abstract": "Recent advances in deep learning for time series prediction have amplified the need for reliable uncertainty quantification. Conformal prediction has gained attention as a distribution-free framework for constructing prediction intervals with coverage guarantees. However, its coverage guarantees rely on data exchangeability, an assumption generally violated in time series. Active research has focused on developing conformal prediction methods for time series that overcome this limitation. While deep sequence models, such as recurrent neural networks and Transformers, have often been used in conformal prediction for time series, limited work has systematically studied how deep sequence models can be utilized in conformal prediction for time series. In this work, we systematically investigate the use of deep sequence models in conformal prediction for time series through three approaches: conditional quantile regression, conditional quantile function estimation, and localized conformal prediction. We provide a theoretical analysis establishing asymptotic conditional coverage guarantees for all three approaches under suitable assumptions. Through comprehensive experiments on real-world datasets, we demonstrate the effectiveness of leveraging deep sequence models into conformal prediction for time series.",
+      "authors": [
+        "Junghwan Lee, Jonghyeok Lee, Yao Xie"
+      ],
+      "published": "2026-10-01T18:34:49Z",
+      "updated": "2026-10-01T18:34:49Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02357",
+      "pdf_url": "https://arxiv.org/pdf/2610.02357",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.02058",
       "title": "Foundations without Fundamentals: Zero-Shot Blind Spots in Time Series FMs",
       "abstract": "Despite the success of Time Series Foundation Models (TSFMs) on broad benchmarks, their ability to internalize basic temporal logic, especially in settings supported by exogenous covariates, remains under-examined. We introduce SimpleTimeBench, a diagnostic univariate and multivariate \"unit test\" suite for primitives such as monotonic trends, periodic signals and leading indicator covariates, scenarios where near-perfect forecasts should be trivial. Surprisingly, prominent multivariate TSFMs (Chronos-2, Moirai and Toto) frequently produce suboptimal zero-shot forecasts for these inputs. While fine-tuning Chronos-2 improves its behaviour on specific tasks, we show that this adaptation degrades performance on other fundamental patterns rather than enhancing its generalizable foundational capabilities. This reveals a gap between pre-training scale and basic temporal reasoning, suggesting that current TSFMs could potentially lack the inductive biases needed to capture simple predictable functions. We further demonstrate that these failures are not merely synthetic curiosities: they persist in real-world sensor forecasting, where TSFMs consistently underutilize leading indicators available in observed covariates. This inability to capture simple relationships limits the practical utility and reliability of current multivariate models.",
@@ -140,6 +348,41 @@
       "first_seen": "2026-10-02T18:25:48.298952Z",
       "topics": [
         "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.02256",
+      "title": "TRACE: A Reproducible Benchmark for Electricity Price Forecasting with Official Operational Text",
+      "abstract": "Electricity price forecasting (EPF) supports scheduling, bidding, and risk management in electricity markets, yet existing benchmarks focus mainly on numerical inputs, leaving the forecasting value of forecast-time textual context insufficiently evaluated. We introduce TRACE, a reproducible benchmark of 7,300 zone--day instances pairing prices from five zones in a major U.S. market with official operational text available at the forecast cutoff. TRACE reconstructs official operational text at each cutoff, preventing post-cutoff information leakage. We evaluate TRACE for semantic alignment and forecasting value. Semantic assessments align with central movement and both tail risks in ground-truth prices, most consistently for upper-tail price risk. Forecasting value is reflected in a median 7.4\\% reduction in upper-tail pinball loss across time-series foundation models. A controlled cross-day text-mismatch ablation reverses the gains, falling below the no-text baseline.",
+      "authors": [
+        "Xinyi Yi, Moy Yuan, Ioannis Lestas"
+      ],
+      "published": "2026-09-30T20:44:33Z",
+      "updated": "2026-09-30T20:44:33Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02256",
+      "pdf_url": "https://arxiv.org/pdf/2610.02256",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.02255",
+      "title": "MACTS-EM: Multi-Agent Collaborative Time Series Forecasting with Emergent Memory",
+      "abstract": "Time series forecasting remains a critical challenge across numerous domains. Despite significant advancements, existing approaches struggle with complex phenomena such as regime shifts, cross-domain knowledge transfer, and multimodal data integration. This paper introduces Multi-Agent Collaborative Time Series Forecasting with Emergent Memory (MACTS-EM), a novel framework where specialised agents collaborate to achieve superior forecasting performance. The MACTS-EM architecture integrates: (1) domain-specialised forecasting agents for pattern recognition, anomaly detection, causal inference, and uncertainty quantification; (2) a meta-cognitive layer for dynamic agent allocation; (3) an emergent memory mechanism enabling cross-domain pattern transfer; (4) multimodal contextual integration; and (5) adversarial robustness components. Evaluation across financial markets, climate patterns, energy consumption, and pandemic propagation demonstrates that MACTS-EM outperforms existing approaches in most scenarios, with 8-12% improvement in forecasting accuracy, 22-27% better zero-shot transfer capability, 16-21% enhanced resilience during regime shifts, and 15-18% faster recovery after distribution shifts. Our findings suggest that collaborative, agentic approaches to time series forecasting represent a promising direction beyond traditional architectures, particularly for complex real-world scenarios requiring multi-resolution temporal understanding and contextual adaptation.",
+      "authors": [
+        "Ahmad Shahi and Mamehgol Yousefi"
+      ],
+      "published": "2026-09-30T19:30:32Z",
+      "updated": "2026-09-30T19:30:32Z",
+      "metadata_updated": "2026-10-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.02255",
+      "pdf_url": "https://arxiv.org/pdf/2610.02255",
+      "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
       ]
     },
     {
@@ -6772,17 +7015,32 @@
       ]
     }
   ],
-  "last_success": "2026-10-04T21:27:28.246917Z",
-  "last_attempt": "2026-10-04T21:27:28.246917Z",
-  "last_new_ids": [],
+  "last_success": "2026-10-05T22:38:43.131532Z",
+  "last_attempt": "2026-10-05T22:38:43.131532Z",
+  "last_new_ids": [
+    "2610.02255",
+    "2610.02256",
+    "2610.02357",
+    "2610.02497",
+    "2610.02515",
+    "2610.02608",
+    "2610.02777",
+    "2610.02865",
+    "2610.02866",
+    "2610.03147",
+    "2610.03452",
+    "2610.03491",
+    "2610.03494",
+    "2610.03623"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 3,
-    "records": 3352,
+    "pages": 2,
+    "records": 2522,
     "duplicates": 0
   }
 }
