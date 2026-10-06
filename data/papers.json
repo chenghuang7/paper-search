@@ -2,6 +2,466 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.06453",
+      "title": "Normality Constraint Learning: Adapting Foundation Models for Time Series Anomaly Detection",
+      "abstract": "Time Series Foundation Models (TSFMs) achieve strong generalization by learning to reconstruct or forecast broad temporal patterns from large-scale time series during pre-training. Yet this strength can become a weakness for anomaly detection: TSFMs may model rare anomalous patterns as effectively as normal ones, allowing anomalies to be accurately reconstructed or forecasted and thus diminishing their reconstruction/forecasting error-based anomaly scores. This paper proposes $\\underline{\\textbf{N}}$$\\textbf{ormality}$ $\\underline{\\textbf{C}}$$\\textbf{onstraint}$ $\\underline{\\textbf{L}}$$\\textbf{earning}$ ($\\textbf{NCL}$), a lightweight plug-and-play framework that adapts pre-trained TSFMs for accurate anomaly detection without modifying their pre-trained parameters. Our key insight is to constrain the broad pattern space of TSFMs to the normal structure of a target time series, preventing their broad modeling capability from obscuring abnormal deviations. Specifically, NCL constructs a compact normality subspace from a few normal patch features and adaptively steers each patch feature toward normality within this subspace, guided by contrastive constraints that form compact and discriminative normality manifolds. The calibrated features are aggregated to reinforce normal components and fused with the original TSFM output, amplifying the discrepancy between normal and abnormal observations for the reconstruction/forecasting error-based anomaly scoring. Extensive experiments across diverse TSFM families and benchmarks show that NCL consistently improves anomaly detection performance, providing a generalizable framework for adapting TSFMs to anomaly detection.",
+      "authors": [
+        "Xiaohui Zhou, Yijie Wang, Hongzuo Xu, Weixuan Liang, Guansong Pang"
+      ],
+      "published": "2026-10-05T14:55:46Z",
+      "updated": "2026-10-05T14:55:46Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06453",
+      "pdf_url": "https://arxiv.org/pdf/2610.06453",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.06450",
+      "title": "EMG-FM-Bench: A Comprehensive Benchmark for Foundation Model Transfer and Adaptation on Electromyography",
+      "abstract": "Foundation models (FMs) are increasingly being developed for general time series and physiological signals, yet their transferability to downstream physiological tasks remains poorly understood. This question is particularly challenging for electromyography (EMG), where signal distributions vary substantially across users, sensing configurations, acquisition hardware, and downstream tasks. We introduce EMG-FM-Bench, a systematic benchmark for studying foundation-model transfer and adaptation on EMG. EMG-FM-Bench unifies 20 public datasets with over 1 million EMG segments and evaluates nine pretrained foundation models across four questions: how pretrained models perform when frozen or fully fine-tuned, how much pretraining helps compared with training the same model from scratch, how well models generalize to new users with limited labeled data, and how performance changes across different EMG tasks. Across the benchmark, linear probing provides useful information about pretrained representations, but full fine-tuning can substantially change downstream EMG performance. Comparing each pretrained model with the same model trained from scratch shows that the benefit of pretraining varies substantially across models and is not universal. Performance decreases when models are evaluated on new users, while five-shot adaptation improves macro-F1 in 70.2% of evaluated model-dataset combinations but recovers only part of the lost performance. Model performance is highly consistent between upper- and lower-limb classification and remains strongly correlated with continuous EMG-to-text decoding. Together, these results provide a systematic view of when pretrained time-series models transfer effectively to EMG and how their performance depends on fine-tuning, user variation, and downstream task.",
+      "authors": [
+        "Tianhao Wu, Xu Wu, Amirmohammad Radmehr, Jiawei Yu, Yi Wu, Phuc Nguyen, Jian Liu"
+      ],
+      "published": "2026-10-05T14:53:56Z",
+      "updated": "2026-10-05T14:53:56Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06450",
+      "pdf_url": "https://arxiv.org/pdf/2610.06450",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.06447",
+      "title": "Time-series Foundation Models for Predictive Control: The Role of Excitation",
+      "abstract": "Deploying model predictive control (MPC) requires constructing or identifying a predictive model for each target system. Time-series foundation models (TSFMs) offer an attractive option thanks to strong zero-shot forecasting capabilities across systems. However, low forecast error does not guarantee that a TSFM captures the system's response to the alternative actions considered by the controller. We study this gap using residential heat-pump control as a test bed, measuring the agreement between predicted and ground-truth effects of control interventions. Importantly, we find that TSFMs can recover the system's input-response relationship when the context contains sufficient independent control excitation. Common fine-tuning pipelines and feature smoothing reduce, but do not eliminate, the need for in-context excitation. Our results indicate that current TSFMs used for predictive control require sufficiently informative control variation in the inference context. Initial closed-loop results show promise for shorter context windows.",
+      "authors": [
+        "Mazen Amria, Jasper Hoffmann, Philipp Bordne, Anna Rothenh\\\"ausler, Lilli Frison, Harald Taxt Walnum, Sebastien Gros, Joschka B\\\"odecker"
+      ],
+      "published": "2026-10-05T14:51:16Z",
+      "updated": "2026-10-05T14:51:16Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06447",
+      "pdf_url": "https://arxiv.org/pdf/2610.06447",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.06180",
+      "title": "Anlu: Enabling In-Context Time Series Anomaly Detection in Foundation Models via Counterfactual Supervision",
+      "abstract": "Whether a time-series pattern is anomalous often depends on the operating regime of the monitored process. A missing event can signal a fault in one regime and be routine in another, and the query alone may not reveal which regime applies. We study in-context learning (ICL) for time series anomaly detection (TSAD) through reference-conditioned detection, where a reference record provides evidence about expected behavior and model parameters remain fixed at inference. Supplying the reference is not enough: when training anomalies are recognizable from the query alone, the detector can fit its targets while ignoring the reference. We therefore introduce counterfactual supervision, which pairs one query with two references that support different normal rules and labels the query under each. At positions where the two labels disagree, no detector that ignores the reference can fit both targets. Anlu learns from this supervision by adding a reference memory and zero-initialized gated adapters to a frozen time-series foundation model (TSFM) pretrained for anomaly detection. On the 350 TSB-AD-U evaluation sequences, Anlu raises the mean VUS-PR of the frozen TSFM from 0.542 to 0.607. Replacing the reference with zeros lowers Anlu's score to 0.499.",
+      "authors": [
+        "Tian Lan, Yifei Gao, Yimeng Lu, Xuming An, Meng Wang, Yue Pan, Wenjun He and Chen Zhang"
+      ],
+      "published": "2026-10-05T12:00:49Z",
+      "updated": "2026-10-05T12:00:49Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06180",
+      "pdf_url": "https://arxiv.org/pdf/2610.06180",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.06156",
+      "title": "TIGER: Time-Series Classification with In-Context-Learning Gated Ensemble of Representations",
+      "abstract": "A representation family is a distinct way of extracting features from time series. Ensemble algorithms that combine several representation families remain the most accurate approach to time series classification. Current state-of-the-art ensembles, most notably HIVE-COTE~2.0, pair a bespoke classification algorithm with each representation family and combine their predictions using a fixed, non-adaptive rule. We present TIGER (Time-series classification with In-context-learning Gated Ensemble of Representations), which instead applies the same small portfolio of three general-purpose classifiers (Ridge, Extra Trees, and Naive Bayes) to four representations from four distinct families, stacking the resulting twelve base learners' predictions into a meta-feature matrix. The final prediction is produced by an adaptive meta-classification rule that chooses, independently for each data set, between a weighted hard majority vote and TabICLv2, a pretrained tabular foundation model used in-context as a meta-classifier, based on the mean number of training samples available per class. On a 142-data-set benchmark drawn from the UCR time series classification archive, TIGER obtains the best mean accuracy, balanced accuracy, and F1-score among six compared algorithms, including HIVE-COTE~2.0, and significantly outperforms each of the other five individually. TIGER's adaptive rule also meaningfully outperforms either of its two constituent meta-classification methods used alone, and its single hyperparameter, tuned using only a twenty-data-set development subset, is shown to generalize to the full evaluation benchmark. We further characterize TIGER's design through an extensive set of ablation experiments and report the design alternatives that we investigated and ultimately discarded.",
+      "authors": [
+        "Johann Faouzi"
+      ],
+      "published": "2026-10-05T11:28:38Z",
+      "updated": "2026-10-05T11:28:38Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06156",
+      "pdf_url": "https://arxiv.org/pdf/2610.06156",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.06039",
+      "title": "MercerFlow: Flow Matching in a Kernel-Induced Latent Space for Probabilistic Forecasting",
+      "abstract": "Recent work has shown that probabilistic flow matching for time series forecasting benefits from a data-matched prior. The resulting prior introduces local correlations, which a sequential architecture usually absorbs: a recurrent neural network (RNN), a structured state-space model (S4), or a Transformer. However, such a backbone costs GPU memory and time per epoch. A cheaper alternative is MLP-based latent-space flow matching: embed the time series via an invertible map to a single latent vector and learn the flow there, so a tabular MLP can treat the series as a set of features. The relationship between the prior and the choice of linear latent map is understudied in conditional flow matching (CFM) forecasting, yet we found it strongly affects performance. Fixed transforms such as Fourier or discrete cosine (DCT) are only well-conditioned for Ornstein--Uhlenbeck priors, while a principal-component (PCA) map fit to the data is a strong but training-set-dependent reference sensitive to train--test shift. Instead, we propose to use the Mercer eigenbasis of the prior kernel: it diagonalises the centred covariance exactly, decouples from training data, and adapts to non-stationary and periodic priors. On five GluonTS benchmarks (ETTh1, ETTh2, Weather, Electricity, Traffic) under a shared protocol with TSFlow, the resulting MLP matches or beats it on CRPS at about $4.7\\times$ less training memory and $3.5\\times$--$4.4\\times$ less time per epoch.",
+      "authors": [
+        "Ilya Kuleshov, Egor Serov, Alexey Zaytsev"
+      ],
+      "published": "2026-10-05T09:38:40Z",
+      "updated": "2026-10-05T09:38:40Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06039",
+      "pdf_url": "https://arxiv.org/pdf/2610.06039",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05926",
+      "title": "Comparing two approaches for modelling the loss given default of credit cards: Run-off triangles vs regression",
+      "abstract": "The use of run-off triangles (ROTs) is a common industry practice in estimating the loss given default (LGD) risk parameter when predicting credit losses in banking. We benchmark this industry practice using credit card data against a more sophisticated (though classical) regression-based approach, which is able to leverage various types of input variables in producing loan-level LGD-estimates. This regression-based approach can demonstrably recover the typical characteristics of the 'U-shaped' empirical LGD-distribution, which the ROT-based approach cannot do. First, we critically review the ROT-based approach and identify multiple demerits using data-driven diagnostics. We then estimate a two-stage regression-based LGD-model and favourably assess the model performance of each component (or 'stage'). Finally, we aggregate the LGD-estimates produced by each approach over time, and compare each time series to the mean empirical loss rate over time. The ROT-based aggregates diverge substantially from the empirical rate over most time periods, whilst the regression-based aggregates follow the empirical trends much closer. These results underscore the greater prediction accuracy of the regression-based LGD-model, relative to the ROT-based one. By implication, the former approach is probably better than the latter ROT-based approach when estimating the LGD under the IFRS 9 accounting framework, which prioritises accuracy.",
+      "authors": [
+        "Arno Botha, Henko Crewe, Marcel Muller, Janette Larney"
+      ],
+      "published": "2026-10-05T07:45:57Z",
+      "updated": "2026-10-05T07:45:57Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05926",
+      "pdf_url": "https://arxiv.org/pdf/2610.05926",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05726",
+      "title": "FreSia: Frequency-Semantic Instantiation and Alignment for Multivariate Time Series Analysis",
+      "abstract": "Large Language Models (LLMs) have shown strong potential in multivariate time series forecasting and anomaly detection. Existing studies predominantly inject temporal information into LLMs via direct numerical tokenization or heuristic textual descriptions. However, LLMs still face difficulty in perceiving the underlying structural patterns of numerical time series, particularly the seasonal and trend components obscured by discrete numerical tokens. To bridge this gap, we propose FreSia, a frequency-aware framework that establishes an effective alignment between the semantic space of LLMs and the frequency space of time series. Specifically, FGPrompt, a Frequency-Guided Prompt mechanism within FreSia, distills the frequency-domain structures of time series and projects them into prompts tailored to the semantic space of LLMs. Furthermore, we introduce a Global-driven Context Learning (GCL) component, which uses a global CLS-driven probe to generate global context to bridge the time-frequency domain gap and fuse the multi-modal information. Experiments on eight forecasting benchmarks show that FreSia achieves average improvements of 13.48% and 8.06% in MSE and MAE, respectively.",
+      "authors": [
+        "Yubo Wang and Hui He and Hezhe Qiao and Guoqing Ji and Zhendong Niu"
+      ],
+      "published": "2026-10-05T03:29:07Z",
+      "updated": "2026-10-05T03:29:07Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05726",
+      "pdf_url": "https://arxiv.org/pdf/2610.05726",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05686",
+      "title": "Do Time-Series QA Systems Read the Time Series? Evidence Use and Reasoning Reliability",
+      "abstract": "In recent years, time-series question answering (QA) systems have made significant progress. However, generating a correct answer does not show whether retaining the supplied numerical series improves task performance, nor whether the prediction is sensitive to changes in that input. While some systems provide rationales, answer accuracy also does not show whether their numerical claims are grounded in the supplied series or whether the stated inference is valid. In this work, we focus on evaluating four time-series QA systems: TimeOmni-1, ChatTS, TimeOmni-VL, and Time-MQA. First, for three systems with released evaluation data, we reproduce their reported results and compare the performance of the systems with their backbones. Then, we introduce a benchmark named COMMON-TSQA, which collects public evaluation datasets from existing time-series benchmarks and unifies their sample representation, task definitions, and answer schemas, while evaluating each system through its own interface under common evaluation criteria. The evaluation uses the original condition and six interventions while keeping the question and target fixed. Our analysis shows that aggregate performance alone can obscure how systems use numerical evidence. Similar task-level scores can arise despite substantial changes in individual predictions. Some interventions induce simple fallback behavior rather than preserved task ability. We also evaluate rationales for factual grounding, inference validity, and consistency with the final answer. We find that rationales often contain time-series claims unsupported by the input. Moreover, the rationale audit shows that agreement between a rationale and its final answer can coexist with incorrect numerical descriptions or invalid intermediate inferences.",
+      "authors": [
+        "Zhuomin Chen, Jingchao Ni, Xu Zheng, Janki Bhimani, Mo Sha, Wei Cheng, Dongsheng Luo"
+      ],
+      "published": "2026-10-05T01:59:38Z",
+      "updated": "2026-10-05T01:59:38Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05686",
+      "pdf_url": "https://arxiv.org/pdf/2610.05686",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05618",
+      "title": "Causal Lag Structure Discovery in Confounded Time Series via Orthogonalized Adaptive Estimation",
+      "abstract": "Finding which variables cause which others in multivariate time series, and at what lags, is central to science and policy, yet existing methods force a choice between flexible confounder adjustment, data-driven lag selection, and inference that controls the false discovery rate (FDR). ORACLE-VARX does all three in one pipeline. First, double/debiased machine learning (DML) removes nonlinear confounder effects from the outcomes and the lagged series. Second, adaptive causal lag estimation (ACLE) picks the lag order at each time step by sequential significance tests, tracking regime changes. Third, entry-wise $z$-tests with Benjamini--Hochberg correction select directed edges at a target FDR. We prove that in each rolling window, the debiased coefficients are asymptotically normal around a window-averaged target, so their $z$-tests are asymptotically valid. On a synthetic benchmark with time-varying structure and nonlinear confounding, ORACLE-VARX (LightGBM) tracks the true lag order best (RMSE $0.96$ vs $1.1$--$1.5$), has edge FDR $0.047$, close to PCMCI ($0.045$) and below VAR ($0.129$) and VAR-LiNGAM ($0.187$), and forecasts better than all three. On nine U.S. sector ETFs with macroeconomic confounders, it yields interpretable causal graphs whose lag order rises in high-volatility regimes.",
+      "authors": [
+        "Hong Kiat Tan, Isaac-Neil Zanoria, James Chen, Haoyang Lyu, Mihai Cucuringu"
+      ],
+      "published": "2026-10-04T23:28:30Z",
+      "updated": "2026-10-04T23:28:30Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05618",
+      "pdf_url": "https://arxiv.org/pdf/2610.05618",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05409",
+      "title": "BeliefGraph-JEPA: Structured Latent World Models for Action-Conditioned Time Series",
+      "abstract": "Action-conditioned time-series forecasting requires accounting for how future actions and exogenous forcings influence multiple targets through partially observed effects with different delays and persistence. Direct conditioning leaves the evolution and target-specific influence of these effects implicit in the predictor, while static relational graphs specify connections without tracking evolving effects. This motivates representing future-driver influence through structured latent states that evolve over the forecast horizon and route information to individual targets. We introduce BeliefGraph-JEPA, a structured latent world model that factorizes driver influence into typed latent-effect states. These states are rolled forward under future drivers and routed through a graph to target-specific nodes, forming the predictive base of a joint-embedding predictive architecture. A capacity-controlled residual supplements this base with direct driver information. On four multi-target clinical, agricultural, environmental, and industrial systems, the framework outperforms a range of pretrained and supervised known-future-covariate baselines. Matched controls isolate latent dynamics, future rollout, graph routing, and residual capacity; future rollout and graph-first residual routing improve forecasting across all four systems.",
+      "authors": [
+        "Yue Li, Kangqi Ni, Zhen Tan, Tianlong Chen"
+      ],
+      "published": "2026-10-04T17:50:12Z",
+      "updated": "2026-10-04T17:50:12Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05409",
+      "pdf_url": "https://arxiv.org/pdf/2610.05409",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05269",
+      "title": "A Unified Scaling Law for Time Series Foundation Models",
+      "abstract": "We develop a Unified Scaling Law and a Unified Theory of Time Series Learning to understand how model capacity and historical information support forecasting. Across different lookback lengths and forecast horizons, we analyze 18,768 experimental cells from 21 checkpoints on 23 dataset-frequency tasks spanning six domains. Our empirical methodology integrates local resource relations into a parsimonious, fitted five-parameter law: capacity gains increase with history, context gains diminish toward saturation, and horizon effects enter as a common shift. Fitted without Toto 2.0, the law predicts its horizon-averaged capacity-scaling curves with mean absolute percentage errors of 1.09% and 1.50% at input lengths 2048 and 4096. To understand how history supports prediction, our learning theory uses Gaussian regression to analyze rule identification and predictive capability. We hypothesize that full-shot models learn by accumulating information in weights, while frozen time series foundation models (TSFMs) use history by extracting information through activations. Matched-history comparisons establish the predictive value of additional history. Controlled parameter exchanges and activation interventions provide evidence that history-derived rule information can be retained, reused across queries, and used to recover a contribution to long-context prediction. Together, these findings inform capacity scaling, context allocation, and the development of models that retain and apply historical rules. Code and main results are available at https://github.com/Fifthky/UniScale.",
+      "authors": [
+        "Xilin Dai, Yiding Liu, Zewei Dong, Jiang-Ming Yang, Qiang Xu"
+      ],
+      "published": "2026-10-04T14:45:05Z",
+      "updated": "2026-10-04T14:45:05Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05269",
+      "pdf_url": "https://arxiv.org/pdf/2610.05269",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.05240",
+      "title": "Pythia: Toward Foundation World Models for Multimodal Time Series",
+      "abstract": "Time-series foundation models offer a unified approach to forecasting across heterogeneous domains. Textual context and auxiliary observations provide complementary information about temporal dynamics, yet reusable multimodal predictive representations remain underexplored. We introduce Pythia, a foundation world model that learns context-conditioned latent dynamics across datasets through a joint-embedding predictive architecture. A stop-gradient numerical reference guides contextual corrections to predicted future states. A separate probabilistic decoder then adapts to the frozen predictive representation and observed history, decoupling world-model pretraining from observation-space forecasting. On MUSE, Pythia-Tiny's normalized mean absolute scaled error (MASE) and weighted sum quantile loss (WSQL) are 0.6879 and 0.4269, reducing errors by 6.26% and 5.00% relative to the strongest model evaluated in the published MUSE leaderboard. Through a series of controlled experiments, we investigate how to design a time-series world model through shared pretraining and how joint-embedding predictive learning can incorporate multimodal information. The results support separating predictive representation learning from probabilistic readout and show complementary contributions from entity descriptions, events, and covariates.",
+      "authors": [
+        "Xilin Dai, Hongzhou Chen, Yifan Hu, Yiding Liu, Zewei Dong, Jiang-Ming Yang"
+      ],
+      "published": "2026-10-04T14:12:17Z",
+      "updated": "2026-10-04T14:12:17Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05240",
+      "pdf_url": "https://arxiv.org/pdf/2610.05240",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.05211",
+      "title": "Image Synthesis as an Intermediate for Controllable Time Series Generation",
+      "abstract": "Semantic-driven time-series generation offers a promising way to improve downstream learning in few-shot forecasting, but directly generating numerical sequences from language often fails to preserve the intended temporal structure. We propose VisualBridge, which uses time-series plots as a visual intermediate to bridge high-level temporal semantics and numerical sequences. An MLLM first converts plotted series into structured semantic representations, enabling explicit control over temporal properties such as trend, seasonality, and volatility. We then learn a semantic editing policy with downstream forecasting rewards, allowing the generation process to favor temporal patterns that are beneficial for the target task. The resulting sequences are further modeled by a temporal VAE to produce consistent multivariate augmentations. Experiments on standard public forecasting benchmarks demonstrate that VisualBridge improves few-shot forecasting over conventional augmentation methods, with ablations validating the roles of visual semantic grounding, learned semantic control, and VAE-based generation.",
+      "authors": [
+        "Haochen Yuan, Jing Xie, Yunbo Wang"
+      ],
+      "published": "2026-10-04T13:27:31Z",
+      "updated": "2026-10-04T13:27:31Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05211",
+      "pdf_url": "https://arxiv.org/pdf/2610.05211",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.05051",
+      "title": "LogSig-SSM: Time-Series Modelling with Multi-Scale Log-Signature Compression for State-Space Models",
+      "abstract": "Time-series data are often sampled irregularly at high frequencies and exhibit long-range dependencies, which makes long-horizon modelling difficult. Continuous-time models such as neural controlled differential equations (NCDEs) and neural rough differential equations (NRDEs) can handle irregular sampling, but they scale poorly to long sequences. Selective state-space models (SSMs) such as Mamba scale linearly with sequence length, but they provide limited recurrent mixing across hidden dimensions within a single block. We propose LogSig-SSM (Log-Signature Compression for State-Space Models), which first compresses long multivariate time series into a shorter sequence of tokens using multi-scale windowed log-signatures, and then processes these tokens with a selective SSM backbone. LogSig-SSM is scalable and robust to irregular sampling, combining log-signature tokens that capture higher-order cross-channel interactions with a selective SSM that models long-range dependencies. The model also admits a continuous-time interpretation as an NCDE/NRDE-style system driven by a log-signature-based input, in which selectivity induces an input-dependent rescaling of the latent dynamics. Across four benchmarks, namely long-sequence classification on UEA, high-frequency physiological regression on PPG-DaLiA, multivariate weather forecasting, and irregularly sampled clinical prediction on PhysioNet Sepsis, LogSig-SSM outperforms or matches strong SSM and continuous-time baselines while training up to $30\\times$ faster and using up to $37\\times$ less GPU memory than Mamba on the longest sequences.",
+      "authors": [
+        "Felix Oury, Nicolas Calvo Peiro, Reiko J. Tanaka"
+      ],
+      "published": "2026-10-04T08:41:36Z",
+      "updated": "2026-10-04T08:41:36Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.05051",
+      "pdf_url": "https://arxiv.org/pdf/2610.05051",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.04925",
+      "title": "TSAE: Structured Sparse Autoencoders for Interpreting Time-Series Forecasting Models",
+      "abstract": "Time-series forecasting informs critical decisions in energy dispatch, industrial operations, and environmental monitoring; understanding the patterns models rely on is essential for assessing reliability and identifying failures. Input attribution identifies important variables and time segments but offers limited insight into internal features, while standard sparse autoencoder (SAE) objectives do not directly constrain cross-variable structure or temporal continuity. We introduce TSAE, a structured sparse autoencoder for forecasting representations that decomposes hidden states into individually inspectable features. TSAE organizes cross-variable structure through shared and variable-routed private dictionaries, separates feature detection from magnitude estimation with gated encoding, and constrains neighboring sparse-code changes according to raw-segment similarity. These mechanisms support analysis of variable context, activation strength, and temporal evolution. Forecast-consistency fine-tuning further improves preservation of the frozen forecaster's outputs. The accompanying TSEVAL protocol separately audits fidelity, feature coherence, and physical calibration to ground feature interpretation. In three-seed experiments with frozen PatchTST on ETTh1, ETTh2, and ETTm1, TSAE achieves the lowest hidden-state reconstruction error, normalized forecast-reconstruction error (NFRE), and feature transition rate among five SAEs at comparable per-token activity. NFRE decreases by 4.3-26.4% relative to the next-best mean. Dataset-dependent tradeoffs in selectivity, physical correlation, and calibration show that fidelity and temporal-stability gains require independent semantic validation to support feature interpretation.",
+      "authors": [
+        "Baoxi Liu, Yi Xie"
+      ],
+      "published": "2026-10-04T04:09:07Z",
+      "updated": "2026-10-04T04:09:07Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04925",
+      "pdf_url": "https://arxiv.org/pdf/2610.04925",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.04827",
+      "title": "GRAM: Correcting Frozen Time-Series Foundation Models via Graph-Retrieved Amplitude Memory",
+      "abstract": "Time-series foundation models (TSFMs) enable zero-shot forecasting through large-scale cross-domain pretraining, while retrieval augmentation further improves their performance by leveraging historical information. However, existing methods typically correct TSFM forecasts using the ground-truth futures of similar historical windows, which contain both predictive components already captured by the foundation model and sample-specific random fluctuation that is difficult to transfer. In contrast, recurring systematic model bias within prediction errors more directly characterizes the failure modes of a frozen TSFM and therefore provides more valuable correction signals. Effectively exploiting such model bias, however, poses two challenges: prediction errors at different numerical levels are difficult to compare due to scale differences, and the recurring bias must be extracted from prediction errors contaminated by random fluctuation. To address these challenges, we propose GRAM, a general retrieval-augmented framework for frozen TSFMs. GRAM first introduces an Amplitude Memory Module (AMM) that scales prediction errors by amplitude and aggregates them into retrievable prototypes. It then employs a Prototype Graph Module (PGM) to model relations among prototypes to aggregate consistent bias information while suppressing random fluctuation. During online forecasting, GRAM retrieves and expands prototypes relevant to the current query and generates per-horizon corrections to refine the original TSFM forecast. Experiments across multiple datasets and foundation models demonstrate consistent forecasting improvements.",
+      "authors": [
+        "Xiaoyun Yu, Xiangfei Qiu, Yonggui Huang, Shixiang Tang, Nanqing Dong, Wanli Ouyang, Geguang Pu, Honggang Qi, Jilin Hu, Xi Chen"
+      ],
+      "published": "2026-10-04T00:20:36Z",
+      "updated": "2026-10-04T00:20:36Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04827",
+      "pdf_url": "https://arxiv.org/pdf/2610.04827",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.04795",
+      "title": "TIMBRE: Teaching Time Series Forecasters to Read, Remember, and Reconcile",
+      "abstract": "Event-informed forecasting requires translating reports and historical responses into changes to a numerical forecast. We propose TIMBRE (Temporal Integration of Memory-Based Responses and Evidence), which combines source-aware representation, state-conditioned response transfer, and reliability-guided fusion before a frozen forecast head. A separate readout adjusts interval widths while preserving the median. In a single-seed, one-epoch development study of 13 tasks, TIMBRE improves MAE over ordinary fusion on eight tasks but over native Chronos-2 on only two. Disabling response transfer in the trained model reduces BTC and AULF MAE by 47.04% and 6.81%, respectively. These findings identify sensitivity to learned response transfer rather than a general forecasting advantage. Missing development-set scores and the absence of retrained ablations limit attribution to individual evidence mechanisms.",
+      "authors": [
+        "Xinyu Guan, Zhirong Zhang, Hongyuan Liu, Pengcheng Xu, Yu Sun, Chen Song, Qianyang Zhao"
+      ],
+      "published": "2026-10-03T22:46:20Z",
+      "updated": "2026-10-03T22:46:20Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04795",
+      "pdf_url": "https://arxiv.org/pdf/2610.04795",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.04786",
+      "title": "KALEIDO: Input-Space Adaptation of a Vision Model for Time-Series Forecasting Through Gated Fold Geometries",
+      "abstract": "Time-series foundation models buy zero-shot forecasting with large temporal corpora; a vision model needs none, since a natural image implicitly embeds the patterns a forecaster must model, and an ImageNet-pretrained masked autoencoder forecasts a series by inpainting a rendering of it. A rendered series is not a natural image, however, and closing that gap takes temporal-aware adaptation. We show that the rendering geometry - how the series is folded and drawn - is a controllable, mixable axis for it. Kaleido detects the dominant periods, renders a rule-generated set of fold geometries, combines the inpaintings with a convex per-position gate fit on validation only, and fuses the result with the zero-shot output at one fixed share, with no per-dataset hyperparameter beyond the baseline's published settings. Training only LayerNorm (0.05%), Kaleido lowers MSE by 13% against the published zero-shot baseline on LTSF and, frozen, by 6.6%; on GIFT-Eval it improves the baseline by 7.4% in MASE and 19.3% in CRPS.",
+      "authors": [
+        "Xiangyu Shi, Qinghua Liu, Sam Heshmati, Zubin Abraham"
+      ],
+      "published": "2026-10-03T22:16:15Z",
+      "updated": "2026-10-03T22:16:15Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04786",
+      "pdf_url": "https://arxiv.org/pdf/2610.04786",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.04591",
+      "title": "SWAN-SF-V2: A Multivariate Time Series Dataset for Space Weather Data Analytics; Now with AIA and Weighted SHARP Parameters",
+      "abstract": "Since its original publication in 2020, the SWAN-SF dataset has been cited in over 300 research publications. Here we describe a comprehensive update to the original multivariate time series (MVTS) dataset extracted from solar photospheric vector magnetograms in the Spaceweather HMI Active Region Patch (SHARP) series. As was performed in the original release, our dataset includes a cross-checked NOAA solar flare catalog that facilitates the comparative evaluation of methods designed for solar flare prediction. We discuss the methods used for data collection, cleaning, and pre-processing of the solar active region and flare data, which includes improvements to the data integration and sampling methodology. Additional parameters have been derived from the Solar Dynamics Observatory's Atmospheric Imaging Assembly to augment the original features derived from magnetogram data. Our dataset expands the period of observations to cover 7,730 MVTS data collections from active regions occurring between May 2010 and December 2025, each of which is composed of 182 flare-predictive parameters. We continue to integrate flare reports, with over 39,000 multi-source verified flare reports providing flaring history information about the source active regions. The primary tasks enabled by the disseminated dataset continue to include optimization of solar flare prediction and detailed investigation for elusive flare predictors or precursors, with both operational (research-to-operations), and basic research (operations-to-research) benefits.",
+      "authors": [
+        "Dustin Kempton and Griffin Goodwin and Reet Gupta and Viacheslav M Sadykov and Rafal A. Angryk and Berkay Aydin and Manolis K. Georgoulis"
+      ],
+      "published": "2026-10-03T15:26:27Z",
+      "updated": "2026-10-03T15:26:27Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04591",
+      "pdf_url": "https://arxiv.org/pdf/2610.04591",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.04547",
+      "title": "TMAML: Temporal Model-Agnostic Meta-Learning for Cold-Start Time Series Forecasting",
+      "abstract": "Cold-start forecasting, the task of forecasting a time series with little to no historical data, is a common challenge. Addressing it requires approaches that learn quickly from few datapoints and leverage information from related series, typically through static covariates, to generalize well to unseen series. While some global forecasting models can generate cold-start predictions by leveraging information shared across multiple series, they are not optimized for out-of-train-set generalization or adaptation from short histories. In this work, we formulate cold-start forecasting as a few-window learning problem and introduce Temporal Model-Agnostic Meta-Learning (TMAML), which tailors the model-agnostic meta-learning algorithm, originally developed for few-shot adaptation of neural networks, to deep time series forecasting. TMAML constructs meta-tasks as temporally consistent support-query windows and pairs them with a temporal meta-training and meta-testing procedure, yielding forecasting models that are explicitly optimized for cold-start forecasting. We instantiate TMAML on the Temporal Fusion Transformer (TFT) and present an initial empirical analysis of forecast accuracy and calibration across three cold-start scenarios: TMAML consistently outperforms or matches a standard ERM-trained TFT, yields better-calibrated forecasts than naive on two of the three scenarios, but does not consistently outperform naive on probabilistic forecast accuracy.",
+      "authors": [
+        "Wannes Janssens, Matthias Bogaert and Dirk Van den Poel"
+      ],
+      "published": "2026-10-03T14:20:09Z",
+      "updated": "2026-10-03T14:20:09Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04547",
+      "pdf_url": "https://arxiv.org/pdf/2610.04547",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.04517",
+      "title": "EvoCast: Reliable Autonomous Research Agents for Iterative Forecasting Architecture Evolution",
+      "abstract": "Deep time-series forecasting models have rapidly diversified, yet adapting them to a specific task still requires extensive expert effort in model selection, mechanism diagnosis, architecture design, implementation, and evaluation. Existing AutoML methods are constrained by predefined search spaces, while general-purpose LLM research agents lack reliable control over experimental protocols and model promotion. We introduce EvoCast, a fully autonomous research-agent system for iterative forecasting architecture evolution. EvoCast first establishes and diagnoses a task-specific baseline through executed mechanism ablations, then generates evidence-grounded research directions from dataset characteristics, diagnostic results, prior rounds, and failure records. Its central design, cognition-authority separation, assigns open-ended hypothesis generation and code implementation to LLM agents, while deterministic program authorities control source-edit boundaries, canonical evaluation, and promotion decisions. Experimental outcomes are accumulated as evidence to guide subsequent rounds. Results show that EvoCast completes complex architecture modifications with higher implementation success and lower agent-side token/time cost, and develops task-specific architectures that outperform selected baselines, strong forecasting models, and agent baselines in three real-world forecasting cases. The code is available at https://github.com/18e0-x/EvoCast.",
+      "authors": [
+        "Kaipeng Xu, Xianli Yan, Yan Wang, Xiang Liu, Shan Liu"
+      ],
+      "published": "2026-10-03T13:30:53Z",
+      "updated": "2026-10-03T13:30:53Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04517",
+      "pdf_url": "https://arxiv.org/pdf/2610.04517",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.04474",
+      "title": "Personalized Federated Vector Autoregression with Personalization Diversity",
+      "abstract": "Personalized federated learning can improve estimation for high-dimensional time series while preserving client-specific dynamics. However, parameter heterogeneity creates a fundamental ambiguity between shared and personalized structure. We introduce the principle of personalization diversity, under which genuinely personalized effects recur in only a limited fraction of clients. Based on this principle, we propose PerFeCT-VAR, Personalized Federated Vector Autoregression via Frequency-Capped Thresholding, which decomposes each client-specific transition matrix into shared low-rank dynamics, shared sparse links, and personalized sparse departures. A cross-client frequency cap yields a sharp shared--personalized separation threshold and motivates frequency-capped thresholding for federated estimation. Our theory further accounts for heterogeneous client distributions through a distributional compatibility condition and establishes joint linear convergence of the shared and personalized components. Under sufficient personalization diversity, the shared dynamics retain federated total-sample-size gains while the personalized components achieve client-level accuracy. Simulations and an application to multi-store retail revenue data demonstrate the predictive and interpretive benefits of the proposed framework.",
+      "authors": [
+        "Zhiyun Fan, Xiaoyu Zhang, Guodong Li, Di Wang"
+      ],
+      "published": "2026-10-03T12:23:12Z",
+      "updated": "2026-10-03T12:23:12Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04474",
+      "pdf_url": "https://arxiv.org/pdf/2610.04474",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.04407",
+      "title": "TimeNet: An Extensible Unified Data Infrastructure for Next-Generation Temporal Foundation Models",
+      "abstract": "Temporal Foundation Models (TFMs) aim to generalize across domains, datasets, and tasks. Yet, their development remains constrained by fragmented, task-specific data formats, annotations, and processing pipelines. We introduce TimeNet, an open-source data standard and scalable infrastructure that decouples temporal data from task definitions and represents signals, metadata, annotations, and supervision in a shared, extensible data model. TimeNet supports multimodal signals with regular, irregular, or ordinal time axes and expresses different task families (including classification, forecasting, temporal localization, question answering, generation, and editing) as reusable views over the same recordings. This shared representation enables heterogeneous time-series datasets to be combined for large-scale model training across domains, modalities, and tasks. We demonstrate TimeNet by transcoding datasets with 1.5M task instances spanning diverse domains, modalities, temporal scales, and forms of supervision, while retaining practical I/O performance relative to native formats. TimeNet enables an existing TFN training pipeline to support joint training on a configurable number of heterogeneous datasets through configuration changes alone. We show this capability by training TFM across multiple datasets and tasks, obtaining a 14% F1 score improvement compared with models trained on individual datasets. These results show that TimeNet provides the data and systems foundation needed to move beyond task- and dataset-specific TFMs toward models that can learn jointly across heterogeneous domains, modalities, temporal scales, and forms of supervision from a common data model.",
+      "authors": [
+        "Martin Maritsch, Timo Stoffregen, Thomas Kaar, Behsad Riemer, Maxwell A. Xu, Max Rosenblattl, Juncheng Liu, Nicolas Zumarraga, Yu Yvonne Wu, Denys Herasymuk, Sparsh Rastogi, Hyungjun Yoon, Bosong Huang, Arvind Pillai, Dmytro Lopushanskyy, Tony Chen, Robin Deuber, Yichen Liu, Shvat Messica, Dan Li, Jian Lou, Yuwei Zhang, Jaeho Kim, Ren\\'ee Rosillo Garcia, Fan Wu, Robert M\\\"uller, Elgar Fleisch, Flora D. Salim, Dimitris Spathis, Yuzhe Yang, Aaqib Saeed, Daniel McDuff, Ming Jin, Markus Kreft, Kevin O'Sullivan, Robert Jakob, Azul Garza, Paul Schmiedmayer, Patrick Langer"
+      ],
+      "published": "2026-10-03T09:53:33Z",
+      "updated": "2026-10-03T09:53:33Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04407",
+      "pdf_url": "https://arxiv.org/pdf/2610.04407",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.04109",
+      "title": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+      "abstract": "Real-world time series are frequently driven by exogenous events and structural shifts, rendering conventional forecasting based solely on historical numerical observations insufficient. While language models can retrieve external news, standard retrieval-augmented approaches struggle with high noise, missing signals, and an inability to reason causally about event impacts. We propose SEER (Self-Evolving Event Reasoning and Retrieval), a closed-loop framework that dynamically optimizes event conditioning for time series forecasting. SEER translates prediction errors into two decoupled feedback mechanisms: (i) a reflective retrieval memory that refines subsequent search queries and filters spurious noise, and (ii) a persistent causal knowledge base that distills transferable domain dynamics. SEER enforces strict chronological boundaries across both event retrieval and reflection, preventing look-ahead bias and data leakage. Across six volatile time-series benchmarks, SEER consistently outperforms state-of-the-art time series foundation models and language model baselines.",
+      "authors": [
+        "Mingtian Tan, Palash Goyal, Mihir Parmar, Sarkar Snigdha Sarathi Das, Chun-Liang Li, Nanyun Peng, Thomas Hartvigsen, Jinsung Yoon, Tomas Pfister"
+      ],
+      "published": "2026-10-02T22:30:10Z",
+      "updated": "2026-10-02T22:30:10Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.04109",
+      "pdf_url": "https://arxiv.org/pdf/2610.04109",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.03916",
+      "title": "Latent-driven Imputation and Forecasting for partially observed Time Series (LIFTS)",
+      "abstract": "Partially observed multivariate time series pose two coupled challenges: recovering missing measurements and forecasting future trajectories when observation patterns are informative. Existing methods often assume ignorable missingness or use the mask only as an auxiliary input. We propose LIFTS (Latent-driven Imputation and Forecasting for partly observed Time Series), a probabilistic framework in which a latent process jointly governs the complete measurement trajectory and observation mask, allowing observation patterns to inform latent-state inference for both forecasting and imputation. LIFTS combines flexible neural-network parameterizations with a forward-backward architecture: the forward pass performs filtering and autoregressive forecasting, while the backward pass performs smoothing and conditional multiple imputation. The model and inference components are trained jointly using a masked energy score and self-masking. We establish forward-backward distributional representations for the general framework and, for an explicit structural subclass, provide full-law identification and consistency guarantees. Simulations and an application to PhysioNet 2019 show that LIFTS provides accurate point predictions, improved distributional accuracy, and well-calibrated predictive intervals; it outperforms competing methods particularly when training data are limited and has substantially faster inference than the diffusion-based baseline.",
+      "authors": [
+        "Sanyou Wu, Ying Wei, Kaizheng Wang"
+      ],
+      "published": "2026-10-02T18:26:19Z",
+      "updated": "2026-10-02T18:26:19Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03916",
+      "pdf_url": "https://arxiv.org/pdf/2610.03916",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.03623",
       "title": "Beyond Idealized Orbits: Realistic Network Topology and Spatio-Temporal Traffic Emulation for LEO Satellite Constellations",
       "abstract": "Large low-earth orbit (LEO) satellite constellations are revolutionizing network access globally by delivering potential high-capacity, low-latency communication, fueling innovation and accelerating research in advanced space-based non-terrestrial network architectures. Consequently, a research testbed that allows flexibility in designing realistic network routing schemes, traffic load balancing and inter-shell communication methods to emulate real-world multi-shell network becomes an important tool for industry developers and academic researchers. This study broadens the scope of the SpaceNet testbed, now including emulation of multi-shell constellations and computation of routes with the existing global web of terrestrial terminals. Furthermore, the testbed produces accurate trends in return trip time (RTT) and throughput metrics due to its support of high-level congestion modeling and the necessary local and global congestion routing. To evaluate the efficacy of the testbed, the network performance of emulated results for the Starlink constellation is evaluated and compared with data from real Ping and iPerf tests between Starlink terminals. Two important communication scenarios have been discussed that highlight the testbed's potential for realistic multi-shell topology generation and handling various types of traffic distribution with well-informed congestion routing. Predictions of network performance using SpaceNet accurately addresses temporal behaviors for different traffic levels with strong temporal predictability in its throughput and RTT time-series, as well as enhanced ground truth coverage within a 95% confidence interval.",
@@ -205,6 +665,23 @@
       "url": "https://arxiv.org/abs/2610.02357",
       "pdf_url": "https://arxiv.org/pdf/2610.02357",
       "first_seen": "2026-10-05T22:38:43.131532Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.03812",
+      "title": "Least Squares for Time Series Forecasting",
+      "abstract": "A time-series forecast is scored on a future value of the series. A representation loss that regresses the next latent, as in LeNEPA, is a different least-squares problem on the same bottleneck. We write both programs down. The forecast program minimizes the error of a decoded latent on the coordinate that will be reported. For a scalar target and a linear decoder, every latent rank of at least one matches ordinary least squares, and an isotropy constraint is only a rescaling: after the decoder is refit, the forecast does not move. The other program fits the whole next vector at a fixed rank, then freezes the encoder and attaches a head. On a four-dimensional series whose last three coordinates are the same autoregression, that rank-1 fit puts mass $0.9998$ on the repeated coordinate and forecasts the remaining signal at the marginal variance $2.794$. The forecast program puts mass $1$ on the signal and matches the innovation variance $0.992$. Rank $2$ gives the vector fit a second direction, and the two programs agree. Iterating the fitted one-step coefficient $0.803$ raises the open-loop error from $0.992$ at one step to $2.700$ at eight steps.",
+      "authors": [
+        "Weiu-qiou Ciang, Yuzhou Hong, and Sherry Chen"
+      ],
+      "published": "2026-10-01T18:03:05Z",
+      "updated": "2026-10-01T18:03:05Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.03812",
+      "pdf_url": "https://arxiv.org/pdf/2610.03812",
+      "first_seen": "2026-10-06T21:38:39.497037Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -1449,8 +1926,8 @@
         "Chenfeng Huang, Zixuan Ma, George Michailidis"
       ],
       "published": "2026-09-25T20:06:26Z",
-      "updated": "2026-09-25T20:06:26Z",
-      "metadata_updated": "2026-09-29T00:00:00Z",
+      "updated": "2026-10-03T03:49:38Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.31960",
       "pdf_url": "https://arxiv.org/pdf/2609.31960",
       "first_seen": "2026-09-30T00:28:47.401026Z",
@@ -1617,13 +2094,13 @@
     {
       "id": "2609.30929",
       "title": "EPOC: Endpoint-Preserving Online Correction With Compressed Residual State for Multi-Horizon Time Series Forecasting",
-      "abstract": "Completed multi-horizon forecasts provide residual feedback for a fixed forecaster, but retaining full residual blocks increases auxiliary state. We propose Endpoint-Preserving Online Correction (EPOC) with a compressed residual state. It stores low-order discrete cosine transform (DCT) coefficients and the final value of the preceding residual block. Within each channel, the endpoint is shared across component-wise online ridge regressions that also use current-forecast coefficients. The fitted DCT correction is blended with the base forecast. We evaluate eight multivariate series with DLinear and PatchTST, three seeds, and two training variants, yielding 96 matched fixed-base conditions at a 24-step horizon. EPOC achieves mean condition-wise reductions in mean squared error (MSE) and mean absolute error (MAE) of 15.40% and 9.35% from the uncorrected base, respectively, with a median of 6,352 B in retained auxiliary arrays. It has lower paired MSE than the $\\delta$-Adapter, COSA, FAC, and OMPB in a majority of conditions and uses less state than each. Full ELF achieves the largest mean MSE reduction, 19.29%, but its median retained state is 474,048 B ($\\times$75 relative to EPOC). Equal-size summary controls favor the endpoint by 1.65--2.20% in paired MSE; a coefficient-reconstructed endpoint yields similar accuracy to the observed endpoint, highlighting its role as a shared input. Increasing the retained DCT component count from 4 to 8 adds 1.00 percentage point of MSE reduction for 5,728 B. On jointly trained bases, EPOC lowers MSE by 16.69--20.15% relative to globally blended TEFL-style adapters applied to the same base. The code and numerical records are available at https://github.com/keiotakmin/endpoint-preserving-residual-correction.",
+      "abstract": "Completed forecasts provide residual feedback, but retaining full residual blocks increases auxiliary state. We propose Endpoint-Preserving Online Correction (EPOC) with a compressed residual state. It stores low-order discrete cosine transform (DCT) coefficients and the final value of the preceding residual block. Each channel shares the endpoint across component-wise online ridge regressions using current-forecast coefficients. We evaluate eight multivariate series, DLinear and PatchTST, three seeds, and two training variants: 96 matched fixed-base conditions at a 24-step horizon. EPOC achieves mean condition-wise reductions in mean squared error (MSE) and mean absolute error (MAE) of 15.40% and 9.35% from the uncorrected base, respectively, with a median of 6,352 B in retained auxiliary arrays. EPOC also outperforms the $\\delta$-Adapter, COSA, FAC, and OMPB in paired MSE on most conditions while retaining less state. Full ELF achieves the largest mean MSE reduction, 19.29%, but its median retained state is 474,048 B ($\\times$75 relative to EPOC). Equal-size summary controls favor the endpoint by 1.65--2.20% in paired MSE; a coefficient-reconstructed endpoint yields similar accuracy to the observed endpoint, highlighting its role as a shared input. Increasing the retained DCT component count from 4 to 8 adds 1.00 percentage point of MSE reduction for 5,728 B. On jointly trained bases, EPOC lowers MSE by 16.69--20.15% relative to globally blended TEFL-style adapters applied to the same base. Code and numerical records are available at [https://github.com/keiotakmin/endpoint-preserving-residual-correction](https://github.com/keiotakmin/endpoint-preserving-residual-correction).",
       "authors": [
         "Takumi Fujimoto, Hiroaki Nishi"
       ],
       "published": "2026-09-25T07:43:49Z",
-      "updated": "2026-09-25T07:43:49Z",
-      "metadata_updated": "2026-09-28T00:00:00Z",
+      "updated": "2026-10-05T07:15:38Z",
+      "metadata_updated": "2026-10-06T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.30929",
       "pdf_url": "https://arxiv.org/pdf/2609.30929",
       "first_seen": "2026-09-28T22:02:30.993606Z",
@@ -7015,23 +7492,36 @@
       ]
     }
   ],
-  "last_success": "2026-10-05T22:38:43.131532Z",
-  "last_attempt": "2026-10-05T22:38:43.131532Z",
+  "last_success": "2026-10-06T21:38:39.497037Z",
+  "last_attempt": "2026-10-06T21:38:39.497037Z",
   "last_new_ids": [
-    "2610.02255",
-    "2610.02256",
-    "2610.02357",
-    "2610.02497",
-    "2610.02515",
-    "2610.02608",
-    "2610.02777",
-    "2610.02865",
-    "2610.02866",
-    "2610.03147",
-    "2610.03452",
-    "2610.03491",
-    "2610.03494",
-    "2610.03623"
+    "2610.03812",
+    "2610.03916",
+    "2610.04109",
+    "2610.04407",
+    "2610.04474",
+    "2610.04517",
+    "2610.04547",
+    "2610.04591",
+    "2610.04786",
+    "2610.04795",
+    "2610.04827",
+    "2610.04925",
+    "2610.05051",
+    "2610.05211",
+    "2610.05240",
+    "2610.05269",
+    "2610.05409",
+    "2610.05618",
+    "2610.05686",
+    "2610.05726",
+    "2610.05926",
+    "2610.06039",
+    "2610.06156",
+    "2610.06180",
+    "2610.06447",
+    "2610.06450",
+    "2610.06453"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -7039,8 +7529,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 2,
-    "records": 2522,
+    "pages": 7,
+    "records": 7880,
     "duplicates": 0
   }
 }
