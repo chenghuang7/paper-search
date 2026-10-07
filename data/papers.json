@@ -2,6 +2,216 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.08715",
+      "title": "Prediction-powered inference for time series across space",
+      "abstract": "The following motif is common in spatiotemporal settings: we have a sequence of covariate and label pairs observed for a relatively short, recent time period. We have access to unlabeled covariates over a longer time period. Data is observed over many spatial locations. For instance, crop yield might be observed over a large geographical area for recent years, but weather data (which is informative about crop yield) is available for a much longer period. The goal is to estimate, at each spatial location, the expected label (e.g., crop yield) in the future and provide a valid confidence interval for this value. The observed time period alone is too short for reliable estimates. Imputing missing labels with machine learning can cause substantial bias. Prediction-powered inference (PPI) can correct for this bias, but it relies on an i.i.d. assumption that breaks under our expected temporal dependencies. Heteroskedasticity and autocorrelation consistent (HAC) procedures account for temporal correlation, but have not been adapted to cases where some labels are imputed. We provide reliable point estimates and confidence intervals given: short labeled time series (across spatial locations), a longer unlabeled time series, and an imperfect predictor of labels given covariates. We show our method outperforms natural alternatives.",
+      "authors": [
+        "Shahzar Rizvi, David Burt, Vishwak Srinivasan, Renato Berlinghieri, Stefano Del Col, Tamara Broderick"
+      ],
+      "published": "2026-10-06T17:22:39Z",
+      "updated": "2026-10-06T17:22:39Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.08715",
+      "pdf_url": "https://arxiv.org/pdf/2610.08715",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.08538",
+      "title": "From Shared Demand Patterns to Local Uncertainty: Probabilistic Load Forecasting by Mixing Compact Adaptations",
+      "abstract": "Probabilistic load forecasting has been widely studied for power-system operation and planning, but customer- and transformer-level forecasting introduces a distinct scalability challenge. At these levels, load uncertainty is strongly affected by customer behavior, weather, and mixed load composition, making it difficult for a single shared model to capture heterogeneous patterns. Using separate probabilistic models can improve local accuracy, but becomes costly to train, store, update, and validate at scale. To address this challenge, we develop a scalable customer-aware forecasting framework that learns common demand behavior through a shared model while adapting only a compact subset of parameters. Rather than using an independent model for each load or assigning each load to a specialized model, the proposed design learns a small bank of low-dimensional adaptation components and allows each load to combine them according to its forecasting characteristics. This preserves shared knowledge across customers while providing sufficient flexibility for heterogeneous and mixed load compositions. Experiments on 590 load profiles from the SMART-DS dataset show consistent improvements in deterministic accuracy and probabilistic quality over statistical, neural-network, Transformer-based, and pretrained time-series baselines, while retaining low storage and inference costs.",
+      "authors": [
+        "Haoran Li and Zhe Cheng and Yang Weng"
+      ],
+      "published": "2026-10-06T15:27:43Z",
+      "updated": "2026-10-06T15:27:43Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.08538",
+      "pdf_url": "https://arxiv.org/pdf/2610.08538",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.08443",
+      "title": "Scalable Regularized Vector Multiplicative Error Models for Positive-valued Financial Time Series",
+      "abstract": "The logarithmic multiplicative error model (log-vMEM) has been useful in modeling and forecasting multivariate positive-valued financial time series. The number of parameters grow rapidly with the dimension of the system and the lag order, making estimation computationally demanding in high-dimensional settings. This paper describes regularized estimation via hierarchical lag structures (Nicholson et al., 2020) for log-vMEM models with multivariate gamma error distribution of Tsionas (2004). The parameter estimation is performed using a blockwise coordinate descent algorithm with a Gauss-Seidel-style update scheme (Wright, 2015). This enables an efficient computation strategy compared to traditional penalized maximum likelihood approaches. The competing models are juxtaposed against each other by combining three hierarchical lag structures (componentwise, elementwise, own-other) and four penalties(group-lasso, adaptive group-lasso, group-mcp, and group-scad). Extensive simulation runs have been performed to test the parameter recovery for both the unpenalized and the penalized models. We apply the proposed methods to model the joint dynamics of robust intraday realized volatility measures for Microsoft (NASDAQ: MSFT) for the competing models. The numerical integration step of the log-likelihood is identified to be the principal computational bottleneck. We address this issue by using GPU-accelerated quadrature integration thus improving computational scalability of the proposed models.",
+      "authors": [
+        "Rohan Hemant Chhatre, Chiranjit Dutta, Nalini Ravishanker, and Sumanta Basu"
+      ],
+      "published": "2026-10-06T14:35:04Z",
+      "updated": "2026-10-06T14:35:04Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.08443",
+      "pdf_url": "https://arxiv.org/pdf/2610.08443",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.08363",
+      "title": "Explainable Failure Prediction and Prevention in Maritime",
+      "abstract": "Maritime systems operate in highly dynamic environments where unexpected equipment failures can compromise safety, reliability, and operational efficiency. Recent advances in artificial intelligence (AI), machine learning, digital twins, and predictive maintenance enable proactive failure prediction and prevention. However, ensuring trustworthy and explainable decision-making remains a major challenge in safety-critical maritime applications. This chapter reviews key AI technologies required for explainable failure prediction and prevention in maritime systems and presents a conceptual architecture capable of supporting autonomous or human-in-the-loop corrective actions. This architecture integrates data acquisition, time-series forecasting, anomaly detection, risk assessment, decision-making, and explainable AI into a closed-loop framework. With reference to the architectural components, a review and discussion of relevant maritime studies is performed, outlining their methods, advantages, and limitations. Furthermore, it highlights current challenges, including uncertainty and robustness, model generalization, explainability, limited availability of maritime datasets, and operational deployment, and identifies future research directions toward trustworthy AI-assisted maritime decision-making.",
+      "authors": [
+        "Dionisis Kalogeropoulos, Georgia Sovatzidi, Panagiotis G. Kalozoumis, Dimitris K. Iakovidis"
+      ],
+      "published": "2026-10-06T13:51:58Z",
+      "updated": "2026-10-06T13:51:58Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.08363",
+      "pdf_url": "https://arxiv.org/pdf/2610.08363",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.08118",
+      "title": "Attenuated in-context identification in time-series foundation models: diagnosis under counterfactual inputs and repair by synthetic forced-system fine-tuning",
+      "abstract": "Covariate-aware time-series foundation models (TSFMs) promise training-free what-if answers for instrumented plants: the change in output that a different future input would cause. We test this on forced engineering systems with exact counterfactuals, comparing Chronos-2, TimesFM-2.5 and TabPFN-TS with classical system identification fitted to the same context. Through their default covariate interfaces, TimesFM-2.5 and TabPFN-TS are memoryless: the predicted effect of an input change is a same-time function of that change ($R^2 = 1.000$ for TimesFM-2.5). Chronos-2 identifies dynamics in context but attenuates them. Its predicted effect is 0.33-0.80 of the true effect, its recovered impulse response has the wrong shape, and its error on a one-degree-of-freedom oscillator levels off at 0.57 with 8192 context samples, where ARX fitted to 256 samples reaches 0.02. Context dither at inference lowers the what-if error on all six synthetic classes without training. A 26-minute fine-tune on synthetic forced systems restores the response magnitude (sensitivity 0.83-0.96) and outperforms structure-agnostic identification on Wiener-Hammerstein and a held-out friction class. A specialised in-context identifier trained on the same data comes close, so the forced-system data carry most of the gain. On three of four measured plants classical identification remains clearly better, and the fine-tuned model loses part of its univariate forecasting skill. Paired counterfactual inputs, together with shuffled future inputs on measured records, test two properties: whether the covariate interface can represent dynamics and whether the pretraining prior covers the plant's time scale. Only the counterfactual pairs expose the attenuation.",
+      "authors": [
+        "Hong-In Won"
+      ],
+      "published": "2026-10-06T10:39:04Z",
+      "updated": "2026-10-06T10:39:04Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.08118",
+      "pdf_url": "https://arxiv.org/pdf/2610.08118",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.07834",
+      "title": "Retrieval Is Not Enough: Refreshing Memory for Frozen Time-Series Forecasters",
+      "abstract": "Retrieval-augmented time-series forecasting uses the continuations of historical segments similar to the current context as references for a forecaster. Most existing methods build the retrieval memory once from the training segment, leaving observations revealed after deployment unavailable as references, and generally do not calibrate how much the retrieved information should influence a frozen forecaster. We identify two key determinants of retrieval utility for a frozen forecaster: whether the history still reflects the current state, and whether the correction it induces aligns with the forecaster's residual errors, an alignment that can shift between validation and deployment when the memory becomes stale. We propose FreshCast, a plug-in retrieval framework that keeps the forecaster frozen, continuously updates a non-parametric memory with new observations, forms a memory forecast through relational kernel regression, and calibrates its weight in closed form on the validation segment. Under a simplified generative model, we characterize the optimal combination gain through the second-order relation between forecaster error and memory correction, and show that a sufficiently long look-back can make periodic memory information redundant. Across seven benchmarks and ten forecasting architectures, FreshCast reduces average MSE for every evaluated forecaster and input length, by 14.6% and 5.6% at input lengths 96 and 720, and achieves lower MSE than the evaluated retrieval-augmented and online baselines in their comparison settings. Ablations show that freezing the memory at the end of training removes most of the gain, identifying post-training observations as a primary source of improvement. For a frozen forecaster, useful historical references must remain timely and provide information that helps correct its remaining errors.",
+      "authors": [
+        "Chao He, Jianyu Xu, Xinyi Guo, Ruiqi Liu, Haobin Ding, Ruiqi He, Dongqing Song"
+      ],
+      "published": "2026-10-06T06:33:16Z",
+      "updated": "2026-10-06T06:33:16Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07834",
+      "pdf_url": "https://arxiv.org/pdf/2610.07834",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.07825",
+      "title": "Forecast Accuracy Is Not Trading Profit: Evolving Small Recurrent Networks for Stock Return Prediction",
+      "abstract": "Time series forecasting models are typically compared on pointwise error, which scores a prediction in isolation from the decision it is produced for, and a lower forecast error does not imply a better decision downstream. A parallel debate asks whether modern transformer architectures forecast better than recurrent and other lightweight models. We compare linear, fixed recurrent, transformer, and mixing based architectures against recurrent networks evolved by neuroevolutionary architecture search, evaluating each on forecast accuracy and on the net return of a daily long/short strategy. All models are fit on a pooled panel, one network trained across the whole universe. Across four mid-cap portfolios and three trading years, the evolved networks rank first on both forecast accuracy and net trading performance, while the second most accurate model loses money once positions are formed and costs are charged. The advantage tracks a horizon match, since rank IC for the evolved networks rises from a one-day to a ten-day scoring horizon while every model above 300 parameters declines. They are also the cheapest end to end: a CPU-only search of 16 minutes yields 66-weight networks that predict in 10.8~$\\mu$s on a Raspberry Pi Zero, against transformer baselines of up to 817,153 parameters that require GPU training.",
+      "authors": [
+        "Jonathan Chang, Zimeng Lyu"
+      ],
+      "published": "2026-10-06T06:20:33Z",
+      "updated": "2026-10-06T06:20:33Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07825",
+      "pdf_url": "https://arxiv.org/pdf/2610.07825",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.07438",
+      "title": "Artifact removal improves electrodermal waveforms but not downstream classification in a virtual-reality balance task",
+      "abstract": "Artifact removal routinely precedes the classification of electrodermal activity (EDA), on the assumption that a cleaner signal supports a better decision. We tested this assumption in a virtual-reality (VR) balance-disturbance task. A residual gating network was trained on a benchmark with expert-corrected EDA, frozen, and applied to VR recordings, where raw and gated signals were classified by five published time-series methods under identical leave-one-participant-out evaluation. On the benchmark the gate detected artifacts well (median record AUROC 0.94) and reduced error inside artifact regions by 17.8%. In the VR task it did not improve classification. Changes in balanced accuracy ranged from -1.35 to +0.93 percentage points, no classifier improved and two lost accuracy, and all five were equivalent to raw input within +/- 3.32 points. The benefit was lost between waveform and decision. The correction that lowered waveform error also reduced skin conductance response detection in all 43 benchmark records. Processing left 92.8% of predictions unchanged, and the predictions it did change were corrected and corrupted at similar rates. The VR recordings also carried little contamination (an estimated 4.6% of samples), and even perfect localization of deliberately injected artifacts recovered only 3.3 points in the most sensitive classifier. A pooled association between artifact level and accuracy (11.3 points) disappeared within participants (0.1 points), showing how differences between people can make cleaning look useful. Preprocessing should be judged by the decision it supports, against an unprocessed arm.",
+      "authors": [
+        "Haochen Chai, Qixu Zhu, Siyao Li, Fangfang Jiang"
+      ],
+      "published": "2026-10-05T21:42:17Z",
+      "updated": "2026-10-05T21:42:17Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07438",
+      "pdf_url": "https://arxiv.org/pdf/2610.07438",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.07430",
+      "title": "StaFIR: Convex Learning of Stationarity-Aware Causal Filters",
+      "abstract": "Reducing nonstationarity in a persistent time series entails deciding how much of its temporal dependence to remove. In finance, fractional differencing is often tuned using the Augmented Dickey--Fuller (ADF) test, limiting the search to a one-parameter family of lag profiles and addressing input preservation only indirectly. We propose StaFIR, a causal finite-impulse-response filter with a learned nonnegative mixture of exponential lag profiles. Its convex learning objective balances empirical stationarity with similarity to the input. We evaluate StaFIR on ARFIMA--GARCH controlled settings and rolling financial series, including a realized-volatility forecasting task. The experiments show that StaFIR adjusts its filtering strength to persistence while limiting unnecessary transformation in stationary regimes. In downstream forecasting, there is no clear accuracy difference from fixed half-order differencing, while StaFIR achieves higher measured similarity to the raw signal. A complementary direct forecasting experiment finds that greater input similarity is associated with smaller forecasting penalties, although the raw representation remains stronger.",
+      "authors": [
+        "Lorena Egger, Mathis Linger"
+      ],
+      "published": "2026-10-05T21:37:41Z",
+      "updated": "2026-10-05T21:37:41Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07430",
+      "pdf_url": "https://arxiv.org/pdf/2610.07430",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.07399",
+      "title": "Fed-BRDECS: Privacy-Preserving and Heterogeneity-Aware Federated Deep Embedded Clustering",
+      "abstract": "Federated deep clustering seeks to learn clustering-friendly representations from decentralized unlabeled data while preserving client privacy. However, Deep Embedded Clustering (DEC)-style objectives depend on global soft-assignment statistics that require clients to reveal their sensitive information. We propose Fed-BRDECS, a privacy-preserving and heterogeneity-aware federated deep embedded clustering framework. Fed-BRDECS replaces the globally normalized clustering objective with a locally computable sample-stability loss, avoiding the transmission of local soft-assignment distributions. To tackle non-IID client distributions, we introduce prediction-balanced sampling, which oversamples locally rare predicted clusters without requiring ground-truth labels, and centroid-level restarting, which periodically refreshes biased or inactive centroids. Experiments on image and text clustering benchmarks show that Fed-BRDECS consistently outperforms representative federated clustering and deep clustering baselines under both IID and non-IID partitions. We further demonstrate its applicability to federated time-series anomaly detection, where it improves reconstruction-based detectors without adding inference-time cost.",
+      "authors": [
+        "Haemin Park, Diego Klabjan, Martin W. Braun, Xiuqi Li, Balakrishnan Ananthanarayanan"
+      ],
+      "published": "2026-10-05T21:11:14Z",
+      "updated": "2026-10-05T21:11:14Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07399",
+      "pdf_url": "https://arxiv.org/pdf/2610.07399",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.07324",
+      "title": "Scale-Invariant Training for Time Series Foundation Models",
+      "abstract": "Time series foundation models (TSFMs) are trained on large collections of time series datasets that span various morphologies and domains. This setting exposes models to series whose scales -- typical magnitudes of their values -- can differ substantially. Affine scaling methods such as Reversible Instance Normalization (ReVIN) scale model inputs and reverse the transform before computing the loss. We show that this inversion multiplies each series' gradient by $b^p$ relative to loss on scaled targets, where $b$ is the scaling denominator (e.g., standard deviation) and $p$ is the loss degree. We call this scale-contaminated training (ScaleCon), because the scale of each series consequently becomes an importance weight, causing high-scale series to dominate training. For any scale-equivariant scaler and residual loss that is homogeneous of degree $p$, including MSE, MAE, and Quantile Loss, we prove that computing loss on scaled targets makes every mini-batch gradient and, consequently, the full optimization trajectory invariant to arbitrary independent rescaling of the training series, yielding scale-invariant training (ScaleIn). Notably, existing TSFMs use both objectives, with neither consistent reporting nor a common convention on how to compute training loss. We isolate the convergence disparity induced by ScaleCon and its correction under ScaleIn in controlled studies on synthetic and real data. In pretraining across four TSFM architectures, ScaleIn lowers MASE in all 24 architecture-benchmark comparisons, with average reductions across TSFMs of 18.8% on GIFT-Eval and 21.9% on the M-competitions. The gains extend to supervised neural forecasting, where it lowers MASE in 16 of 20 matched settings. Most existing time series forecasting pipelines can adopt ScaleIn with a one-line code change.",
+      "authors": [
+        "Ignacy Stepka, Willa Potosnak, Kin G. Olivares, Artur Dubrawski"
+      ],
+      "published": "2026-10-05T19:56:49Z",
+      "updated": "2026-10-05T19:56:49Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07324",
+      "pdf_url": "https://arxiv.org/pdf/2610.07324",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.07232",
+      "title": "Benchmarking Time Series Foundation Models for Load Forecasting Under Covariate Uncertainty",
+      "abstract": "Accurate short-term load forecasting (STLF) is essential for the reliable and efficient operation of modern power systems. While time series foundation models (TSFMs) have recently demonstrated remarkable performance across a wide range of forecasting tasks, their effectiveness for STLF under realistic operational conditions remains largely unexplored. In this paper, we present a comprehensive benchmark of four trained-from-scratch (TFS) models and four TSFMs across three real-world load forecasting datasets under operational scenarios that differ in the availability and quality of future covariate information. Our results show that Chronos-2 consistently achieves state-of-the-art performance in both zero-shot and fine-tuned settings when future covariates are available or accurately forecast. However, its performance degrades as covariate forecasts become increasingly noisy, whereas TimesNet exhibits greater robustness under severe covariate uncertainty. These findings demonstrate the effectiveness of covariate-informed TSFMs for STLF while highlighting the critical role of robust covariate modeling in real-world forecasting applications.",
+      "authors": [
+        "Tomas Kaljevic, Ivan Arzola, Yu Zhang"
+      ],
+      "published": "2026-10-05T18:37:55Z",
+      "updated": "2026-10-05T18:37:55Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07232",
+      "pdf_url": "https://arxiv.org/pdf/2610.07232",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
       "id": "2610.06453",
       "title": "Normality Constraint Learning: Adapting Foundation Models for Time Series Anomaly Detection",
       "abstract": "Time Series Foundation Models (TSFMs) achieve strong generalization by learning to reconstruct or forecast broad temporal patterns from large-scale time series during pre-training. Yet this strength can become a weakness for anomaly detection: TSFMs may model rare anomalous patterns as effectively as normal ones, allowing anomalies to be accurately reconstructed or forecasted and thus diminishing their reconstruction/forecasting error-based anomaly scores. This paper proposes $\\underline{\\textbf{N}}$$\\textbf{ormality}$ $\\underline{\\textbf{C}}$$\\textbf{onstraint}$ $\\underline{\\textbf{L}}$$\\textbf{earning}$ ($\\textbf{NCL}$), a lightweight plug-and-play framework that adapts pre-trained TSFMs for accurate anomaly detection without modifying their pre-trained parameters. Our key insight is to constrain the broad pattern space of TSFMs to the normal structure of a target time series, preventing their broad modeling capability from obscuring abnormal deviations. Specifically, NCL constructs a compact normality subspace from a few normal patch features and adaptively steers each patch feature toward normality within this subspace, guided by contrastive constraints that form compact and discriminative normality manifolds. The calibrated features are aggregated to reinforce normal components and fused with the original TSFM output, amplifying the discrepancy between normal and abnormal observations for the reconstruction/forecasting error-based anomaly scoring. Extensive experiments across diverse TSFM families and benchmarks show that NCL consistently improves anomaly detection performance, providing a generalizable framework for adapting TSFMs to anomaly detection.",
@@ -94,6 +304,23 @@
       ]
     },
     {
+      "id": "2610.07080",
+      "title": "When Attention Does Not Explain the Peak: Temporal Reference vs. Forecast Output in Attention-Based Time-Series Forecasting",
+      "abstract": "Attention maps are often interpreted as evidence of what a forecasting model uses when making predictions. In our load-forecasting model, a CLS representation of historical demand queries 24 future exogenous horizon tokens through cross-attention, inviting a temporal interpretation in which highly attended horizons may appear to explain forecast peak timing. We test this interpretation using a horizon-level attention descriptor, $\\Psi_{\\mathrm{out}}$. Across 31 day-aligned windows of the Panama load dataset, the forecast achieves a median peak-time error of 0 h and a 51.6% exact-match rate, whereas the argmax of $\\Psi_{\\mathrm{out}}$ has a median error of 5 h and 0% exact match. The forecast peak is closer to the observed peak in 27 of 31 windows. This dissociation is not merely an argmax artifact: within $\\pm1$ h, attention reaches only $1.16\\times$, $1.11\\times$, and $1.14\\times$ the uniform baseline around observed, predicted, and weekly-naive peaks, respectively, indicating weak and non-selective concentration. Yet the attention profile is structured, with cross-window consistency of 0.83. Replacing 12 future weather features with their training-set means makes the profile nearly uniform, showing sensitivity to future weather variation rather than fixed horizon position alone. The dissociation is also reproduced across three random-seed runs. These results show that structured, input-sensitive, and reproducible horizon-level cross-attention need not provide a valid peak-selective explanation of forecast behavior. The observed behavior is instead consistent with an internal horizon-reference role for integrating future exogenous information, although this functional role is not causally established.",
+      "authors": [
+        "Yuji Akamatsu, Takao Yamanaka"
+      ],
+      "published": "2026-10-05T11:15:35Z",
+      "updated": "2026-10-05T11:15:35Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07080",
+      "pdf_url": "https://arxiv.org/pdf/2610.07080",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.06039",
       "title": "MercerFlow: Flow Matching in a Kernel-Induced Latent Space for Probabilistic Forecasting",
       "abstract": "Recent work has shown that probabilistic flow matching for time series forecasting benefits from a data-matched prior. The resulting prior introduces local correlations, which a sequential architecture usually absorbs: a recurrent neural network (RNN), a structured state-space model (S4), or a Transformer. However, such a backbone costs GPU memory and time per epoch. A cheaper alternative is MLP-based latent-space flow matching: embed the time series via an invertible map to a single latent vector and learn the flow there, so a tabular MLP can treat the series as a set of features. The relationship between the prior and the choice of linear latent map is understudied in conditional flow matching (CFM) forecasting, yet we found it strongly affects performance. Fixed transforms such as Fourier or discrete cosine (DCT) are only well-conditioned for Ornstein--Uhlenbeck priors, while a principal-component (PCA) map fit to the data is a strong but training-set-dependent reference sensitive to train--test shift. Instead, we propose to use the Mercer eigenbasis of the prior kernel: it diagonalises the centred covariance exactly, decouples from training data, and adapts to non-stationary and periodic priors. On five GluonTS benchmarks (ETTh1, ETTh2, Weather, Electricity, Traffic) under a shared protocol with TSFlow, the resulting MLP matches or beats it on CRPS at about $4.7\\times$ less training memory and $3.5\\times$--$4.4\\times$ less time per epoch.",
@@ -174,6 +401,23 @@
       "url": "https://arxiv.org/abs/2610.05618",
       "pdf_url": "https://arxiv.org/pdf/2610.05618",
       "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.07038",
+      "title": "The Premise Is the Problem: Exchangeability Failure in Self-Monitored Test-Time Adaptation",
+      "abstract": "Modern forecasting models are often updated after deployment so they can respond to changing data. These updates can also make predictions worse, so practical systems need a reliable monitor that can detect harmful changes and trigger protection. A natural design is to monitor the same prediction errors that guide the updates. This paper asks whether the statistical guarantee behind such a monitor remains valid when monitoring and adaptation use the same feedback. We study this question in multi-step time-series forecasting. We show that overlapping targets and dependence in forecast errors can break a key assumption required by the guarantee. The monitor may then raise alarms even when no harmful change has occurred, and its response can further damage prediction quality. We also find that adaptation can hide sustained changes from its own monitor, while the original frozen model retains a clearer signal. These results expose a basic failure mode in self-monitored adaptation. They show why reliable deployment requires checking the monitor's assumptions, comparing adaptation with the frozen model under realistic feedback, and limiting the effect of every protective response.",
+      "authors": [
+        "Weijia Han, Lisha Qu, Zhenda Li, Liying Liang"
+      ],
+      "published": "2026-10-04T23:17:08Z",
+      "updated": "2026-10-04T23:17:08Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.07038",
+      "pdf_url": "https://arxiv.org/pdf/2610.07038",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -279,6 +523,23 @@
       "url": "https://arxiv.org/abs/2610.04925",
       "pdf_url": "https://arxiv.org/pdf/2610.04925",
       "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.06980",
+      "title": "A Data-Driven Framework for Unsupervised Monitoring of Transmission Systems Using End-of-Line Testing Data: A Case Study at Ford Motor Company",
+      "abstract": "Sensing technologies have advanced rapidly across industries ranging from energy to automotive manufacturing. These systems generate high-dimensional (HD) data characterized by complex nonlinear patterns and strong temporal dependencies. Traditional statistical monitoring methods are often limited in their ability to capture such nonlinear structure. Likewise, many analytical approaches used in End-of-Line testing rely on predefined thresholds and heuristic rules, which restrict their ability to detect informative anomaly signatures in HD temporal data. In contrast, while modern deep learning and generative AI models offer strong predictive capabilities, they are often unsuitable in applications where data are costly to collect and where the monitoring system must remain interpretable, low-latency, computationally efficient, and usable by non-technical practitioners. To overcome these limitations, we propose an advanced multivariate monitoring framework for HD data. The framework operates in two stages. In the first stage, the data are preprocessed to remove incomplete and non-informative samples and to temporally align time series data. In the second stage, nonlinear dimensionality reduction is performed, followed by anomaly detection through a control chart based phase I monitoring procedure. The framework can be used in both unsupervised and supervised settings, depending on the availability of ground truth labels during training. Moreover, its flexible and modular structure allows practitioners to adapt its components to different domains and operational requirements. We evaluate the proposed framework on real production data from an automotive manufacturing environment at Ford Motor Company. The proposed method achieves higher accuracy, recall, and F1 score than the company's existing model, improving these metrics from 0.50, 0.30, and 0.429 to 0.625, 1.00, and 0.769, respectively.",
+      "authors": [
+        "Mohammad N. Bisheh, Mehrdad Moradi, Parinaz Farajiparvar, Colin Brady, Rajesh Gupta, Xueling Li, Javad Navaei, Milad Parvaneh, Kamran Paynabar"
+      ],
+      "published": "2026-10-04T03:22:01Z",
+      "updated": "2026-10-04T03:22:01Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06980",
+      "pdf_url": "https://arxiv.org/pdf/2610.06980",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -420,6 +681,24 @@
       "url": "https://arxiv.org/abs/2610.04407",
       "pdf_url": "https://arxiv.org/pdf/2610.04407",
       "first_seen": "2026-10-06T21:38:39.497037Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.06936",
+      "title": "QiYao-I: A Manifold Based Foundation Model for Irregular Multivariate Time Series Forecasting",
+      "abstract": "Irregular multivariate time series forecasting is a challenging yet important problem in real-world applications, where observations are often irregularly sampled and asynchronously recorded across variables. Existing time series foundation models are mostly built on regularly sampled sequences, making them difficult to generalize to irregular time intervals and asynchronous cross-variable dependencies. To address these challenges, we propose QiYao-I, a manifold based foundation model for irregular multivariate time series forecasting. Specifically, we introduce a novel sampling-conditioned temporal manifold attention mechanism that maps real timestamps into a learnable temporal manifold feature space and injects temporal manifold biases into attention layers, enabling the model to capture both irregular time intervals and local sampling structures. Further, we propose a dynamic variable interaction mechanism with frequency awareness. It selectively performs cross-variable message passing under asynchronous observations. Extensive experiments on real-world irregular multivariate forecasting benchmarks demonstrate that QiYao-I achieves superior performance compared with both time series foundation models and end-to-end irregular forecasting models, showing strong generalization ability in zero-shot and few-shot settings.",
+      "authors": [
+        "Linfeng Wang, Ruitong Zhang, Kai Zhao, Yang Shu, Zhongwen Rao, Meng Wang, Yijie Li, Bin Yang, Chenjun Guo"
+      ],
+      "published": "2026-10-03T06:16:59Z",
+      "updated": "2026-10-03T06:16:59Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.06936",
+      "pdf_url": "https://arxiv.org/pdf/2610.06936",
+      "first_seen": "2026-10-07T21:59:28.995566Z",
       "topics": [
         "time-series-forecasting",
         "time-series-foundation-models"
@@ -5954,18 +6233,14 @@
     },
     {
       "id": "2608.20024",
-      "title": "Systematic Evaluation of TabPFN-TS for Zero-Shot Probabilistic Heat Load Forecasting in District Heating Networks",
-      "abstract": "District heating energy hubs require reliable heat load forecasts for efficient operational scheduling. Conventional forecasting workflows train system-specific models on historical data, which can become burdensome when networks change through new consumers, retrofits, or changing operating regimes. Zero-shot time-series foundation models and in-context forecasting offer a promising alternative: they can adapt at inference time from recent observations rather than by repeated retraining. This study systematically evaluates TabPFN-TS against time-series foundation models and trained machine-learning baselines for probabilistic heat load forecasting in district heating networks. Unlike foundation models pretrained on large collections of real time series, TabPFN-TS relies on synthetic pretraining data, which avoids direct pretraining-test overlap but raises the question of whether the learned prior captures district heating dynamics. We analyze covariate choice, context length, temporal resolution, and prediction horizon on representative operating weeks, validate the selected configuration over a full year, and test transferability on a second network. The results identify hourly 24-hour forecasting with a 12-week rolling context and ambient temperature as a parsimonious high-performing configuration; longer context windows do not improve accuracy. TabPFN-TS remains close to Chronos-2 in deterministic accuracy, reaching CVRMSE values of 13.06% versus 12.48% on the main dataset, and lies within the critical-difference threshold in the daily-rank comparison. Although Chronos-2 achieves the lowest aggregate full-year error, TabPFN-TS shows better empirical calibration. Finally, the diagnostic findings motivate a Multi-Resolution Residual-Correction Forecaster that combines a low-frequency Base Forecaster with a short-horizon Residual Forecaster to improve longer-horizon planning accuracy.",
+      "title": "Systematic Evaluation of TabPFN-TS and Chronos-2 for Zero-Shot Heat Load Forecasting in District Heating Networks",
+      "abstract": "District heating energy hubs require reliable heat load forecasts for efficient operational scheduling. Forecasting models trained on historical data may require retraining as networks evolve. Zero-shot time-series foundation models and in-context forecasting therefore offer a promising alternative: they can adapt at inference time from recent observations rather than by repeated retraining. This study systematically evaluates TabPFN-TS and Chronos-2 for probabilistic heat load forecasting in two German district heating networks and compares them with trained baselines. We assess whether TabPFN-TS, whose underlying model is pretrained entirely on synthetic tabular rather than time-series data, can capture complex district heating dynamics. We analyze covariate choice, context length, temporal resolution, and forecast horizon on selected operating weeks, evaluate the selected configuration over the full year, and assess cross-network transfer. The principal benchmark assumes perfect weather forecasts; a separate sensitivity analysis uses retrospective weather predictions. Hourly 24-hour forecasting with a 12-week rolling context and ambient temperature provides a parsimonious configuration; longer context windows do not improve accuracy. Both TSFMs outperform all trained baselines in deterministic accuracy in the full-year benchmarks. Chronos-2 achieves the best deterministic scores, with TabPFN-TS remaining close: their CVRMSE values on the main data set are 12.48% and 13.07%, respectively. Chronos-2 also achieves lower continuous ranked probability scores in both networks, with TabPFN-TS remaining close. a TSFM-based Multi-Resolution Residual-Correction Forecaster combines an hourly base forecast with short-term high-resolution corrections. Relative to direct high-resolution forecasting, it generally reduces errors in total heat demand over 12-hour periods and recorded prediction times.",
       "authors": [
-        "Ben Spoek",
-        "Karim K. Ben Hicham",
-        "Kai Derzsi",
-        "Philipp Althaus",
-        "Alexander Mitsos",
-        "Dirk Müller"
+        "Ben Spoek, Karim K. Ben Hicham, Kai Derzsi, Philipp Althaus, Alexander Mitsos, Dirk M\\\"uller"
       ],
       "published": "2026-08-20T13:33:37Z",
-      "updated": "2026-08-20T13:33:37Z",
+      "updated": "2026-10-06T13:22:40Z",
+      "metadata_updated": "2026-10-07T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.20024",
       "pdf_url": "https://arxiv.org/pdf/2608.20024",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -7492,36 +7767,25 @@
       ]
     }
   ],
-  "last_success": "2026-10-06T21:38:39.497037Z",
-  "last_attempt": "2026-10-06T21:38:39.497037Z",
+  "last_success": "2026-10-07T21:59:28.995566Z",
+  "last_attempt": "2026-10-07T21:59:28.995566Z",
   "last_new_ids": [
-    "2610.03812",
-    "2610.03916",
-    "2610.04109",
-    "2610.04407",
-    "2610.04474",
-    "2610.04517",
-    "2610.04547",
-    "2610.04591",
-    "2610.04786",
-    "2610.04795",
-    "2610.04827",
-    "2610.04925",
-    "2610.05051",
-    "2610.05211",
-    "2610.05240",
-    "2610.05269",
-    "2610.05409",
-    "2610.05618",
-    "2610.05686",
-    "2610.05726",
-    "2610.05926",
-    "2610.06039",
-    "2610.06156",
-    "2610.06180",
-    "2610.06447",
-    "2610.06450",
-    "2610.06453"
+    "2610.06936",
+    "2610.06980",
+    "2610.07038",
+    "2610.07080",
+    "2610.07232",
+    "2610.07324",
+    "2610.07399",
+    "2610.07430",
+    "2610.07438",
+    "2610.07825",
+    "2610.07834",
+    "2610.08118",
+    "2610.08363",
+    "2610.08443",
+    "2610.08538",
+    "2610.08715"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -7529,8 +7793,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 7,
-    "records": 7880,
+    "pages": 9,
+    "records": 10903,
     "duplicates": 0
   }
 }
