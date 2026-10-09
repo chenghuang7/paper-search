@@ -2,6 +2,286 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.12240",
+      "title": "AdaCast: Conditional Parameter Generation for Adaptive Time Series Forecasting",
+      "abstract": "Time-series foundation models (TSFMs) have achieved strong forecasting performance across domains. However, most adaptation methods remain static. Existing all-in-one methods learn a single set of dataset-level parameter updates and apply the same adapted model to every input. As a result, they cannot adapt the model parameters to the temporal patterns, seasonality and dynamics of each input time series. This limits their ability to produce forecasts that are tailored to heterogeneous inputs. To address this limitation, we propose AdaCast, a conditional parameter generation framework for time-series forecasting. AdaCast uses a generator to produce input-specific low-rank parameter updates for a frozen pretrained TSFM. These updates adapt the model to each input during both training and inference. Across six public benchmarks, AdaCast consistently outperforms static adaptation baseline in in-domain forecasting and improves zero-shot generalization to held-out datasets across domains. These results demonstrate that conditional parameter generation provides an effective approach for adaptive forecasting.",
+      "authors": [
+        "Darahaas Nallagatla, Darryl Cherian Jacob, Pan He"
+      ],
+      "published": "2026-10-08T16:21:19Z",
+      "updated": "2026-10-08T16:21:19Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12240",
+      "pdf_url": "https://arxiv.org/pdf/2610.12240",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.12232",
+      "title": "Training on the Future: A Delay-Aware Audit of Test-Time Adaptation for Time-Series Forecasting",
+      "abstract": "Test-time adaptation (TTA) methods for time-series forecasting update a deployed model, or a small adapter around it, from incoming ground truth. But the label of an $H$-step forecast exists only $H$ steps later, and real data pipelines add further delay. We build a leakage-free harness in which the label of forecast origin $s$ is released for updates only at step $s+d$ with $d \\ge H$, and enforce this rule inside the released code of four recent TTA methods (TAFAS, COSA, PETSA and DynaTTA), run on their own backbones and checkpoints across five benchmarks (ETTm1, ETTh2, Weather, Electricity and Traffic). As references we add two closed-form correctors: a bank of recursive least squares (RLS) filters combined by a per-coordinate median, with no tunable hyperparameters and 56 microseconds per step on the 7-channel streams, and an ELF-style linear corrector. Under causal delayed labels the picture is asymmetric. On ETTm1 every audited method genuinely adapts, yet the RLS bank still beats three of the four at a fraction of their cost; only DynaTTA beats the bank, only at the minimum causal delay, and at roughly 2,500 times the per-update cost; the ELF-style corrector beats all four. On the other four datasets, the largest statistically significant improvement any published method achieves over its own frozen checkpoint is half a percent, on all four at least one published method is significantly worse than the frozen model at the minimum causal delay, and on drift-heavy ETTh2 longer label delays make every adapter that separates from the frozen model, ours included, significantly harmful. Leaky next-step updates inflate the apparent gains of simple adapters by up to 110%, and the backbone training recipe moves frozen online error by up to a factor of 25, more than any adaptation effect we measure. We release the harness, integration patches and all cached runs.",
+      "authors": [
+        "Mohamed Readh Fentazi, Mazene Ameur and Adlen Ksentini"
+      ],
+      "published": "2026-10-08T16:16:58Z",
+      "updated": "2026-10-08T16:16:58Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12232",
+      "pdf_url": "https://arxiv.org/pdf/2610.12232",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.12148",
+      "title": "Large-Scale Benchmarking of Quantum Neural Network Configurations for Financial Time Series Forecasting",
+      "abstract": "Quantum machine learning, and quantum neural networks (QNNs) in particular, are advancing fields with growing potential. Although systematic comparisons of QNN configurations have been explored primarily for classification tasks, comparatively little attention has been given to regression problems, particularly financial time series forecasting. This study presents a large-scale systematic comparative evaluation of QNN component configurations for financial time series forecasting, using the GBP/USD spot exchange rate as a case study. A grid search across encoding methods, ansatz designs, qubit counts, layer depths, and cost functions yields 1,368 distinct model configurations, each evaluated in terms of prediction accuracy, computational cost, and convergence behaviour. The results reveal unique insights into how the choice of methods influences performance, such as that gate selection and arrangement are more critical to model success than raw parameter count, and that entanglement is a system-level property of the full circuit rather than solely at the ansatz level. The best-performing QNN configuration achieves an $R^2$ score of 0.985, outperforming a classical BiLSTM baseline. Additionally, the impact of real quantum hardware noise is assessed through execution on the IQM Emerald device, revealing that gate errors and decoherence represent a significant barrier to practical deployment, with gate selection and circuit depth identified as key determinants of hardware noise resilience. Overall, the findings provide practical architectural guidance for QNN design and establish a baseline characterisation of QNN noise sensitivity on near-term quantum devices.",
+      "authors": [
+        "Jack Waller, Xing Liang, Dimitrios Makris, and Rajagopal Nilavalan"
+      ],
+      "published": "2026-10-08T15:32:24Z",
+      "updated": "2026-10-08T15:32:24Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12148",
+      "pdf_url": "https://arxiv.org/pdf/2610.12148",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.12096",
+      "title": "SCORE: Spectral Correlation Estimation for Multivariate Gaussians",
+      "abstract": "Neural network-based predictive modeling with high-dimensional structured Gaussian targets requires an efficient and numerically stable, yet expressive approximation of the covariance matrix. We propose SCORE: a scalable framework, combining scoring rule training with an expressive covariance approximation learned in spectral space. For $d$-dimensional data, the learning task is decomposed into learning the marginal distributions and learning a structured correlation matrix, which enables dense dependencies with linear storage and $\\mathcal{O}(d\\log d)$ cost. We utilize the closed form Gaussian kernel score for training, which remains defined even for degenerate covariances and admits bounded gradients during optimization. We characterize kernel scores under invertible transforms and prove exact invariance under unitary transforms. At population level, our two-level objective recovers the true marginals and projects the target correlation onto the representable class; finite-sample PAC bounds show that the errors of the two stages enter additively. We evaluate our model on a variety of tasks with a commonly assumed Gaussian domain: Time-series forecasting, monocular depth estimation, and spatial weather prediction, showing improved performance at lower computational cost.",
+      "authors": [
+        "Christopher B\\\"ulte, Emil Partow, Astha Gupta, Pascal Esser, Gitta Kutyniok"
+      ],
+      "published": "2026-10-08T15:01:56Z",
+      "updated": "2026-10-08T15:01:56Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12096",
+      "pdf_url": "https://arxiv.org/pdf/2610.12096",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11924",
+      "title": "Revisiting Identity and Spectra Dispersion in Media-Bridged Time Series Forecasting: Linking Multivariate Signals and Narrative Flows",
+      "abstract": "Media-bridged time series forecasting is expanding to encompass traditional \"multivariate\" and emerging \"multimodal\" (e.g., through textual assistance). Existing Time Series Forecasting (TSF) models still rely on paradigm-specific relation, fusion, and temporal modules, hindering a common forecasting backbone across numerical and pre-aligned narrative-flow settings. To explore this, we propose the Multimedia Identity-Aware Prism Network (MIDAPN), a unified spatiotemporal forecasting backbone based on media-general graph adaptation and automatic temporal learning: (1) Following media pre-alignment, our Multimedia Identity-Aware Graph (MIDAG) revisits identity through static essence, dynamic behavior, and latent commonality, inducing affinities that extend variable-specific dependencies across media. Contextual Identity Modulation (CIM) further refines discriminative aggregation. (2) We develop Spectral Prism Convolution (SPConv) to automatically perform hierarchical temporal analysis, balancing coarse trends and fine-grained details. Meanwhile, its Adaptive Search Guidance configures a scale-efficient architecture for temporal-dimension reconstruction. These decoupled yet synergistic components jointly address media identity disentanglement and temporal-scale mismatch. Comprehensive evaluations involving 16 SOTA TSF models across 13 \"multivariate\" and 12 \"multimodal\" datasets, alongside targeted long-context comparisons against 14 time series foundation models and fused pretrained language models, demonstrate MIDAPN's consistent superiority and broad shared backbone compatibility. The code is available at \\href{https://github.com/leijieruilq/MIDAPN/tree/main}{https://github.com/MIDAPN}.",
+      "authors": [
+        "Jierui Lei, Wenjian Zhang, Qingyi Yang, Yuyang Hong, Fangzheng Chen, Zhengbo Zhang, Haina Tang, Shiming Xiang"
+      ],
+      "published": "2026-10-08T13:20:49Z",
+      "updated": "2026-10-08T13:20:49Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11924",
+      "pdf_url": "https://arxiv.org/pdf/2610.11924",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.11796",
+      "title": "Using analogues to investigate error growth and predictability in turbulence",
+      "abstract": "In this study, we revisit Lorenz's pioneering concept of analogues to investigate error growth and predictability in fully developed turbulence using experimental data. By applying the method to a 1D turbulent velocity time series, we successfully identify the three error growth regimes intuited by Lorenz and later formalized by turbulence theory: the chaotic exponential regime, the algebraic regime of spontaneous stochasticity, and the saturation regime. Our analysis reveals that the Lyapunov exponent and the exponent of the algebraic regime depend on the initial error. We interpret this dependence as a statistical bias induced by the intermittency of turbulence, where rare events, characterized by lower Lyapunov exponents and more singular velocity increments, are preferentially sampled when considering larger initial errors. These findings not only validate Lorenz's qualitative intuition but also provide new quantitative insights into the predictability of turbulent flows, paving the way for potential applications in the prediction of extreme events.",
+      "authors": [
+        "Carlos Granero-Belinchon (ODYSSEY, IMT Atlantique - MEE, Lab-STICC\\_OSE), Micka\\\"el Bourgoin (LEGI, Phys-ENS), B\\'ereng\\`ere Dubrulle (SPHYNX)"
+      ],
+      "published": "2026-10-08T12:08:15Z",
+      "updated": "2026-10-08T12:08:15Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11796",
+      "pdf_url": "https://arxiv.org/pdf/2610.11796",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11762",
+      "title": "Probing Massive Star Formation with Intrinsic Multiplicity Constraints from TESS Eclipsing Binaries",
+      "abstract": "Massive stars play a central role in stellar and galactic evolution as progenitors of supernovae, neutron stars, black holes, and gravitational wave sources. Despite their importance, the dominant formation mechanisms of massive binaries remain poorly constrained observationally. We aim to use a large, homogeneous sample of eclipsing binaries to observationally constrain binary formation across a wide range of primary masses and test predictions from various formation scenarios. We combine photometric time series data from TESS with distance measurements from Gaia DR3 and near infrared photometry from 2MASS to analyze an all-sky sample of eclipsing binaries. By accounting for observational and geometric selection effects, we derive bias corrected estimates of the binary fractions and orbital parameter distributions across different mass bins. We derive bias corrected binary fractions and bias corrected distributions of orbital period and radius-to-separation ratio for systems spanning primary masses from 1.1 Msun to 47 Msun. For primary masses up to 5 Msun, the observed distributions show close agreement with theoretical predictions for systems formed via disk fragmentation followed by migration. At higher masses, we observe an apparent deficit of very short period systems relative to theoretical expectations, although this regime is also expected to be affected by incompleteness. Overall, the observed properties exhibit a gradual transition across the full range of primary masses. Within the orbital period range accessible to our sample, the results do not require a sharp transition in binary properties between F- and O-type stars. The observed continuity is consistent with disk fragmentation followed by migration acting across a broad range of stellar masses, although the present data do not uniquely require this formation pathway and alternative channels may also contribute.",
+      "authors": [
+        "Jasmine Vrancken, Alex Kemp, Andrew Tkachenko, Conny Aerts and Hugues Sana"
+      ],
+      "published": "2026-10-08T11:46:44Z",
+      "updated": "2026-10-08T11:46:44Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11762",
+      "pdf_url": "https://arxiv.org/pdf/2610.11762",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11734",
+      "title": "Timer-M1: A Multivariate Time Series Foundation Model via Learning Primitives",
+      "abstract": "We introduce Timer-M1, a pretrained multivariate time series foundation model that learns with primitives for zero-shot forecasting. Across domains, time series share elementary temporal and relational patterns, termed primitives, yet differ in how these primitives manifest and evolve across different contexts. Despite progress in zero-shot and task-general forecasting, existing foundation models may still struggle to generalize to complex real-world scenarios. To this end, we develop a primitive-based data synthesis and pretraining pipeline. The synthesis pipeline generates series with temporal primitives shared across domains and then assembles real and generated series into multivariate samples using relational primitives. Afterwards, samples are organized into episodes by assigning distinct channel roles as target variates, past-only covariates, and known-future covariates, ensuring that the model is optimized on predictable variates using available exogenous information. Technically, Timer-M1 further adapts gated two-dimensional Transformer blocks that dynamically allocate cross-variate attention across layers. Across three large-scale forecasting benchmarks, Timer-M1 ranks first on both FEV and TIME and second on GIFT-Eval among most recent time series foundation models. These results support effective primitive-based pretraining as a route to robust general forecasting technique across domains and task settings.",
+      "authors": [
+        "Haoran Zhang, Haixuan Liu, Xingjian Su, Yong Liu, Zhi Chen, Yuxuan Wang, Jianmin Wang, Mingsheng Long"
+      ],
+      "published": "2026-10-08T11:28:56Z",
+      "updated": "2026-10-08T11:28:56Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11734",
+      "pdf_url": "https://arxiv.org/pdf/2610.11734",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.11567",
+      "title": "Sera: Semantic Representation Aggregation for Reliable and Interpretable Battery Health Forecasting",
+      "abstract": "Battery state of health (SoH) forecasting is important for battery management, but remains challenging due to nonlinear degradation and heterogeneity across batteries. Existing data-driven approaches primarily use temporal models to learn from numerical battery time series, and higher-level degradation characteristics are often not explicitly represented. These characteristics, however, can provide degradation guidance to support reliable forecasting and make the influence of degradation more interpretable. In this paper, we propose \\textsc{Sera}, a \\underline{se}mantic \\underline{r}epresentation \\underline{a}ggregation framework that complements temporal modelling with degradation semantics. Guided by battery domain expertise, \\textsc{Sera} extracts degradation semantics from time series and constructs two complementary representations using rule-based knowledge and LLM-based interpretation. The representations are independently encoded and integrated with the representation learned by temporal models through gated aggregations. Experiments on the mainstream benchmark across multiple prediction horizons and different temporal models show that \\textsc{Sera} consistently improves forecasting performance, achieving up to a 37.3\\% reduction in prediction error over the temporal baseline and enhanced generalizability. Counterfactual analysis examines how forecasts respond to changes in degradation semantics to assess interpretability. The results show that prediction responses are consistent with the meanings of key degradation descriptors across tested horizons. Together, these findings demonstrate that structured degradation semantics and effective aggregation can improve forecasting accuracy and support reliable and interpretable battery health forecasting for advanced battery management.",
+      "authors": [
+        "Jiawei Li, Fang Liu, Wei Zhang, Zuming Liu, Man-Fai Ng, Zhi Wei Seh"
+      ],
+      "published": "2026-10-08T09:25:01Z",
+      "updated": "2026-10-08T09:25:01Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11567",
+      "pdf_url": "https://arxiv.org/pdf/2610.11567",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11229",
+      "title": "SteerCast: Retrieval-Based Latent Steering for Decoder-Only Time Series Forecasting",
+      "abstract": "Time series forecasting aims to predict future values from historical observations and auxiliary features. We propose \\textbf{SteerCast}, a retrieval-based latent steering method that improves decoder-only forecaster at inference time, without updating its parameters. SteerCast constructs a database from the training set by storing a representation of each history window together with a \\emph{steering vector} computed in the forecaster's latent space, defined as the difference between representations induced by the ground-truth continuation and by the model's own prediction. At test time, SteerCast retrieves nearest neighbors for a query history, aggregates their steering vectors, and injects the resulting signal into the forecaster's hidden states at every step of autoregressive generation, guiding predictions toward trajectories consistent with similar training cases. Experiments across diverse multivariate benchmarks and multiple horizons show that SteerCast consistently improves forecasting accuracy over the fine-tuned backbone and retrieval-based baselines, while requiring no additional training beyond the original fine-tuning and using only the training set as a retrieval corpus.",
+      "authors": [
+        "Van Dai Do, Huu Hiep Nguyen, Minh Hoang Nguyen, Hung Le"
+      ],
+      "published": "2026-10-08T04:30:54Z",
+      "updated": "2026-10-08T04:30:54Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11229",
+      "pdf_url": "https://arxiv.org/pdf/2610.11229",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11213",
+      "title": "AliO: Output Alignment Matters in Long-Term Time Series Forecasing",
+      "abstract": "Long-term Time Series Forecasting (LTSF) tasks, which leverage the current data sequence as input to predict the future sequence, have become increasingly crucial in real-world applications such as weather forecasting and planning of electricity consumption. However, state-of-the-art LTSF models often fail to achieve prediction output alignment for the same timestamps across lagged input sequences. Instead, these models exhibit low output alignment, resulting in fluctuation in prediction outputs for the same timestamps, undermining the model's reliability. To address this, we propose AliO (Align Outputs), a novel approach designed to improve the output alignment of LTSF models by reducing the discrepancies between prediction outputs for the same timestamps in both the time and frequency domains. To measure output alignment, we introduce a new metric, TAM (Time Alignment Metric), which quantifies the alignment between prediction outputs, whereas existing metrics such as MSE only capture the distance between prediction outputs and ground truths. Experimental results show that AliO effectively improves the output alignment, i.e., up to 58.2% in TAM, while maintaining or enhancing the forecasting performance (up to 27.5%). This improved output alignment increases the reliability of the LTSF models, making them more applicable in real-world scenarios.",
+      "authors": [
+        "Kwangryeol Park, Jaeho Kim, Seulki Lee"
+      ],
+      "published": "2026-10-08T04:12:35Z",
+      "updated": "2026-10-08T04:12:35Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11213",
+      "pdf_url": "https://arxiv.org/pdf/2610.11213",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11170",
+      "title": "SACQ: Structured Decoding with Memory-Conditioned Refinement for Long-Horizon Forecasting",
+      "abstract": "Long-term time series forecasting (LTSF) models predominantly employ patch-based encoders terminated by a flatten readout head that maps the entire encoded historical memory to all future steps through a single shared projection. This implicit coupling of future positions obscures position-specific historical-to-future alignment and amplifies sensitivity to corrupted inputs and extreme supervision noise. We present SACQ, a plug-in structured prediction head that replaces flatten readout while keeping the encoder unchanged. SACQ adopts a two-stage decoding pipeline: it first establishes a coarse patch-grid forecast scaffold, then refines each future position through cross-attention over historical memory and merges the attention-derived correction with the coarse scaffold via a learned per-patch gate. To stabilize optimization under long horizons and noisy labels, we further propose a batch-adaptive scaled log-cosh loss that automatically calibrates robustness to the current residual scale, suppressing outlier gradients while preserving MSE-like sensitivity for typical errors. SACQ attains top-tier test MSE/MAE across PatchTST, DLinear, and patch-Mamba backbones with only modest incremental overhead in parameters and latency. Under inference-time input corruption and training-set label-noise stress tests, SACQ substantially outperforms flatten readouts, with ablation studies validating each architectural component.",
+      "authors": [
+        "Guo Cheng, Zhengzhuo Xu, Chenchen Jing and Jingyi Hou"
+      ],
+      "published": "2026-10-08T03:25:22Z",
+      "updated": "2026-10-08T03:25:22Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11170",
+      "pdf_url": "https://arxiv.org/pdf/2610.11170",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11165",
+      "title": "CARE: A Lightweight Plug-in Gated Correction and Uncertainty-aware Module for Long-term Time Series Forecasting",
+      "abstract": "Multivariate long-horizon forecasting is critical to electricity load scheduling and traffic flow management, and to financial risk control. Existing deterministic backbones output a single trajectory, masking heterogeneous prediction difficulty across horizons and channels and providing no localized reliability signal. We present CARE (Corrective branch with Aligned context and Relative-error Estimation), a lightweight plug-in that enhances any deterministic forecaster without architectural redesign. Operating in parallel with the base model, CARE resamples historical context to match the forecast horizon, learns residual correction patterns from this aligned history, and applies scale-aware bounded updates modulated by per-coordinate sigmoid risk gates. A multi-objective loss jointly optimizes forecast accuracy, residual tracking, risk alignment, and base-model anchoring. Across eight benchmarks with three representative backbones, CARE improves accuracy with marginal parameter and latency overhead. Its risk gates reliably identify high-error regions: on Weather, the highest-gate tertile exhibits nearly four times the error of the lowest-gate tertile, offering planners an interpretable per-step trust signal. Code is available at https://github.com/CG-BNYC/CARE.",
+      "authors": [
+        "Guo Cheng, Changlong Lv and Jingyi Hou"
+      ],
+      "published": "2026-10-08T03:23:39Z",
+      "updated": "2026-10-08T03:23:39Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11165",
+      "pdf_url": "https://arxiv.org/pdf/2610.11165",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.11164",
+      "title": "RideBench: A Large-Scale Exogenous-Aware Benchmark for Ride-Hailing Time Series Forecasting",
+      "abstract": "We release Ride-Hailing, a large-scale ride-hailing time series dataset synthesized from DiDi's marketplace data across 200 spatial areas. Ride-Hailing spans four consecutive years at half-hourly granularity and covers three representative exogenous scenarios: Weather Disturbance, Holiday Effect, and Large-scale Event Impact. Built upon Ride-Hailing, we introduce RideBench, a comprehensive benchmark for exogenous-aware ride-hailing forecasting, covering both regular week-ahead forecasting and long-horizon 8-week-ahead forecasting with up to 2,688 prediction steps. RideBench evaluates over 30 representative forecasting methods, including endogenous-only models, exogenous-aware models, and time series foundation models. Our results show that future-known exogenous variables provide clear benefits in regular week-ahead forecasting, especially under weather, holiday, and large-scale event (e.g., major sporting events and concerts) scenarios. However, current exogenous-aware models still struggle to fully capture disturbance-induced pattern changes under complex external contexts. For long-horizon forecasting, existing models cannot simultaneously achieve low pointwise errors, accurate broad trends, and reliable near-term forecasts. These findings reveal a clear mismatch between existing forecasting models and real-world ride-hailing requirements, highlighting the need for models that can better exploit future-known exogenous information, scale across heterogeneous areas, and support long-horizon planning. By introducing Ride-Hailing and RideBench, we aim to encourage the community to study these practical challenges in real-world ride-hailing forecasting.",
+      "authors": [
+        "Shengsheng Lin, Jing Hu, Zhengyang Hu, Jiazheng Sun, Zichun Cao, Siwei Sun, Zhichao Zou, Enyun Yu, Dongdong Li, Xinyi Hu, and Weiwei Lin"
+      ],
+      "published": "2026-10-08T03:23:26Z",
+      "updated": "2026-10-08T03:23:26Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.11164",
+      "pdf_url": "https://arxiv.org/pdf/2610.11164",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.10727",
+      "title": "Deep Learning vs. Statistical Models for Multi-Horizon Price Forecasting of Second-Hand Electronics: A Systematic Benchmark",
+      "abstract": "Forecasting resale prices of used electronics is critical for subscription-based platforms where pricing errors translate directly into risk. Unlike structured financial markets, second-hand electronics exhibit high volatility, sparse listing histories, and non-normal price dynamics - yet no systematic time-series benchmark exists for this domain. This paper presents the first multi-horizon benchmark of statistical and deep learning forecasting models for used electronics price prediction. We use a large-scale dataset of daily price listings from Polish online marketplaces (January 2022 to March 2025, 100+ smartphone and laptop models) and evaluate eleven models across six horizons from 1 to 365 days, covering classical methods (ARIMA, ETS, Theta), recurrent and convolutional networks (LSTM, TCN), and modern deep architectures (N-BEATS, N-HiTS, TFT, PatchTST, Informer). Three complementary evaluation protocols assess trajectory fitness, one-shot endpoint accuracy, and cross-horizon transfer. N-BEATS achieves the lowest MAPE beyond 30 days, reaching 8.51% at 365 days versus 14.94% for the best statistical baseline - a 43% reduction. At short horizons (1-7 days), all models converge near 0.72% MAPE and the naive baseline remains competitive. A single N-BEATS model trained at 365 days generalizes to all shorter horizons, eliminating the need for horizon-specific models. N-BEATS and N-HiTS also demonstrate superior hyperparameter stability.",
+      "authors": [
+        "Mateusz Buczy\\'nski, Micha{\\l} Wo\\'zniak, Konrad Kaczy\\'nski, Anna Wr\\'oblewska, Sebastian Kuk"
+      ],
+      "published": "2026-10-07T18:05:13Z",
+      "updated": "2026-10-07T18:05:13Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.10727",
+      "pdf_url": "https://arxiv.org/pdf/2610.10727",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.10697",
+      "title": "On linearity or non-linearity in machine learning for quantum chaotic dynamics",
+      "abstract": "Accurately simulating chaotic quantum many-body dynamics remains a major computational challenge for classical methods, due to the rapid buildup and spatial spreading of entanglement during the evolution. This raises the question of whether machine learning can provide an effective alternative for predicting quantum dynamics. We address this question by formulating quantum dynamics as a time-series forecasting problem, using a few-qubit PXP chain, realizable with Rydberg-atom arrays, as a benchmark. By varying the initial state, the system spans dynamical regimes ranging from ergodic behavior to quantum many-body scarring, providing a controlled setting for testing forecasting models across qualitatively different dynamics. We compare two contrasting architectures: an expressive nonlinear Transformer and DLinear, a simple linear forecasting model. The Transformer accurately predicts dynamics in the more ergodic regime, but its performance progressively deteriorates as the initial state approaches the scarred limit. In contrast, DLinear remains accurate across the entire family of initial states, with its main deviations consisting of small high-frequency oscillations that have little effect on the overall prediction error. Remarkably, these results show that observables generated by complex quantum many-body dynamics can be forecast with high accuracy through a simple linear mapping from past to future observations. This reveals that the complexity of the underlying quantum evolution need not translate into an equally complex forecasting problem.",
+      "authors": [
+        "Francesco Perciavalle, Agostino Gallo, Francesco Plastina, Gianluigi Greco, Nicola Lo Gullo, Carlo Adornetto"
+      ],
+      "published": "2026-10-07T18:00:06Z",
+      "updated": "2026-10-07T18:00:06Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.10697",
+      "pdf_url": "https://arxiv.org/pdf/2610.10697",
+      "first_seen": "2026-10-09T20:57:39.840442Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.10222",
       "title": "Evaluating Sequence Assembly Strategies for Differentially Private Synthetic Time-Series Forecasting",
       "abstract": "Differentially private time-series generators commonly produce fixed-length synthetic windows, whereas downstream forecasting models often require long continuous training sequences. How these windows are assembled after generation can therefore alter the effective synthetic data presented to a forecaster, even when the trained generator remains unchanged. We study this post-generation sequence assembly process by systematically varying overlap rates and window-weighting schemes and evaluating the resulting sequences in terms of boundary continuity, statistical and temporal fidelity, and Train-on-Synthetic-Test-on-Real (TSTR) forecasting utility. Across four types of public datasets (ETTh1, ETTm1, Weather, and Appliances) and five forecasting models, the results reveal a clear forecaster-dependent assembly principle: downstream TSTR utility is jointly shaped by the forecaster, overlap rate, and window-weighting scheme, leading to distinct assembly preferences across forecasting models. Increased overlap generally improves boundary continuity, but improvements in continuity or individual fidelity diagnostics do not consistently reduce forecasting error, indicating that these diagnostics alone are insufficient for selecting assembly configurations. Complete five-forecaster assembly grids, together with matched Train-on-Real-Test-on-Real (TRTR) references, further characterize these regularities and quantify assembly-dependent utility relative to real-data training. We then validate the identified principles through additional analyses of robustness and generator variability.",
@@ -2323,8 +2603,8 @@
         "Gerardo Pastrana, Haojun Li, Dhruv Mehta, Anoushka Vyas, Sina Khoshfetrat Pakazad, Henrik Ohlsson, John Paparrizos"
       ],
       "published": "2026-09-26T00:53:42Z",
-      "updated": "2026-09-26T00:53:42Z",
-      "metadata_updated": "2026-09-29T00:00:00Z",
+      "updated": "2026-10-08T04:57:53Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.32123",
       "pdf_url": "https://arxiv.org/pdf/2609.32123",
       "first_seen": "2026-09-30T00:28:47.401026Z",
@@ -3285,8 +3565,8 @@
         "Minkyoung Kim, Daeun Ji, Yohan Lee, Beomsoo Kim, Beakcheol Jang"
       ],
       "published": "2026-09-20T00:10:06Z",
-      "updated": "2026-09-20T00:10:06Z",
-      "metadata_updated": "2026-09-22T00:00:00Z",
+      "updated": "2026-10-08T05:50:19Z",
+      "metadata_updated": "2026-10-09T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.23257",
       "pdf_url": "https://arxiv.org/pdf/2609.23257",
       "first_seen": "2026-09-23T01:03:01.516195Z",
@@ -7904,17 +8184,25 @@
       ]
     }
   ],
-  "last_success": "2026-10-08T22:05:31.432246Z",
-  "last_attempt": "2026-10-08T22:05:31.432246Z",
+  "last_success": "2026-10-09T20:57:39.840442Z",
+  "last_attempt": "2026-10-09T20:57:39.840442Z",
   "last_new_ids": [
-    "2610.09096",
-    "2610.09265",
-    "2610.09903",
-    "2610.09994",
-    "2610.09996",
-    "2610.10037",
-    "2610.10057",
-    "2610.10222"
+    "2610.10697",
+    "2610.10727",
+    "2610.11164",
+    "2610.11165",
+    "2610.11170",
+    "2610.11213",
+    "2610.11229",
+    "2610.11567",
+    "2610.11734",
+    "2610.11762",
+    "2610.11796",
+    "2610.11924",
+    "2610.12096",
+    "2610.12148",
+    "2610.12232",
+    "2610.12240"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -7922,8 +8210,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 9,
-    "records": 11196,
+    "pages": 7,
+    "records": 8975,
     "duplicates": 0
   }
 }
