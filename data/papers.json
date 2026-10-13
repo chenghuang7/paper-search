@@ -2,6 +2,167 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.13676",
+      "title": "On the Encoding of Calendar Features in Covariate-Informed Time Series Foundation Models",
+      "abstract": "Time series foundation models (TSFMs) increasingly offer covariate support, with calendar information being the most common type of categorical covariate in practice, as it is available for every point in time. However, how these features are encoded is largely treated as an implementation detail rather than as an object of study, despite encoding being one of the few design choices left for pretrained models at inference time. With the present study, we demonstrate that the way information is propagated into the model substantially affects forecast accuracy of TSFMs. Therefore, we systematically compare seven calendar encodings, including three conventional target-agnostic representations (ordinal, one-hot, and cyclic) and four target encodings, across four state-of-the-art TSFMs on nine datasets from multiple domains in a zero-shot rolling evaluation. The nine datasets are influenced by social activities, such as weekends and holidays, making calendar information particularly relevant for forecasting. We find that encoding choice affects forecast accuracy across all models, with MASE differences of up to 9.9 % on non-holidays and 83 % on holidays within a single model. Effectiveness and utilization vary substantially across models. Improvements are concentrated around holidays, where calendar information provides signals unavailable from target history, while some model encoding combinations also improve non-holiday forecasts. A SHAP-based attribution analysis locates the contribution of the covariates relative to the autoregressive component and explains why some model-encoding combinations degrade performance. Our findings suggest that current benchmarks for covariate-informed TSFMs can distort model comparisons by imposing fixed encoding strategies.",
+      "authors": [
+        "Alexander Kreusel, Maximilian Beichter, Alexandra Nikoltchovska, Benjamin Sch\\\"afer, Ralf Mikut, Frederik Zahn, Veit Hagenmeyer"
+      ],
+      "published": "2026-10-09T14:41:10Z",
+      "updated": "2026-10-09T14:41:10Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.13676",
+      "pdf_url": "https://arxiv.org/pdf/2610.13676",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.13435",
+      "title": "PPG-Bench: A Unified Benchmark for PPG Foundation Models",
+      "abstract": "Photoplethysmography (PPG) is increasingly recorded by wearable and clinical devices at enormous scale, and a growing number of PPG foundation models (FMs) have been developed to compute reusable representations for various downstream tasks. These models are difficult to compare: different evaluations use different datasets, task definitions, preprocessing, downstream heads, hyperparameter tuning, and baselines. We present PPG-Bench, a unifying open-source benchmark evaluating five public PPG FMs across nine open-access datasets and 26 tasks spanning cardiovascular state estimation, activity, sleep, screening, and identification. We evaluate models under four downstream regimes of increasing adaptability (linear probing, random forests, frozen MLP probes, and end-to-end finetuning), with model-specific hyperparameter optimization and subject-disjoint cross-validation. We also evaluate against three controls: random/constant baseline, a deterministic pulse-rate-variability (PRV) feature set, and a generic time-series FM (MOMENT). Across all 68 task-regime combinations, 35.3% show no meaningful FM advantage over the random/constant baseline, and in 83.8% no PPG-specific FM outperforms both PRV and MOMENT. We also find that added downstream head capacity generally improves performance, but can cause significant degradation if the model is performing at chance/constant level. Current PPG FMs therefore cannot yet claim to provide generalised and transferrable representations of PPG signals, and future evaluation in this field should include checks against simple, non-learned controls. Code for the benchmark and instructions to evaluate more models can be found here - https://github.com/mannas-ai/ppg-bench.",
+      "authors": [
+        "Arvasu Kulkarni, Mahir Jain, Aditya Ray Mishra, Sandeep Singh, Siddharth Panwar"
+      ],
+      "published": "2026-10-09T11:34:45Z",
+      "updated": "2026-10-09T11:34:45Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.13435",
+      "pdf_url": "https://arxiv.org/pdf/2610.13435",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.13388",
+      "title": "Quantum extreme learning for forecasting experimental chaotic electronic circuits",
+      "abstract": "Quantum reservoir computing and its special case, quantum extreme learning, are powerful tools for predicting classical discrete time-series with quantum devices. Forecasting continuous signals, however, requires careful discretization as oversampling artificially boosts short-term accuracy but fails over realistic intervals, while undersampling captures too few features and yields poor predictions. Here, we experimentally generate four continuous time-series signals from a chaotic electronic circuit for forecasting with quantum extreme learning. Since simplified circuit models do not fully capture real behaviour, it is unclear whether algorithms that predict simulated time-series also work for experimental signals. We address discretization via two approaches: (i) sampling local peaks/troughs; and (ii) uniform sampling at the autocorrelation timescale. The former captures resonant behaviour, while the latter fully captures chaotic features as well as allowing the reconstruction of chaotic attractors. Our algorithm achieves high forecasting accuracy for both simulated and experimental signals, demonstrating its power for continuous signal processing on near-term quantum simulators, and remains robust against moderate decoherence.",
+      "authors": [
+        "Mohammad Sharifian, Qingyu Li, Chiranjib Mukhopadhyay, Abolfazl Bayat, and Ludovico Minati"
+      ],
+      "published": "2026-10-09T11:01:20Z",
+      "updated": "2026-10-09T11:01:20Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.13388",
+      "pdf_url": "https://arxiv.org/pdf/2610.13388",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.13208",
+      "title": "How Much Computation Does Every Forecast Need? Structured Block Skipping in Two Time-Series Foundation Models",
+      "abstract": "Time-series foundation models use the same network depth for every input, although forecasting windows differ in structure and difficulty. We test whether whole Transformer blocks can be removed at inference time in two pretrained models: Chronos-Bolt and TimesFM 2.5. Our bypasses avoid the original block computation and preserve the dense model exactly when all blocks are enabled. Masks are selected only on calibration windows and evaluated on 1,088 held-out windows from ETTh1, Traffic, Weather, and Exchange. At moderate sparsity, Chronos-Bolt with 7/11 candidate blocks and TimesFM with 16/20 blocks show little change in mean relative forecasting quality across datasets while reducing median A100 batch-1 latency by 11.2% and 13.4%. More aggressive TimesFM skipping accelerates inference further but substantially harms Traffic and Weather. Across both models, different equal-budget masks win on different windows, and a retrospective oracle significantly improves over the best static mask on every dataset. However, dataset-specific masks transfer inconsistently, and Chronos representations do not support reliable unseen-domain routing. These results establish cross-architecture structured redundancy and input-dependent opportunity, but not a deployable dynamic inference method.",
+      "authors": [
+        "Max Bourgeat"
+      ],
+      "published": "2026-10-09T08:26:14Z",
+      "updated": "2026-10-09T08:26:14Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.13208",
+      "pdf_url": "https://arxiv.org/pdf/2610.13208",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.13040",
+      "title": "Lightweight Time-Frequency Vibration Sensing for Consumer Device Condition Monitoring",
+      "abstract": "Consumer rotating devices, including washing machines, air conditioners, electric fans, robotic vacuum cleaners, and home fitness equipment, increasingly rely on vibration sensing for intelligent condition monitoring and predictive maintenance. Ensuring reliable operation in these resource-constrained appliances requires efficient, lightweight artificial intelligence (AI) solutions capable of processing non-stationary signals under real-world operational interference. This paper proposes a lightweight AI-assisted vibration sensing framework that employs continuous wavelet transform (CWT) and Hilbert-Huang transform (HHT) to convert one-dimensional (1-D) vibration time-series signals into two-dimensional (2-D) time-frequency representations. These representations are subsequently analyzed using lightweight deep learning architectures, specifically MobileNetV3-Small, ConvNeXt-Tiny, and the You Only Look Once version 11 classification model (YOLOv11-cls). Public bearing benchmark datasets, including Case Western Reserve University (CWRU), Paderborn University (PU), and Intelligent Maintenance Systems (IMS), are utilized as representative rotating components to investigate model generalization. The proposed framework is designed with eventual embedded deployment in consumer electronics in mind. Experimental results demonstrate that CWT combined with YOLOv11-cls achieves high diagnostic accuracy, while MobileNetV3-Small provides an attractive low-latency alternative for computationally constrained edge platforms. Conventional random splitting is also compared with dataset-specific structured isolation. The results highlight the importance of avoiding data leakage and quantify tradeoffs in classification accuracy, parameter count, floating-point operations (FLOPs), model footprint, preprocessing cost, and central processing unit (CPU) inference latency.",
+      "authors": [
+        "Po-Heng Chou, Jen-Yu Chiu, Chun-Yu Yeh, Wei-Lung Mao, and Walid Saad"
+      ],
+      "published": "2026-10-09T05:57:15Z",
+      "updated": "2026-10-09T05:57:15Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.13040",
+      "pdf_url": "https://arxiv.org/pdf/2610.13040",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.12986",
+      "title": "Scan-Parallel Variational Inference for event-driven Latent Jump Models",
+      "abstract": "Continuous-time latent state-space models are widely used for irregularly observed time series, typically representing uncertainty through a random initial state followed by smooth ordinary differential equation (ODE) dynamics, or Brownian perturbations accumulated by a stochastic differential equation (SDE). While these constructions are natural for smooth or diffusive systems, they do not directly encode a finite set of unobserved shocks whose timing, magnitude, and effect on memory are themselves uncertain. We instead introduce latent jump models (LJMs): the latent state follows closed-form deterministic dynamics between Poisson-driven event times and undergoes a learned instantaneous jump at each event, with state-dependent intensity and mark distributions. This defines a time-homogeneous Markov process whose jumps are intrinsic state transitions rather than numerical integration steps. For training, we derive a tractable event-augmented path-space evidence lower bound (ELBO) and introduce Scan-Parallel Variational Inference (SPVI): an observation-conditioned variational posterior samples the complete latent event configuration before the state recurrence is evaluated using triangular affine scans. This enables fast and scalable training for LJMs in logarithmic temporal depth. Across synthetic stochastic systems and real irregular time series, LJMs remain competitive with continuous-time latent baselines in forecast accuracy, often with fewer latent updates than numerical solver evaluations, while training one to two orders of magnitude faster than the sequential baselines.",
+      "authors": [
+        "Vansh Bansal, Min Chen, James G. Scott"
+      ],
+      "published": "2026-10-09T04:39:31Z",
+      "updated": "2026-10-09T04:39:31Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12986",
+      "pdf_url": "https://arxiv.org/pdf/2610.12986",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.12883",
+      "title": "HART: Hybrid Attention-RWKV Time series Foundation Model",
+      "abstract": "Non-autoregressive multi-step forecasting (NAF) enables time series foundation models to predict an entire future horizon in a single forward pass. Despite its strong sequence modeling capabilities, RWKV-7 exhibits long-horizon degradation in our NAF experiments. In this setup, future patches are represented as missing inputs, requiring the recurrent state to evolve across the prediction horizon without new observations. Our analysis of RWKV-7's generalized delta rule suggests a mechanism we term Placeholder Idling Decay (PID): repeated state transitions can attenuate historical information when placeholder-driven writes provide insufficient compensation. Layer-wise analysis reveals reduced state-injection norms in most layers, while transition-matrix norms remain similar between historical and prediction regions, consistent with PID. Motivated by this analysis, we propose HART, a Hybrid Attention-RWKV Time-series Foundation Model that alternates attention and RWKV blocks, combining direct access to historical tokens with recurrent temporal modeling. Controlled experiments on GIFT-Eval and TIME-Benchmark show that HART improves over pure RWKV at medium and long horizons while maintaining comparable short-horizon performance, and achieves better aggregate performance than a comparably sized pure Transformer. With 36M parameters, HART achieves long-horizon MASE comparable to Toto-2.0-1B on GIFT-Eval (0.752 vs. 0.754), using approximately 1/28 of its parameters.",
+      "authors": [
+        "Qingwen Lin, Boyan Xu, Shifeng Xie, Zhifeng Hao, Keli Zhang, Ruichu Cai"
+      ],
+      "published": "2026-10-09T02:19:20Z",
+      "updated": "2026-10-09T02:19:20Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12883",
+      "pdf_url": "https://arxiv.org/pdf/2610.12883",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.12738",
+      "title": "KITE: A Knowledge-Injected Temporal Encoder for Time-Series Event Forecasting",
+      "abstract": "Forecasting rare, high-cost events in multivariate time-series systems is hard because their precursors are seldom observed, so a purely data-driven model has little to learn from. The engineers who run these systems, however, hold knowledge that precedes such events, information absent from the scarce labels. We call this a semantic prior and inject it into a self-supervised event forecaster through two switchable mechanisms, a covariate mechanism and an attention-bias mechanism, each the identity at its null, so one architecture serves every prior type with no per-dataset architecture search. A prior helps when it supplies information the observed window does not already contain: in a short context an informative prior beats no prior in-domain (pooled h-AUROC over the no-prior baseline: a periodicity clock +14%, p<0.001; a conservation residual +47% at a 0.25 label fraction), and a working prior transfers out-of-domain (+53%), substituting for feature transfer, while priors the window already recovers stay inert and the attention-bias mechanism shows no measurable gain. KITE is a switchable, attributable route to contextual conditioning, and a substrate for scaling toward cross-domain, pretrained time-series foundation world models that carry their governing structure explicitly.",
+      "authors": [
+        "Jonas Petersen, Pratik Jawahar, Riccardo Maggioni, Gian-Alessandro Lombardi, Matteo Cozzi, Marek Gajewski, Federico Martelli, Camilla Mazzoleni, Philipp Christian Petersen"
+      ],
+      "published": "2026-10-08T21:35:42Z",
+      "updated": "2026-10-08T21:35:42Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12738",
+      "pdf_url": "https://arxiv.org/pdf/2610.12738",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.12638",
+      "title": "Machine Learning and Time-Series Foundation Models for Day-Ahead Electricity Forecasting in a University Building",
+      "abstract": "Day-ahead electricity forecasts can help building operators schedule heating, ventilation, and other services around anticipated demand. Choosing a forecasting model also requires balancing accuracy with its forecast-time inputs, local training, and computational requirements. We benchmark statistical, machine-learning, recurrent neural-network, and pretrained TimesFM models for a university building. We use chronological validation and evaluate all configurations on the same 57 test days, comparing accuracy across workdays, weekends, and holidays alongside local fitting and forecasting time. Weather covariates use retrospective observations. TimesFM 3.0 with covariates achieves the lowest overall errors, reducing mean absolute error by approximately 43\\% relative to weekly seasonal-naive forecasting. XGBoost remains competitive, although paired daily comparisons do not establish a clear mean-absolute-error advantage for TimesFM. TimesFM also performs strongly using only past electricity consumption. Adding covariates improves its holiday forecasts but slightly worsens workday and weekend forecasts, leaving overall mean absolute error almost unchanged. TimesFM requires no building-specific weight training, while XGBoost offers rapid local fitting and inference. The evaluated LSTM takes longer to fit without outperforming either approach. An exploratory historical evaluation reveals seasonal variation, while a separate weather-source comparison produces only small changes in the selected TimesFM configuration's accuracy. These results support pretrained TimesFM as a strong initial forecasting baseline for this building, with XGBoost as a competitive locally fitted alternative. Covariates are particularly useful when improved holiday forecasts justify the additional input preparation.",
+      "authors": [
+        "Amey Vasulkar, Samuel Kernan Freire, Arie-Willem de Leeuw, Tadeo-Baldiri Salcedo-Rahola"
+      ],
+      "published": "2026-10-08T19:00:09Z",
+      "updated": "2026-10-08T19:00:09Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.12638",
+      "pdf_url": "https://arxiv.org/pdf/2610.12638",
+      "first_seen": "2026-10-13T00:41:59.455791Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
       "id": "2610.12240",
       "title": "AdaCast: Conditional Parameter Generation for Adaptive Time Series Forecasting",
       "abstract": "Time-series foundation models (TSFMs) have achieved strong forecasting performance across domains. However, most adaptation methods remain static. Existing all-in-one methods learn a single set of dataset-level parameter updates and apply the same adapted model to every input. As a result, they cannot adapt the model parameters to the temporal patterns, seasonality and dynamics of each input time series. This limits their ability to produce forecasts that are tailored to heterogeneous inputs. To address this limitation, we propose AdaCast, a conditional parameter generation framework for time-series forecasting. AdaCast uses a generator to produce input-specific low-rank parameter updates for a frozen pretrained TSFM. These updates adapt the model to each input during both training and inference. Across six public benchmarks, AdaCast consistently outperforms static adaptation baseline in in-domain forecasting and improves zero-shot generalization to held-out datasets across domains. These results demonstrate that conditional parameter generation provides an effective approach for adaptive forecasting.",
@@ -146,13 +307,13 @@
     {
       "id": "2610.11567",
       "title": "Sera: Semantic Representation Aggregation for Reliable and Interpretable Battery Health Forecasting",
-      "abstract": "Battery state of health (SoH) forecasting is important for battery management, but remains challenging due to nonlinear degradation and heterogeneity across batteries. Existing data-driven approaches primarily use temporal models to learn from numerical battery time series, and higher-level degradation characteristics are often not explicitly represented. These characteristics, however, can provide degradation guidance to support reliable forecasting and make the influence of degradation more interpretable. In this paper, we propose \\textsc{Sera}, a \\underline{se}mantic \\underline{r}epresentation \\underline{a}ggregation framework that complements temporal modelling with degradation semantics. Guided by battery domain expertise, \\textsc{Sera} extracts degradation semantics from time series and constructs two complementary representations using rule-based knowledge and LLM-based interpretation. The representations are independently encoded and integrated with the representation learned by temporal models through gated aggregations. Experiments on the mainstream benchmark across multiple prediction horizons and different temporal models show that \\textsc{Sera} consistently improves forecasting performance, achieving up to a 37.3\\% reduction in prediction error over the temporal baseline and enhanced generalizability. Counterfactual analysis examines how forecasts respond to changes in degradation semantics to assess interpretability. The results show that prediction responses are consistent with the meanings of key degradation descriptors across tested horizons. Together, these findings demonstrate that structured degradation semantics and effective aggregation can improve forecasting accuracy and support reliable and interpretable battery health forecasting for advanced battery management.",
+      "abstract": "Battery state of health (SoH) forecasting is important for battery management, but remains challenging due to nonlinear degradation and heterogeneity across batteries. Existing data-driven approaches primarily use temporal models to learn from numerical battery time series, and higher-level degradation characteristics are often not explicitly represented. These characteristics, however, can provide degradation guidance to support reliable forecasting and make the influence of degradation more interpretable. In this paper, we propose Sera, a semantic representation aggregation framework that complements temporal modelling with degradation semantics. Guided by battery domain expertise, Sera extracts degradation semantics from time series and constructs two complementary representations using rule-based knowledge and LLM-based interpretation. The representations are independently encoded and integrated with the representation learned by temporal models through gated aggregations. Experiments on the mainstream benchmark across multiple prediction horizons and different temporal models show that Sera consistently improves forecasting performance, achieving up to a 37.3% reduction in prediction error over the temporal baseline and enhanced generalizability. Counterfactual analysis examines how forecasts respond to changes in degradation semantics to assess interpretability. The results show that prediction responses are consistent with the meanings of key degradation descriptors across tested horizons. Together, these findings demonstrate that structured degradation semantics and effective aggregation can improve forecasting accuracy and support reliable and interpretable battery health forecasting for advanced battery management.",
       "authors": [
         "Jiawei Li, Fang Liu, Wei Zhang, Zuming Liu, Man-Fai Ng, Zhi Wei Seh"
       ],
       "published": "2026-10-08T09:25:01Z",
-      "updated": "2026-10-08T09:25:01Z",
-      "metadata_updated": "2026-10-09T00:00:00Z",
+      "updated": "2026-10-09T02:10:24Z",
+      "metadata_updated": "2026-10-12T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.11567",
       "pdf_url": "https://arxiv.org/pdf/2610.11567",
       "first_seen": "2026-10-09T20:57:39.840442Z",
@@ -8184,17 +8345,27 @@
       ]
     }
   ],
-  "last_success": "2026-10-11T20:18:26.013303Z",
-  "last_attempt": "2026-10-11T20:18:26.013303Z",
-  "last_new_ids": [],
+  "last_success": "2026-10-13T00:41:59.455791Z",
+  "last_attempt": "2026-10-13T00:41:59.455791Z",
+  "last_new_ids": [
+    "2610.12638",
+    "2610.12738",
+    "2610.12883",
+    "2610.12986",
+    "2610.13040",
+    "2610.13208",
+    "2610.13388",
+    "2610.13435",
+    "2610.13676"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 3,
-    "records": 3136,
+    "pages": 2,
+    "records": 2523,
     "duplicates": 0
   }
 }
