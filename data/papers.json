@@ -2,6 +2,195 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.22358",
+      "title": "PathFM: Fast Generative Forecasting of Multivariate Trajectories",
+      "abstract": "Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model this dependence, we introduce PathFM, a trajectory-based forecasting model that uses flow matching to generate complete future paths. We further distill the model to one or two steps and share history attention cache across draws. Together, these enable PathFM to generate multiple paths for a single series in roughly the time needed for one query to a quantile model. The distilled sampler also makes it practical to optimize a calibration loss directly. PathFM achieves competitive marginal accuracy on the established forecasting benchmarks fev-bench and TIME. To complement these evaluations, we introduce Forecast Path Score Bench (fps-bench), which augments fev-bench tasks with energy and variogram scores and downstream metrics. PathFM achieves a higher aggregate path score on fps-bench than all evaluated external baselines. Experiments on chaotic systems further show that our flow model sustains long-run variability, while strong baselines rapidly collapse. PathFM makes generative time series forecasting both competitive and practical, enabling diverse downstream applications.",
+      "authors": [
+        "Jiachen Yao, Xiyuan Zhang, Annan Yu, Boran Han, Abdul Fatir Ansari, Shuai Zhang, Michael Bohlke-Schneider, Bernie Wang"
+      ],
+      "published": "2026-10-15T17:58:45Z",
+      "updated": "2026-10-15T17:58:45Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.22358",
+      "pdf_url": "https://arxiv.org/pdf/2610.22358",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.22327",
+      "title": "Twice Upon a Time: Complementary Representations for Time-Series Reasoning",
+      "abstract": "Time Series Language Models (TSLMs) enable language-based understanding and reasoning over temporal data, yet a fundamental question remains: what information should their time-series representations preserve, and what variation should they factor out? Existing TSLMs typically expose the language model to a single representation, imposing a fixed inductive bias across downstream tasks. We instead introduce complementary representations as a design principle for time-series reasoning. Our model combines two visual views: line plots preserve absolute measurements and the observed coordinate frame, while normalized delay embeddings factor out positive amplitude rescaling and offsets while exposing temporal structure. Dedicated visual encoders integrate both views into a shared language model through visual tokens and multi-level feature fusion. Evaluation-time interventions verify that the two views exhibit distinct invariance profiles, while single-view ablations show that their combination is particularly beneficial beyond basic perception, with the large gains in prediction and reasoning. Built on Qwen3-VL-8B, our dual-view model improves overall TSRBench accuracy from 44.5% with line plots alone to 53.2%, substantially exceeding the strongest evaluated dedicated TSLM baseline at 36.7%. It further achieves 89.9% accuracy on TSExam and 86.8% numerical accuracy on multivariate ChatTS alignment. Together, these results demonstrate that complementary representations provide an effective design principle for general-purpose TSLMs, enabling models to exploit temporal structure without sacrificing access to the original measurement frame.",
+      "authors": [
+        "Hedi Zisling, Liran Nochumsohn, Ilan Naiman, Mihir Parmar, Omri Azencot"
+      ],
+      "published": "2026-10-15T17:52:18Z",
+      "updated": "2026-10-15T17:52:18Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.22327",
+      "pdf_url": "https://arxiv.org/pdf/2610.22327",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.21648",
+      "title": "conformalForecast: An R package for sequential conformal prediction in time series",
+      "abstract": "Reliable uncertainty quantification is central to modern forecasting. Conformal prediction offers model-agnostic intervals with coverage guarantee under exchangeability, but existing software often targets general prediction problems or individual time series procedures rather than integrated workflows for multistep forecasting applications. We introduce conformalForecast, an open-source R package for constructing, updating, and evaluating conformal prediction intervals for multistep time series forecasts. The package separates point forecasting from calibration, accepts forecasts from diverse sources through a common interface, and preserves horizon-specific forecast errors and calibration states. It implements several conformal calibration schemes spanning empirical-quantile, feedback-based, and dependence-aware approaches, together with tools for assessing coverage, interval width, and interval scores over time and across horizons. Fitted objects can be extended as new observations arrive while retaining previously issued intervals and avoiding recomputation at earlier forecast origins. An application to short-term electricity price forecasting across five Australian regions illustrates the workflow. Aggregate coverage is generally close to the nominal level, while rolling coverage and interval efficiency vary across methods and horizons. In the reported experiment, incremental updating reproduces full-reconstruction intervals under identical forecasting and calibration settings while substantially reducing computation. conformalForecast provides a reproducible and extensible framework linking conformal methodology with sequential forecasting practice.",
+      "authors": [
+        "Xiaoqian Wang, Daniele Girolimetto"
+      ],
+      "published": "2026-10-15T10:28:44Z",
+      "updated": "2026-10-15T10:28:44Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.21648",
+      "pdf_url": "https://arxiv.org/pdf/2610.21648",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.21630",
+      "title": "Local Temporal Contrasts on Human Motion Data Induce a Latent Geometry",
+      "abstract": "Time series such as recordings of human motion data often encode structure across multiple temporal scales, and when a latent state determining this sequence evolves, this structure needs to survive in the representation space for downstream use. Yet the currently prevalent attention-based encoders paired with sequence-level pooling have made single-vector, pointwise comparison the default mode of inference, discarding the trajectory a sequence traces through the representation space. We propose recovering this geometric structure directly, without relying on forecasting-based objectives, by training an encoder model (SemTAC) with a temporal-neighborhood contrastive loss: representations that satisfy local consistency everywhere must give rise to a coherent global structure, letting inference happen at temporal scales beyond those seen during training. We evaluate SemTAC against four baselines on a five-step motion sequence discrimination task: the same architecture trained with a classification or a standard contrastive objective, and two established self-supervised time-series methods, TS-TCC and TS2Vec. At the full sequence length all five are broadly competitive, but on incomplete, truncated sequences SemTAC holds a large advantage: a median F1 of 0.77 one step before the sequence completes, against 0.27-0.70 for the four baselines. A hyperparameter-matched ablation attributes this effect specifically to the temporal-contrastive objective. SemTAC's representation trajectories are also the only ones among these five to exhibit interpretable geometric structures, exceeding a no-structure chance baseline on a displacement-smoothness metric which we introduce. This is evidence that its objective, not classification accuracy alone, produces genuinely temporally-ordered trajectories.",
+      "authors": [
+        "Louren\\c{c}o A. Rodrigues and Felix Putze"
+      ],
+      "published": "2026-10-15T10:15:56Z",
+      "updated": "2026-10-15T10:15:56Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.21630",
+      "pdf_url": "https://arxiv.org/pdf/2610.21630",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.21414",
+      "title": "Learning to Forecast on Multiple Spatiotemporal Hierarchies",
+      "abstract": "Hierarchical forecasting exploits aggregation structures that expose multiple views of the same underlying spatiotemporal forecasting problem, while ensuring coherence among forecasts. Individual series provide fine-grained information, while progressively coarser aggregates reveal temporal and spatial patterns at different scales. In the associated deep learning architectures, the hierarchy determines which aggregate series are available and how they are processed together with individual series (e.g., through reconciliation or message-passing operators). Different hierarchies thus provide distinct learning signals and inductive biases for forecasting the same collection of time series. Nonetheless, existing architectures are typically trained on a single, often fixed, structure. In this work, we propose a graph deep learning framework that leverages variations across hierarchies as multi-task regularization. We show that jointly learning across these structures can reduce over-specialization to any single hierarchy and improve forecasting performance. Indeed, training across hierarchies provides an inductive bias toward representations that are useful across different structures, and as such, generalize better. Making forecasts coherent with the aggregation constraints for each sampled hierarchy is computationally expensive: to complement the framework, we propose a novel operator-based on a top-down approach-that produces coherent forecasts with linear time and space complexity w.r.t. the hierarchy size. Experiments show that our approach improves forecasting accuracy over training on a single structure and is competitive with current state-of-the-art methods.",
+      "authors": [
+        "Valentina Moretti, Cesare Alippi, Andrea Cini"
+      ],
+      "published": "2026-10-15T07:29:32Z",
+      "updated": "2026-10-15T07:29:32Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.21414",
+      "pdf_url": "https://arxiv.org/pdf/2610.21414",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.21274",
+      "title": "TimeCap: A Scalable Open-Source Pipeline for Captioning Wearable Health Time-Series Data",
+      "abstract": "Time-series data generated continuously across industrial, environmental, and especially health domains produce multimodal signals whose scale and heterogeneity make their processing and interpretation particularly challenging. Time-Series Language Models (TSLMs) promise scalable interpretation of these signals, yet remain bottlenecked by a fundamental lack of text-annotated time series pairs that are signal-grounded, reproducible, and extensible across modalities and schemas. Existing paired corpora are either closed or limited in scale and modality coverage. Annotation with large language models could scale them up, but its outputs cannot be regenerated exactly, which prevents others from re-deriving, extending, or auditing the resulting corpus. To address this, we release TimeCap, an open deterministic captioning pipeline with three reusable extractor tiers and a cross-channel synthesis layer that operates directly on the signal with no language model in the loop, extensible to new schemas by writing channel definitions alone. This positions TimeCap as a reproducible mechanism for future dataset generation rather than a one-off release. Applying TimeCap to OpenMHC, the MyHeart Counts wearable dataset, yields MHCap, the largest open caption layer for multimodal wearable time-series data. MHCap spans 19 Apple HealthKit channels and 7,005,763 captions over 908,944 person-days. To showcase the impact of the corpus, we train OpenTSLM, a time-series language model, on MHCap and benchmark on health-outcome prediction. Caption-augmented training (OpenTSLM-Cap) outperforms a label-only baseline on 29 of 32 per-user binary evaluations across 8 tasks.",
+      "authors": [
+        "Max Rosenblattl, Milana Gurbanova, Karl Aurel Deck, Narayan Schuetz, Thomas Kaar, Manuel Milling, Nicolas Zumarraga, Ning Wang, Kelly W. Zhang, Anders Johnson, Robert Jakob, Bj\\\"orn W. Schuller, Elgar Fleisch, Daniel Seung Kim, Allan Lawrie, Patrick Langer, Maxwell A. Xu, Euan Ashley, Paul Schmiedmayer"
+      ],
+      "published": "2026-10-15T05:10:01Z",
+      "updated": "2026-10-15T05:10:01Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.21274",
+      "pdf_url": "https://arxiv.org/pdf/2610.21274",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.21123",
+      "title": "DST-Net: Decomposed Spatio-Temporal Network for Time Series Forecasting",
+      "abstract": "Series decomposition has emerged as a widely acknowledged paradigm in deep time series forecasting models. However, existing approaches predominantly employ a homogeneous modeling strategy for all subsequences, thereby overlooking the distinct inductive biases inherent in different components. We identify that the trend component exhibits dominant spatial coupling across channels but carries significant temporal redundancy, whereas the seasonal component is characterized by local temporal evolution but remains susceptible to attention distraction. To address this, we propose a novel disentangled architecture that tailors specific modeling strategies to align with the intrinsic properties of each component. For the trend branch, we design a Latent Graph Block, employing latent graph modeling to capture global topological dependencies and system-wide co-movements. Conversely, for the seasonal branch, we introduce a Gaussian Multi-scale Attention mechanism to mitigate attention distraction. By injecting learnable Gaussian priors, we impose structural constraints that compel the model to focus on multi-granular local contexts, effectively filtering out global noise and accurately capturing local evolutionary phases. Extensive experiments on multiple real-world benchmarks demonstrate the effectiveness of our proposed model.",
+      "authors": [
+        "Yaohua Zha, Hai Wu, and Shu-Tao Xia"
+      ],
+      "published": "2026-10-15T02:28:22Z",
+      "updated": "2026-10-15T02:28:22Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.21123",
+      "pdf_url": "https://arxiv.org/pdf/2610.21123",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.21081",
+      "title": "StochLOB: Heavy-Tailed Score Matching for Robust Limit Order Book Trend Prediction",
+      "abstract": "Score-based diffusion methods usually perturb data with Brownian Gaussian noise, corresponding to a light-tailed forward stochastic differential equation (SDE). For market time series this SDE can be a poor abstraction: limit order book (LOB) order flow is heavy-tailed, bursty, and occasionally jump-like. We study STOCHLOB, a training-only score-matching framework that changes the forward diffusion corruption law while leaving the deployed predictor deterministic. Instead of Brownian-only Gaussian corruption, the noising process uses two non-Gaussian SDE-inspired alternatives: jump-L\\'evy noise through a compound-Poisson variance mixture, and clipped $\\alpha$-stable noise through a positive-stable Gaussian scale mixture. These corruptions inject finite jumps and heavy-tailed residuals into training without requiring reverse-time diffusion sampling at inference. The resulting score target has a useful interpretation: its radial factor $h_t(r)$ is the posterior expected corruption precision, so large residuals are weighted according to the latent corruption scale that most plausibly generated them. On chronologically held-out Coinbase LOB data, the proposed variants remain competitive on uncorrupted BTC and altcoin test horizons and improve several realized tail-window stress diagnostics. An exploratory Feishu A-share transfer study further tests whether the probability outputs remain usable under transaction costs and trading-rule constraints. Code and configuration files are available at https://github.com/ArshiAbolghasemi/Penny.",
+      "authors": [
+        "Arshia Abolghasemi, Seyed Reza Tavakoli, Parsa Naderi, Nazanin Mirzaei, Behrad Jahani, Saba Yousefzadeh, Tahereh Javaheri, Mohammad Hosein Rohban, Gholamali Aminian, Ali Habibnia"
+      ],
+      "published": "2026-10-15T01:33:30Z",
+      "updated": "2026-10-15T01:33:30Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.21081",
+      "pdf_url": "https://arxiv.org/pdf/2610.21081",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.20978",
+      "title": "A differentiable PCA-GPR surrogate framework for full-transient Bayesian inverse uncertainty quantification of black-box nuclear thermal-hydraulic systems",
+      "abstract": "Complex transient energy systems require uncertainty-quantified predictions, but Bayesian inverse uncertainty quantification (IUQ) is often impractical because posterior sampling with high-fidelity system codes requires many expensive full-transient simulations. This study develops a surrogate-assisted Bayesian IUQ framework that makes full-time-series calibration practical for the NACIE heavy-liquid-metal natural-circulation loop. The key innovation is to transform a black-box transient simulator into a differentiable probabilistic emulator by combining principal component analysis with Gaussian process regression (PCA--GPR). The surrogate reconstructs complete multichannel temperature and mass-flow histories from a compact latent representation, preserving dominant temporal and cross-channel correlations while enabling automatic differentiation of the log posterior. This allows both gradient-free ensemble slice sampling and gradient-informed sampling with the No-U-Turn Sampler and Microcanonical Langevin Monte Carlo. Five principal components capture more than 99\\% of the output variance, and the surrogate achieves normalized root-mean-square errors below 2\\%. Compared with direct Flownex SE evaluations, the surrogate reduces likelihood-evaluation cost by approximately 3000-fold while preserving posterior statistics and correlations. Posterior predictive analyses show reduced bias, narrower intervals, and improved agreement with measurements and independent validation.",
+      "authors": [
+        "Zikang Yaoa, Eugene Yeea, Fue-Sang Lien"
+      ],
+      "published": "2026-10-14T21:48:34Z",
+      "updated": "2026-10-14T21:48:34Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.20978",
+      "pdf_url": "https://arxiv.org/pdf/2610.20978",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.20860",
+      "title": "Time-partitioning Gaussian Process Mixture Model",
+      "abstract": "We propose the Time-partitioning Gaussian Process Mixture Model (TPGPMM), a Bayesian nonparametric framework for identifying persistent regimes and modelling nonstationary dependence in time series. The model combines an adaptive Pitman--Yor prior on contiguous segmentations with regime-specific Gaussian processes, without imposing Markovian within-regime dependence. Learning the Pitman--Yor discount parameter allows adaptation to homogeneous and heterogeneous regime lengths. A split--merge Metropolis-within-Gibbs sampler with exact Gibbs boundary updates jointly learns change points and model hyperparameters, quantifying uncertainty over segmentations and within-regime dynamics. With an RBF kernel and a fixed, conservative observation-noise level, TPGPMM favours sparse segmentations that distinguish persistent shifts from transient shocks. Simulations demonstrate recovery of the regime structure. Applications to the CBOE Volatility Index (VIX) and the 10-year United States Treasury yield identify regimes aligned with major market and monetary-policy events. Variants that estimate observation noise improve predictive accuracy relative to the main specification, but can produce less sparse or less event-aligned segmentations. A variant with regime-specific means fits better than a fitted stationary Gaussian process and forecasts about as accurately. These results highlight a trade-off between interpretable regime identification and predictive accuracy.",
+      "authors": [
+        "Guilherme Piantino, Hedibert F. Lopes"
+      ],
+      "published": "2026-10-14T19:52:23Z",
+      "updated": "2026-10-14T19:52:23Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.20860",
+      "pdf_url": "https://arxiv.org/pdf/2610.20860",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.20739",
+      "title": "Quantile-Guided Diffusion for Probabilistic Time-Series Forecasting",
+      "abstract": "Quantile forecasts summarize uncertainty at each future time step, while diffusion forecasters represent it through sampled future trajectories. We study how predicted quantiles can serve as distributional controls for diffusion forecasting. Specifically, we investigate how the mechanism of quantile integration affects its effectiveness in guiding a pretrained diffusion forecaster. We find that residual control throughout the denoising network yields the most consistent improvements. We instantiate this approach as Control-TS, which learns a quantile-control pathway while keeping the pretrained backbone frozen. Across eight benchmarks, Control-TS consistently improves the backbone's CRPS, achieves competitive performance against state-of-the-art forecasting models, and retains its gains in capacity-matched comparisons. Further analyses examine how these gains depend on quantile granularity, predictor choice, and forecast quality. Finally, we introduce the Conditional Linear Predictive Score (CLPS), which complements distributional metrics by evaluating the downstream forecasting utility of generated futures. Together, these findings support predicted quantiles as an effective interface between explicit uncertainty estimates and diffusion-based trajectory generation.",
+      "authors": [
+        "Shadi Omari, Bashar Khoury, Assaf Schuster"
+      ],
+      "published": "2026-10-14T18:01:24Z",
+      "updated": "2026-10-14T18:01:24Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.20739",
+      "pdf_url": "https://arxiv.org/pdf/2610.20739",
+      "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.20288",
       "title": "Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects",
       "abstract": "Conditional generative models are increasingly used for scientific prediction beyond the direct training support. Yet scientific questions often concern whether one intervention changes the effect of another. Such interactions can be of primary interest while explaining little of the total variation, allowing models to appear accurate overall without recovering the relevant scientific effect. It remains unclear how these models learn interactions and when these successfully extrapolate to unseen conditions. We therefore study interaction recovery in flow-matching models using a physiological time-series simulator, drug dose-response data, combinatorial cell perturbations, and molecular conformer generations, where we separate recovery from hallucinated interaction structure. In the controlled setting, individual effects are learned much earlier than interactions and models hallucinate interactions where none exist. Across settings, we find qualitatively different generalization problems, with successful prediction depending on whether condition structure continues from observed to held-out targets. When it does, interactions are recoverable. If not, models can generate plausible responses while missing the interaction. We furthermore find that hallucinations increase as targets become less identifiable, and that successful interaction recovery in output space can fail under nonlinear readouts. Finally, we show that aggregate fidelity metrics can conceal whether models learn and extrapolate interactions.",
@@ -105,14 +294,14 @@
     },
     {
       "id": "2610.19725",
-      "title": "TIMERSI: Towards Self-Improved Agentic Deployment for Time-Series Foundation Models",
-      "abstract": "Time-series foundation models provide strong zero-shot forecast, but deployment for real- world applications still requires task-specific designs for model inputs and outputs. Direct inference can leave domain knowledge and re- curring forecast errors unaddressed, while tai- lored pipelines require substantial human ex- pertise and effort. We introduce TIMERSI, a self-improving agentic deployment system around frozen forecasting models. A cod- ing agent translates task descriptions into ex- ecutable pipeline changes. It tests each re- vision on historical forecasting windows and uses observed errors to guide subsequent re- visions. During deployment, an adaptive se- lector chooses among the resulting pipelines using completed forecasts under similar con- ditions. Across 198 tasks on TIME and FEV- bench, TIMERSI outperforms all submissions on six point and probabilistic forecasting met- rics. Controlled comparisons support the value of feedback-guided revision over non-iterative pipeline search. Further experiments verify the generalization with different coding agents and forecasting models.",
+      "title": "TimeRSI: Towards Self-Improved Agentic Deployment for Time-Series Foundation Models",
+      "abstract": "Time-series foundation models provide strong zero-shot forecast, but deployment for real-world applications still requires task-specific designs for model inputs and outputs. Direct inference can leave domain knowledge and recurring forecast errors unaddressed, while tailored pipelines require substantial human expertise and effort. We introduce TimeRSI, a self-improving agentic deployment system around frozen forecasting models. A coding agent translates task descriptions into executable pipeline changes. It tests each revision on historical forecasting windows and uses observed errors to guide subsequent revisions. During deployment, an adaptive selector chooses among the resulting pipelines using completed forecasts under similar conditions. Across 198 tasks on TIME and fev-bench, TimeRSI outperforms all submissions on six point and probabilistic forecasting metrics. Controlled comparisons support the value of feedback-guided revision over non-iterative pipeline search. Further experiments verify the generalization with different coding agents and forecasting models. Code is available at https://github.com/haoxin1998/TimeRSI.",
       "authors": [
         "Haoxin Liu, Deqing Fu, Lucheng Fu, Yiqiao Jin, Rushi Qiang, Harshavardhan Kamarthi, B. Aditya Prakash"
       ],
       "published": "2026-10-14T07:48:38Z",
-      "updated": "2026-10-14T07:48:38Z",
-      "metadata_updated": "2026-10-15T00:00:00Z",
+      "updated": "2026-10-15T05:49:35Z",
+      "metadata_updated": "2026-10-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.19725",
       "pdf_url": "https://arxiv.org/pdf/2610.19725",
       "first_seen": "2026-10-15T04:41:48.057003Z",
@@ -8998,17 +9187,29 @@
       ]
     }
   ],
-  "last_success": "2026-10-15T19:09:52.916137Z",
-  "last_attempt": "2026-10-15T19:09:52.916137Z",
-  "last_new_ids": [],
+  "last_success": "2026-10-16T21:10:59.310573Z",
+  "last_attempt": "2026-10-16T21:10:59.310573Z",
+  "last_new_ids": [
+    "2610.20739",
+    "2610.20860",
+    "2610.20978",
+    "2610.21081",
+    "2610.21123",
+    "2610.21274",
+    "2610.21414",
+    "2610.21630",
+    "2610.21648",
+    "2610.22327",
+    "2610.22358"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 9,
-    "records": 11179,
+    "pages": 11,
+    "records": 13956,
     "duplicates": 0
   }
 }
