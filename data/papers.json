@@ -2,6 +2,142 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.23735",
+      "title": "LagNet: Lag-Structured Operators for Long-Term Time Series Forecasting",
+      "abstract": "Long-term time series forecasting maps a finite history window to an extended future horizon. Many existing models focus primarily on the design of input representations and model structures, while paying less attention to the structural form of the history-to-future forecasting operator itself. We examine this operator directly and find that, across model families, sensitivity matrices exhibit recurring diagonal patterns whose diagonals correspond to relative temporal lags. Motivated by this observation, we develop a framework for direct multi-step forecasting based on lag-structured temporal operators. Its basic building block, LagLayer, constructs a Toeplitz matrix by tying history-to-future connections with the same relative lag and incorporates horizon-wise and history-wise scaling coefficients to relax exact sharing. This design enables LagLayer to serve as an effective replacement for temporal linear layers in existing forecasting models. Stacking LagLayer modules with activations and multiple feature maps yields LagNet. Experiments on long-term time series forecasting benchmarks show that our method is competitive with strong baselines, while sensitivity matrix diagnostics and limited-data experiments demonstrate that LagLayer provides an effective and sample-efficient alternative to a linear layer.",
+      "authors": [
+        "Zhenan Yu, Guangxin Jiang, Jiuyun Jiang, Jin Yang"
+      ],
+      "published": "2026-10-16T16:44:53Z",
+      "updated": "2026-10-16T16:44:53Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23735",
+      "pdf_url": "https://arxiv.org/pdf/2610.23735",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.23521",
+      "title": "Perceive, Solve, Reason: Progressive Capability Formation in Time Series-LLMs",
+      "abstract": "Large language models (LLMs) can now perceive, describe, and reason about images and audio, yet time series understanding remains underestimated: most work uses LLMs as forecasters and classifiers, reasoning studies are few and narrow, and no suite trains and evaluates the full range of capabilities. In this paper, we build the first such suite, with 337K training and 44K evaluation samples across three progressive capabilities, Perceive, Solve, and Reason, and use it to ask how time series should enter an LLM that must master all three, and in what order. We find that a dedicated encoder is essential: with one, a 4B model surpasses GPT-4o on every perception attribute we test, whereas textualizing the series costs 8--10 points in reasoning accuracy. The capabilities then build on one another: learning them in order beats mixing the same data and rivals reasoning-only training with over three times the reasoning data, but only when an encoder is used. Analyses further reveal that capabilities are transferred through distinct network depths rather than simply stacked, and that a stage converged on its own benchmark is not necessarily ready for the next. Distilled into a simple recipe, these findings yield 4B TS-LLMs that, without any target-domain data, outperform four recent 7B TS-LLMs on seven of eight out-of-domain metrics, by up to 11 points. We therefore advocate treating time series as a first-class modality for LLMs, read through dedicated encoders and taught to perceive before they reason.",
+      "authors": [
+        "Xin Qiu, Junlong Tong, Wei Zhang, Xiaoyu Shen"
+      ],
+      "published": "2026-10-16T14:23:23Z",
+      "updated": "2026-10-16T14:23:23Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23521",
+      "pdf_url": "https://arxiv.org/pdf/2610.23521",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.23394",
+      "title": "Forecasting Voltage Time Series under Anomalies Using a WGAN Model With Lipschitz Control and Progressive Kernel Critic Strategy",
+      "abstract": "In time-series forecasting tasks, the use of recursive forecasting on high-dimensional data substantially increases the complexity of the prediction process. The main challenge is that long-term dynamics becomes harder to model, since the sequences show greater temporal variability. To counteract this limitation and improve the modeling of long-term dynamics, and more importantly, address high-dimensional recursive forecasting, this paper uses a Wasserstein GAN equipped with a progressive Lipschitz penalty and an adaptive kernel. This model is capable of taking a window of the data stream and forecasting the next values, subsequently reconstructing the time-series stream and dynamically adapting its kernel to each new window. The proopsed model is a deep learning framework based on a Wasserstein GAN (WGAN-CLP) with an adaptive kernel to model alterations in streaming voltage time series. To establish the methodological foundation, we review the WGAN-LP formulation another variant model in this class and extend its framework through an adaptive kernel critic model. We then evaluate this extended model using power ratios, correlation coefficient (CC), and relative root mean squared error (RRMSE). The experimental results demonstrate that the proposed model outperforms benchmark methods in both accuracy and robustness. The evaluation shows promising performance of the WGAN-CLP with an adaptive kernel framework in forecasting sequence alterations across the voltage and energy time-series datasets.",
+      "authors": [
+        "Najmieh Sadat Safarabadi"
+      ],
+      "published": "2026-10-16T12:52:32Z",
+      "updated": "2026-10-16T12:52:32Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23394",
+      "pdf_url": "https://arxiv.org/pdf/2610.23394",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.23345",
+      "title": "OliO: ODE-based Linear Transition Operator for Self-Supervised Time Series Forecasting",
+      "abstract": "Self-supervised representation learning has advanced time series forecasting by capturing robust features from unlabeled data. However, existing contrastive and masking-based methods often struggle to explicitly model the underlying temporal flow, either by treating time lag as noise or by disrupting the inherent temporal dynamics essential for forecasting. To address these limitations, we propose OliO (**O**DE-based **Li**near Transition **O**perator), a plug-and-play self-supervised learning method that learns bidirectional temporal flows as a continuous and structurally consistent dynamical system. OliO introduces a transition operator derived from linear Ordinary Differential Equations (ODEs) to align latent representations across arbitrary time shifts. By imposing a strictly upper triangular constraint on the transition matrix, we mathematically ensure numerical stability and enforce a robust polynomial boundary that effectively captures long-term dependencies while preventing the exponential divergence typically found in unconstrained ODE-based models. This structural constraint induces a temporally coherent representation space that preserves the underlying flow essential for accurate forecasting. Extensive experiments across various backbone architectures and benchmarks demonstrate that OliO achieves significant performance gains, providing Mean Squared Error (MSE) reductions of up to 5.75% over the most competitive grid-searched SOTA baselines. The code is available at *https://github.com/eai-lab/OliO*",
+      "authors": [
+        "Kwangryeol Park, Seulki Lee"
+      ],
+      "published": "2026-10-16T11:52:33Z",
+      "updated": "2026-10-16T11:52:33Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23345",
+      "pdf_url": "https://arxiv.org/pdf/2610.23345",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.23217",
+      "title": "Emergence of Correlations Between Records and Maximum in Random Time Series",
+      "abstract": "We compute exactly the covariance between the maximum $M$ and the number of records $K$ in a discrete time series of $n$ entries as a quantitative probe of the history leading to an extreme event. For continuous IID series, with a common probability distribution function (PDF) $p(x)$, we find the striking result that $M$ and $K$ are uncorrelated for any $n \\geq 1$. We show that this independence is rather fragile and the covariance $C_q(n)$ between $M$ and $K$ becomes nonzero when $p(x)$ becomes discontinuous due to a delta-component at $x=0$ with an amplitude $0< q < 1$. This time series models the occurrence of dry days with probability $q$ in a precipitation time series when there is no rainfall. We show that there is an interesting shape transition at a critical value $q_c$ where the covariance $C_q(n)$, as a function of $n$, changes from monotonic ($q<q_c$) to non monotonic behavior (for $q>q_c$). We compute the critical strength $q_c$ exactly. Furthermore, for large $n$, we show that $C_q(n)$ decays as a power law, with an exponent that depends on the tail of $p(x)$. We then compare our theoretical predictions with real precipitation data from several weather stations across Germany, finding a very good agreement.",
+      "authors": [
+        "Satya N. Majumdar, Sanjib Sabhapandit, Gregory Schehr"
+      ],
+      "published": "2026-10-16T09:51:36Z",
+      "updated": "2026-10-16T09:51:36Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23217",
+      "pdf_url": "https://arxiv.org/pdf/2610.23217",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.23027",
+      "title": "ASE: Attribution-Guided Semantic Evolution for Time Series Forecasting",
+      "abstract": "External text can supply predictive information absent from numerical histories, but its value depends on how it is represented, combined and deployed. We present Attribution-guided Semantic Evolution (ASE), a modular framework for constructing textual factors, evaluating their conditional contribution, and deploying validation-selected numerical--textual predictors. ASE supports task-specific implementations with lexical measurements, semantic primitives or evolved event/state factors, coupled to suitable numerical experts. Its feedback-based implementation uses conditional refitting diagnostics to guide factor revision and combination search. We evaluate ASE on the four text-associated TESS datasets and dynamic CSI 300 stock ranking. The four forecasting implementations obtain test MSEs of 0.001041, 0.022439, 0.333115 and 1.8150, each below the corresponding published TESS score. On CSI 300, the frozen text-fusion implementation improves mean RankIC by 0.000642 over its numerical expert and by 0.000701 over matched shuffled text, with positive differences in all five seeds. Controlled text perturbations support functional reliance on text correspondence, while incumbent retention prevents regressions in the measured development criterion. Together, the experiments characterize ASE at two levels: forecasting performance of task-specific implementations and the conditional contributions of individual modules.",
+      "authors": [
+        "Yuxuan Zheng, Zhaoyang Li, Purui Liu, Hengbo Xiao, Guannan He"
+      ],
+      "published": "2026-10-16T07:04:41Z",
+      "updated": "2026-10-16T07:04:41Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23027",
+      "pdf_url": "https://arxiv.org/pdf/2610.23027",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.22872",
+      "title": "Look Back, Correct Forward: Error Feedback Calibration for Time Series Forecasting",
+      "abstract": "Time series forecasting models are increasingly deployed in continuously evolving environments. After a forecast is issued, future observations gradually arrive and reveal how the model has failed. Existing methods mainly treat such observations as supervision for parameter updates. However, it remains unclear whether verified forecasting errors can themselves provide causal feedback for correcting future predictions. To address this, we introduce Error Feedback Calibration (EFC), a fully test-time framework for deterministic post-hoc correction of time series forecasting. EFC constructs a Causal Error Diagonal (CED) from revealed errors of overlapping historical forecasts, providing a fresh view of the frozen forecaster's recent failure behavior. Then Cumulative Error Transport (CET) maps this error state to future residuals using cumulative estimation, while temporal out-of-sample validation controls the correction strength. Temporal Residual Learning (TRL) further predicts only the residual structure left after CET from recent CED trajectories, rather than relearning the entire forecasting error. Extensive experiments across forecasting backbones and datasets show that EFC broadly improves forecasting performance while substantially controlling harmful over correction.",
+      "authors": [
+        "Haonan Yang, Yulin He, Zhuo Li"
+      ],
+      "published": "2026-10-16T03:22:18Z",
+      "updated": "2026-10-16T03:22:18Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.22872",
+      "pdf_url": "https://arxiv.org/pdf/2610.22872",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.22656",
+      "title": "A Bayesian Hidden Markov Model with Singh--Maddala Emission Distributions for Heavy-Tailed Regime-Switching Time Series",
+      "abstract": "Heavy-tailed time series with regime switching arise in environmental, financial, and engineering applications, yet conventional emission distributions such as Gaussian, Gamma, or Weibull fail to capture simultaneously extreme right-skewness, slowly decaying upper tails, and temporal dependence. This paper develops a fully Bayesian Hidden Markov Model with Singh-Maddala (Burr Type XII) emission distributions (HMMSM). We derive the complete Bayesian structure and design an adaptive Metropolis-within-Gibbs sampler combining Forward-Filtering Backward-Sampling, conjugate Dirichlet updates, and adaptive Metropolis steps. Simulations confirm parameter recovery with relative errors below 10% and 95% prediction coverage of 94.5%. On a simulated benchmark with heavy tails, Bayesian model selection via WAIC, DIC, and LOO correctly identifies K = 3, and HMMSM outperforms seven competing specifications by large margins. On a 26-year gridded rainfall record for Ireland (T = 312 monthly observations), HMMSM attains the lowest WAIC but is statistically indistinguishable from HMM-Gamma, reflecting the light tails of Irish rainfall. The selected two-regime model identifies a Moderate regime (mean approx. 87 mm) and a Wet regime (approx. 134 mm) that are persistent and seasonally coherent. We also document weak identifiability of the Singh-Maddala scale parameter. The framework is general-purpose, and reproducible code is provided.",
+      "authors": [
+        "Safaa K. Kadhem"
+      ],
+      "published": "2026-10-15T21:18:24Z",
+      "updated": "2026-10-15T21:18:24Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.22656",
+      "pdf_url": "https://arxiv.org/pdf/2610.22656",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.22358",
       "title": "PathFM: Fast Generative Forecasting of Multivariate Trajectories",
       "abstract": "Time series foundation models are becoming increasingly popular for general-purpose forecasting. However, most leading models predict marginal quantiles, leaving the dependence structure of future trajectories unspecified. This distinction matters for trajectory-dependent quantities such as cumulative demand, peak load, and event timing, yet point and marginal scores do not reveal it. To model this dependence, we introduce PathFM, a trajectory-based forecasting model that uses flow matching to generate complete future paths. We further distill the model to one or two steps and share history attention cache across draws. Together, these enable PathFM to generate multiple paths for a single series in roughly the time needed for one query to a quantile model. The distilled sampler also makes it practical to optimize a calibration loss directly. PathFM achieves competitive marginal accuracy on the established forecasting benchmarks fev-bench and TIME. To complement these evaluations, we introduce Forecast Path Score Bench (fps-bench), which augments fev-bench tasks with energy and variogram scores and downstream metrics. PathFM achieves a higher aggregate path score on fps-bench than all evaluated external baselines. Experiments on chaotic systems further show that our flow model sustains long-run variability, while strong baselines rapidly collapse. PathFM makes generative time series forecasting both competitive and practical, enabling diverse downstream applications.",
@@ -67,6 +203,23 @@
       "url": "https://arxiv.org/abs/2610.21630",
       "pdf_url": "https://arxiv.org/pdf/2610.21630",
       "first_seen": "2026-10-16T21:10:59.310573Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.22430",
+      "title": "CGDT-CESN: Correlation-Guided and Dynamics-Trained Clustered Echo State Network for Multivariate Time-Series Prediction",
+      "abstract": "Accurate prediction of multivariate time series requires models that simultaneously capture variable-specific dynamics and cross-variable interactions. In this work, a Correlation-Guided and Dynamics-Trained Clustered Echo State Network (CGDT-CESN) is proposed, which comprises a modular reservoir architecture with each cluster distinctly specializing in one of the variables in the multivariate time series. An innovative reservoir design is proposed in which inter-cluster connections are enabled by empirically observed correlations among variables, providing a data-driven coupling mechanism. Apart from conventional readout training, inter-cluster connection weights informed by correlations are trained, which in turn allows the reservoir to capture time-varying cross-variable dependencies without sacrificing computational efficiency and further improves forecasting accuracy. The prediction performance of CGDT-CESN is found to be superior to that of the conventional ESN when evaluated on two fundamentally different datasets: Twitter information cascade evolution and solar wind forecasting. Also, the improvement in performance is preserved across multiple prediction horizons, even when presented with a low volume of data. By unifying cluster-specific specialization with learned inter-variable coupling, CGDT-CESN offers a principled, data-driven route to multivariate time series prediction.",
+      "authors": [
+        "Hariharan Srinivasan, Masoom Bhargava, and Sayan Gupta"
+      ],
+      "published": "2026-10-15T07:32:37Z",
+      "updated": "2026-10-15T07:32:37Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.22430",
+      "pdf_url": "https://arxiv.org/pdf/2610.22430",
+      "first_seen": "2026-10-19T21:04:24.143131Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -159,13 +312,13 @@
     {
       "id": "2610.20860",
       "title": "Time-partitioning Gaussian Process Mixture Model",
-      "abstract": "We propose the Time-partitioning Gaussian Process Mixture Model (TPGPMM), a Bayesian nonparametric framework for identifying persistent regimes and modelling nonstationary dependence in time series. The model combines an adaptive Pitman--Yor prior on contiguous segmentations with regime-specific Gaussian processes, without imposing Markovian within-regime dependence. Learning the Pitman--Yor discount parameter allows adaptation to homogeneous and heterogeneous regime lengths. A split--merge Metropolis-within-Gibbs sampler with exact Gibbs boundary updates jointly learns change points and model hyperparameters, quantifying uncertainty over segmentations and within-regime dynamics. With an RBF kernel and a fixed, conservative observation-noise level, TPGPMM favours sparse segmentations that distinguish persistent shifts from transient shocks. Simulations demonstrate recovery of the regime structure. Applications to the CBOE Volatility Index (VIX) and the 10-year United States Treasury yield identify regimes aligned with major market and monetary-policy events. Variants that estimate observation noise improve predictive accuracy relative to the main specification, but can produce less sparse or less event-aligned segmentations. A variant with regime-specific means fits better than a fitted stationary Gaussian process and forecasts about as accurately. These results highlight a trade-off between interpretable regime identification and predictive accuracy.",
+      "abstract": "Nonstationarity and heterogeneous dynamics are common in financial and macroeconomic time series. Volatility alternates between calm and turbulent regimes, interest rates follow monetary-policy cycles, and major events trigger persistent structural shifts. We propose the Time-partitioning Gaussian Process Mixture Model (TPGPMM), a Bayesian nonparametric framework for regime identification and nonstationary prediction that infers such regimes and their within-regime dependence from data, without Markovian assumptions. It combines (i) an adaptive Pitman-Yor process prior on ordered compositions, mapped to block lengths with contiguity enforced by construction, and (ii) regime-specific Gaussian processes for temporal dependence, yielding a nonstationary predictive distribution. By inferring its discount parameter, the prior adapts to homogeneous and highly heterogeneous regime lengths. Unlike sequential or Markov-switching methods, it flags persistent structural shifts as change points rather than reacting to transient shocks. A split-merge Metropolis-within-Gibbs sampler with exact Gibbs updates of regime boundaries jointly learns change points and hyperparameters in batch, quantifying uncertainty over the partition and within-regime dynamics. With an RBF kernel and a fixed, data-informed noise level, TPGPMM produces a sparse, confident segmentation. On simulated data it recovers the true regimes, and on the CBOE Volatility Index and the 10-year US Treasury yield it identifies regimes aligned with documented market and monetary-policy events. For prediction, variants estimating the noise level fit better than change-point baselines and fit and forecast better than the main specification, at the cost of a less sparse or less event-aligned segmentation; with a regime mean, they fit better than a fitted stationary Gaussian process and have lower forecast RMSE except at the shortest horizons.",
       "authors": [
         "Guilherme Piantino, Hedibert F. Lopes"
       ],
       "published": "2026-10-14T19:52:23Z",
-      "updated": "2026-10-14T19:52:23Z",
-      "metadata_updated": "2026-10-16T00:00:00Z",
+      "updated": "2026-10-16T14:12:42Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.20860",
       "pdf_url": "https://arxiv.org/pdf/2610.20860",
       "first_seen": "2026-10-16T21:10:59.310573Z",
@@ -6641,19 +6794,14 @@
     },
     {
       "id": "2608.30976",
-      "title": "A Human-in-the-Loop Autonomous Agent for Industry Time Series Forecasting",
-      "abstract": "Real-world time-series forecasting is rarely a one-shot model invocation: practitioners must formulate tasks, connect data and models, incorporate domain expertise, assess prediction plausibility, and communicate uncertainty. Specialized forecasting models provide strong numerical predictions but usually operate in fixed pipelines, while general-purpose large language model (LLM) agents often lack forecasting-specific checks, constraints, and stopping rules. We present CastClaw, a human-in-the-loop autonomous forecasting system built through forecasting-oriented harness engineering. CastClaw connects data, specialized models, analytical tools, user input, and a versioned execution record in one runtime. Users specify the target, horizon, constraints, and hypotheses in natural language. Starting from a supplied or model-generated forecast, CastClaw checks temporal patterns and user constraints; when evidence is missing, it retrieves context, runs an analysis or another model, or asks the user. It then keeps, revises, or escalates the result under explicit stopping conditions. The output contains the final forecast and an execution report recording inputs, evidence, actions, and revisions. In this five-dataset electricity-price setting, CastClaw reports the lowest point-estimate MSE and MAE among 16 baselines. A Nord Pool case demonstrates the inspectable workflow. CastClaw was also validated offline on provincial electricity-load data from North China covering January--June 2026.",
+      "title": "CastClaw: A Human-in-the-Loop Autonomous Agent for Interactive Time Series Forecasting",
+      "abstract": "Practical time-series forecasting requires domain knowledge, constraints, plausibility checks, and human intervention. We present CastClaw, an interactive forecasting system centered on an autonomous forecasting loop and supported by a forecasting-oriented harness. Users create and refine tasks in natural language through command-line and Web interfaces. An internal large language model (LLM) agent reads the task and evidence, selects a permitted tool action or request for human feedback, and uses checked results to decide whether to continue, revisit an analysis, switch a candidate, or stop. The harness supplies tool integration, controlled execution, state management, historical validation, and execution limits. npm distribution connects installation and configuration to interactive execution and forecast and report export. Across five public electricity-price datasets, CastClaw achieves the lowest point-estimate MSE and MAE among 16 baselines. A Nord Pool case study illustrates its inspectable decision process, while provincial electricity-load data from North China (January--June 2026) demonstrate offline task execution.",
       "authors": [
-        "Xiaoyu Tao",
-        "Mingyue Cheng",
-        "Ze Guo",
-        "Bokai Pan",
-        "Qi Liu",
-        "Shijin Wang",
-        "Enhong Chen"
+        "Xiaoyu Tao, Mingyue Cheng, Ze Guo, Bokai Pan, Qi Liu, Shijin Wang, and Enhong Chen"
       ],
       "published": "2026-08-31T15:36:41Z",
-      "updated": "2026-08-31T15:36:41Z",
+      "updated": "2026-10-16T03:09:22Z",
+      "metadata_updated": "2026-10-19T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.30976",
       "pdf_url": "https://arxiv.org/pdf/2608.30976",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -9187,9 +9335,19 @@
       ]
     }
   ],
-  "last_success": "2026-10-18T20:45:38.441590Z",
-  "last_attempt": "2026-10-18T20:45:38.441590Z",
-  "last_new_ids": [],
+  "last_success": "2026-10-19T21:04:24.143131Z",
+  "last_attempt": "2026-10-19T21:04:24.143131Z",
+  "last_new_ids": [
+    "2610.22430",
+    "2610.22656",
+    "2610.22872",
+    "2610.23027",
+    "2610.23217",
+    "2610.23345",
+    "2610.23394",
+    "2610.23521",
+    "2610.23735"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
@@ -9197,7 +9355,7 @@
   "source": "oai",
   "retrieval_stats": {
     "pages": 3,
-    "records": 2928,
+    "records": 2617,
     "duplicates": 0
   }
 }
