@@ -2,6 +2,319 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.26582",
+      "title": "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting",
+      "abstract": "Recent time series foundation models (TSFMs) can consume covariates in-context, extending zero-shot forecasting to problems driven by external factors. This enables scenario analysis: forecasting how a target responds to events that set covariates to chosen future values. Whether they can do this reliably is an open question. We introduce WhatIf-Bench, a benchmark measuring how well forecasters use covariates to forecast a target's response to future events. WhatIf-Bench is semi-synthetic: time series come from mechanistic simulators of data centers, power grids, road traffic, and water networks, with controlled covariate-target relationships grounded in each system. Each task presents a history of events intervening on covariates, then asks to forecast a future event that either replays seen values (Replay) or sets them to unseen ones (Novel). Varying the number of covariates, historical events, and event length yields 37,665 tasks. Evaluating TSFMs, frontier LLMs, and simple regression baselines, we find the LLMs reach the highest skill (improvement over a naive baseline), ahead of the best TSFMs. Every model forecasts well on Replay futures (48 to 85% skill) but drops to -7 to 50% on Novel futures, with the regression baselines falling the most. Skill on Novel futures also falls as events set more covariates jointly. More historical events raise skill on Novel futures across the board, but large differences remain. WhatIf-Bench reveals generalization to Novel futures as the core challenge, and offers a testbed toward arbitrary scenario analysis.",
+      "authors": [
+        "Arjun Ashok, Mihir Parmar, Palash Goyal, Bhavana Dalvi Mishra, Chun-Liang Li, Irina Rish, Alexandre Drouin, Jinsung Yoon, Tomas Pfister"
+      ],
+      "published": "2026-10-19T15:32:53Z",
+      "updated": "2026-10-19T15:32:53Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26582",
+      "pdf_url": "https://arxiv.org/pdf/2610.26582",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.26379",
+      "title": "CTLite: Lightweight Irregular Multivariate Time Series Forecasting with Reusable Continuous-Time Summaries",
+      "abstract": "Irregular multivariate time series forecasting (IMTSF) requires capturing temporal dynamics and cross-variable dependencies from sparse, asynchronous observations. Existing methods often rely on learned temporal encoders, coupling historical representation construction with model optimisation and repeatedly processing the same observations. We propose CTLite, a lightweight forecasting framework that decouples historical summarisation from learned prediction. Specifically, a parameter-free continuous-time moment encoder summarises local levels and trends at multiple temporal scales while suppressing poorly supported slope estimates. A compact readout combines damped local extrapolation with a low-rank cross-variable correction that accounts for observation freshness, target availability, and forecast horizon. Since the historical summaries are independent of trainable parameters and forecast queries, they can be reused across optimisation steps and repeated predictions for an unchanged history without altering predictions or parameter gradients. Experiments on four real-world benchmarks show that CTLite achieves the best or second-best mean MSE and MAE among the evaluated methods with only 88-2,537 trainable parameters. Under matched GPU workloads at batch size 32, CTLite reduces inference latency by 18.6-87.3% compared with the latest models, including the cost of historical encoding. Reusing summaries further reduces total runtime by approximately 52% over 16 forecast calls on the same history compared with recomputing the encoder for every call, including the initial encoding cost. The code is at: https://github.com/SSMa913/NICLab-CTLite.",
+      "authors": [
+        "Shusen Ma, Xudong Zuo, Yangchun Xie, and Yun-Bo Zhao"
+      ],
+      "published": "2026-10-19T13:32:06Z",
+      "updated": "2026-10-19T13:32:06Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26379",
+      "pdf_url": "https://arxiv.org/pdf/2610.26379",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.26358",
+      "title": "SHADE: Shrinkage via Halted Alpha-stable Denoising for Heavy-Tailed Probabilistic Time Series Forecasting",
+      "abstract": "Time-series observations are particularly susceptible to noise, and many real-world series have low signal-to-noise ratios (SNRs) together with heavy-tailed and time-varying disturbances. When Gaussian diffusion models are used for forecasting, reversing all the way to the zero-noise endpoint may yield an overly narrow and overconfident predictive distribution. We propose SHADE, an alpha-stable L\\'evy diffusion forecaster that reads out at a nonzero depth so that the residual stable kernel acts as distribution-level shrinkage. By decomposing halting risk into smoothing bias and estimation error, we develop a scale-calibrated halt for estimating the optimal shrinkage $\\tau^*$ and a context-amortized halt that requires no explicit noise labels. Gains concentrate in the extreme heavy-tailed regime $\\alpha\\leq1.3$: Across synthetic noise settings, median CRPS improves by 21.7\\%, while the NLL falls significantly; Cryptocurrency and foreign-exchange data provide further evidence of improved tail calibration in real-data implement. On near-light-tailed or high-SNR data, the model reverts to Gaussian diffusion or full denoising. SHADE maintains overall forecast error comparable to strong baselines while providing more honest tail uncertainty for heavy-tailed series.",
+      "authors": [
+        "Jiahao Weng, Jiyu Liu"
+      ],
+      "published": "2026-10-19T13:19:18Z",
+      "updated": "2026-10-19T13:19:18Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26358",
+      "pdf_url": "https://arxiv.org/pdf/2610.26358",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.26251",
+      "title": "Beyond Static Leaderboards: Capability-Focused Evaluation with Structural Diversity for Time Series Foundation Models",
+      "abstract": "Static public benchmarks for time series foundation models (TSFMs) typically have fixed and narrow test distributions. Their repeated reuse encourages benchmark-specific tuning, making reported performance reflect adaptation to the fixed test set rather than genuine forecasting generalization. In addition, a single aggregate score cannot fully characterize model capabilities across distinct temporal structures and input relationships. We propose CaFE (Capability-Focused Evaluation), a refreshable evaluation extension grounded in original benchmark data that enriches static benchmarks with structural diversity and enriches single-score black-box evaluation with multi-dimensional, capability-oriented assessment. CaFE first profiles the original benchmark and defines eight Structural Features (SFs) that characterize its temporal structure. For each SF, it resamples the original data according to its structural support, removes edge-of-distribution samples, and augments the retained samples by varying the SF's salience, producing samples with different structural profiles. After filtering out out-of-distribution samples while preserving diversity, CaFE yields a refreshed evaluation set. TSFMs are then evaluated on this set using both conventional forecast-error metrics and intervention-response metrics, giving each model a per-feature capability profile alongside endpoint accuracy. Experiments on GIFT-Eval and FEV-Mini20 show that CaFE yields stable evaluation results and reveals per-feature strengths and weaknesses that a single aggregate score hides. Moreover, on genuine data filtered by structural condition, models selected by CaFE outperform those chosen by the aggregate leaderboard. CaFE therefore makes model selection conditional on the structural response of interest.",
+      "authors": [
+        "Hongyin Zhang, Mingyi Xiang, Rongzhao Chen, Yankai Wang, Jialin Qiao, Xiangdong Huang, Xiaoou Ding, Chen Wang, Zhongyi Pei, Jianmin Wang"
+      ],
+      "published": "2026-10-19T12:10:42Z",
+      "updated": "2026-10-19T12:10:42Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26251",
+      "pdf_url": "https://arxiv.org/pdf/2610.26251",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.26114",
+      "title": "From Retrieval to Recognition:Knowledge-Enhanced Post-training of Time Series Foundation Models for Classification",
+      "abstract": "Time series foundation models (TSFMs) have achieved notable progress in classification tasks through large-scale pretraining. However, their post-training practice mainly focuses on implicit parameter fine-tuning, where task-relevant information is entangled with abundant irrelevant knowledge in vast parameter spaces. This may hinder TSFMs from precisely activating useful knowledge for downstream classification. To this end, we propose Retrieval-to-Recognition (R2R), a plug-and-play post-training paradigm that adapts pretrained TSFMs to time series classification. Rather than pretraining a new foundation model, R2R improves how existing TSFMs are post-trained: it introduces a decoupled query encoder to extract discriminative patterns and retrieve instance-level numerical knowledge from a constructed knowledge base. The retrieved explicit knowledge is then fused with the TSFM's implicit parametric embeddings, enabling joint knowledge transfer at both the parameter and feature levels. In this way, R2R allows TSFMs to recall task-relevant patterns learned during pretraining, improving the efficiency of knowledge utilization in downstream classification transfer. Experiments on 158 time series datasets show that R2R consistently improves the classification performance of state-of-the-art TSFMs. Ablation and knowledge-enhanced studies further validate the effectiveness of the proposed framework.",
+      "authors": [
+        "Zhen Liu, Yucheng Wang, Yingpeng Du, Tianjun Wei, Qianli Ma, Min Wu, Jie Zhang, Zhu Sun"
+      ],
+      "published": "2026-10-19T10:09:12Z",
+      "updated": "2026-10-19T10:09:12Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26114",
+      "pdf_url": "https://arxiv.org/pdf/2610.26114",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.26002",
+      "title": "TimesJev: Thinking Fast on Time Series with System 1 Sufficiency",
+      "abstract": "Large language models (LLMs) have recently shown strong potential for time series reasoning, while models that reason over time series are usually with long chains of thought. However, this process often consumes thousands of tokens, directly leading to substantial latency during inference. In contrast, System 1 models such as Jev make decisions instantly and can naturally be an alternative, but raw time series are not compatible with the embedding space of these models, thus hindering the reasoning performance, especially when input series contain thousands of numeric points. In this paper, we make a very early attempt to propose a time series System 1 model, namely TimesJev. Specifically, we first formalize System 1 sufficiency in time series reasoning, which motivates a compressed representation for time series with key frequency patterns preserved. To construct this representation, we derive a dimension reduction objective that combines (i) a sufficiency divergence that measures the core information lost during compression, and (ii) a realizability divergence that quantifies the incompatibility of the System 1 model to the optimal prediction given this representation. We optimize this objective by learning time series compression with a gating mechanism for sufficiency, and then aligning the selected representation with the embedding space for realizability. Finally, experiments on 13 datasets demonstrate that TimesJev outperforms reasoning models by over 62% with 62.9% less inference time than their fine-tuned versions on average.",
+      "authors": [
+        "Chenghao Liu, Wei Fan, Jindong Han, Dongjie Wang, Aniket Mahanti, Pengyang Wang, Hao Liu"
+      ],
+      "published": "2026-10-19T08:26:07Z",
+      "updated": "2026-10-19T08:26:07Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26002",
+      "pdf_url": "https://arxiv.org/pdf/2610.26002",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25764",
+      "title": "ActTime: Action-Conditioned World Modeling for Time Series",
+      "abstract": "Time-series models increasingly condition on known future inputs. In controlled systems, some of these inputs are actions that can be changed, compared, and optimized before execution. A model must therefore do more than predict the realized future: it must predict how outcomes change under different actions from the same observed history and support reliable comparison of candidate plans. We introduce ActTime, an action-conditioned world model for time series. Over the observed history, ActTime updates variable-specific latent states through an action-conditioned transition and corrects them using observations. It then rolls the same transition forward under candidate actions to generate future trajectories. Training uses only factual trajectories, without paired alternative-action outcomes or planning supervision. We construct a simulator-grounded evaluation suite across building energy, traffic, greenhouse climate, and inventory management, covering factual prediction, intervention-effect prediction, offline decision making, and closed-loop planning. ActTime ranks first in 12 of 16 domain-task settings. Across eight methods, the mean pairwise model-ranking reversal rate is 17.8% between factual prediction and intervention fidelity, and rises to 28.4% between intervention fidelity and decision ranking. These results show that factual accuracy, intervention fidelity, and decision quality are related but not interchangeable.",
+      "authors": [
+        "Xinxing Zhou, Xiaojie Yuan, Yanlong Wen, Ming Jin"
+      ],
+      "published": "2026-10-19T04:24:17Z",
+      "updated": "2026-10-19T04:24:17Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25764",
+      "pdf_url": "https://arxiv.org/pdf/2610.25764",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25584",
+      "title": "CVTA: Cross-Variable Temporal Attention for Multivariate Irregular Time Series Prediction",
+      "abstract": "Irregularly sampled multivariate time series arise in many real-world domains such as healthcare, climate science, and large-scale monitoring systems. Characterized by asynchronous observations and heterogeneity across variables, such time series pose significant challenges for forecasting. In this work, we introduce Cross-Variable Temporal Attention (CVTA), a short-term, continuous-time forecasting framework that learns prediction functions from its compact, interpretable state summarizing recent temporal dynamics across variables. CVTA uses Variable-Conditioned Embeddings to project heterogeneous variables into variable-specific latent spaces, and applies temporal attention to capture cross-variable dependencies from this state. Furthermore, we demonstrate that CVTA can be integrated as an auxiliary module into existing state-of-the-art prediction models through a dynamic meta-decision model. Extensive experiments on multiple real-world benchmarks show that CVTA achieves strong short-term predictive accuracy, supports efficient online inference, improves existing prediction models when used as an auxiliary module, and learns attention patterns that align well with domain knowledge.",
+      "authors": [
+        "Ankitkumar Joshi, Milos Hauskrecht"
+      ],
+      "published": "2026-10-18T23:21:32Z",
+      "updated": "2026-10-18T23:21:32Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25584",
+      "pdf_url": "https://arxiv.org/pdf/2610.25584",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25523",
+      "title": "FracTS: Hierarchical and Autoregressive Time Series Generation",
+      "abstract": "Time series are ubiquitous across different domains, and the growing use of synthetic data for privacy-preserving sharing, data augmentation, and stress testing makes time series generation increasingly important. Early generative approaches are predominantly autoregressive, which can suffer from low sample diversity, error accumulation, and difficulty modeling long-range dependencies. In this paper, we introduce FracTS, a hierarchical, coarse-to-fine autoregressive model for multivariate time series generation. Inspired by fractal generative modeling developed for images, FracTS adapts the paradigm from 2D to 1D sequences by learning a multi-scale representation that captures global trajectory structure at coarse scales and local dynamics at fine scales while following the autoregressive nature of time series. In contrast to unstructured images, time series are structured, allowing easy automated or designated temporal feature processing optimized for the model, and global (static) feature extraction describing the instances that generate the corresponding time series in the collection. We incorporate them in the generation process to further improve the generation quality. The design naturally handles multivariate dependencies and improves long-horizon temporal coherence without requiring fixed-length inputs. Experiments on five datasets (two conditional, three unconditional) conducted against seven baselines show that FracTS consistently outperforms baselines across marginal distribution and predictive ML utility, and correlation preservation in the unconditional setting. In particular, the predictive ML utility is averagely improved by 100.0% and 75.0-81.0% for unconditional and conditional time series datasets compared to the best baseline (relative error computed on dataset-averaged raw values). Code is available at: https://github.com/BetterdataLabs/fracts.",
+      "authors": [
+        "Jiayu Li, Umair Afzal, Zilong Zhao, Milad Abdollahzadeh, Uzair Javaid, Biplab Sikdar"
+      ],
+      "published": "2026-10-18T20:35:23Z",
+      "updated": "2026-10-18T20:35:23Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25523",
+      "pdf_url": "https://arxiv.org/pdf/2610.25523",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25392",
+      "title": "Paloma: Phase-Conditioned Residual Modulation for Time Series Forecasting",
+      "abstract": "Explicitly modeling periodicity has proven to be an efficient approach for time series forecasting, where the residual, obtained after removing the periodic component from the time series, is typically treated as unstructured noise. However, in this work, we show that such residuals still exhibit structured, \\textit{phase-dependent} deviations, as supported by both empirical observations and theoretical analysis. This suggests that residuals should not be treated merely as unstructured noise, but instead as \\textit{phase-conditioned signals} whose variations arise in both direction and magnitude. Motivated by this perspective and inspired by phase and amplitude modulation in classical signal processing, we propose \\textit{Paloma}, a simple yet effective framework for modeling residual deviations. Specifically, Paloma comprises two complementary modules: \\textit{a Phase Rotation module}, which performs phase-conditioned rotations to capture directional changes in the feature space, and \\textit{an Amplitude Scaling module}, which applies phase-conditioned affine transformations to model magnitude variations. We further abstract the two modules into a general-purpose plugin, termed the \\textit{Paloma technique}, which can be readily integrated into existing forecasting architectures to modulate input sequences in a phase-aware manner, enabling backbone models to capture phase-dependent variations in both direction and magnitude. Extensive experiments on twelve datasets demonstrate that Paloma achieves state-of-the-art and robust forecasting performance. Additional results show that the Paloma technique consistently improves a wide range of baseline models, validating its effectiveness as a general-purpose component. Our Code is available at \\url{https://github.com/TSTS13/Paloma}.",
+      "authors": [
+        "Jingru Fei, Wei Fan, Kun Yi, Qi Zhang, Zhendong Niu"
+      ],
+      "published": "2026-10-18T16:45:09Z",
+      "updated": "2026-10-18T16:45:09Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25392",
+      "pdf_url": "https://arxiv.org/pdf/2610.25392",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25283",
+      "title": "Data-driven forecasting of tropical cloud forest phenology: A dynamical systems and machine learning hybrid approach",
+      "abstract": "Forecasting how species and ecosystems respond to climate change is a critical challenge in ecology, particularly in hyper-diverse tropical biomes. While traditional phenological models often rely on preconceived functional forms, this study introduces a data-driven hybrid approach that integrates dynamical systems theory with machine learning to forecast flowering and fruiting cycles. Using a robust 35-year dataset from a Venezuelan tropical cloud forest, we reconstruct the system's state-space using delay vectors inspired by Takens' theorem, incorporating climate forcing variables such as temperature and precipitation. The model was trained using Gaussian Process Regression, providing both point predictors and explicit uncertainty estimates. Our results clearly suggest that the synergy between dynamical systems and machine learning effectively captures the non-linear complexities of ecological time series. Specifically, the model achieved higher predictive accuracy for flowering and fruiting. This hybrid framework offers a scalable tool for anticipating phenological mismatches and informing conservation strategies in the face of global environmental change.",
+      "authors": [
+        "Pedro Garcia and Saul Flores"
+      ],
+      "published": "2026-10-18T14:03:41Z",
+      "updated": "2026-10-18T14:03:41Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25283",
+      "pdf_url": "https://arxiv.org/pdf/2610.25283",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25263",
+      "title": "EasyResearch: Honest Regression, Forecasting and Signal Classification for Researchers Who Do Not Program",
+      "abstract": "EasyClassifier showed that researchers who do not program can obtain honest classification results when the correct evaluation is the default. Most applied studies, however, predict a number, forecast a series or classify recordings, and each task has its own way of producing scores that do not hold on new data. We present EasyResearch, open-source analysis cores for regression, time-series forecasting and signal classification, and EasyResearch Desktop, a Windows application that runs these three tasks and EasyClassifier's classification without code. All four follow the same rules: everything learned from data is learned on training data only, models keep their published defaults with fixed seeds, the selected model receives a separate final score, forecasts are never evaluated on shuffled data, and every run writes a report with a Methods paragraph and the references for every method used. We measured whether the reported scores are honest by keeping part of each dataset untouched. In regression (9 public datasets, 90 runs), the common practice overstated R^2 by +2.2 points and the best comparison score by +2.5, while EasyResearch's final score was -1.0; screening predictors on all rows before cross-validation, which EasyResearch does not offer, reported R^2 = 0.27 on pure noise against -0.44 on new data. In forecasting (15 series), shuffled cross-validation over windows of past values promised errors 19% smaller than its chosen models achieved in the untouched future, while EasyResearch's final-period score was unbiased to within 1.5%; the models EasyResearch chose had 14% lower future error, and on random walks shuffled cross-validation chose a machine-learning model in 5 of 5 series, each worse in the future than repeating the last value, which EasyResearch chose 4 times. In signal classification (4 UCR datasets) one method won every comparison and neither estimate was biased.",
+      "authors": [
+        "Ahmad B. A. Hassanat, and Ghada A. Altarawneh"
+      ],
+      "published": "2026-10-18T13:33:44Z",
+      "updated": "2026-10-18T13:33:44Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25263",
+      "pdf_url": "https://arxiv.org/pdf/2610.25263",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.25059",
+      "title": "HCFM: Helmholtz Component Flow Matching for Time Series Anomaly Detection",
+      "abstract": "Flow Matching (FM) is an efficient simulation-free approach for training flow-based generative models, making it a promising foundation for scalable time-series anomaly detection (TSAD). However, standard FM learns a monolithic vector field in which nominal transport and local density-changing behavior are entangled. This creates a central challenge for TSAD; local expansion and contraction carry crucial anomaly-sensitive information, yet isolating this signal requires expensive Jacobian-trace estimation over the entire field. We propose \\emph{Helmholtz Component Flow Matching} (HCFM), an unsupervised TSAD framework that parameterizes the vector field prediction network with separate transport, compression, and residual heads. The transport head is constrained to be divergence-free, so divergence estimation is restricted to the compression head, while a lightweight residual head absorbs the remaining mismatch. This structured parameterization improves scalability and detection performance by separating volume-preserving nominal transport from density-changing compression, yielding cleaner anomaly signals from distinct deviations of nominal behavior. Experiments on large-scale univariate and multivariate TSAD benchmarks show that HCFM consistently improves detection accuracy while maintaining efficient inference compared with 16 baselines. The code is available at https://github.com/TrustAIoT/HCFM__time-series-anomaly/",
+      "authors": [
+        "Shyam Sundar Saravanan, Tie Luo, Sanjay Madria"
+      ],
+      "published": "2026-10-18T06:58:40Z",
+      "updated": "2026-10-18T06:58:40Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.25059",
+      "pdf_url": "https://arxiv.org/pdf/2610.25059",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.24585",
+      "title": "DeliMF: Gated Cross-Attention Fusion of Structured Time Series and Clinical Text for Early Intensive Care Delirium Prediction",
+      "abstract": "Delirium affects a large fraction of intensive care unit (ICU) patients and foreshadows longer stays, lasting cognitive decline, and higher mortality. Flagging the patients who will become delirious within the first day of admission would give clinicians a window to intervene. Yet state-of-the-art predictors rely only on the structured electronic health record (EHR) of vital signs, laboratory values, and medications, while overlooking the free-text clinical notes written in the same window, which carry information the numbers cannot encode. To this end, we present DeliMF, a multimodal framework that fuses the structured time series with clinical text. It encodes the structured signals with a temporal Transformer and the time-stamped radiology reports with a clinical text encoder, and fuses the two through a gated cross-attention module. The gate learns a per-patient weight on the text; when a patient has no note the gate closes and DeliMF reduces to its structured-only form, giving robustness to missing text by construction. On an incident-only MIMIC-IV cohort, DeliMF improves significantly over the baselines, particularly on patients who carry clinical text, while losing nothing on those without. Ablation studies confirm the contribution of multimodal fusion and gated cross-attention, and a case study further shows that fusing clinical text with the structured stream recovers delirium cases that the structured data alone misses. We hope DeliMF encourages early ICU prediction to make fuller use of the overlooked clinical text and contributes to the early identification and timely intervention of delirium.",
+      "authors": [
+        "Yibo Yang, Zerui Huang, Haomiao Yang, Zixia Wang"
+      ],
+      "published": "2026-10-17T09:37:51Z",
+      "updated": "2026-10-17T09:37:51Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.24585",
+      "pdf_url": "https://arxiv.org/pdf/2610.24585",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.24501",
+      "title": "HiPPO Functional Memory: Coordinate-Queryable Attention for Irregular Time Series",
+      "abstract": "Irregular time series require models to answer temporal queries at arbitrary coordinates, yet existing approaches typically retain observation-dependent representations that must be repeatedly resolved for each query. We introduce HiPPO Functional Memory (HiPPO-FM), a functional-memory attention operator that compiles an irregular history into a reusable coordinate-addressable state. Instead of storing observation-indexed tokens or latent trajectories, HiPPO-FM writes observations into a fixed-rank functional space and performs direct coordinate evaluation through matched functional geometry. Kernel-smoothed HiPPO coordinates and Gram-based readout define a shared write/read mechanism, while observed-support self-attention enables content-dependent representations before compression. We characterize the induced finite-dimensional query space and derive an error decomposition separating functional geometry approximation from learned-memory mismatch. Across continuous-coordinate reconstruction, irregular representation learning, real-world extrapolation, and event-sequence prediction, HiPPO-FM consistently improves strong irregular time-series baselines, achieving strong reconstruction accuracy on Spiral, competitive performance across 20 UEA datasets, improved real-world extrapolation, and superior results on several irregular event benchmarks. After encoding, the compact functional state can be reused across different query sets without reprocessing the observation history.",
+      "authors": [
+        "Zhaodong Guo (Imperial College London), Haoyun Feng (Imperial College London)"
+      ],
+      "published": "2026-10-17T06:52:49Z",
+      "updated": "2026-10-17T06:52:49Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.24501",
+      "pdf_url": "https://arxiv.org/pdf/2610.24501",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.24386",
+      "title": "Learning volatility-adaptive forgetting via GARCH-modulated LSTM for stock price forecasting",
+      "abstract": "Stock price forecasting is hindered by the heteroscedastic nature of financial time series, in which turbulent and tranquil regimes alternate. Although the Long Short-Term Memory (LSTM) network is widely used for this task, its gates are oblivious to such volatility variation, so memory retention remains fixed regardless of market conditions. A common remedy is to supply volatility estimates as an additional input feature, yet this leaves the internal memory dynamics untouched. Instead, volatility can serve as a direct regulatory signal over the gate activation itself. This paper presents the Gsigmoid-LSTM model, which embeds Generalized Autoregressive Conditional Heteroscedasticity (GARCH(1,1))-derived volatility estimates into the LSTM forgetting gate through the Gsigmoid activation function, a volatility-adaptive variant of the sigmoid that combines a volatility adjustment factor with slope regulation via a learnable parameter. The model thereby automatically prioritizes recent information during turbulent periods while preserving long-term dependencies in stable markets. In the engineering application of daily stock price forecasting, extensive experiments, including activation function comparisons, baseline evaluations, and ablation studies, demonstrate that this structural gating modification effectively improves forecasting accuracy and robustness. The proposed model significantly outperforms a feature-level fusion baseline carrying the same volatility signal on all five datasets, as confirmed by Diebold-Mariano tests with all p<0.01, attains the best average rank of 1.00 in the Friedman test across nine models, and achieves the lowest MSE and MAE on all five datasets.",
+      "authors": [
+        "Xin-Rui Lu, Da-Qing Zhang"
+      ],
+      "published": "2026-10-17T02:41:45Z",
+      "updated": "2026-10-17T02:41:45Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.24386",
+      "pdf_url": "https://arxiv.org/pdf/2610.24386",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.24384",
+      "title": "A decomposition-integration framework coupling singular spectrum analysis with a volatility-adaptive LSTM for stock price forecasting",
+      "abstract": "Financial time series exhibit multi-scale, high-noise, and non-stationary volatility dynamics. Decomposition--integration frameworks built on complete ensemble empirical mode decomposition with adaptive noise (CEEMDAN) have advanced this field, yet existing CEEMDAN hybrids remain unstable: high-frequency mode mixing contaminates downstream predictors, and the heterogeneous volatility of decomposed components is not matched by any volatility-adaptive mechanism. To address these gaps, this paper proposes CEEMDAN-SE-SSA-VMGL. CEEMDAN adaptively decomposes the original series, and sample-entropy-driven K-means clustering groups the intrinsic mode functions into high-, mid-, and low-frequency and residual components. Singular spectrum analysis (SSA) is then applied to the high-frequency group, whose singular-value decomposition of the trajectory matrix and principal-component reconstruction decouple intertwined pseudo-oscillatory modes and alleviate mode mixing. We further design a plug-and-play robust LSTM variant, the volatility-modulated GARCH-LSTM (VMGL), which embeds a differentiable GARCH(1,1) layer inside the LSTM cell as a risk gate; the estimated conditional volatility multiplicatively scales the forget-gate activation, letting memory decay adapt to the instantaneous volatility while remaining fully end-to-end trainable. Component predictions are linearly combined. On five US and Chinese financial series (CSI 300, CSI 500, AAPL, GOOGL, S&P 500), the proposed model is compared with eleven benchmark architectures, lowering the forecasting error by 9% to 24% relative to the best benchmark and by 60% to 70% relative to a standard LSTM. Diebold--Mariano and model-confidence-set (MCS) tests confirm the statistical significance and stability of the gains, spectral analyses verify the SSA denoising efficacy, and backtesting demonstrates the framework's economic utility.",
+      "authors": [
+        "Xin-Rui Lu, Da-Qing Zhang"
+      ],
+      "published": "2026-10-17T02:39:54Z",
+      "updated": "2026-10-17T02:39:54Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.24384",
+      "pdf_url": "https://arxiv.org/pdf/2610.24384",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.24321",
+      "title": "Morpheus-2.0: Multiscale Probabilistic Forecasting with Dual-Axis Attention",
+      "abstract": "A universal forecaster is trained once and applied everywhere, so it must serve tasks whose schemas, forecast horizons, and temporal resolutions all differ. The number of targets and covariates changes from dataset to dataset, horizons vary by orders of magnitude, and sampling rates range from seconds to years. Existing time-series foundation models address these only in part, since they isolate each series or visit the two grid relations in separate blocks, and they fix the horizon and resolution before training begins. We introduce Morpheus-2.0, a compact encoder-only foundation model that represents targets and covariates on a single variable-time grid. Its dual-axis attention runs both relations side by side in every layer, one across variables at a timestep and one across time within a variable; a learned gate weights the two per layer, and an axis-aware rotary encoding preserves both grid coordinates. The forecast length is sampled during training, so one set of weights spans short to long horizons at no additional inference cost. Morpheus-2.0 Multiscale extends the model to several temporal resolutions at once, weighting them according to the series being forecast. Across GIFT-Eval, which spans several domains and frequencies, the two models give complementary operating points: Morpheus-2.0 attains 0.685 relative MASE with 81M parameters, while the larger Morpheus-2.0 Multiscale attains 0.646 relative MASE and 0.455 relative CRPS, the lowest of any published system on both metrics.",
+      "authors": [
+        "Aakriti, Manoj Cherukumalli, Prathamesh Patil, Leonidas Tsepenekas, Amit Varshney, Penghang Liu, Elizabeth Fons, Vamsi Potluru"
+      ],
+      "published": "2026-10-16T23:37:01Z",
+      "updated": "2026-10-16T23:37:01Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.24321",
+      "pdf_url": "https://arxiv.org/pdf/2610.24321",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
       "id": "2610.23735",
       "title": "LagNet: Lag-Structured Operators for Long-Term Time Series Forecasting",
       "abstract": "Long-term time series forecasting maps a finite history window to an extended future horizon. Many existing models focus primarily on the design of input representations and model structures, while paying less attention to the structural form of the history-to-future forecasting operator itself. We examine this operator directly and find that, across model families, sensitivity matrices exhibit recurring diagonal patterns whose diagonals correspond to relative temporal lags. Motivated by this observation, we develop a framework for direct multi-step forecasting based on lag-structured temporal operators. Its basic building block, LagLayer, constructs a Toeplitz matrix by tying history-to-future connections with the same relative lag and incorporates horizon-wise and history-wise scaling coefficients to relax exact sharing. This design enables LagLayer to serve as an effective replacement for temporal linear layers in existing forecasting models. Stacking LagLayer modules with activations and multiple feature maps yields LagNet. Experiments on long-term time series forecasting benchmarks show that our method is competitive with strong baselines, while sensitivity matrix diagnostics and limited-data experiments demonstrate that LagLayer provides an effective and sample-efficient alternative to a linear layer.",
@@ -38,13 +351,13 @@
     {
       "id": "2610.23394",
       "title": "Forecasting Voltage Time Series under Anomalies Using a WGAN Model With Lipschitz Control and Progressive Kernel Critic Strategy",
-      "abstract": "In time-series forecasting tasks, the use of recursive forecasting on high-dimensional data substantially increases the complexity of the prediction process. The main challenge is that long-term dynamics becomes harder to model, since the sequences show greater temporal variability. To counteract this limitation and improve the modeling of long-term dynamics, and more importantly, address high-dimensional recursive forecasting, this paper uses a Wasserstein GAN equipped with a progressive Lipschitz penalty and an adaptive kernel. This model is capable of taking a window of the data stream and forecasting the next values, subsequently reconstructing the time-series stream and dynamically adapting its kernel to each new window. The proopsed model is a deep learning framework based on a Wasserstein GAN (WGAN-CLP) with an adaptive kernel to model alterations in streaming voltage time series. To establish the methodological foundation, we review the WGAN-LP formulation another variant model in this class and extend its framework through an adaptive kernel critic model. We then evaluate this extended model using power ratios, correlation coefficient (CC), and relative root mean squared error (RRMSE). The experimental results demonstrate that the proposed model outperforms benchmark methods in both accuracy and robustness. The evaluation shows promising performance of the WGAN-CLP with an adaptive kernel framework in forecasting sequence alterations across the voltage and energy time-series datasets.",
+      "abstract": "In time-series forecasting tasks, the use of recursive forecasting on high-dimensional data substantially increases the complexity of the prediction process. The main challenge is that long-term dynamics becomes harder to model, since the sequences show greater temporal variability. To counteract this limitation and improve the modeling of long-term dynamics, and more importantly, address high-dimensional recursive forecasting, this paper uses a Wasserstein GAN equipped with a progressive Lipschitz penalty and an adaptive kernel. This model is capable of taking a window of the data stream and forecasting the next values, subsequently reconstructing the time-series stream and dynamically adapting its kernel to each new window. The proposed model is a deep learning framework based on a Wasserstein GAN (WGAN-CLP) with an adaptive kernel to model alterations in streaming voltage time series. To establish the methodological foundation, we review the WGAN-LP formulation another variant model in this class and extend its framework through an adaptive kernel critic model. We then evaluate this extended model using power ratios, correlation coefficient (CC), and relative root mean squared error (RRMSE). The experimental results demonstrate that the proposed model outperforms benchmark methods in both accuracy and robustness. The evaluation shows promising performance of the WGAN-CLP with an adaptive kernel framework in forecasting sequence alterations across the voltage and energy time-series datasets.",
       "authors": [
         "Najmieh Sadat Safarabadi"
       ],
       "published": "2026-10-16T12:52:32Z",
-      "updated": "2026-10-16T12:52:32Z",
-      "metadata_updated": "2026-10-19T00:00:00Z",
+      "updated": "2026-10-19T11:30:24Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.23394",
       "pdf_url": "https://arxiv.org/pdf/2610.23394",
       "first_seen": "2026-10-19T21:04:24.143131Z",
@@ -419,8 +732,8 @@
         "Chengyi Pan, Huangqimei Zheng, Hao Xue"
       ],
       "published": "2026-10-14T09:05:13Z",
-      "updated": "2026-10-14T09:05:13Z",
-      "metadata_updated": "2026-10-15T00:00:00Z",
+      "updated": "2026-10-17T05:28:22Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.19831",
       "pdf_url": "https://arxiv.org/pdf/2610.19831",
       "first_seen": "2026-10-15T04:41:48.057003Z",
@@ -461,6 +774,23 @@
       "topics": [
         "time-series-forecasting",
         "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.23982",
+      "title": "Time-JEPA: Grounding Video World Models with Physical Time Series",
+      "abstract": "Video world models learn how visual environments evolve by predicting missing or future content. However, physical-state information can provide useful context for predicting how environments evolve. Prior work incorporates this information through different mechanisms: domain-specific physical laws can complicate multi-domain training, while supervision on individual frames or frame pairs gives limited attention to how physical state evolves over time. We introduce Time-JEPA, which fine-tunes a video world model using low-dimensional, temporally aligned physical time series as auxiliary supervision. Physical time series connect video representations with physical state at corresponding temporal positions, encouraging the model to preserve how physical state evolves. In multiple domains including autonomous driving, robot manipulation, and human motion, Time-JEPA improves current-state decoding, multi-horizon future-state prediction, and kinematic reconstruction over matched video-fine-tuned controls across both condition and state-variable distribution shifts. Multi-domain training provides aggregate gains over matched single-domain training in all three tasks. External evaluations further suggest that time-series supervision improves sensitivity to physical anomalies and the representation of physical interactions, including in unseen scenarios. Aggregate gains on a second video backbone indicate that the method can be applied to more backbones. These results suggest that physical time series help video world models better understand the physical world.",
+      "authors": [
+        "Shenyi Li, Ziyang Zhang, Wen Wu, Ming Liu, Chao Zhang"
+      ],
+      "published": "2026-10-14T07:29:36Z",
+      "updated": "2026-10-14T07:29:36Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.23982",
+      "pdf_url": "https://arxiv.org/pdf/2610.23982",
+      "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
       ]
     },
     {
@@ -626,8 +956,8 @@
         "Ziyang Zhang, Shenyi Li, Yilin Wang, Ziyun Cui, Bowen Zhou, Wen Wu, Chao Zhang"
       ],
       "published": "2026-10-13T07:20:58Z",
-      "updated": "2026-10-14T05:39:34Z",
-      "metadata_updated": "2026-10-15T00:00:00Z",
+      "updated": "2026-10-19T08:33:03Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.17856",
       "pdf_url": "https://arxiv.org/pdf/2610.17856",
       "first_seen": "2026-10-15T04:41:48.057003Z",
@@ -1666,14 +1996,14 @@
     },
     {
       "id": "2610.07834",
-      "title": "Retrieval Is Not Enough: Refreshing Memory for Frozen Time-Series Forecasters",
-      "abstract": "Retrieval-augmented time-series forecasting uses the continuations of historical segments similar to the current context as references for a forecaster. Most existing methods build the retrieval memory once from the training segment, leaving observations revealed after deployment unavailable as references, and generally do not calibrate how much the retrieved information should influence a frozen forecaster. We identify two key determinants of retrieval utility for a frozen forecaster: whether the history still reflects the current state, and whether the correction it induces aligns with the forecaster's residual errors, an alignment that can shift between validation and deployment when the memory becomes stale. We propose FreshCast, a plug-in retrieval framework that keeps the forecaster frozen, continuously updates a non-parametric memory with new observations, forms a memory forecast through relational kernel regression, and calibrates its weight in closed form on the validation segment. Under a simplified generative model, we characterize the optimal combination gain through the second-order relation between forecaster error and memory correction, and show that a sufficiently long look-back can make periodic memory information redundant. Across seven benchmarks and ten forecasting architectures, FreshCast reduces average MSE for every evaluated forecaster and input length, by 14.6% and 5.6% at input lengths 96 and 720, and achieves lower MSE than the evaluated retrieval-augmented and online baselines in their comparison settings. Ablations show that freezing the memory at the end of training removes most of the gain, identifying post-training observations as a primary source of improvement. For a frozen forecaster, useful historical references must remain timely and provide information that helps correct its remaining errors.",
+      "title": "FreshCast: Timely and Complementary Retrieval for Frozen Time Series Forecasters",
+      "abstract": "Retrieval-augmented forecasting for Web and online services supplements a forecaster with the continuations of historical segments that resemble the current context. Most existing methods build the retrieval memory once from the training segment, leaving observations revealed after deployment unavailable as references, and generally do not calibrate how much retrieved information should influence a frozen forecaster. We identify two key determinants of retrieval utility for a frozen forecaster: the timeliness of the retrieved history and its complementarity, i.e., whether the correction it induces aligns with the forecaster's residual errors; this alignment can shift between validation and deployment when the memory becomes stale. We propose FreshCast, a plug-in retrieval framework for frozen forecasters: a non-parametric streaming memory keeps writing in new observations, relational kernel regression weights candidate readouts into a memory forecast, and its correction weight is calibrated in closed form on the validation segment. Under a simplified generative model, we characterize the optimal combination gain through the second-order relation between forecaster error and memory correction, and show that periodic memory information can become redundant once the forecaster captures it. Across seven datasets, ten forecasters, and three input lengths, FreshCast reduces average MSE for every forecaster and input length, by 14.0% and 5.7% at L = 96 and 720, and achieves lower average MSE than the evaluated retrieval-augmented and online updating baselines in their comparison settings. Ablations show that post-training observations are a primary source of the gain: freezing the memory at the end of training removes most of it. For a frozen forecaster, similarity alone is not enough: useful retrieval must stay timely and provide information that the forecaster still misses.",
       "authors": [
         "Chao He, Jianyu Xu, Xinyi Guo, Ruiqi Liu, Haobin Ding, Ruiqi He, Yuntong Xie, Dongqing Song"
       ],
       "published": "2026-10-06T06:33:16Z",
-      "updated": "2026-10-07T01:09:43Z",
-      "metadata_updated": "2026-10-08T00:00:00Z",
+      "updated": "2026-10-17T16:36:45Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.07834",
       "pdf_url": "https://arxiv.org/pdf/2610.07834",
       "first_seen": "2026-10-07T21:59:28.995566Z",
@@ -2687,11 +3017,11 @@
       "title": "TRACE: A Reproducible Benchmark for Electricity Price Forecasting with Official Operational Text",
       "abstract": "Electricity price forecasting (EPF) supports scheduling, bidding, and risk management in electricity markets, yet existing benchmarks focus mainly on numerical inputs, leaving the forecasting value of forecast-time textual context insufficiently evaluated. We introduce TRACE, a reproducible benchmark of 7,300 zone--day instances pairing prices from five zones in a major U.S. market with official operational text available at the forecast cutoff. TRACE reconstructs official operational text at each cutoff, preventing post-cutoff information leakage. We evaluate TRACE for semantic alignment and forecasting value. Semantic assessments align with central movement and both tail risks in ground-truth prices, most consistently for upper-tail price risk. Forecasting value is reflected in a median 7.4\\% reduction in upper-tail pinball loss across time-series foundation models. A controlled cross-day text-mismatch ablation reverses the gains, falling below the no-text baseline.",
       "authors": [
-        "Xinyi Yi, Moy Yuan, Ioannis Lestas"
+        "Xinyi Yi, Zhangdie Yuan, Ioannis Lestas"
       ],
       "published": "2026-09-30T20:44:33Z",
-      "updated": "2026-09-30T20:44:33Z",
-      "metadata_updated": "2026-10-05T00:00:00Z",
+      "updated": "2026-10-17T00:31:44Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.02256",
       "pdf_url": "https://arxiv.org/pdf/2610.02256",
       "first_seen": "2026-10-05T22:38:43.131532Z",
@@ -3185,8 +3515,8 @@
         "Yu-Cheng Wu, Fan-Keng Sun, Li-Chun Lu, Duane S. Boning"
       ],
       "published": "2026-09-29T01:15:46Z",
-      "updated": "2026-09-29T01:15:46Z",
-      "metadata_updated": "2026-09-30T00:00:00Z",
+      "updated": "2026-10-19T17:14:34Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.36453",
       "pdf_url": "https://arxiv.org/pdf/2609.36453",
       "first_seen": "2026-09-30T00:28:47.401026Z",
@@ -4793,8 +5123,8 @@
         "Md Musfiqur Rahman Sanim, Zhihao Shu, Bahram Afsharmanesh, Amirali Mirian, Wei Niu, Gagan Agrawal"
       ],
       "published": "2026-09-19T01:07:25Z",
-      "updated": "2026-09-19T01:07:25Z",
-      "metadata_updated": "2026-09-22T00:00:00Z",
+      "updated": "2026-10-19T00:43:55Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.22674",
       "pdf_url": "https://arxiv.org/pdf/2609.22674",
       "first_seen": "2026-09-23T01:03:01.516195Z",
@@ -9037,17 +9367,11 @@
       "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
       "abstract": "Due to the diversity of real-world time series, no single forecasting model consistently dominates across all samples. Ensemble learning addresses this by combining complementary model strengths, yet existing methods rely on fixed rules or black-box models based solely on numerical inputs, failing to leverage LLM reasoning for interpretable weighting decisions. We propose REATS, which leverages LLM reasoning capabilities as an intelligent ensemble router that jointly processes textual temporal pattern descriptions and numerical features to produce interpretable, sample-adaptive ensemble weights through chain-of-thought reasoning. To enable effective LLM-based ensembling, we study its key design choices and propose: (i) a structured input pipeline that transforms raw time series into hybrid textual--numerical representations with fixed token cost, enabling rule-based chain-of-thought construction without API dependency, augmented with retrieved similar-sample priors; (ii) a diverse multi-row weight supervision scheme coupled with a token-efficient percentage-table format that reduces numerical complexity and mitigates LLM hallucinations; and (iii) a two-stage fine-tuning framework combining SFT with GRPO, where a reciprocal reward mapping transforms the continuous unbounded MSE gap into bounded signals with amplified near-oracle sensitivity, addressing the uniform sensitivity and outlier-dominated advantage compression inherent in naive reward designs for regression-based GRPO. Experiments on eight benchmarks demonstrate that REATS outperforms competitive ensemble baselines while providing natural language explanations and demonstrating strong transfer learning and out-of-domain generalization to unseen candidate models.",
       "authors": [
-        "Xu Zhang",
-        "Chang Xu",
-        "Hui Sun",
-        "Nan Ma",
-        "Zijian Zhang",
-        "Peng Wang",
-        "Wei Wang",
-        "Li Zhao"
+        "Xu Zhang, Chang Xu, Hui Sun, Nan Ma, Zijian Zhang, Peng Wang, Wei Wang, Li Zhao"
       ],
       "published": "2026-08-10T19:04:46Z",
-      "updated": "2026-08-10T19:04:46Z",
+      "updated": "2026-10-19T14:52:03Z",
+      "metadata_updated": "2026-10-20T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.10149",
       "pdf_url": "https://arxiv.org/pdf/2608.10149",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -9335,18 +9659,28 @@
       ]
     }
   ],
-  "last_success": "2026-10-19T21:04:24.143131Z",
-  "last_attempt": "2026-10-19T21:04:24.143131Z",
+  "last_success": "2026-10-20T20:36:27.661141Z",
+  "last_attempt": "2026-10-20T20:36:27.661141Z",
   "last_new_ids": [
-    "2610.22430",
-    "2610.22656",
-    "2610.22872",
-    "2610.23027",
-    "2610.23217",
-    "2610.23345",
-    "2610.23394",
-    "2610.23521",
-    "2610.23735"
+    "2610.23982",
+    "2610.24321",
+    "2610.24384",
+    "2610.24386",
+    "2610.24501",
+    "2610.24585",
+    "2610.25059",
+    "2610.25263",
+    "2610.25283",
+    "2610.25392",
+    "2610.25523",
+    "2610.25584",
+    "2610.25764",
+    "2610.26002",
+    "2610.26114",
+    "2610.26251",
+    "2610.26358",
+    "2610.26379",
+    "2610.26582"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -9354,8 +9688,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 3,
-    "records": 2617,
+    "pages": 7,
+    "records": 7818,
     "duplicates": 0
   }
 }
