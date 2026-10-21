@@ -2,6 +2,148 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.28602",
+      "title": "Turning TS2Vec into a Foundation Model for Time Series Classification",
+      "abstract": "TS2Vec is one of the strongest self-supervised methods for time series classification, introduced in 2022. It is designed to be trained anew on every dataset: self-supervised pre-training followed by linear probing. Since then, the field has shifted towards foundation models that reuse one encoder across datasets. Yet TS2Vec offers a compact convolutional architecture that operates directly on temporal samples and accepts variable-length inputs without resampling. We ask whether these properties can be retained when the encoder is pre-trained only once, and show that they can: TS2Vec can essentially be turned into a foundation model. Three changes suffice: pre-train on a synthetic corpus, feed the encoder a raw amplitude view and an instance-normalized shape view of the input through two small stems, and distill one specialist encoder per view into a single encoder. The result, TS2Vec-FM, is a 1.6M-parameter dilated convolutional network that, kept frozen, reaches 83.3% on UCR-128 and 75.3% on UEA-27 under linear probing, within 0.3 pp of MantisV2, the current state of the art, and above TS2Vec trained separately on each target dataset. What we find most interesting is how different TS2Vec-FM is from other foundation models in design: near-parity is reached without attention, without a patch tokenizer, and without intermediate-layer extraction, using an \"old-school\" convolutional encoder and a two-layer MLP stem.",
+      "authors": [
+        "Vasilii Feofanov, Zhenghan Tai, Andrei Ermakov, Irina Rish"
+      ],
+      "published": "2026-10-20T17:47:51Z",
+      "updated": "2026-10-20T17:47:51Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.28602",
+      "pdf_url": "https://arxiv.org/pdf/2610.28602",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.28563",
+      "title": "Asymmetric Bidirectional Predictive Dynamics in Google Search and COVID-19 Time Series: A Multi-Horizon Forecast-Error Analysis",
+      "abstract": "Online search activity is widely used as a digital trace of information seeking during epidemics, but its predictive value is often reduced to correlation, a selected lag, or a single forecast-error score. We examine eight pre-specified Google Trends-COVID-19 pairs in both directions using matched LightGBM forecasts over rolling 400-day windows and horizons of 1-14 days. Log-RMSE gain is combined with forecast-error distribution entropy (FEDE), which captures horizon-dependent changes in the signed error distribution. The resulting directional predictive signature comprises response class, RMSE effect, FEDE endpoint and early-slope responses, persistence across rolling regimes, and horizon profile. For screening candidate directions, we also introduce a relative persistence-weighted directional predictive response strength (DPRS) on a within-study 0-100 scale; 100 denotes the strongest observed response in the comparison set, not an absolute coupling maximum. The pairs show concordant, RMSE-only, FEDE-only, and mixed responses. \"loss of smell\" -> reported cases is accuracy-dominant, with mean log-RMSE gain 0.104 (about 9.9% equivalent RMSE reduction) and DPRS 100, whereas the reverse direction is FEDE-dominant (D_FEDE=0.048; DPRS=42). \"covid test\" -> positive rate is FEDE-dominant (D_FEDE=0.039; positive in 72% of windows; DPRS=98) despite negative RMSE gain, while \"lockdown\" -> stringency is the clearest concordant case (DPRS=78). World-level symptom/case pairs are less persistent. Thus, forecast accuracy and error-distribution dynamics are complementary, predictive effects can be direction- and metric-dependent, and forecast horizon is part of the relationship. Aggregated regime-level patterns should not be extrapolated to individual time points or interpreted as evidence of causality.",
+      "authors": [
+        "Andrei Velichko and Imen Mahmoud"
+      ],
+      "published": "2026-10-20T17:23:44Z",
+      "updated": "2026-10-20T17:23:44Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.28563",
+      "pdf_url": "https://arxiv.org/pdf/2610.28563",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.28495",
+      "title": "Model- and Layer-Level Closed-Loop Forecasting with SSM-Based Spiking Neural Networks",
+      "abstract": "Deep State-Space Models (Deep SSMs) have shown promising performance and computational benefits in processing of time-series data with complex temporal dependencies. Spiking neural networks (SNNs) constitute a biologically inspired class of deep SSMs, where computing blocks communicate through spikes, discrete single-bit events rather than continuous activation functions. A particularly important task in time-series processing is forecasting, i.e. predicting future values of a sequence from past observations alone. However, how to best perform forecasting with SNNs is an open question, where the standard autoregressive nature of the data processing with SNNs requires values that are not available during the forecasting phase. In this article, we address this challenge. We explore two closed-loop forecasting strategies, in which the network's own generated values are fed back into the network as if they were observed past values: (i) model-level and (ii) layer-level closed-loop forecasting. We evaluate these approaches on the ETT-small datasets, a standard benchmark for time-series forecasting, under both spike-based and continuous activation functions. We compare the proposed closed-loop approaches against state-of-the-art methods such as SpaceTime, as well as the zero-masking baseline in S4. Both of the proposed approaches perform comparably to or better than zero-masking with S4, and in most cases match SpaceTime. These findings highlight the trade-off between continuous and low-bit quantized activations, and demonstrate that the proposed Deep SSM architectures provide a competitive framework for forecasting.",
+      "authors": [
+        "Erik Stolt, Sanja Karilanova, Ayca Ozcelikkale"
+      ],
+      "published": "2026-10-20T16:39:59Z",
+      "updated": "2026-10-20T16:39:59Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.28495",
+      "pdf_url": "https://arxiv.org/pdf/2610.28495",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.28200",
+      "title": "Parameter-Efficient Adaptation of Time Series Foundation Models for Electrical Load Forecasting",
+      "abstract": "Accurate electrical load forecasting supports power-system operation across countries, regions, cities, and buildings, but repeated development of target-specific models is costly. Time series foundation models (TSFMs) provide reusable pretrained backbones, although multi-domain pretraining may not fully capture load-specific characteristics. This paper compares pretrained inference, full fine-tuning, and low-rank adaptation (LoRA) in terms of forecasting accuracy and adaptation efficiency across four electrical load aggregation levels. MOIRAI 1.0 Large serves as the primary backbone, while Chronos-2 assesses whether the findings transfer across model families. The evaluation covers both in-distribution (ID) and out-of-distribution (OOD) settings and examines whether compact adaptation provides consistent gains over strong pretrained checkpoints. Pretrained foundation models outperform the implemented seasonal naive and XGBoost baselines across the evaluated aggregation levels. On MOIRAI Large, rank-16 LoRA reduces normalized mean absolute error (NMAE) by 7.5% on average while updating 3.146 million parameters, about 1% of the model, and retains most of the improvement from full fine-tuning. Chronos-2 achieves lower pretrained NMAE than MOIRAI but benefits less from adaptation. OOD results show that adaptation benefits vary by target, with the clearest gains for the local-area series and several buildings. Overall, LoRA provides a favorable accuracy-efficiency trade-off when adaptation yields a meaningful gain over a strong pretrained checkpoint.",
+      "authors": [
+        "Aliullah, Julian Oelhaf, Edouard Fouch\\'e, Jessica Deuschel, Christian Bergler, Andreas Maier, and Siming Bayer"
+      ],
+      "published": "2026-10-20T13:40:48Z",
+      "updated": "2026-10-20T13:40:48Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.28200",
+      "pdf_url": "https://arxiv.org/pdf/2610.28200",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.27763",
+      "title": "Foundation-Style Pretraining for Scalable and Transferable Distributed PV Forecasting",
+      "abstract": "The rapid growth of distributed photovoltaic (PV) generation is increasing the demand for accurate forecasting across large numbers of geographically dispersed stations. Existing approaches are commonly developed for individual sites or specific forecasting horizons, requiring repeated training and maintenance as new stations are integrated and limiting direct reuse at previously unseen sites. To address this scalability gap, this paper presents a domain-specific foundation-style pretraining framework that learns a shared forecasting model from heterogeneous multi-site and multi-horizon PV data. NWP-assisted forecasting is formulated as a sequence-completion problem that unifies historical PV power, meteorological observations, future numerical weather prediction (NWP) forecasts, and time encodings. Three pretraining objectives are designed and systematically evaluated, including forecast-aligned reconstruction, generic reconstruction, and mixed reconstruction. The mixed objective combines the operational structure of PV forecasting with random sequence reconstruction and provides the most balanced performance across forecasting accuracy, degraded NWP conditions, and downstream adaptation. Experiments on 479 distributed PV stations use 340 stations for model development and 139 spatially held-out stations for zero-shot evaluation. Across horizons from 6 hours to 7 days, the multi-site pretrained MR model outperforms representative station-specific and shared baselines, as well as generalist time-series models, including a recent large-scale pretrained foundation model. The pretrained model can also be directly deployed at new PV stations and subsequently adapted to region-specific operational objectives when local data become available, providing a scalable forecasting paradigm for large distributed PV fleets.",
+      "authors": [
+        "Dayin Chen, Xiaodan Shi, Xin Xu, Zhongyue Su, Shibo Zhu, Ruizhe Deng, Dongxiao Zhang, Yuntian Chen, Jinyue Yan"
+      ],
+      "published": "2026-10-20T07:26:31Z",
+      "updated": "2026-10-20T07:26:31Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.27763",
+      "pdf_url": "https://arxiv.org/pdf/2610.27763",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.27468",
+      "title": "Training-Free Continual Learning for Multimodal Forecasting via Prompt Evolution",
+      "abstract": "Adapting a forecasting system to a changing world classically means retraining. We ask whether the task of continually learning regimes for time series forecasting can be represented by a piece of text: a guidance block, evolved by outcome-driven reflection and used in a frozen LLM forecaster's prompt. On a refreshed multimodal benchmark (weekly search indices, daily currencies, daily commodities, each window paired with web-retrieved news), we run GEPA-style prompt evolution under strict contamination control to prevent the data leakage common in timeseries benchmarks: the forecaster's knowledge cutoff predates every evaluated window. A 900-word evolved guidance carried by Llama-3.3-70B beats TimeSeries Foundation Models (TSFMs) on held-out data (GM MASE 0.776 vs. 0.898 for TabPFN-TS-3), transfers to more recent models without measurable loss, and costs dollars rather than GPU-days to update. We characterize the loop: out-of-loop gains concentrate in the first reflection, in-loop improvements overstate out-of-loop gains 2-3x unless an untouched monitor arbitrates, and error-only objectives silently suppress the text modality. We provide two extensions. First, compiling the guidance into executable code with a TSFM as a callable tool recovers most of the gain deterministically. Second, ablations show the advantage widens at short horizons and that removing the news text does not hurt the guided forecaster, consistent with the text's value being distilled into policy during learning. We argue that continual prompt evolution is a practical, training-free alternative to retraining for multimodal forecasting.",
+      "authors": [
+        "Laurent Mombaerts, Jonathan Taws, Jacopo Gargano, Dinesh Gaddam, Kevin George, Srijan Tiwari, Shreyas Rajesh"
+      ],
+      "published": "2026-10-20T01:38:24Z",
+      "updated": "2026-10-20T01:38:24Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.27468",
+      "pdf_url": "https://arxiv.org/pdf/2610.27468",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.27256",
+      "title": "TxnQA: Benchmarking Analytical Reasoning and Evidence Grounding over Transaction Event Sequences",
+      "abstract": "Analyzing merchant transaction histories requires dynamic temporal filtering, entity resolution, and aggregation over irregular event streams--operations poorly captured by static tabular or time-series forecasting benchmarks. We introduce TxnQA, an analytical QA benchmark comprising 27 task families (81 templates) alongside a 5-scenario fraud-risk reasoning suite that evaluates both verdicts and supporting evidence over synthetic, privacy-mitigated transaction data. Ground-truth answers are computed programmatically, and model performance is decomposed into format-following rate (FFR), conditional content accuracy (CA), and end-to-end correctness (E2E). Evaluating prompted proprietary baselines and six LoRA-adapted open-weight models shows that adaptation reliably enforces output schemas but leaves arithmetic bottlenecks: Gemma-4-31B-IT and Qwen3-8B attain E2E scores of 0.867 and 0.816, whereas evaluated MoE checkpoints reach only 0.632-0.713. Furthermore, on the 500-instance fraud suite, verdict accuracy frequently exceeds 80%, yet joint accuracy (requiring exact evidence attribution) collapses to at most ~23%. These findings identify schema compliance, semantic calculation, and evidence attribution as three distinct bottlenecks in transaction-sequence QA.",
+      "authors": [
+        "Rabimba Karanjai, Yiming Bian, Yun-Shiuan Chuang, Jenna L. Ballard, Zijie Pan, Shivani Shekhar, Yixi Li, Yirou Ge, Avinash Thangali, Richard Williamson, Linsey Pang, Prakhar Mehrotra"
+      ],
+      "published": "2026-10-19T20:25:47Z",
+      "updated": "2026-10-19T20:25:47Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.27256",
+      "pdf_url": "https://arxiv.org/pdf/2610.27256",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.27180",
+      "title": "Meta-iLaD: Identifiable Latent Dynamics via Meta-Learning of Dynamics Environments",
+      "abstract": "Learning latent dynamics is central to assessing the current states and forecasting the future trajectories of high-dimensional time series. For locally-stationary latent dynamics $\\mathcal{F}(\\mathbf{z}_{<t}; \\mathbf{c})$ with latent dynamics state $\\mathbf{z}_t$ and environment variable $\\mathbf{c}$, prior identifiability results have largely focused on $\\mathbf{z}_t$ when conditioned on predefined label $u$ of dynamics environments. This leaves two limitations: reliance on predefined labels that hinder generalization to unseen environments, and a limited understanding of the identifiability of $\\mathcal{F}$ and $\\mathbf{c}$ which -- although offering important structural properties for the identifiability of $\\mathbf{z}_t$ -- are learned jointly with $\\mathbf{z}_t$. We address these limitations with Meta-iLaD, a novel identifiable latent dynamics framework attained by meta-learning across dynamics environments. Meta-iLaD introduces a novel conditional prior of $\\mathbf{c}$, modeled as a feedforward meta-learner to rapidly extract $\\mathbf{c}$ from few-shot examples. Meta-iLaD further establishes identifiability for $\\mathbf{z}_t$, $\\mathbf{c}$, and $\\mathcal{F}$ simultaneously, for a general formulation of $\\mathcal{F}(\\mathbf{z}_{< t};\\mathbf{c})$ without restricting the dimension of $\\mathbf{c}$ or how it modulates $\\mathcal{F}$. On synthetic and real data, we provide strong empirical evidence that 1) conditioning on few-shot examples enables generalization to out-of-distribution environments, and 2) identifiability for $\\mathbf{c}$ and $\\mathcal{F}$ is critical for accurate forecasting beyond reconstructing observed trajectories. Code is available at https://github.com/GoForIt-YYB/Meta-iLaD.",
+      "authors": [
+        "Yubo Ye, Sweekar Piya, Xiajun Jiang, Linwei Wang"
+      ],
+      "published": "2026-10-19T19:12:28Z",
+      "updated": "2026-10-19T19:12:28Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.27180",
+      "pdf_url": "https://arxiv.org/pdf/2610.27180",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.26582",
       "title": "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting",
       "abstract": "Recent time series foundation models (TSFMs) can consume covariates in-context, extending zero-shot forecasting to problems driven by external factors. This enables scenario analysis: forecasting how a target responds to events that set covariates to chosen future values. Whether they can do this reliably is an open question. We introduce WhatIf-Bench, a benchmark measuring how well forecasters use covariates to forecast a target's response to future events. WhatIf-Bench is semi-synthetic: time series come from mechanistic simulators of data centers, power grids, road traffic, and water networks, with controlled covariate-target relationships grounded in each system. Each task presents a history of events intervening on covariates, then asks to forecast a future event that either replays seen values (Replay) or sets them to unseen ones (Novel). Varying the number of covariates, historical events, and event length yields 37,665 tasks. Evaluating TSFMs, frontier LLMs, and simple regression baselines, we find the LLMs reach the highest skill (improvement over a naive baseline), ahead of the best TSFMs. Every model forecasts well on Replay futures (48 to 85% skill) but drops to -7 to 50% on Novel futures, with the regression baselines falling the most. Skill on Novel futures also falls as events set more covariates jointly. More historical events raise skill on Novel futures across the board, but large differences remain. WhatIf-Bench reveals generalization to Novel futures as the core challenge, and offers a testbed toward arbitrary scenario analysis.",
@@ -92,6 +234,23 @@
       ]
     },
     {
+      "id": "2610.27000",
+      "title": "ORBIT: Autoregressive Time Series Generation via Next Frequency-Band Prediction",
+      "abstract": "Deep generative models provide an effective modern solution to alleviating the problem of data scarcity by synthesizing realistic time series. However, despite the considerable progress achieved by existing deep time series generators, two key challenges remain: (1) learning hierarchical representations for heterogeneous temporal patterns; and (2) coordinating the generation process of heterogeneous temporal dynamics. To address these key bottlenecks, in this work, we propose ORBIT, a unified deep generative framework for time series. Specifically, we develop two key components: the Frequency-Hierarchical VQ-VAE (FH-VQ-VAE) and the Frequency-Band Autoregressive Transformer (FBAR). The former learns hierarchical representations by decomposing latent temporal representations into different frequency bands and applying residual quantization with increasing token budgets. The latter establishes a novel low-to-high frequency autoregressive direction, yielding a time series generation process that first constructs global temporal structures and then incrementally incorporates fine-grained temporal details. These compact designs not only disentangle heterogeneous temporal patterns for more effective representation learning but also mitigate potential interference among different temporal dynamics during generation. Extensive experiments on multiple challenging real-world benchmarks demonstrate that ORBIT achieves state-of-the-art overall performance while exhibiting superior inference efficiency compared with advanced baselines.",
+      "authors": [
+        "Chunyi Hou, Xiangfei Qiu, Hanyin Cheng, Chenchen Sun, Yisheng An, Yang Shu, Jilin Hu, Bin Yang"
+      ],
+      "published": "2026-10-19T09:16:06Z",
+      "updated": "2026-10-19T09:16:06Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.27000",
+      "pdf_url": "https://arxiv.org/pdf/2610.27000",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.26002",
       "title": "TimesJev: Thinking Fast on Time Series with System 1 Sufficiency",
       "abstract": "Large language models (LLMs) have recently shown strong potential for time series reasoning, while models that reason over time series are usually with long chains of thought. However, this process often consumes thousands of tokens, directly leading to substantial latency during inference. In contrast, System 1 models such as Jev make decisions instantly and can naturally be an alternative, but raw time series are not compatible with the embedding space of these models, thus hindering the reasoning performance, especially when input series contain thousands of numeric points. In this paper, we make a very early attempt to propose a time series System 1 model, namely TimesJev. Specifically, we first formalize System 1 sufficiency in time series reasoning, which motivates a compressed representation for time series with key frequency patterns preserved. To construct this representation, we derive a dimension reduction objective that combines (i) a sufficiency divergence that measures the core information lost during compression, and (ii) a realizability divergence that quantifies the incompatibility of the System 1 model to the optimal prediction given this representation. We optimize this objective by learning time series compression with a gating mechanism for sufficiency, and then aligning the selected representation with the embedding space for realizability. Finally, experiments on 13 datasets demonstrate that TimesJev outperforms reasoning models by over 62% with 62.9% less inference time than their fine-tuned versions on average.",
@@ -104,6 +263,23 @@
       "url": "https://arxiv.org/abs/2610.26002",
       "pdf_url": "https://arxiv.org/pdf/2610.26002",
       "first_seen": "2026-10-20T20:36:27.661141Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.26987",
+      "title": "Dynamic Dual-Feedback Conformal Inference for Time Series Forecasting",
+      "abstract": "Quantifying uncertainty in time series forecasting is particularly demanding because sequential data exhibit temporal dependence and are prone to distributional changes. Conformal inference has emerged as a powerful uncertainty quantification approach through the construction of prediction sets. Recent advances have introduced online conformal methods that adaptively adjust prediction thresholds through feedback mechanisms. However, the existing feedback mechanism typically relies solely on miscoverage indicators (actual feedback), whether the true label falls within the interval at each time step, while overlooking the empirical prediction threshold (estimated feedback) that is derived from the oracle conformal method. In this paper, we propose Dynamic Dual-feedback Conformal Inference (DDCI), which incorporates a dual-feedback mechanism consisting of actual feedback and estimated feedback. The former drives the primary adjustment of the intervals based on true observations, while the latter dampens excessive expansions or contractions by leveraging empirical thresholds from conformal inference during updates. By balancing these two signals, DDCI achieves more stable and narrower prediction intervals in sequential settings while maintaining near-nominal coverage in practice.",
+      "authors": [
+        "Songlin Du, Ling Luo, Uwe Aickelin"
+      ],
+      "published": "2026-10-19T05:28:22Z",
+      "updated": "2026-10-19T05:28:22Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.26987",
+      "pdf_url": "https://arxiv.org/pdf/2610.26987",
+      "first_seen": "2026-10-21T19:21:30.371634Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -235,8 +411,8 @@
         "Yibo Yang, Zerui Huang, Haomiao Yang, Zixia Wang"
       ],
       "published": "2026-10-17T09:37:51Z",
-      "updated": "2026-10-17T09:37:51Z",
-      "metadata_updated": "2026-10-20T00:00:00Z",
+      "updated": "2026-10-20T13:29:03Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.24585",
       "pdf_url": "https://arxiv.org/pdf/2610.24585",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -855,7 +1031,7 @@
       ],
       "published": "2026-10-13T16:02:03Z",
       "updated": "2026-10-13T16:02:03Z",
-      "metadata_updated": "2026-10-14T00:00:00Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.18621",
       "pdf_url": "https://arxiv.org/pdf/2610.18621",
       "first_seen": "2026-10-15T04:41:48.057003Z",
@@ -1755,14 +1931,14 @@
     },
     {
       "id": "2610.10697",
-      "title": "On linearity or non-linearity in machine learning for quantum chaotic dynamics",
+      "title": "The surprising simplicity of forecasting quantum chaotic many-body dynamics",
       "abstract": "Accurately simulating chaotic quantum many-body dynamics remains a major computational challenge for classical methods, due to the rapid buildup and spatial spreading of entanglement during the evolution. This raises the question of whether machine learning can provide an effective alternative for predicting quantum dynamics. We address this question by formulating quantum dynamics as a time-series forecasting problem, using a few-qubit PXP chain, realizable with Rydberg-atom arrays, as a benchmark. By varying the initial state, the system spans dynamical regimes ranging from ergodic behavior to quantum many-body scarring, providing a controlled setting for testing forecasting models across qualitatively different dynamics. We compare two contrasting architectures: an expressive nonlinear Transformer and DLinear, a simple linear forecasting model. The Transformer accurately predicts dynamics in the more ergodic regime, but its performance progressively deteriorates as the initial state approaches the scarred limit. In contrast, DLinear remains accurate across the entire family of initial states, with its main deviations consisting of small high-frequency oscillations that have little effect on the overall prediction error. Remarkably, these results show that observables generated by complex quantum many-body dynamics can be forecast with high accuracy through a simple linear mapping from past to future observations. This reveals that the complexity of the underlying quantum evolution need not translate into an equally complex forecasting problem.",
       "authors": [
         "Francesco Perciavalle, Agostino Gallo, Francesco Plastina, Gianluigi Greco, Nicola Lo Gullo, Carlo Adornetto"
       ],
       "published": "2026-10-07T18:00:06Z",
-      "updated": "2026-10-07T18:00:06Z",
-      "metadata_updated": "2026-10-09T00:00:00Z",
+      "updated": "2026-10-20T08:43:35Z",
+      "metadata_updated": "2026-10-21T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.10697",
       "pdf_url": "https://arxiv.org/pdf/2610.10697",
       "first_seen": "2026-10-09T20:57:39.840442Z",
@@ -9659,28 +9835,19 @@
       ]
     }
   ],
-  "last_success": "2026-10-20T20:36:27.661141Z",
-  "last_attempt": "2026-10-20T20:36:27.661141Z",
+  "last_success": "2026-10-21T19:21:30.371634Z",
+  "last_attempt": "2026-10-21T19:21:30.371634Z",
   "last_new_ids": [
-    "2610.23982",
-    "2610.24321",
-    "2610.24384",
-    "2610.24386",
-    "2610.24501",
-    "2610.24585",
-    "2610.25059",
-    "2610.25263",
-    "2610.25283",
-    "2610.25392",
-    "2610.25523",
-    "2610.25584",
-    "2610.25764",
-    "2610.26002",
-    "2610.26114",
-    "2610.26251",
-    "2610.26358",
-    "2610.26379",
-    "2610.26582"
+    "2610.26987",
+    "2610.27000",
+    "2610.27180",
+    "2610.27256",
+    "2610.27468",
+    "2610.27763",
+    "2610.28200",
+    "2610.28495",
+    "2610.28563",
+    "2610.28602"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -9688,8 +9855,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 7,
-    "records": 7818,
+    "pages": 9,
+    "records": 10773,
     "duplicates": 0
   }
 }
