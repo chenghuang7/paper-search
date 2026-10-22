@@ -2,6 +2,93 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.29667",
+      "title": "Leveraging Time-Series Foundation Models for Financial Crime Detection",
+      "abstract": "Financial crime detection requires identifying illicit activity within large transaction networks, where suspicious behaviour is rare and unfolds over time. Existing graph-based methods capture relationships among accounts but typically underuse the temporal behaviour encoded in account transaction histories. We introduce Temporal-Context Edge Enrichment (TCEE), a framework that addresses this gap by summarising each account's transaction history with a frozen time-series foundation model (TSFM), and enriching each transaction's representation with the relevant temporal context from these summaries. These enriched representations can be scored directly for edge classification, or fed into a graph neural network (GNN) as edge features to capture broader structural information. Across six AMLWorld datasets, TCEE improves PR-AUC over the strongest evaluated baseline on five by a relative 10.8% on average, while training 6.0x faster end-to-end. Feeding TCEE's representations into a GNN raises PR-AUC a further 4.8% on the four smaller datasets. On an Ethereum phishing dataset, we show that TSFM-generated account representations fed into a GNN are also effective for node classification, improving PR-AUC by 14.5% over the strongest baseline. As TSFMs continue to advance, our results suggest they can strengthen financial crime detection by capturing temporal signals that complement graph-based approaches.",
+      "authors": [
+        "Danae Natalie Savvidi, H. \\c{C}a\\u{g}r{\\i} Bilgi, Kubilay Atasu, Arie van Deursen"
+      ],
+      "published": "2026-10-21T12:42:17Z",
+      "updated": "2026-10-21T12:42:17Z",
+      "metadata_updated": "2026-10-22T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.29667",
+      "pdf_url": "https://arxiv.org/pdf/2610.29667",
+      "first_seen": "2026-10-22T20:08:03.804187Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.29504",
+      "title": "Rethinking Agentic Model Orchestration for Time Series Forecasting",
+      "abstract": "Time series foundation models (TSFMs) perform unevenly across forecasting tasks. Recent work uses agentic model orchestration (AMO) to select or combine TSFMs, often outperforming individual forecasters. Yet these gains may reflect stronger or more complementary candidates rather than better orchestration. To disentangle these effects, we introduce FairAMO, a controlled evaluation protocol with frozen candidate forecasts. Experiments on GIFT-Eval show that AMO improves accuracy, but its gains are bounded by the candidate TSFMs. The best orchestrators reduce MASE by less than 6% relative to the best single TSFM across all tasks. These gains depend on complementarity (different candidates excel on different tasks) rather than the number of candidates. Adding members yields diminishing returns, and a redundant member can erase these gains. The value of historical evidence also saturates quickly. A few recent windows capture all gains, and further history adds none. These findings separate system-level forecasting gains from the contribution of orchestration itself.",
+      "authors": [
+        "Tong Guan, Tianxiang Zhan, Shirui Pan, Ming Jin"
+      ],
+      "published": "2026-10-21T09:55:04Z",
+      "updated": "2026-10-21T09:55:04Z",
+      "metadata_updated": "2026-10-22T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.29504",
+      "pdf_url": "https://arxiv.org/pdf/2610.29504",
+      "first_seen": "2026-10-22T20:08:03.804187Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.29063",
+      "title": "Distilling Multi-Teacher Scoring Principles for Unsupervised Time Series Anomaly Detection",
+      "abstract": "Time series anomalies take diverse forms, and individual detectors encode different anomaly scoring principles that rarely cover all anomaly types. Recent unsupervised time-series anomaly detectors provide complementary scoring signals, yet deploying them as an ensemble preserves the inference and maintenance cost of every individual detector. We study whether heterogeneous teacher detectors can be distilled into a single lightweight detector in the unsupervised setting, where no anomaly labels are available to define a shared target. AnoMix addresses this by extracting weak pairwise supervision from the training-set anomaly scores of frozen teachers. It normalizes each teacher score sequence independently and trains the student with CoRank, a multi-teacher ranking-distillation objective that converts teacher score gaps into pairwise supervision through teacher consensus. Across seven benchmark datasets, AnoMix successfully integrates complementary teacher scoring principles into a single deployable model, improving over individual detectors and static score ensembles while using a compact student with under 80k parameters on the benchmark settings. A zero-shot variant further shows that the distilled ranking signal transfers to unseen datasets and can outperform large pretrained time-series foundation models for anomaly detection.",
+      "authors": [
+        "Dongchan Cho, Jiho Han, Juwon Hwang, Changhee Min, Minsang Kim, Namsoon Jung"
+      ],
+      "published": "2026-10-21T01:42:19Z",
+      "updated": "2026-10-21T01:42:19Z",
+      "metadata_updated": "2026-10-22T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.29063",
+      "pdf_url": "https://arxiv.org/pdf/2610.29063",
+      "first_seen": "2026-10-22T20:08:03.804187Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.29036",
+      "title": "GRAIL: From Saliency to Semantics in Time-Series Explanation",
+      "abstract": "Explaining a time-series model requires both locating the evidence and extracting meaningful knowledge from it. Yet a single timestep is not a semantic unit: the meaningful patterns live across many samples, not in any one of them. Per-timestep saliency is therefore noisy, high-dimensional, and unstable. Existing methods address this by introducing fixed-size windows and treating them as independent players in a cooperative game. Evaluating a coalition of such players requires defining a ``baseline'' region, which prior work tackles with fixed counterfactuals (e.g., a flat line, noise, or a spectral surrogate). This choice frequently dominates the resulting explanation, obscuring the model's true decisions. To address these issues, we propose GRAIL, a region-based time-series explanation framework that uses domain-specific intervals, such as the P-wave and the QRS complex of an electrocardiogram (ECG) beat, as players. We describe each region with human-readable features and generate counterfactual baselines with an on-manifold conditional generator. Such a choice of players also admits non-temporal features: static covariates enter as singleton players attributed with the temporal regions on one scale, so a patient's tabular evidence (e.g., age, sex) is weighed directly against the signal. We attribute the predictions to the features via Owen values with common-random-number variance reduction. Experimental results on both synthetic and real data show that the proposed framework produces faithful and robust explanations, evaluated under matched on- and off-manifold operators, offering meaningful knowledge to domain experts.",
+      "authors": [
+        "Enver Menadjiev, Yiqiu Shen, Jaesik Choi, Julia Stoyanovich"
+      ],
+      "published": "2026-10-21T01:09:56Z",
+      "updated": "2026-10-21T01:09:56Z",
+      "metadata_updated": "2026-10-22T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.29036",
+      "pdf_url": "https://arxiv.org/pdf/2610.29036",
+      "first_seen": "2026-10-22T20:08:03.804187Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.28997",
+      "title": "Rethinking Time Series Tokenization from a Frequency Perspective",
+      "abstract": "Tokenization that partitions time series into subsequences has become a foundational paradigm in modern time series modeling. However, we find that current tokenization strategies inherently introduce spectral distortions, forcing the learned representations to diverge from the true underlying patterns such as trend, periodicity, and seasonality, thereby impairing model performance. Through theoretical analysis from a frequency perspective, we derive the boundary conditions under which such distortions occur. To overcome this distortion, we propose TimeFT, a nearly distortion-free frequency-based tokenizer for time series data. TimeFT obtains tokens through frequency-domain partitioning, frequency shifting, and Nyquist sampling. The method is parameter-free, incurs negligible computational complexity, and can serve as a drop-in replacement for existing tokenizers. Our extensive experiments on diverse tasks such as forecasting, classification, and anomaly detection demonstrate that TimeFT consistently and significantly improves performance.",
+      "authors": [
+        "Zelong Tian, Ming Jin, Bo Du, Shirui Pan"
+      ],
+      "published": "2026-10-20T23:51:24Z",
+      "updated": "2026-10-20T23:51:24Z",
+      "metadata_updated": "2026-10-22T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.28997",
+      "pdf_url": "https://arxiv.org/pdf/2610.28997",
+      "first_seen": "2026-10-22T20:08:03.804187Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.28602",
       "title": "Turning TS2Vec into a Foundation Model for Time Series Classification",
       "abstract": "TS2Vec is one of the strongest self-supervised methods for time series classification, introduced in 2022. It is designed to be trained anew on every dataset: self-supervised pre-training followed by linear probing. Since then, the field has shifted towards foundation models that reuse one encoder across datasets. Yet TS2Vec offers a compact convolutional architecture that operates directly on temporal samples and accepts variable-length inputs without resampling. We ask whether these properties can be retained when the encoder is pre-trained only once, and show that they can: TS2Vec can essentially be turned into a foundation model. Three changes suffice: pre-train on a synthetic corpus, feed the encoder a raw amplitude view and an instance-normalized shape view of the input through two small stems, and distill one specialist encoder per view into a single encoder. The result, TS2Vec-FM, is a 1.6M-parameter dilated convolutional network that, kept frozen, reaches 83.3% on UCR-128 and 75.3% on UEA-27 under linear probing, within 0.3 pp of MantisV2, the current state of the art, and above TS2Vec trained separately on each target dataset. What we find most interesting is how different TS2Vec-FM is from other foundation models in design: near-parity is reached without attention, without a patch tokenizer, and without intermediate-layer extraction, using an \"old-school\" convolutional encoder and a two-layer MLP stem.",
@@ -9835,19 +9922,14 @@
       ]
     }
   ],
-  "last_success": "2026-10-21T19:21:30.371634Z",
-  "last_attempt": "2026-10-21T19:21:30.371634Z",
+  "last_success": "2026-10-22T20:08:03.804187Z",
+  "last_attempt": "2026-10-22T20:08:03.804187Z",
   "last_new_ids": [
-    "2610.26987",
-    "2610.27000",
-    "2610.27180",
-    "2610.27256",
-    "2610.27468",
-    "2610.27763",
-    "2610.28200",
-    "2610.28495",
-    "2610.28563",
-    "2610.28602"
+    "2610.28997",
+    "2610.29036",
+    "2610.29063",
+    "2610.29504",
+    "2610.29667"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -9856,7 +9938,7 @@
   "source": "oai",
   "retrieval_stats": {
     "pages": 9,
-    "records": 10773,
+    "records": 10684,
     "duplicates": 0
   }
 }
