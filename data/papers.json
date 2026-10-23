@@ -2,6 +2,114 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.31621",
+      "title": "Volatility-Corrected Prediction Intervals: Locally Adaptive Uncertainty Quantification for Probabilistic Time-Series Forecasting",
+      "abstract": "Prediction intervals from probabilistic time-series forecasters are commonly assessed by marginal coverage, the long-run proportion of observations falling inside the intervals. However, forecast errors in time series are often serially dependent and heteroskedastic, so prediction intervals can attain near-nominal marginal coverage while miscovering systematically during periods of larger local error variance. We identify and address this failure mode, which we call \\emph{local scale miscalibration}. We first document the phenomenon using time-series foundation models (TSFMs): across several real-world series, their native intervals often attain near-nominal marginal coverage while exhibiting substantial temporal variation in local coverage, alternating between overcoverage and undercoverage over shorter windows. We then propose Volatility-Corrected Prediction Intervals (VCPI), a post-hoc calibration procedure that uses the base forecaster's predictive scale as a baseline, models the volatility of standardized forecast residuals with a Generalized Autoregressive Conditional Heteroskedasticity (GARCH) model, and applies a multiplicative correction to produce locally adaptive prediction intervals. We justify VCPI both theoretically and empirically, comparing it against model-agnostic conformal counterparts. We provide a theoretical analysis of interval adaptation of the proposed method following abrupt changes in volatility. Empirically, we evaluate VCPI on Chronos, Moirai, and TimesFM across four real-world datasets and find that it produces more stable local coverage than conformal baselines while maintaining near-nominal marginal coverage and comparable interval width.",
+      "authors": [
+        "Jason B. Cho and David S. Matteson"
+      ],
+      "published": "2026-10-22T17:42:50Z",
+      "updated": "2026-10-22T17:42:50Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.31621",
+      "pdf_url": "https://arxiv.org/pdf/2610.31621",
+      "first_seen": "2026-10-23T19:14:59.240995Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.31288",
+      "title": "DISC: Domain-Integrated Similarity Cost for Time-Series Dataset",
+      "abstract": "The growth of time-series datasets and foundation models has made dataset comparison a central part of time-series workflows. Assessing source-target transfer before model adaptation requires similarity estimates that can summarize transfer-related dataset relationships without exhaustive source-target evaluation over every candidate pair. Many metrics have been proposed for measuring similarity between time-series datasets, but they capture different dataset relationships and vary in how well they align with downstream utility across tasks. We evaluate this gap by measuring the correlation between source-target similarity scores and downstream forecasting errors in out-of-distribution and transfer-learning settings. We propose Domain-Integrated Similarity Cost (DISC), a learnable aggregation framework that uses calibration transfer observations to select, weight, and combine similarity metrics for different downstream tasks. By integrating complementary metric values, DISC better distinguishes source-target dataset differences that matter for downstream behavior. After calibration, DISC scores source-target pairs using only their similarity-metric values and yields higher alignment than single-metric references on the reported split. These results show that time-series dataset similarity is task-dependent, and that learned metric integration provides a stronger proxy for downstream transfer behavior than manually selecting one similarity metric.",
+      "authors": [
+        "Yen-Ku Liu, Hongjie Chen, Franck Dernoncourt, Ryan Rossi"
+      ],
+      "published": "2026-10-22T13:52:09Z",
+      "updated": "2026-10-22T13:52:09Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.31288",
+      "pdf_url": "https://arxiv.org/pdf/2610.31288",
+      "first_seen": "2026-10-23T19:14:59.240995Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.30971",
+      "title": "Zero-Shot Forecasting of In-Situ Soil Moisture and Temperature with a Time-Series Foundation Model",
+      "abstract": "Soil moisture and temperature govern plant-water availability and microbial activity, making them key indicators for evaluating land-restoration efforts on degraded landscapes. However, the physical and data-driven models normally used to forecast them both need information that a newly instrumented restoration site does not yet have: hydraulic parameters for the former and months of per-site training data for the latter. We evaluate TimesFM 1, a 500M-parameter time-series foundation model, zero-shot on 15-minute telemetry from 27 sensor stations across three land-management regimes (Control, Treatment, Scald) at a semi-arid restoration site, forecasting 5 cm and 30 cm soil moisture and enclosure temperature at seven lead times from 1 h to 168 h. Using gap-aware rolling-origin evaluation across sensors, we find that TimesFM beats the best rule-based statistical forecasting baselines (persistence, seasonal-naive, or 7-day climatology) by 21-76% at sub-daily lead times but loses by 6-79% beyond a day, a pattern explained by a diurnal-alignment mechanism that holds for both soil-moisture depths and temperature. A CatBoost baseline trained walk-forward on the same origins with full history and weather covariates never wins overall, and we show that its weakness is partly a cold-start effect specific to short deployments. We additionally quantify the inference cost of zero-shot forecasting on commodity CPU hardware. Our results highlight a practical trade-off between zero-shot forecasting capability, predictive performance, and computational efficiency.",
+      "authors": [
+        "Mohammad Talaei, Mohammad Goudarzi, Maille Todd, Vanessa N.L. Wong, Iadine Chad\\`es"
+      ],
+      "published": "2026-10-22T09:16:31Z",
+      "updated": "2026-10-22T09:16:31Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.30971",
+      "pdf_url": "https://arxiv.org/pdf/2610.30971",
+      "first_seen": "2026-10-23T19:14:59.240995Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.30965",
+      "title": "Energy and Latency First: How Deployment Constraints Reverse Time-Series Model Selection",
+      "abstract": "AI models, and time-series models in particular are typically ranked by accuracy and deployed under constraints absent from that ranking. In this paper, we study a real setting where these constraints are explicit and measurable: handover pre- diction in cellular networks, where inference runs on the User Equipment once per 40 ms measurement period and must complete before the network acts. The timing bound is hard: a late prediction is superseded by the measurement it was predicting, while energy is a cumulative budget spent for the life of the device. Neither appears in the objective these models are selected on. We evaluate eight architectures under a protocol that screens for deadline feasibility at the tail rather than the mean, then ranks the feasible models on measured inference energy, count- ing the feature computation that precedes the forward pass and is usually omitted. Gradient-boosted trees on handcrafted temporal features are the most accurate model (F1=0.974) and among the cheapest to run, while the neural architecture an accuracy-only benchmark would rank first (CNN-1D, F1=0.914) costs over 3 times more energy per inference under a realistic duty-cycled deployment pattern. We give three conditions under which this outcome should be expected, so the finding applies beyond telecommunications. Accuracy-only benchmarking does not merely under-report deployment cost. It can rank first a model that cannot be deployed.",
+      "authors": [
+        "Shruti Bothe, Illyyne Saffar and Ayush K. Varshney"
+      ],
+      "published": "2026-10-22T09:10:28Z",
+      "updated": "2026-10-22T09:10:28Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.30965",
+      "pdf_url": "https://arxiv.org/pdf/2610.30965",
+      "first_seen": "2026-10-23T19:14:59.240995Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.30950",
+      "title": "Random Initialization as a Baseline for Time Series Foundation Models",
+      "abstract": "Time series foundation models (TSFMs) use self-supervised pretraining to learn reusable representations for downstream tasks such as multivariate time series classification (MTSC). We examine how much pretrained weights contribute beyond the architecture itself by comparing seven publicly released instances from four TSFM families with architecture-matched randomly initialized counterparts on the UEA MTSC archive. For each instance, five random initializations are evaluated using four classifiers on frozen representations: ridge classification, logistic regression, RBF SVM, and random forest. After model-specific exclusions due to computational constraints, the study comprises 183 paired dataset-level comparisons. Pretraining improves mean accuracy for all seven instances, but the gains are modest, ranging from 1.43 to 5.19 percentage points, with an overall average improvement of 2.58 points. Three of seven per-instance Wilcoxon signed-rank tests have raw $p$-values below 0.05, but only NuTime remains significant after Holm correction. A secondary pooled test across all 183 pairs gives $p < 0.001$, while the corrected per-instance tests remain the primary evidence. We also compare with ROCKET, Hydra, and Quant, which remain competitive without requiring large-scale pretraining. These findings suggest that MTSC evaluations should distinguish the effect of pretrained weights from that of the underlying architecture and should include both architecture-matched random initialization and strong non-pretrained baselines.",
+      "authors": [
+        "Pinar Sungu Isiacik, Georgiana Ifrim"
+      ],
+      "published": "2026-10-22T09:01:53Z",
+      "updated": "2026-10-22T09:01:53Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.30950",
+      "pdf_url": "https://arxiv.org/pdf/2610.30950",
+      "first_seen": "2026-10-23T19:14:59.240995Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.30632",
+      "title": "Digital Twins of Networked Dynamical Systems: Machine Learning Prediction of Synchronization Transitions in Coupled Chaotic Oscillators",
+      "abstract": "Collective behaviors such as synchronization transitions are emergent properties of coupled oscillator systems, and how to reproduce them from data for large-scale systems remains an open problem. Here we propose a model-free coupled reservoir computing (CRC) architecture for constructing digital twins of coupled oscillator systems. The CRC decomposes the twin into three modules that mimic the nodal dynamics, the coupling function, and the coupling network, respectively, so that the modules can be reassembled for different coupled systems. Importantly, it is found that the trained CRC reproduces not only the collective states, including complete synchronization, phase synchronization, and chimera states, but also the synchronization transitions as the coupling strength varies, and the predicted collective behaviors are practically identical to those obtained by direct simulations of the original system. Moreover, the CRC is trained only on the time series of an isolated oscillator and of a pair of coupled oscillators, and the trained modules can be reused for different complex networks and for non-identical oscillators. Our findings establish the CRC architecture as a promising platform for digital twins of complex systems.",
+      "authors": [
+        "Huawei Fan, Yao Du, Meng-Xia Bi, Yafeng Wang, Xingang Wang"
+      ],
+      "published": "2026-10-22T02:54:02Z",
+      "updated": "2026-10-22T02:54:02Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.30632",
+      "pdf_url": "https://arxiv.org/pdf/2610.30632",
+      "first_seen": "2026-10-23T19:14:59.240995Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.29667",
       "title": "Leveraging Time-Series Foundation Models for Financial Crime Detection",
       "abstract": "Financial crime detection requires identifying illicit activity within large transaction networks, where suspicious behaviour is rare and unfolds over time. Existing graph-based methods capture relationships among accounts but typically underuse the temporal behaviour encoded in account transaction histories. We introduce Temporal-Context Edge Enrichment (TCEE), a framework that addresses this gap by summarising each account's transaction history with a frozen time-series foundation model (TSFM), and enriching each transaction's representation with the relevant temporal context from these summaries. These enriched representations can be scored directly for edge classification, or fed into a graph neural network (GNN) as edge features to capture broader structural information. Across six AMLWorld datasets, TCEE improves PR-AUC over the strongest evaluated baseline on five by a relative 10.8% on average, while training 6.0x faster end-to-end. Feeding TCEE's representations into a GNN raises PR-AUC a further 4.8% on the four smaller datasets. On an Ethereum phishing dataset, we show that TSFM-generated account representations fed into a GNN are also effective for node classification, improving PR-AUC by 14.5% over the strongest baseline. As TSFMs continue to advance, our results suggest they can strengthen financial crime detection by capturing temporal signals that complement graph-based approaches.",
@@ -238,8 +346,8 @@
         "Arjun Ashok, Mihir Parmar, Palash Goyal, Bhavana Dalvi Mishra, Chun-Liang Li, Irina Rish, Alexandre Drouin, Jinsung Yoon, Tomas Pfister"
       ],
       "published": "2026-10-19T15:32:53Z",
-      "updated": "2026-10-19T15:32:53Z",
-      "metadata_updated": "2026-10-20T00:00:00Z",
+      "updated": "2026-10-21T19:26:44Z",
+      "metadata_updated": "2026-10-23T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.26582",
       "pdf_url": "https://arxiv.org/pdf/2610.26582",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -9922,14 +10030,15 @@
       ]
     }
   ],
-  "last_success": "2026-10-22T20:08:03.804187Z",
-  "last_attempt": "2026-10-22T20:08:03.804187Z",
+  "last_success": "2026-10-23T19:14:59.240995Z",
+  "last_attempt": "2026-10-23T19:14:59.240995Z",
   "last_new_ids": [
-    "2610.28997",
-    "2610.29036",
-    "2610.29063",
-    "2610.29504",
-    "2610.29667"
+    "2610.30632",
+    "2610.30950",
+    "2610.30965",
+    "2610.30971",
+    "2610.31288",
+    "2610.31621"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -9937,8 +10046,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 9,
-    "records": 10684,
+    "pages": 7,
+    "records": 8072,
     "duplicates": 0
   }
 }
