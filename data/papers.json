@@ -2,6 +2,110 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.37585",
+      "title": "Timestral",
+      "abstract": "We introduce Timestral, a family of four time series foundation models for probabilistic forecasting, with 5M, 28M, 123M, and 209M parameters. Timestral sets a new state of the art on GIFT-Eval, TIME, and fev-bench, where Timestral-209M and Timestral-123M take the top two places on every metric. We achieve this with three ingredients: Decoupled Horizon Forecasting (DHF), which separates prediction tokens from the causally encoded context, so that longer horizons are trained without masking context and each observed value is both a forecast target and context for later forecasts; a covariate framework that natively supports known-future covariates within a causal architecture; and a two-stage pipeline that pretrains exclusively on a diverse, large-scale synthetic corpus before post-training on a mix of real and synthetic data with extended context. This report describes the model design and its benchmark results. Weights for all four models are available on Hugging Face and inference code on GitHub.",
+      "authors": [
+        "Adrien Petralia, Alexandre Gavaudan, Artjom Joosen, Etienne Goffinet, Richard Kurle, Yassine El Ouahidi, Yassir Bendou, Abdelaziz Bounhar, Abhijeet Somani, Aditi Kabra, Adrian Valente, Adrien Sad\\'e, Ahmed Djermani, Alan Jeffares, Albert Jiang, Alberto Bietti, Aleksandr Timashov, Alexandre Cahill, Alexandre Laval, Alexandre Sablayrolles, Alexandros Sanchez Vassopoulos, Am\\'elie H\\'eliou, Amos You, Andr\\'e Jonasson, Andreas F\\\"urst, Andrew Bai, Andrew Ehrenberg, Andrew Zhao, Andy Lo, Angele Lenglemetz, Anmol Agarwal, Antonia Calvi, Arata Suzuki, Arjun Majumdar, Arthur Fournier, Ashwani Kumar, Augustin Lombard, Avinash Sooriyarachchi, Aylin Guliz Akkus, Aysenur Karaduman, Baptiste Bout, Baptiste Rozi\\`ere, Barna P\\'asztor, Baudouin De Monicault, Benjamin Holzschuh, Benjamin Tibi, Benno Stein, Bernhard Stadlbauer, Bhargavi Bhaskar, Binbing Hou, B{\\l}a\\.zej Osi\\'nski, Boris van Breugel, Camille Le Scao, Chaoran Yu, Charlotte Cronj\\\"ager, Chen-Yo Sun, Chris Bamford, Christian Wallenwein, Christophe Renaudin, Cl\\'emence Lanfranchi, Colin Bonatti, Corentin Barreau, Corentin Sautier, Cristiana-Diana Diaconu, Cyprien Courtot, Daniel Lopes, Daniel Marczak, Darius Dabert, Diego de las Casas, Dominik Nuss, Dylan Rubini, Dzmitry Soupel, Elizaveta Demyanenko, Elliot Chane-Sane, Emilien Fugier, Emmanuel Gottlob, Erik Aas, Etienne Duchesne, Fabian Paischer, Fabian Schlager, Faruk Ahmed, Federico Baldassarre, F\\'elix Rosseeuw, Filip Szatkowski, Filippo Vicentini, Florian Wiesner, Gabrielle Berrada, Ga\\\"etan Ecrepont, Gaspard Blanchet, Gaspard Donada-Vidal, Gaurav Mahajan, Gauthier Guinet, Genevieve Hayes, Georgii Novikov, Georgios Christoglou, Giada Pistilli, Gonzague de Carpentier, Graeme Nail, Guillaume Breton, Guillaume Kunsch, Guillaume Lample, Guillaume Martin, Guillaume Raille, Guillaume Richard, Guillem Simeon, Gunjan Dhanuka, Gunshi Gupta, Hamza Senhaji Rhazi, Han Zhou, H\\'edi Hadiji, Himanshu Jaju, Hope McGovern, Hubert de Parseval, Hugo Cisneros, Hugo Germain, Hugo Thimonier, Hugo Venturini, Hyeonju Lee, Hyunwoo Oh, Iliass Lasri, Ilyas Oulkadda, Jacques Sun, Jan Ludziejewski, Jason Rute, Jean de Becdeli\\`evre, Jean Quentin, Jean-Malo Delignon, Jessica Chudnovsky, Jianchao Li, Jie Zhang, Jin Bin Ou, Joachim Studnia, Joep Barmentlo, Johannes Brandstetter, John Harvill, Jonas Amar, Jonas Schweizer, Jonathan Roberts, Jos\\'ephine Delas, Josselin Somerville, Jules Depersin, Julien Denize, Julien Tauran, Julien Verlaguet, Kartik Khandelwal, Khyathi Raghavi Chandu, Kilian Tep, Konstantin Mishchenko, Kris Szczepaniak, Kush Jain, Larissa Laich, Laura Calem, Laurence Aitchison, Laurent Callot, Laurent Fainsin, L\\'eo Cotteleer, L\\'eonard Blier, Lo\\\"ic Chadoutaud, Lo\\\"ick Chambon, Lorenzo Proietti, Louis Faucon, Louis Martin, Louis Serrano, Lu Li, Luc Boudier, Lucas Fernandes Martins, Lucas Mebille, Lucile Saulnier, Ludovic Ho Fuh, Luis Montero, {\\L}ukasz Borchmann, Maarten Buyl, Malik Hassan Raza, Manon Chossegros, Marcin Mo\\.zejko, Margaret Jennings, Markus Hennerbichler, Martin Alexandre, Mathieu Poir\\'ee, Mathieu Schmitt, Mathilde Guillaumin, Mathis Felardos, Matthieu Andr\\'e, Matthieu Dinot, Matthieu Futeral, Maurits Bleeker, Mauro Comi, Max Mynter, Maxim Berman, Maxime Darrin, Maxime Langelier, Maxime Louis, Maximilian Augustin, Maximilian M\\\"uller, Mehdi Bouaziz, Melina Jingting Laimon, Mert Unsal, Mia Chiquier, Michael Pilcer, Micha{\\l} Pietruszka, Micha{\\l} Zaj\\k{a}c, Micka\\\"el Seznec, Mikhail Biriuchinskii, Minh-Quang Pham, Minwoo Kang, Mircea Lica, Morgane Rivi\\`ere, Namit Katariya, Natasha {\\O}rregaard Klingenbrunn, Nathan Bout, Nathan Grinsztajn, Nathan Simpson, Neeraj Aggarwal, Neil Ashton, Neil Mallinar, Nick B\\\"uhrer, Nicolas Moreau, Nicol\\`o Lucchesi, Ola Mysiak, Oliver Leicht, Olivier Bousquet, Olivier Koch, Parag Jain, Patricia Wang, Patrick Blies, Patrick von Platen, Patryk Saffer, Paul Jacob, Paul Teiletche, Paul Wambergue, Paula Kurylowicz, Pavan Kumar Reddy, Pavel Kuksa, Philippe Formont, Philippe Pinel, Philom\\`ene Chagniot, Pierre Glandon, Pierre Stock, Pierre-Andr\\'e Savalle, Piotr Mi{\\l}o\\'s, Poojan Shah, Prateek Gupta, Pravesh Agrawal, Pui Ki Chan, Quentin Desreumaux, Quentin Selle, Quentin Torroba, Quentin Wargnier, Quercus Hernandez, Ram Ramrakhya, Randall Isenhour, Ranjit Parva, Rapha\\\"el Balouka, Rapha\\\"el Rialland, Raul Perez Pelaez, Reinhard Sonnleitner, Remi Delacourt, Rishi Shah, Rob Romijnders, Rohan Shah, Rohin Arora, Romain Sauvestre, Roman Soletskyi, Ronan Riochet, Rosalie Millner, Rupert Menneer, Sagar Vaze, Samuel Barry, Samuel Belkadi, Samuel Humeau, Samuele Papa, Sanchit Gandhi, Sandeep Cranganore, Sandeep Subramanian, Sarthak Mittal, Saskia Adaime, Scott Matthews, Sean Cha, Sebastian Kaltenbach, Seungjae Jung, Shashwat Verma, Sherif Waly, Shrimai Prabhumoye, Siddhant Waghjale, Siddharth Gandhi, Simon Lepage, Simon Sorg, Soham Ghosh, Sophie Marbach, Srijan Mishra, Stanislas Lange, Steve Hong, Sumukh Aithal, Szymon Antoniak, Tarun Kumar Vangani, Teddy Turquet, Teven Le Scao, Th\\'eo Cachet, Thibaut Lavril, Thomas Chabal, Thomas Coste, Thomas Defard, Thomas Foubert, Thomas Loux, Thomas Robert, Thomas Wang, Tianyu Zhang, Tim Lawson, Timoth\\'ee Lacroix, Timothy Wallis, Tobias Kronlachner, Tom Bewley, Tom Edwards, Tomas Hodan, Triantafyllos Afouras, Tuhin Das, Tyler Wang, Udit Saxena, Ulrick Bl\\'e, Umar Jamil, Umberto Tomasini, Valentin Mac\\'e, Van Phung, Venkata Reddy, Vibha Masti, Victor Jouault, Victor Letzelter, Victor Paltz, Victor Poucheret, Vincent Maladi\\`ere, Vincent Pfister, Virgile Richard, Vladislav Bataev, Wassim Bouaziz, Wen Ding Li, William Flanagan, William Havard, William Marshall, Witold J\\k{e}drzejewski, Xinghui Li, Xingran Guo, Xinyu Yang, Xuanyu Zhang, Yann Dreze, Yann Viegas, Yannic Neuhaus, Yassine Turki, Yessin Moakher, Yi He, Yihan Wang, Yimu Pan, Yuying Zhu, Yves Martin des Taillades, Zaccharie Ramzi, Zhenlin Xu, Zs\\'ofia Cs\\'ak\\'any"
+      ],
+      "published": "2026-10-27T17:25:43Z",
+      "updated": "2026-10-27T17:25:43Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.37585",
+      "pdf_url": "https://arxiv.org/pdf/2610.37585",
+      "first_seen": "2026-10-28T21:06:34.379165Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.37563",
+      "title": "Pneuma: A Large-Scale Real-World Time Series Benchmark for Commercial Aircraft Predictive Maintenance",
+      "abstract": "Predictive maintenance is vital for commercial aviation, yet progress remains hindered by the lack of public, large-scale real-world datasets. As a result, most methods are developed and evaluated on proprietary data, limiting reproducibility. We introduce Pneuma, the first publicly available large-scale benchmark for predictive maintenance using onboard time series from in-service commercial aircraft. Built around bleed air systems, Pneuma contains over 920 million multivariate time steps across four aircraft types and 9 verified fault scenarios, directly aligned with real maintenance logs. The dataset exhibits key real-world challenges, including substantial class imbalance, subtle fault evolution patterns, and significant variance across aircraft configurations. We structure the benchmark around three tasks: multivariate forecasting, supervised fault classification, and unsupervised anomaly detection, with labels derived from actual maintenance records. Under unified settings, we evaluate over 25 models from four methodological families on 9 carefully curated subsets. The results reveal that even strong contemporary models struggle with subtle fault signatures. Further analyses show consistent gains from additional in-context examples and multivariate inference, while forecasting quality is strongly associated with anomaly detection performance. Together, these findings provide practical insights into effectively modeling complex real-world aviation time series. We hope Pneuma will serve as a rigorous and reproducible foundation for advancing data-driven predictive maintenance toward real-world deployment in commercial aviation.",
+      "authors": [
+        "Jiafeng Lin, Yutian Zhang, Huan Zhang, Yuxuan Wang, Jinyan Feng, Yuhui Liu, Zhongyi Pei, Jianmin Wang"
+      ],
+      "published": "2026-10-27T17:09:19Z",
+      "updated": "2026-10-27T17:09:19Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.37563",
+      "pdf_url": "https://arxiv.org/pdf/2610.37563",
+      "first_seen": "2026-10-28T21:06:34.379165Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.37071",
+      "title": "Analysis of Uncertain GARCH Model with the application of crude oil future prices",
+      "abstract": "Time series data often exhibit variation, clustering, and persistence in uncertain environments. Based on an uncertain measure, existing studies have primarily focused on conditional mean structures while ignoring variance and persistent dynamics. To address this gap, this paper develops an uncertain generalized autoregressive conditional heteroskedasticity (UGARCH) model that incorporates lagged conditional variance terms. We first prove sufficient conditions to ensure mean stationarity of the variance process. Then, we propose recursive constrained least squares to estimate the model parameters and use cross validation to determine the orders of the mean and variance equations. In addition, we also employ uncertain hypothesis tests to determine whether a time series exhibits a UGARCH effect and to assess the goodness of fit. Point and interval forecasts are subsequently constructed from the recursively obtained next-period conditional variance and the expected value of the mean equation. Numerical simulations demonstrate the parameter estimation performance of the proposed method and show that UGARCH achieves smaller conditional-variance fitting errors than UARCH under the considered settings. In the empirical analysis, we apply the proposed method to West Texas Intermediate crude oil futures closing prices, which exhibit time-varying volatility and support short-term point and interval forecasts. Keywords: Uncertain measure, Uncertain time-series analysis, UGARCH model, hypothesis test",
+      "authors": [
+        "Zhihong Yin, Zhiming Li"
+      ],
+      "published": "2026-10-27T11:35:32Z",
+      "updated": "2026-10-27T11:35:32Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.37071",
+      "pdf_url": "https://arxiv.org/pdf/2610.37071",
+      "first_seen": "2026-10-28T21:06:34.379165Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.36703",
+      "title": "RankFormer: Rethinking Time Series Transformers through Representation Capacity Analysis and Progressive Decoding",
+      "abstract": "Multivariate time series forecasting plays a critical role in Web and cyber-physical systems, where large-scale services and IoT infrastructures generate complex temporal data. Transformer-based models have achieved strong empirical performance in this domain, yet the principles governing the expressive capacity of their learned representations remain insufficiently understood. Moreover, many existing models rely on simplified decoding strategies, including channel-independent modeling and direct projection heads, which limit their ability to capture complex multivariate dynamics. To address these challenges, we propose RankFormer, a novel encoder-decoder architecture for multivariate time series forecasting. We establish a rank-based analysis framework to investigate how tokenization, embedding, and attention designs affect the representation capacity of time series Transformers. Our analysis reveals that patchification increases the potential representation capacity by aggregating multiple temporal observations into each token, while subsequent encoding operations determine how much of this capacity is realized. Guided by these insights, we develop a rank-enhancing encoder with Hourglass Attention to improve rank stability during information interaction. Furthermore, we introduce the Interactive Progressive Decoder (IPD), which improves future trajectory modeling through global-guided cross-channel interaction and progressive refinement. Extensive experiments on real-world long-term forecasting benchmarks demonstrate that RankFormer achieves competitive performance against state-of-the-art methods. Code repository: https://github.com/TangPeiwang/Rankformer.",
+      "authors": [
+        "Peiwang Tang, Cheng HE, Xijie Liang, Defu Lian"
+      ],
+      "published": "2026-10-27T06:20:11Z",
+      "updated": "2026-10-27T06:20:11Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.36703",
+      "pdf_url": "https://arxiv.org/pdf/2610.36703",
+      "first_seen": "2026-10-28T21:06:34.379165Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.36572",
+      "title": "Learning from Points and Patches: A Pre-trained Hybrid Attention Transformer for Time Series Analysis",
+      "abstract": "Time-series data generated by Web services and connected systems support applications such as user activity analysis, service monitoring, and resource management. However, learning transferable representations from heterogeneous time series remains challenging due to diverse temporal patterns, variable sequence lengths, and limited high-quality annotations. Despite the success of pre-training in natural language processing and computer vision, effective time-series pre-training requires strategies tailored to temporal data. We propose TimeHAT (Hybrid Attention Transformer), a general-purpose pre-training framework for time-series analysis that addresses two complementary questions: what to learn and how to learn. For what to learn, we introduce a Unified Point-Patch Masking Strategy (UPPMS) that integrates point-level and patch-level supervision within a unified framework for contextual reconstruction and causal extrapolation, enabling the model to capture both fine-grained temporal variations and broader temporal patterns. For how to learn, we develop a Hybrid Attention Encoder (HAE) that combines prefix-constrained bidirectional attention in initial layers with directional hybrid attention in deeper layers, aiming to preserve effective contextual interactions while mitigating rank degeneration. We evaluate TimeHAT across real-world datasets and four downstream tasks: classification, long-term forecasting, imputation, and anomaly detection. Experiments cover fine-tuning, few-shot, and zero-shot transfer settings, demonstrating competitive performance across diverse time-series analysis tasks. Code is available at https://github.com/TangPeiwang/TimeHAT.",
+      "authors": [
+        "Peiwang Tang, Cheng HE, Yupeng Ye, Weitai Zhang, Qinghua Sun, Defu Lian"
+      ],
+      "published": "2026-10-27T03:24:24Z",
+      "updated": "2026-10-27T03:24:24Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.36572",
+      "pdf_url": "https://arxiv.org/pdf/2610.36572",
+      "first_seen": "2026-10-28T21:06:34.379165Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.36536",
+      "title": "ATEMPO: Amortized Transfer Entropy Model Per-lag Over-Time",
+      "abstract": "When one time series informs another, the delay at which that information arrives determines if models can utilize this relationship effectively. A source may be strongly predictive at one delay but uninformative at neighboring lags. Therefore, fixed input windows may obscure this structure by bundling informative and irrelevant history together. Transfer entropy (TE) can recover these delays by measuring how much a source's past tells us about a target beyond the target's own history. However, existing TE estimators require separate fits across source and conditioning depths, with further estimation on local windows to track delays over time. We introduce ATEMPO, a diffusion-based transfer entropy estimator amortized over lags and time. ATEMPO samples source and conditioning depths during training and conditions explicitly on temporal position, allowing a single score network to estimate the full TE surface without refitting. Differencing this surface recovers when information arrives. Across synthetic datasets with ground-truth TE, ATEMPO achieves the lowest mean relative error among baselines, and on datasets with known lags, ATEMPO achieves $0.98\\pm0.04$ lag-detection accuracy. ATEMPO requires a single fit across source depths $K=6$ and target depths $L=3$, whereas existing estimators require 18 separate fits to evaluate the same $K \\times L$ grid. On three systems with time-varying lag, ATEMPO is the only estimator to maintain perfect lag-detection accuracy across all evaluated window lengths. These recovered delays improve downstream forecasting: ATEMPO-selected inputs reduce MSE on WEATHER-5K by 7.25%, while 120 selected inputs outperform the benchmark's 240-feature default by 4.6%. Across three brain-computer interface tasks, using ATEMPO-selected lags achieves the highest or equal-best $R^2$, improving mean $R^2$ by 4.1% relative to the strongest competing baseline.",
+      "authors": [
+        "Emma Andrews, Konstantinos Kontras, Keane Ong, Maarten De Vos, Gianmarco Mengaldo"
+      ],
+      "published": "2026-10-27T02:49:07Z",
+      "updated": "2026-10-27T02:49:07Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.36536",
+      "pdf_url": "https://arxiv.org/pdf/2610.36536",
+      "first_seen": "2026-10-28T21:06:34.379165Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.35753",
       "title": "CLOSURE: Cross-Channel Closure for Multivariate Time Series Anomaly Detection",
       "abstract": "Multivariate time series produced by industrial installations and server clusters are under continuous monitoring, and anomaly detection is the first line of defense before a local fault escalates into a system-wide failure. In the absence of labels, the dominant paradigm trains a reconstruction model on normal data and scores the residual to reach a verdict. Recent work has steadily enriched the expressiveness of the recovery map through Transformers, diffusion models, and cross-scale associations. A residual, however, only certifies that an observation can be recovered; it does not certify that the variables still explain one another as they do under normal operation. A coordinated yet unfamiliar operating transition inflates the residual without breaking any relationship, whereas a sensor drifting away from its peers may leave the residual silent. Methods that fold inter-variable dependencies into the reconstruction objective inherit this ambiguity, because their relational evidence is ultimately supervised by the same recovery loss. We therefore propose CLOSURE, which evaluates recoverability and cross-channel consistency as two normal-data prediction tasks learned in separation. The recoverability task is solved by a diffusion reconstructor conditioned on a discrete memory of normal temporal bases. The consistency task is solved by a relation-closure operator that predicts every channel exclusively from the others, where the target's own trajectory is withheld and sparse signed gates decide which peers are actually used. The two scores are reconciled only through calibration on normal data. Extensive experiments show that CLOSURE consistently outperforms recent reconstruction-, frequency-, and topology-based detectors on public benchmark streams, confirming the value of examining consistency alongside recoverability.",
@@ -112,8 +216,8 @@
         "Hanne Raum, Jasper Hoffmann, Joschka Boedecker"
       ],
       "published": "2026-10-26T10:02:43Z",
-      "updated": "2026-10-26T10:02:43Z",
-      "metadata_updated": "2026-10-27T00:00:00Z",
+      "updated": "2026-10-27T16:00:49Z",
+      "metadata_updated": "2026-10-28T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.35128",
       "pdf_url": "https://arxiv.org/pdf/2610.35128",
       "first_seen": "2026-10-27T21:20:43.905041Z",
@@ -10517,30 +10621,15 @@
       ]
     }
   ],
-  "last_success": "2026-10-27T21:20:43.905041Z",
-  "last_attempt": "2026-10-27T21:20:43.905041Z",
+  "last_success": "2026-10-28T21:06:34.379165Z",
+  "last_attempt": "2026-10-28T21:06:34.379165Z",
   "last_new_ids": [
-    "2610.33209",
-    "2610.33330",
-    "2610.33348",
-    "2610.33387",
-    "2610.33410",
-    "2610.33470",
-    "2610.33788",
-    "2610.33822",
-    "2610.34055",
-    "2610.34171",
-    "2610.34409",
-    "2610.34797",
-    "2610.34930",
-    "2610.34968",
-    "2610.35128",
-    "2610.35190",
-    "2610.35280",
-    "2610.35367",
-    "2610.35400",
-    "2610.35484",
-    "2610.35753"
+    "2610.36536",
+    "2610.36572",
+    "2610.36703",
+    "2610.37071",
+    "2610.37563",
+    "2610.37585"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -10548,8 +10637,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 6,
-    "records": 7190,
+    "pages": 8,
+    "records": 9995,
     "duplicates": 0
   }
 }
