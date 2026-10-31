@@ -2,6 +2,246 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2610.40579",
+      "title": "When Imputation Changes the Nearest Neighbor: Exact Certification of Similarity Retrieval for Incomplete Sensor Time Series",
+      "abstract": "Sensor time series routinely reach similarity search with missing values, and the retrieved neighbours then depend on how the gaps were filled. We ask which retrieval conclusions hold for every admissible completion of an incomplete query. For a family of window-minimum distances that contains the $L_1$ distance as its separable end we give a pairwise certificate that one candidate is strictly closer than another, a guaranteed candidate set that contains every possible nearest neighbour, and a certificate that a nearest-neighbour label cannot change. The guarantees hold uniformly over the specified box and apply to the true query whenever it lies inside. At the separable end a closed form is known, but beyond it the worst-case gap need not be attained at a corner of the box. We prove a finite reduction to critical values, give an exact interval dynamic programme for the worst-case ranking gap, and a quadratic-time fast layer of valid bounds and feasible witnesses, supported by an exact criterion for when the feature-box relaxation is tight. On three traffic-sensor collections with real gap patterns, linear interpolation changes the nearest neighbour in 15 to 33 percent of the queries. At the full band the feature-box relaxation misses up to 14 percent of the exactly stable boundary pairs, whereas fixed-completion and Monte Carlo checks issue false certificates. The fast layer resolves about 90 percent of all tested boundary pairs without dynamic programming, and on paired network-scale queries the exact method is 82 to 110 times faster than the programme alone. Label certificates transfer to three public benchmarks, and the band width trades forecasting accuracy and certification coverage for lower imputation sensitivity, with dataset-dependent crossovers.",
+      "authors": [
+        "Jianru Shen"
+      ],
+      "published": "2026-10-29T17:45:34Z",
+      "updated": "2026-10-29T17:45:34Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.40579",
+      "pdf_url": "https://arxiv.org/pdf/2610.40579",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.40330",
+      "title": "Multistep and Multivariate Time Series Explainability with GradientSHAP: A Wind Power Case Study",
+      "abstract": "As the effects of climate change become increasingly apparent, the demand for renewable energy sources such as wind power continues to grow. However, renewables' variable and intermittent nature presents significant challenges in their integration into energy grids. Artificial intelligence (AI) has emerged as a powerful tool to address these issues. Still, its adoption in the energy sector has been hindered by the opacity of many AI models, which often function as black boxes. This paper introduces a carefully adapted GradientSHAP approach to provide interpretability for multivariate, multistep wind power forecasting -- a largely underexplored area. This capability is critical for day-ahead grid management and, to the best of our knowledge, this is the first study to apply GradientSHAP in the context of wind power forecasting. To address the inherent dimensionality, we developed novel visualizations that deliver both local and global explanations, uncovering intricate relationships between environmental factors, site-specific conditions, and temporal dynamics. While GradientSHAP is not an out-of-the-box solution, our findings demonstrate that, with thoughtful handling of SHAP values and domain expertise, it can offer valuable insights into model behaviour, supporting more informed and trustworthy decision-making. Nevertheless, its complexity poses challenges for practical implementation. Future research should focus on streamlining these interpretability methods to make them more actionable for routine deployment in critical energy applications.",
+      "authors": [
+        "Robbie Southam, Zhong Fan, Ke Li"
+      ],
+      "published": "2026-10-29T15:57:13Z",
+      "updated": "2026-10-29T15:57:13Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.40330",
+      "pdf_url": "https://arxiv.org/pdf/2610.40330",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.40188",
+      "title": "Understanding axial attention in TSFMs through single location regression",
+      "abstract": "Recent advances in Time Series Foundation Models (TSFMs) increasingly rely on axial attention mechanisms, but despite their empirical success, the theoretical properties of axial attention remain largely unexplored. To bridge this gap, we extend the Single Location Regression framework introduced in Marion et al. [2025] to 2D structured data, in order to study sparse information settings where a target depends on a small number of tokens. We formulate an analytically tractable axial attention-type predictor and rigorously analyze its statistical properties and training dynamics. We prove that under a specific asymptotic regime and with knowledge of the underlying oracle parameters, our predictor achieves Bayes optimality, whereas a class of semi-linear simplifications strictly fails to do so, underlining the role of the inner non-linearity. We prove that for a specific temperature scaling, Projected Gradient Descent converges globally to the optimal oracle parameters. Extensive numerical experiments validate our theoretical findings and highlight the critical role of inverse temperature scheduling in empirical convergence.",
+      "authors": [
+        "Andrei-Tiberiu Pantea, Aymeric Dieuleveut"
+      ],
+      "published": "2026-10-29T14:46:50Z",
+      "updated": "2026-10-29T14:46:50Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.40188",
+      "pdf_url": "https://arxiv.org/pdf/2610.40188",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2610.39958",
+      "title": "Observability-Aligned Evidential Masked Pretraining for Reliable VRU Motion Prediction",
+      "abstract": "Vulnerable road user (VRU) prediction must operate under partial observability and distribution shift, so reliable uncertainty matters alongside accuracy. Masked pretraining is attractive in this setting because it naturally exposes the model to missing content during self-supervision, but existing time-series masked autoencoding methods are typically deterministic and do not constrain how confidence should change with observability. We introduce eCoMAE, an evidential masked pretraining method for multivariate time series that explicitly aligns predictive evidence with what is observed. eCoMAE combines block-wise time-step masking with a Normal-Inverse-Gamma decoder and three observability-aware mechanisms: uncertainty-weighted mean consistency on positions visible in both a masked view and a reference pass, evidence suppression on masked positions, and representation consistency across stochastic masks. On IMPTC benchmark for VRU intention prediction under leave-one-environment-out weather shift, eCoMAE improves the strongest baseline from 0.7971 to 0.8068 in OOD accuracy and from 0.0718 to 0.0648 in OOD AURC. Additional evaluation on pedestrian trajectory forecasting across IMPTC, Waymo, nuScenes, and inD further yields the best fine-tuning MSE on all four datasets. These results show that observability-aligned evidential pretraining improves reliability under shift and remains effective beyond the primary benchmark.",
+      "authors": [
+        "Shang Gao, Franz G\\\"otz-Hahn, Konrad Doll, Bernhard Sick"
+      ],
+      "published": "2026-10-29T12:54:01Z",
+      "updated": "2026-10-29T12:54:01Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.39958",
+      "pdf_url": "https://arxiv.org/pdf/2610.39958",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.39632",
+      "title": "Temporal Correlations and Optimal Feedback Control of an Active Information Engine",
+      "abstract": "How much does a feedback controller need to know about the fluctuations it exploits? We address this question using a macroscopic information engine driven by self-propelled bristle-robots. Experimentally measured occupancy time series show that temporal correlations strongly affect vacancy detection. At short measurement intervals, mean first-passage times exceed independent-measurement predictions by more than an order of magnitude. A first-order Markov approximation captures much of this effect. It does not reproduce the full first-passage distribution, revealing higher-order temporal memory. Nevertheless, Markov-selected protocols come within 0.15\\% of the maximum experimental power. Neglecting correlations causes power losses of several percent and favors larger compression distances. Introducing a sensing cost shifts the optimal strategy toward sparse sensing. The independent model cannot predict this shift, whereas the Markov model captures it. Cross-validation on separate time segments confirms the near-optimal performance of Markov-selected protocols. These findings demonstrate that near-optimal feedback control in correlated nonequilibrium systems can require a simpler statistical description than predicting their full temporal dynamics.",
+      "authors": [
+        "Laura Hoek and Yael Roichman"
+      ],
+      "published": "2026-10-29T08:57:17Z",
+      "updated": "2026-10-29T08:57:17Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.39632",
+      "pdf_url": "https://arxiv.org/pdf/2610.39632",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.39246",
+      "title": "IMRouter: Imbalance-aware Temporal Pattern Routing for LLM-based Time Series Forecasting",
+      "abstract": "Accurate time series forecasting (TSF) is essential for Web applications, such as traffic monitoring and online resource management. Recent advances in leveraging pre-trained large language models (LLMs) have shown promising performance in TSF. However, existing LLM-based TSF methods largely optimize the overall forecasting objective while overlooking temporal pattern imbalance (TPI), where different temporal patterns occur at highly unequal frequencies. Our empirical analysis reveals that TPI is prevalent across widely used TSF benchmarks, with substantially higher forecasting errors on less frequent patterns. To address this issue, we propose IMRouter (Imbalance-aware Temporal Pattern Routing), a novel framework that mitigates TPI-induced biases in both temporal representation learning and cross-modal alignment. Specifically, IMRouter introduces Pattern-Adaptive Temporal Representation Learning (PATR), which leverages gradient conflict and local gradient density to guide expert specialization. By penalizing incompatible expert assignments with density-aware weighting, PATR reduces the dominance of frequent optimization signals in router training. Furthermore, Routing-Guided Semantic Alignment (RGSA) transfers the pattern-specific knowledge learned by the router to cross-modal alignment through mutual information maximization, preserving distinctive temporal information across different patterns. Extensive experiments on benchmark datasets demonstrate the effectiveness of IMRouter, particularly in improving forecasting performance on less frequent temporal patterns.",
+      "authors": [
+        "Xin Yang, Cai Xu, Haishun Chen, Ying Liu, Jie Zhao, Wei Zhao, Ziyu Guan"
+      ],
+      "published": "2026-10-29T03:00:40Z",
+      "updated": "2026-10-29T03:00:40Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.39246",
+      "pdf_url": "https://arxiv.org/pdf/2610.39246",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.39043",
+      "title": "Modular Bayesian Foundation Models: Bayesian time series encoders for OOD detection, routing and forecasting",
+      "abstract": "Industrial systems continuously generate time series that vary in sampling frequency, scale, dynamics, and operating regime. Consequently a single time-series foundation model may not be able to represent all regimes effectively and retraining a large model for every new dataset or regime shift is computationally expensive. Modular foundation models address this issue by reusing specialised encoders trained on diverse datasets and by allowing the expansion of capabilities through the addition of new experts. This approach requires compact experts to minimize storage cost and a proper selection mechanism of experts for unseen data. We propose a modular foundation model framework that combines end-to-end Bayesian encoder training with uncertainty based routing. Using Singular Bayesian Neural Networks (SBNNs), we build a collection of compact Bayesian encoders whose epistemic uncertainty guides label-free selection. At the selected ranks, our Bayesian collection uses 63.8\\% less storage than its deterministic counterpart. We evaluate this framework on time-series data through distribution shift, encoder selection, and probabilistic forecasting. Across seven incoming datasets, uncertainty-based routing is competitive with distance-based routing in terms of forecast MSE, while reducing average ECE from 0.086 to 0.072 and average NLL from 0.907 to 0.836. It also increases PICP90 from 82.28\\% to 89.03\\%. In a separate model-family comparison, we evaluate the SBNN pipeline against full-rank Bayes by Backprop, deep ensembles, and MC Dropout. The SBNN pipeline achieves an average MSE of 0.390, comparable with 0.396 for deep ensembles, 0.389 for MC dropout, and 0.443 for the full-rank Bayesian model. It uses 63.9\\% fewer parameters than MC dropout, 81.9\\% fewer than the full-rank model, and 92.8\\% fewer than the deep ensemble.",
+      "authors": [
+        "Mame Diarra Toure, Quang Hung Pham, Mohamed Ryad Zemouri, David Stephens, Luc Vouligny, Martin Gagnon"
+      ],
+      "published": "2026-10-28T23:16:09Z",
+      "updated": "2026-10-28T23:16:09Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.39043",
+      "pdf_url": "https://arxiv.org/pdf/2610.39043",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2610.38686",
+      "title": "On the Generalization Gap of Streaming Federated Learning with Markovian Data",
+      "abstract": "Streaming federated learning (SFL) allows clients to train a shared model from continuously arriving data without retaining large local datasets. Such streams often exhibit temporal dependence, yet its effect on generalization remains poorly understood. In this paper we study the expected generalization gap of the aggregated model when client data follow Markov processes, using information-theoretic and rate-distortion techniques. Our framework accommodates heterogeneous Markovian dynamics across clients and distinguishes temporal dependence from information acquired during local learning. We establish bounds under cross-entropy loss, specializing them to Linear Next-Token Prediction (LNTP) and Self-Attention Next-Token Prediction (SANTP). These results quantify the effects of client count, communication rounds, sample size, data dimension, mixing time, and context length. In particular, they reveal a communication--generalization tradeoff: although frequent aggregation may help optimization, it can weaken generalization guarantees. They also suggest a potential advantage of distributed over centralized streaming learning under a fixed total data budget. Temporal dependence enters through the square root of the mixing time. By analyzing the history-state process, we obtain refined bounds with improved context-length dependence under suitable mixing conditions. Experiments on GPT-style language-model pretraining with TinyStories and real-world time-series forecasting illustrate how collaboration and communication frequency influence generalization under temporal dependence",
+      "authors": [
+        "Masoud Kavian, Milad Sefidgaran, Youssef Attia El Hili, Malik Tiomoko, Abdellatif Zaidi"
+      ],
+      "published": "2026-10-28T18:56:59Z",
+      "updated": "2026-10-28T18:56:59Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.38686",
+      "pdf_url": "https://arxiv.org/pdf/2610.38686",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.38558",
+      "title": "REVBRAIN: Real-time Probabilistic EEG Forecasting Using Residual Vector Quantization",
+      "abstract": "Real-time forecasting of resting-state EEG signals is required by applications like brain-state-dependent stimulation, where computer generated actions are coupled with ongoing neural oscillations. Recently, the deep learning model WaveNet was proposed for the forecasting task. It shows superior accuracy compared to the prevailing method, the linear autoregressive (AR) model, and provides a built-in uncertainty measure due to its probabilistic modeling framework. However, inference using WaveNet is too slow for real-time use due to its sample-by-sample autoregressive operation: a single forecast requires evaluating the model tens or hundreds of times depending on the length of the prediction window. In this paper, we present REVBRAIN, a probabilistic deep learning method that produces forecasts in real time by generating the forecast over the whole prediction horizon at once. This is achieved by tokenizing the output space using residual vector quantization (RVQ) and generating forecasts over the items in the tokenized space. We tested REVBRAIN for forecasting 200 ms of EEG time series in the alpha-frequency band (8-13 Hz) and compared our results against WaveNet model. We found that REVBRAIN achieved real-time inference on a laptop GPU and an over $50\\times$ speedup compared to WaveNet, while reaching superior prediction accuracy. By achieving real-time inference speed, REVBRAIN enables incorporating accurate and probabilistic EEG forecasting into BCI applications, opening up new ways for investigating the functioning of the human brain.",
+      "authors": [
+        "Hanna Pankka, Jaakko Lehtinen, Timo Roine"
+      ],
+      "published": "2026-10-28T09:53:55Z",
+      "updated": "2026-10-28T09:53:55Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.38558",
+      "pdf_url": "https://arxiv.org/pdf/2610.38558",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.38315",
+      "title": "LLM-PowerTrace: A Dataset of Time-Resolved GPU Power Traces for AI Compute",
+      "abstract": "AI compute is becoming large and fast-changing electrical loads. Its impacts on data center infrastructure and power grids depend not only on total energy consumption, but also on how their power draw moves over sub-second to minute timescales, including peaks, ramps, and synchronized fluctuations across accelerators. Existing energy benchmarks for large language models (LLMs) report aggregate quantities such as joules per token and rarely release the underlying time-series measurements, leaving these power dynamics poorly characterized and difficult to model. We introduce LLM-PowerTrace, an open dataset of time-resolved, per-GPU power traces for LLM fine-tuning and inference, sampled every 100\\,ms on varying NVIDIA platforms paired with complete workload and system metadata. For fine-tuning, LLM-PowerTrace profiles open model families spanning a wide range of model sizes and fine-tuning methods, together with controlled sweeps over batch size, sequence length, precision, parallelism, and checkpointing. For inference, it covers variations in concurrency, GPU frequency, KV-cache and weight quantization, prompt and output lengths, and request-arrival patterns. LLM-PowerTrace profiles a set of open model families across a wide range of model sizes, and controlled sweeps over batch size, sequence length, precision, parallelism, and checkpointing for fine-tuning, and it sweeps concurrency, GPU frequency, KV cache and weight quantization, prompt and output lengths, and request arrival patterns for inference. Built upon power traces, we define power-grid-facing metrics as well as AI-compute power\\&energy scaling law for extrapolating beyond the measured settings. Together, LLM-PowerTrace provides a dataset foundation for modeling, forecasting, and managing the fast-changing electrical behavior of AI compute.",
+      "authors": [
+        "Jiansheng Wang, Jaskeerat Singh, Haochen Xu, Xinyi Li, Mingyuan Yan, Shaohui Liu, Yuzhuo Li, Yize Chen, Wenqi Cui"
+      ],
+      "published": "2026-10-28T05:58:47Z",
+      "updated": "2026-10-28T05:58:47Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.38315",
+      "pdf_url": "https://arxiv.org/pdf/2610.38315",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.38292",
+      "title": "Vendster: An Evaluation Arena to Investigate How Forecasting Tool Quality Affects LLM Agent Behaviors in Buyer-Vendor Negotiation",
+      "abstract": "Time-series forecasters are ranked almost entirely by accuracy metrics, but a forecast's decision value, its effect on the downstream decision, need not track accuracy and is rarely measured. This problem compounds as large language model (LLM) agents increasingly consume forecasters as tools, mediating them through stochastic, opaque policies. We present Vendster, an evaluation arena measuring how a forecaster's bias and prediction-interval width change the outcome of a buyer--vendor discount negotiation between two LLM agents. In the reference instance Vendster-M5, sampling base demand patterns from the M5 dataset, we evaluate two frontier-closed LLM families (Claude Opus 4.6 and GPT-5.6 Sol) and two open ones (DeepSeek-V3.2 and Qwen3-235B-A22B). Model-generated forecasts raise sales target attainment by up to +17 percentage points (p<0.001), yet standard forecast evaluation metrics such as relWQL and MASE do not predict negotiation outcomes at a statistically significant level. To isolate the causal structure, we substitute in synthetic forecasts with controlled bias and interval width. Under-prediction bias significantly improves outcomes for agents that react more to the forecasts---dose-response slopes -0.387 and -0.416 (p<0.001). Interval width has no statistically significant effect at zero bias. These findings indicate that the direction of forecast bias and agent forecast-reactivity are more strongly associated with downstream outcomes than forecast accuracy. Vendster is fully customizable and released under CC BY-NC 4.0 at https://github.com/amazon-science/Vendster.",
+      "authors": [
+        "Charin Polpanumas"
+      ],
+      "published": "2026-10-28T05:23:48Z",
+      "updated": "2026-10-28T05:23:48Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.38292",
+      "pdf_url": "https://arxiv.org/pdf/2610.38292",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.38086",
+      "title": "From Next Day Wildfire to Next Days Wildfire: A New Multi-Continent Dataset of Active-Fire Spread for Sequence-to-Sequence Forecasting",
+      "abstract": "Benchmarks such as WildfireSpreadTS (WSTS) have enabled data-driven forecasting of wildfire spread from multimodal satellite time series, but they suffer from limitations: size restricts them to large fires that burn for weeks, and they are from similar environments. We introduce AFSeq, a multimodal dataset of 1,194 recent fire events (2023 to 2026) from 8 different countries across three regions, dominated by the short, small fires that existing benchmarks underrepresent. Our dataset is the largest and most diverse to date for time-series-based wildfire spread prediction. We also introduce UTAE-AR, an extension of a classical U-Net with Temporal Auto Encoder, enhanced with recurrent modules before the decoder. This allows the model to not only predict the next day but the whole sequence in an autoregressive way. Moreover, our model can feed its own predicted fire mask back one day at a time, producing the day-by-day forecasts that single-step models cannot. Our results show that UTAE-AR surpasses state-of-the-art on both WSTS, WSTS+ and AFSeq for next-day accuracy while having 21.5% of their parameters, and being able to predict confidently at a longer horizon.",
+      "authors": [
+        "Jose Guillen, Renzo Zanca, Valentin Barriere"
+      ],
+      "published": "2026-10-28T00:00:17Z",
+      "updated": "2026-10-28T00:00:17Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.38086",
+      "pdf_url": "https://arxiv.org/pdf/2610.38086",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.38037",
+      "title": "Measuring Deep Learning Performance - An Empirical Study of Performance Distributions Across Architectures and Tasks",
+      "abstract": "Context: Non-determinism in deep learning algorithm design and implementation leads to performance variation, meaning model performance is not a single value, but rather a distribution. These model performance distributions are underexplored despite their impact on robustness. Objective: We investigate the robustness of deep learning performance to sources of non-determinism, specifically focusing on how performance distributions differ across various architectures and tasks. Method: We conducted 186 experiments on image classification and time series forecasting architectures. Each experiment was run 100 times with different random seeds to generate performance distributions, resulting in 18,600 runs. Robustness was quantified using metrics for spread, symmetry, and tail risk. Results: Performance distributions are frequently non-Gaussian, particularly in time series forecasting. Model size does not systematically affect robustness -- larger image classification models show fewer outliers but not lower spread, while smaller time series models show lower spread but more extreme underperformers. Training duration does not scale linearly; early stopping effectively balances performance and robustness. Mean performance does not predict robustness - time series forecasting shows moderate correlation while image classification shows none. Time series models produce nearly three times more underperforming outliers than image classification models, indicating substantially higher tail risk. Conclusions: Tail risk poses serious concerns for Trustworthy AI in high-stakes applications. Models performing well on average may exhibit long tails and extreme outliers revealed only through distributional analysis. Mean performance alone should not guide model selection; assessment of spread, symmetry, and tail risk is essential for reliable model assessment where consistent performance is critical.",
+      "authors": [
+        "Kevin L Coakley and Odd Erik Gundersen"
+      ],
+      "published": "2026-10-27T22:47:10Z",
+      "updated": "2026-10-27T22:47:10Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.38037",
+      "pdf_url": "https://arxiv.org/pdf/2610.38037",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2610.37963",
+      "title": "Self-Supervised Latent Action-Conditioned World Modeling for Time Series",
+      "abstract": "Time-series data play an important role in various tasks, such as weather forecasting, web traffic analysis, and speech recognition. Recently, pioneering studies have increasingly adopted Joint-Embedding Predictive Architecture (JEPA) based encoders to learn time-series representations through latent-space prediction. However, they often overlook the underlying factors governing transitions between time-series observations. In this work, we hypothesize that explicitly modeling the information behind changes in time series can facilitate time-series modeling. Building on this hypothesis, we propose ACTS-WM, a self-supervised latent action-conditioned world model framework for time-series analysis. First, we introduce a latent action modeling approach that infers the underlying information behind time-series transitions as latent actions, without requiring explicit action annotations. We then develop a JEPA-based encoder and an action-conditioned world model to predict target time-series representations conditioned on the learned latent actions and task information. We evaluate ACTS-WM across 4 representative tasks on 22 datasets from diverse domains, covering univariate and multivariate forecasting and classification. Comprehensive experiments demonstrate that ACTS-WM can improve downstream performance over pretrained JEPA-based encoders by learning complementary representations.",
+      "authors": [
+        "Chia-Han Kuo, Chengshuai Zhao, Huan Liu, Lo Pang-Yun Ting"
+      ],
+      "published": "2026-10-27T20:49:21Z",
+      "updated": "2026-10-27T20:49:21Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
+      "url": "https://arxiv.org/abs/2610.37963",
+      "pdf_url": "https://arxiv.org/pdf/2610.37963",
+      "first_seen": "2026-10-31T12:33:36.444421Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2610.37585",
       "title": "Timestral",
       "abstract": "We introduce Timestral, a family of four time series foundation models for probabilistic forecasting, with 5M, 28M, 123M, and 209M parameters. Timestral sets a new state of the art on GIFT-Eval, TIME, and fev-bench, where Timestral-209M and Timestral-123M take the top two places on every metric. We achieve this with three ingredients: Decoupled Horizon Forecasting (DHF), which separates prediction tokens from the causally encoded context, so that longer horizons are trained without masking context and each observed value is both a forecast target and context for later forecasts; a covariate framework that natively supports known-future covariates within a causal architecture; and a two-stage pipeline that pretrains exclusively on a diverse, large-scale synthetic corpus before post-training on a mix of real and synthetic data with extended context. This report describes the model design and its benchmark results. Weights for all four models are available on Hugging Face and inference code on GitHub.",
@@ -778,8 +1018,8 @@
         "Zelong Tian, Ming Jin, Bo Du, Shirui Pan"
       ],
       "published": "2026-10-20T23:51:24Z",
-      "updated": "2026-10-20T23:51:24Z",
-      "metadata_updated": "2026-10-22T00:00:00Z",
+      "updated": "2026-10-29T16:04:32Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.28997",
       "pdf_url": "https://arxiv.org/pdf/2610.28997",
       "first_seen": "2026-10-22T20:08:03.804187Z",
@@ -956,8 +1196,8 @@
         "Shusen Ma, Xudong Zuo, Yangchun Xie, and Yun-Bo Zhao"
       ],
       "published": "2026-10-19T13:32:06Z",
-      "updated": "2026-10-19T13:32:06Z",
-      "metadata_updated": "2026-10-20T00:00:00Z",
+      "updated": "2026-10-29T10:34:01Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.26379",
       "pdf_url": "https://arxiv.org/pdf/2610.26379",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -1214,8 +1454,8 @@
         "Zhaodong Guo (Imperial College London), Haoyun Feng (Imperial College London)"
       ],
       "published": "2026-10-17T06:52:49Z",
-      "updated": "2026-10-17T06:52:49Z",
-      "metadata_updated": "2026-10-20T00:00:00Z",
+      "updated": "2026-10-28T10:05:34Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.24501",
       "pdf_url": "https://arxiv.org/pdf/2610.24501",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -2197,8 +2437,8 @@
         "Joann Jasiak and Cheng Zhong"
       ],
       "published": "2026-10-11T03:03:32Z",
-      "updated": "2026-10-25T21:44:18Z",
-      "metadata_updated": "2026-10-27T00:00:00Z",
+      "updated": "2026-10-29T15:39:28Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.15296",
       "pdf_url": "https://arxiv.org/pdf/2610.15296",
       "first_seen": "2026-10-15T04:41:48.057003Z",
@@ -9103,7 +9343,7 @@
       ],
       "published": "2026-08-20T13:33:37Z",
       "updated": "2026-10-06T13:22:40Z",
-      "metadata_updated": "2026-10-07T00:00:00Z",
+      "metadata_updated": "2026-10-30T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.20024",
       "pdf_url": "https://arxiv.org/pdf/2608.20024",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -10621,17 +10861,32 @@
       ]
     }
   ],
-  "last_success": "2026-10-29T20:19:12.784145Z",
-  "last_attempt": "2026-10-31T05:43:57.919846Z",
-  "last_new_ids": [],
-  "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
+  "last_success": "2026-10-31T12:33:36.444421Z",
+  "last_attempt": "2026-10-31T12:33:36.444421Z",
+  "last_new_ids": [
+    "2610.37963",
+    "2610.38037",
+    "2610.38086",
+    "2610.38292",
+    "2610.38315",
+    "2610.38558",
+    "2610.38686",
+    "2610.39043",
+    "2610.39246",
+    "2610.39632",
+    "2610.39958",
+    "2610.40188",
+    "2610.40330",
+    "2610.40579"
+  ],
+  "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
-  "error_detail": "TimeoutError: The read operation timed out",
+  "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 0,
-    "records": 0,
+    "pages": 6,
+    "records": 7781,
     "duplicates": 0
   }
 }
