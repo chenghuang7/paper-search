@@ -2,6 +2,235 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.06843",
+      "title": "Thermally Conditioned Time-Series Forecasting of Grain Growth in Polycrystalline Materials",
+      "abstract": "Grain growth during heat treatment strongly affects the microstructure of polycrystalline materials and, consequently, their mechanical properties. Although numerical methods such as front-tracking or front-capturing simulations can accurately describe grain growth, their high computational cost limits their use for long or non-isothermal thermal cycles. In previous work, grain growth was successfully predicted under isothermal conditions by treating grain size distributions as time series and forecasting their evolution using recurrent neural networks, allowing complete grain growth trajectories to be generated in seconds rather than through costly PDE-based simulations. In the present work, this forecasting framework is reformulated to handle non-isothermal conditions by explicitly incorporating thermal information into the model architecture. Grain size distributions are encoded using a convolutional neural network, thermal descriptors are embedded through a dedicated multilayer perceptron, and temporal evolution is predicted using a recurrent network. Instantaneous temperature and thermal rate are provided at each time step, allowing the model to adapt its predictions to changing thermal conditions. The framework is trained and evaluated on datasets generated from validated front-tracking simulations across a wide range of non-isothermal thermal paths. The results show that the thermally conditioned model accurately reproduces grain growth dynamics under complex thermal histories, achieving, in k-fold cross-validation over all simulations, mean relative errors of 2.99% (one-hour cycles) and 4.51% (four-hour cycles) with coefficients of determination exceeding 0.99, and mean relative errors between 1.91% and 14.66% on ten simulations following four unseen thermal histories of increasing complexity.",
+      "authors": [
+        "Eliane Younes and Elie Hachem and Marc Bernacki"
+      ],
+      "published": "2026-11-04T17:59:26Z",
+      "updated": "2026-11-04T17:59:26Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.06843",
+      "pdf_url": "https://arxiv.org/pdf/2611.06843",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.06720",
+      "title": "Cell-type-specific modularity in E/I networks shapes dynamical regimes and computational capabilities",
+      "abstract": "Structural modularity is a ubiquitous feature of brain networks that shapes neural dynamics and information processing. Yet excitatory and inhibitory populations can differ in their modular organization, and it remains unclear how this asymmetry affects network dynamics and computation. Here, using dynamical mean-field theory and simulations of networks performing complex temporal tasks, we show that independently tuning excitatory and inhibitory modularity controls the dynamical regimes of balanced E/I networks. In particular, such tuning can generate a dominant spectral outlier despite overall E/I balance, producing a topology-controlled transition between bulk- and low-rank-dominated regimes, with different dynamical bifurcations leading to chaos and bistability, respectively. In chaotic time-series prediction tasks, computational performance is enhanced near these dynamical boundaries, including both the onset of chaos and the transition to bistability. Favorable configurations exhibit strongly modular excitation and comparatively homogeneous inhibition, similar to what is observed in cortical connectivity.",
+      "authors": [
+        "Emmanouil Giannakakis, Victor Buend\\'ia, Oleg Vinogradov, Anna Levina"
+      ],
+      "published": "2026-11-04T16:12:27Z",
+      "updated": "2026-11-04T16:12:27Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.06720",
+      "pdf_url": "https://arxiv.org/pdf/2611.06720",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.06559",
+      "title": "From Fixed Defaults to Calibrated Activation Policies for Long-Term Time-Series Forecasting",
+      "abstract": "Long-term time-series forecasting supports decisions in energy, transportation, and other applications where reliable predictions are needed beyond the observed data. Although forecasting research has advanced model architectures, fixed activation configurations provide limited guidance on how activation choices should vary across datasets and prediction horizons. This study aims to establish when task-specific activation choices improve forecasting accuracy and how previous experiments can guide the selection of suitable configurations for new tasks. We develop a calibrated selection policy that learns a reliable default from prior experiments, adapts the activation function and its location to each task, and retains the default when evidence for a change is insufficient. In an evaluation supported by 1,225 Informer training runs across 17 dataset variants and 51 forecasting tasks, the policy reduces mean squared error by 7.86% on average relative to the conventional fixed-activation baseline and improves 72.55% of tasks. These findings establish activation choice and placement as practical opportunities for improving existing forecasting models and show how accumulated experimental evidence can guide configuration decisions without repeating an exhaustive search for every task.",
+      "authors": [
+        "Shijie Xu, Boyan Tang, Jianghua Wu"
+      ],
+      "published": "2026-11-04T14:22:23Z",
+      "updated": "2026-11-04T14:22:23Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.06559",
+      "pdf_url": "https://arxiv.org/pdf/2611.06559",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.06441",
+      "title": "Graph Foundation Models Can Become Effective Multivariate Time Series Anomaly Detectors",
+      "abstract": "Multivariate time series anomaly detection (MTSAD) relies on modeling both temporal dynamics and inter-sensor dependencies to identify complex system faults. Although graph-based detectors explicitly model sensor topologies, they train task-specific networks from scratch on limited target-domain data, remaining vulnerable to spurious correlations and unable to reuse transferable priors. While pretrained Graph Foundation Models (GFMs) offer transferable topological priors and anomaly discriminability, directly adapting them to MTSAD is hindered by cross-modal feature-topology mismatch, unreliable pseudo-anomaly supervision, and decision distortion during node-to-window aggregation. To fill these gaps, we propose a novel adaptation framework, Gfm4Mtsad, which unleashes pretrained GFMs for MTSAD. We introduce the Structure-and-Information Contract Alignment (SICA) module to bridge continuous time series and the pretrained GFM space. This module harmonizes principal subspace token projection, normal-prior-guided graph construction, and residual recovery to suppress spurious edges while retaining fine-grained temporal details. We propose a Mechanism-Aligned Pseudo-Anomaly Screening strategy (MAPS) to steer unsupervised learning. It applies localized dependency breaks while preserving empirical residuals, selecting hard negatives near the normal boundary for targeted supervision. We develop a Tail-Gated Evidence Calibration mechanism (TGEC) to eliminate node-to-window aggregation distortion. It calibrates multi-granular graph responses against normal operational references, strictly preserving benign score rankings while selectively refining extreme anomaly candidates in the tail distribution for reliable window detection and interpretable sensor evidence. Extensive evaluations with two GFM backbones demonstrate that Gfm4Mtsad achieves superior detection performance over existing baselines.",
+      "authors": [
+        "Zhuangyan Hu, Zhuoxuan Liang, Wei Li, Xiaohua Jia, Moustafa Youssef, Sumi Helal"
+      ],
+      "published": "2026-11-04T12:43:16Z",
+      "updated": "2026-11-04T12:43:16Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.06441",
+      "pdf_url": "https://arxiv.org/pdf/2611.06441",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.06064",
+      "title": "Learning From Static Context in Federated Time Series Forecasting",
+      "abstract": "Time series forecasting is shifting from locally trained, per-series models to global models trained across many heterogeneous series, which requires learning what sets the series apart. When the raw data cannot be centralized, such a global model is trained with federated learning (FL), one client per data owner. State-of-the-art forecasters such as the Temporal Fusion Transformer (TFT) tell series apart through a static input that describes each series and does not change over time. In the special case of a federated setting where each client holds a single series, this static input is constant within each client and varies only across clients. We ask whether a federated TFT can learn from it. Per-batch FedAdam, which aggregates gradients after every batch, uses the static input almost as well as central training, whereas communication-efficient schemes with local epochs (FedAvg, FedAdam+Prox) extract far less from it and gain nothing significant on either application dataset. At the same local computation, an Adam-compatible SCAFFOLD keeps the static pathway responsive on wind power and gains significantly there. On building energy its error still drops, but the static pathway falls silent, so drift and communication frequency cannot be fully separated as the cause. Only per-batch FedAdam matches or beats the per-client local models across all datasets. We confirm the effect on building-energy meter data, a wind-power dataset, and a controlled synthetic dataset. The loss is not specific to the TFT: on the synthetic and the wind data two further architectures with different static-conditioning mechanisms show it as well.",
+      "authors": [
+        "Viktor Walter, Andreas Wagner, Fabian Stricker"
+      ],
+      "published": "2026-11-04T07:08:24Z",
+      "updated": "2026-11-04T07:08:24Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.06064",
+      "pdf_url": "https://arxiv.org/pdf/2611.06064",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.06051",
+      "title": "Impact of Negative Weights on Performance in Reservoir Computing",
+      "abstract": "Reservoir computing provides an efficient framework for time-series prediction because only the readout layer is trained while the recurrent reservoir remains fixed. In this study, we examine how the negative sign ratio of a signed Erdos-Renyi reservoir affects the internal dynamics and forecasting performance of an echo state network on the Mackey-Glass benchmark. To characterize the reservoir responses, we use two Shannon-entropy-based observables, namely node-state entropy and node-frequency entropy, as empirical proxies for the diversity of reservoir states and temporal activation patterns. We find that intermediate negative sign ratios are associated with richer internal dynamics and substantially lower prediction error than the sign-homogeneous extremes for the task considered here. These results suggest that link-sign composition can be a useful structural parameter in reservoir design for chaotic forecasting. The present findings should be interpreted within the scope of the current benchmark and reservoir setting, and broader validation will be required to establish their generality across other tasks, topologies, and controlled spectral conditions.",
+      "authors": [
+        "Yeonsu Jeong, Seonho Nam, Dahan Choi, Mi Jin Lee, Seung-Woo Son"
+      ],
+      "published": "2026-11-04T06:57:31Z",
+      "updated": "2026-11-04T06:57:31Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.06051",
+      "pdf_url": "https://arxiv.org/pdf/2611.06051",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.05993",
+      "title": "Decouple to Reuse: Fine-Grained Knowledge Augmentation for Time Series Foundation Models",
+      "abstract": "Time series forecasting is critical for demand prediction and resource management in modern Web services, yet applying pretrained Time Series Foundation Models (TSFMs) to downstream tasks remains challenging due to domain shifts. Existing retrieval-augmented approaches typically retrieve coarse-grained window contexts and may introduce context-specific noise. To address this problem, we argue that temporal patterns should be reused at a decomposition level, as effective trend and seasonal dynamics may originate from different contexts. We propose \\method, a two-stage \\underline{F}ine-grained \\underline{K}nowledge \\underline{A}ugmentation framework that decouples and consolidates pre-training knowledge into compact, task-shared residual codebooks to enhance frozen TSFMs. Specifically, Stage I constructs dual-branch residual codebooks for decoupled trend and seasonal signals, while Stage II dynamically retrieves and merges these fine-grained patterns into target representations via task-adaptive aggregation and gate fusion. Extensive experiments across eight real-world benchmarks with four representative TSFM backbones demonstrate the superior effectiveness and computational efficiency of \\method, while further validating the strong transferability of the residual codebooks across different backbones. The source code is available at the anonymous repository: https://github.com/yuppielqx/TSFM-Component-Token-Adapter",
+      "authors": [
+        "Yuqian Wu, Qingxiang Liu, Yuxin Guo, Weifeng Su, Jian Li, Pengfei Xu, Xi Chen, Yutao Yue, Yuxuan Liang"
+      ],
+      "published": "2026-11-04T05:37:24Z",
+      "updated": "2026-11-04T05:37:24Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.05993",
+      "pdf_url": "https://arxiv.org/pdf/2611.05993",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.05515",
+      "title": "TSFM Meets LLM: Context as Covariates",
+      "abstract": "Textual information is ubiquitous in real-world time series datasets, appearing as news, reports, and annotations that hold key predictive signals not deducible from numerical history alone. Large Language Models (LLMs) interpret text but lack numerical precision, while Time Series Foundation Models (TSFMs) are quantitatively accurate but cannot reason about the effects of text. Moreover, the lack of large-scale paired multimodal datasets limits progress in bridging this gap. In this work, we address this challenge by providing a scalable approach for generating realistic multimodal datasets by annotating real-world time series with LLMs. Building on this, we propose Context as Covariates (CoCo), a forecasting framework in which an LLM distills its textual reasoning into numerically grounded forecast and confidence covariates that guide a TSFM backbone, thereby exploiting the strengths of both LLMs and TSFMs. We align the two models in stages, first fine-tuning the LLM via Group Relative Policy Optimization (GRPO) with a reward tied to covariate-induced improvement in forecasting performance, and then fine-tuning the TSFM on covariates generated by the aligned LLM. Our experiments show that models trained on our synthetic multimodal corpus generalize to real benchmarks spanning finance, economics, weather, traffic, and security. Notably, CoCo with Qwen3-4B-Instruct-2507 as the LLM and Chronos2 as the TSFM achieves up to 12% MAE improvement over state-of-the-art TSFMs and LLM forecasters, such as GPT-4o. Code, checkpoints, and the evaluation datasets are publicly available.",
+      "authors": [
+        "Hemanth Ram, Sai Shankar Narasimhan, Shubhankar Agarwal, Sandeep Chinchali"
+      ],
+      "published": "2026-11-03T19:13:19Z",
+      "updated": "2026-11-03T19:13:19Z",
+      "metadata_updated": "2026-11-05T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.05515",
+      "pdf_url": "https://arxiv.org/pdf/2611.05515",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.05325",
+      "title": "CATF: A Manager-Worker Framework for Context-Aware Time-Series Forecasting",
+      "abstract": "We study context-aware time-series forecasting, in which a single target variable is predicted from its own history and a set of contextual variables, such as weather and calendar information. As the context becomes more diverse, a single model struggles to capture all of its regimes, while ensemble learning and Mixture-of-Experts approaches rely on manual data partitioning or soft routing, which increases the inference cost and hinders interpretability. We propose CATF, a Context-Aware Time-Series Forecasting framework built on a Manager-Worker architecture: a Transformer-based Manager routes each input to a single Worker based on the context, using hard routing during both training and inference. The Workers thus specialize without manual data partitioning, and any single-model forecaster can serve as a Worker. On five context-rich datasets, four horizons, and two normalization schemes, CATF improves over its standalone counterpart in 162 of 200 comparisons, the best CATF-enhanced model outperforms the best standalone baseline in 19 of 20 settings, and it outperforms the zero-shot Time-MoE foundation model in 15 of 20 settings. A case study on bike-sharing data shows that the Manager routes inputs by the calendar and that each Worker specializes in a different weekly pattern.",
+      "authors": [
+        "Yueqiao Chen, Dongyu Liu"
+      ],
+      "published": "2026-11-03T18:28:04Z",
+      "updated": "2026-11-03T18:28:04Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.05325",
+      "pdf_url": "https://arxiv.org/pdf/2611.05325",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.05108",
+      "title": "From AutoResearch to Continual AutoResearch: Do Agents Learn Across Tasks?",
+      "abstract": "Autoresearch has shown that agents can autonomously write code, run experiments, and iteratively improve machine learning solutions. Yet most evaluations start a new agent session from scratch for each new problem, making them costly and leaving unclear whether agents can retain and apply prior insights when adapting to new tasks. We introduce CONTINUAL AUTORESEARCH, an open-ended environment that compares persistent and reset instances of the same agent under matched task streams, data, and time budget. Continual AutoResearch covers nine task families, spanning synthetic tasks, symbolic regression, time-series forecasting, and tabular AutoML. Across five frontier agents, we measure first-solution quality, research efficiency, and final held-out performance. To distinguish insight transfer from session continuity, we run a memory ablation that vary what information agents retain from prior tasks. We show that persistent state improves research efficiency of all five agents, allowing them to find stronger solutions sooner. However, these gains do not consistently translate into better final solutions. Overall, our findings suggest that retaining experience and utilizing it effectively are distinct capabilities.",
+      "authors": [
+        "Jeremy Qin, Ruizhi Deng, Mohamed Osama Ahmed, Frederick Tung, Leo Feng"
+      ],
+      "published": "2026-11-03T16:02:34Z",
+      "updated": "2026-11-03T16:02:34Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.05108",
+      "pdf_url": "https://arxiv.org/pdf/2611.05108",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.04760",
+      "title": "Koopman Generative Operators for Efficient Probabilistic Time-Series Forecasting",
+      "abstract": "Probabilistic time-series forecasting requires models that simultaneously capture structured temporal dynamics, expressive uncertainty, and efficient inference, yet existing approaches fall short of this goal: latent dynamical models impose structure but rely on restrictive generation mechanisms, while modern generative methods such as diffusion and flow matching achieve flexibility at the cost of iterative and computationally expensive sampling. We introduce the Koopman Generative Operator (KGO), a probabilistic forecasting method that conceptualizes prediction as the evolution of structured uncertainty. KGO integrates three core components: (1) Koopman Patch Embedding (KoPE) for temporally consistent latent trajectory extrapolation; (2) Koopman Flow Matching (KoFM), which enables fast, single-step generation through a closed-form matrix exponential in a Koopman latent space, bypassing iterative sampling; and (3) an Adaptive Uncertainty Gate (AUG), which provides probabilistic forecasts by adapting uncertainty per-variable and per-horizon, corresponding to a learned decomposition of aleatoric uncertainty without manual tuning. By unifying these components, KGO achieves state-of-the-art accuracy on 13/17 ProbTS benchmarks in CRPS and 16/17 in NMAE. Further, by eliminating iterative sampling, KGO delivers at least a 25$\\times$ reduction in inference time compared to iterative generative models. These results position KGO as a practical and principled framework that advances the accuracy-efficiency trade-off in probabilistic time-series forecasting, combining leading accuracy on the evaluated benchmarks with fast, single-step generation.",
+      "authors": [
+        "Raz Marshanski, Liran Nochumsohn, Mayank Jauhari, Boris N. Oreshkin, Omri Azencot"
+      ],
+      "published": "2026-11-03T12:08:37Z",
+      "updated": "2026-11-03T12:08:37Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.04760",
+      "pdf_url": "https://arxiv.org/pdf/2611.04760",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.04126",
+      "title": "GlucoAgent: Personalized Glucose Forecasting from Multimodal Personal Context",
+      "abstract": "Continuous glucose monitors, smartwatches, meal logs, and health profiles form a rich multimodal personal context that can significantly enhance glucose forecasting. However, existing methods struggle to effectively utilize these signals to improve glucose prediction because the relevance of different modalities varies drastically across individuals and time. We present GlucoAgent, an LLM-based agentic system that addresses this challenge through dynamic, case-by-case analysis at inference time. For each forecast, GlucoAgent writes and runs code over an individual's multimodal context and returns predictions with a reason and supporting evidence. The generated programs are highly diverse, ranging from retrieving similar past meals to fitting and back-testing physiological and statistical models. On CGMacros, a multimodal glucose dataset, GlucoAgent outperforms time series foundation models on every forecasting horizon, achieving an average RMSE of 22.5 mg/dL compared to 23.5 mg/dL of Chronos-2, the leading multimodal time series foundation model. Furthermore, GlucoAgent is highly effective at leveraging multimodal data. The addition of multimodal data reduces its average RMSE by 1.4 mg/dL (24.0 mg/dL to 22.5 mg/dL), compared to a marginal 0.3 mg/dL (23.8 mg/dL to 23.5 mg/dL) improvement for Chronos-2. This advantage is most pronounced in challenging post-meal windows, where GlucoAgent uses multimodal context to reduce 60-minute forecast RMSE by 4.6 mg/dL (31.0 mg/dL to 26.5 mg/dL), far exceeding the 0.8 mg/dL (31.9 mg/dL to 31.1 mg/dL) reduction achieved by Chronos-2.",
+      "authors": [
+        "Xingzhi Sun, Hyo Jin Kim, Zhiyuan Wang, Hao Chen"
+      ],
+      "published": "2026-11-03T01:06:09Z",
+      "updated": "2026-11-03T01:06:09Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.04126",
+      "pdf_url": "https://arxiv.org/pdf/2611.04126",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.03928",
+      "title": "Sequential auditing of connected forecast errors under partial observations",
+      "abstract": "Graph forecasting systems often rely on prediction intervals to quantify uncertainty across connected locations, but the true outcomes needed for evaluation may be only partially observed. We study how an auditor can selectively retrieve missing outcomes to determine whether there exists a connected group whose outcomes violate the same side of their respective forecast intervals. The audit stops when the observed labels determine the event or the query budget is exhausted. On three public graph time series, MOMS reduces mean queries by 19.6% to 38.5% relative to screened random acquisition when 30% of labels are hidden. Under localized masking on METR-LA, shortest witness finds more positive cases within ten queries, although the difference depends on node ordering. Direct component traversal reproduces all 9,696 screened random traces without enumerating connected subsets. The experiments show that reducing queries to a decision does not necessarily improve early event discovery or reduce local computation.",
+      "authors": [
+        "Yuanbo Zhou, Junjie Xiong"
+      ],
+      "published": "2026-11-02T20:31:25Z",
+      "updated": "2026-11-02T20:31:25Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.03928",
+      "pdf_url": "https://arxiv.org/pdf/2611.03928",
+      "first_seen": "2026-11-05T15:28:34.018472Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.03592",
       "title": "Evaluating Uncertainty Calibration in Probabilistic Time Series Foundation Models",
       "abstract": "Time series foundation models (TSFMs) are increasingly used for probabilistic forecasting across diverse domains, yet the reliability of their uncertainty estimates remains poorly understood. In this work, we study uncertainty calibration in probabilistic TSFMs from a broader methodological and empirical perspective. We introduce a taxonomy of how TSFMs represent predictive uncertainty and develop a fine-grained evaluation framework for calibration in multi-horizon forecasting that distinguishes pooled, horizon-wise, and stronger conditional notions of calibration. Using this framework, we conduct a comprehensive empirical evaluation of popular TSFMs across diverse datasets and show that current models exhibit distinct and systematic patterns of miscalibration that standard metrics often obscure. We further analyze common post-hoc recalibration methods and characterize which forms of calibration they can improve and which tend to persist. Our results provide practical guidance for evaluating and improving uncertainty calibration in TSFMs and highlight important limitations of current practice.",
@@ -2611,14 +2840,14 @@
     },
     {
       "id": "2610.17864",
-      "title": "TStruct: Learning Shared Temporal Structures for Long-Term Time-Series Forecasting",
-      "abstract": "Long-term time series forecasting requires temporal dependency modeling that remains stable and generalizable under temporal distribution shifts. However, real-world time series are often noisy and non-stationary, making deep learning models prone to fitting incidental temporal interactions in the training data. A key question is whether there exist temporal relationship structures that recur across different temporal positions and variables. We analyze temporal relationship matrices on commonly used time series datasets and find that samples from different temporal positions and different variables exhibit shared dominant temporal relationship structures. This indicates that temporal relationship structures contain patterns that recur stably across samples and variables. To learn such shared structures, we propose \\textbf{T}emporal \\textbf{Struct}ure Network (\\textbf{TStruct}), a simple yet effective network for directly learning shared and generalizable temporal dependencies. Specifically, TStruct directly parameterizes a set of shared temporal dependency matrices and generates normalized combination weights using dynamic sample information and static variable priors. These weights represent a soft allocation of each sample-variable pair over shared temporal dependency structures, enabling the model to generate adaptive temporal dependency matrices under shared structural constraints, rather than fitting incidental interactions in a fully unconstrained manner. Notably, this simple structure-aware design consistently outperforms several strong baselines across all datasets, achieving superior accuracy while maintaining high computational efficiency.",
+      "title": "TStruct: Learning Shared Temporal Structures for Long-Term Time Series Forecasting",
+      "abstract": "Long-term time series forecasting requires learning temporal dependencies that remain stable and generalizable under temporal distribution shifts. However, real-world time series are often noisy, non-stationary, and heterogeneous, making deep learning models prone to overfitting incidental temporal interactions in the training data. This raises a question: when observations are difficult to align, could temporal relationships be easier to reuse? To investigate this possibility, we analyze patch-level temporal relationship matrices across commonly used time series datasets, revealing dominant patterns shared across different temporal windows and variables. Comparisons with patch-shuffled and IID Gaussian controls further support the presence of reusable temporal relationship structures. Motivated by these findings, we propose \\textbf{T}emporal \\textbf{Struct}ure Network (\\textbf{TStruct}), a simple yet effective network that learns reusable temporal dependency structures and adaptively combines them for each sample and variable. Specifically, TStruct directly parameterizes a set of shared temporal dependency matrices and generates normalized combination weights using dynamic sample information and static variable priors. These weights represent a soft allocation of each sample-variable pair over shared temporal dependency structures, enabling the model to generate adaptive temporal dependency matrices under shared structural constraints, rather than fitting incidental interactions in a fully unconstrained manner. Notably, TStruct consistently outperforms several strong baselines across all evaluated datasets, achieving superior accuracy while maintaining high computational efficiency. Our code is available at https://github.com/yangzeli/TStruct.",
       "authors": [
         "Yangze Li, Zhengyang Zhou, Qihe Huang, Pengkun Wang, Binwu Wang, Yang Wang"
       ],
       "published": "2026-10-13T07:24:58Z",
-      "updated": "2026-10-13T07:24:58Z",
-      "metadata_updated": "2026-10-14T00:00:00Z",
+      "updated": "2026-11-03T15:19:24Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.17864",
       "pdf_url": "https://arxiv.org/pdf/2610.17864",
       "first_seen": "2026-10-15T04:41:48.057003Z",
@@ -7285,8 +7514,8 @@
         "Benjamin J\\\"ager, Nick Erickson, L\\'eo Grinsztajn, Felix Birkel, Klemens Fl\\\"oge, Oscar Key, K\\\"ur\\c{s}at Kaya, Jonas K\\\"ubler, Ad\\`ele Frankel, Tobias Schr\\\"oder, Anurag Garg, Jan Hendrik Metzen, David Salinas, Simon Bing, Kristina Collins, Tuana \\c{C}elik, Vahid Balazadeh, Lydia Sidhoum, Tom\\'as Pereda, Brendan Roof, Andrej Tschalzev, Siyuan Guo, Philipp Singer, Lennart Purucker, Jake Robertson, Marie Salmon, Philipp Jund, Jerry Chen, Diana Kriuchkova, Arthur Cahu, Eliott Kalfon, Adrian Hayler, Georg Grab, Vitor Monteiro, Lilly Wehrhahn, Dominik Safaric, Clara Cornu, Alan Arazi, Rylee Grace, Simone Alessi, Mihir Manium, Bernhard Sch\\\"olkopf, Yann LeCun, Madelon Hulsebos, Sauraj Gambhir, Noah Hollmann, Frank Hutter"
       ],
       "published": "2026-09-15T22:38:29Z",
-      "updated": "2026-09-22T17:28:29Z",
-      "metadata_updated": "2026-09-24T00:00:00Z",
+      "updated": "2026-11-03T05:36:50Z",
+      "metadata_updated": "2026-11-04T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.17895",
       "pdf_url": "https://arxiv.org/pdf/2609.17895",
       "first_seen": "2026-09-23T01:03:01.516195Z",
@@ -11337,45 +11566,31 @@
       ]
     }
   ],
-  "last_success": "2026-11-03T21:00:13.800454Z",
-  "last_attempt": "2026-11-05T06:48:54.993810Z",
+  "last_success": "2026-11-05T15:28:34.018472Z",
+  "last_attempt": "2026-11-05T15:28:34.018472Z",
   "last_new_ids": [
-    "2610.40901",
-    "2610.40984",
-    "2610.41100",
-    "2610.41405",
-    "2610.41506",
-    "2610.41649",
-    "2610.41943",
-    "2610.41956",
-    "2611.00337",
-    "2611.00670",
-    "2611.00941",
-    "2611.00945",
-    "2611.01098",
-    "2611.01425",
-    "2611.01655",
-    "2611.01661",
-    "2611.01851",
-    "2611.02091",
-    "2611.02211",
-    "2611.02489",
-    "2611.02511",
-    "2611.02750",
-    "2611.02802",
-    "2611.02895",
-    "2611.02900",
-    "2611.03420",
-    "2611.03592"
+    "2611.03928",
+    "2611.04126",
+    "2611.04760",
+    "2611.05108",
+    "2611.05325",
+    "2611.05515",
+    "2611.05993",
+    "2611.06051",
+    "2611.06064",
+    "2611.06441",
+    "2611.06559",
+    "2611.06720",
+    "2611.06843"
   ],
-  "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
+  "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
-  "error_detail": "TimeoutError: The read operation timed out",
+  "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 0,
-    "records": 0,
+    "pages": 11,
+    "records": 13939,
     "duplicates": 0
   }
 }
