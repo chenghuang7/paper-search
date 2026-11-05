@@ -11566,31 +11566,17 @@
       ]
     }
   ],
-  "last_success": "2026-11-05T15:28:34.018472Z",
-  "last_attempt": "2026-11-05T15:28:34.018472Z",
-  "last_new_ids": [
-    "2611.03928",
-    "2611.04126",
-    "2611.04760",
-    "2611.05108",
-    "2611.05325",
-    "2611.05515",
-    "2611.05993",
-    "2611.06051",
-    "2611.06064",
-    "2611.06441",
-    "2611.06559",
-    "2611.06720",
-    "2611.06843"
-  ],
+  "last_success": "2026-11-05T21:59:44.618147Z",
+  "last_attempt": "2026-11-05T21:59:44.618147Z",
+  "last_new_ids": [],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 11,
-    "records": 13939,
+    "pages": 5,
+    "records": 5834,
     "duplicates": 0
   }
 }
