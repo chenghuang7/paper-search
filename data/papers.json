@@ -2,6 +2,265 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.12368",
+      "title": "Bayesian precision factor models for high-dimensional macroeconomic time series",
+      "abstract": "Series in a macroeconomic panel are almost all correlated with one another, which makes correlation a poor guide to which pairs are directly linked. For example, Treasury rates at different maturities are all highly correlated, yet a short and a long rate may be related only through the rates at maturities between them; similarly, sectors of the economy such as output, employment, prices, and interest rates may be related directly or only through other series. Both are questions about the inverse covariance matrix. Recovering it from quarterly data is difficult: contemporaneous dependence is entangled with temporal dynamics, the innovations remain densely dependent once those dynamics are removed, and the number of series is comparable to the number of quarters observed. We propose VAPOR (Vector Autoregressive Precision factOR), a Bayesian model that estimates vector autoregressive dynamics jointly with a factor-structured innovation precision matrix, inferring the partial correlations directly from the fitted precision rather than imposing a zero pattern. Applied to 100 quarterly FRED-QD series, VAPOR learns from the data that each Treasury rate is directly related only to the rates at adjacent maturities, places all 26 selected dependencies within a single FRED-QD group, and attains the lowest held-out prediction error among the estimators compared.",
+      "authors": [
+        "Peter Dunson"
+      ],
+      "published": "2026-11-09T13:15:43Z",
+      "updated": "2026-11-09T13:15:43Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.12368",
+      "pdf_url": "https://arxiv.org/pdf/2611.12368",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.12285",
+      "title": "Learning Evidence-Grounded Reasoning for Context-Aware Time Series Forecasting",
+      "abstract": "LLM-driven time series forecasting has become increasingly promising by leveraging contextual features to generate future values directly or refine forecast priors. However, incorporating contextual features alone does not ensure that models can identify which features matter for forecasting and understand what they suggest about future dynamics. We argue that the fundamental challenge is how to extract predictive evidence from contextual features and when and how to leverage it to guide forecasting decisions. In this paper, we propose CastReasoner, an evidence-grounded reasoning model for context-aware time series forecasting. Specifically, CastReasoner uses a structured chain of thought (CoT) to extract predictive evidence from contextual features, infer the future dynamics suggested by this evidence, and assess these dynamics against the forecast prior to guide adaptive forecasting decisions. To enable this capability, we design a reasoning-centric two-stage post-training framework including supervised fine-tuning (SFT) and reinforcement learning (RL). First, we synthesize reasoning trajectories through controllable multi-teacher guidance and select high-quality ones using a novel student-aware difficulty metric. Second, we design fine-grained multi-objective rewards to further improve reasoning and forecasting. To address heterogeneous learning needs across domains in both stages, we introduce a convergence-guided data balancing strategy. Through this two-stage training, CastReasoner improves both reasoning quality and predictive accuracy. Extensive experiments across multi-domain forecasting benchmarks demonstrate that CastReasoner achieves superior forecasting performance.",
+      "authors": [
+        "Xingpeng Gao, Mingyue Cheng, Daoyu Wang, Huajian Zhang, Xiaoyu Tao"
+      ],
+      "published": "2026-11-09T12:12:18Z",
+      "updated": "2026-11-09T12:12:18Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.12285",
+      "pdf_url": "https://arxiv.org/pdf/2611.12285",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.12141",
+      "title": "Do Time-Series Foundation Models Forecast Index-Futures Returns? A Preregistered Evaluation of Models, Metrics, and Input Representations",
+      "abstract": "We ask whether the apparent forecasting skill of frozen time-series foundation models (TSFMs) on intraday index-futures returns is incremental skill. In a pre-registered evaluation on E-mini Nasdaq-100 (NQ) and E-mini S&P 500 (ES) futures, a common panel of five zero-shot models (Chronos-Bolt, Chronos-2, TimesFM 2.5, Moirai 2.0 and TiRex), plus separate experiments with Kronos, is compared with a no-change forecast at 5-120 minutes, using native prices, log returns, volatility-standardised returns and a volume clock as inputs. On a blind set opened once, 0 of 160 model-representation-horizon-market cells beat no-change, and a Hansen SPA test gives p = 1.000 on both markets; a later retrospective hold-out, scored as a descriptive check, gives 0 of 120. Input representations change forecast magnitude but not accuracy, and a transformation-aware ridge regression does as well. Several standard measures nevertheless suggest skill. Price-level correlation exceeds 0.9996, but no-change scores higher. Within-day RankIC across forecast origins rewards a trivial revert-to-mean rule (+0.35 at 30 minutes); we derive the expected within-day covariance under a random walk in closed form, and a sign-randomised null reproduces about 95% of the observed value. One model beats HAR for 5-minute volatility, but not the EWMA its input already contains. On strongly planted synthetic signals the models recover part of the signal at 5 minutes, and recovery deteriorates at 30 minutes. Benchmark-level success of TSFMs should therefore not be assumed to carry over to low-signal domains such as intraday returns.",
+      "authors": [
+        "Rishabh Upadhyay"
+      ],
+      "published": "2026-11-09T09:53:19Z",
+      "updated": "2026-11-09T09:53:19Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.12141",
+      "pdf_url": "https://arxiv.org/pdf/2611.12141",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.12004",
+      "title": "Conformal Prediction for Multi-Step Forecasting: Conditional Coverage and Sharp Score Calibration Rates",
+      "abstract": "Uncertainty quantification in prediction is a central problem in statistics and machine learning. Conformal prediction provides a flexible approach to constructing prediction sets with valid marginal coverage under exchangeability. In this paper, we investigate conformal prediction for both one-step and multi-step forecasting from a single stationary time series, addressing temporal dependence and the additional challenges of joint prediction across multiple horizons. We propose a kernel-based framework, called Time series Residual Analysis for Calibration with Kernels (TRACK), for estimating conditional quantiles of residual scores and constructing prediction sets from rolling-window forecasters. The framework accommodates heterogeneous uncertainty across horizons and accounts for dependence induced by rolling estimation, while allowing predictor memory and forecast horizons to grow with the sample size. Our finite-sample bounds quantify how temporal dependence and overlapping score windows affect calibration and coverage. We further derive bounds for conditional quantile estimation and pointwise conditional coverage discrepancy. The guarantees extend to more general predictors that admit an accurate rolling-window approximation. We also derive matching minimax bounds over classes of known score maps, clarifying how overlapping score windows affect calibration accuracy. Experimental results from simulations and applications to wind energy generation and bike sharing demand show that our methods improve regional conditional coverage while maintaining competitive interval widths.",
+      "authors": [
+        "Siyuan He and Yuhong Yang"
+      ],
+      "published": "2026-11-09T07:39:58Z",
+      "updated": "2026-11-09T07:39:58Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.12004",
+      "pdf_url": "https://arxiv.org/pdf/2611.12004",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.11913",
+      "title": "CHORD: Multi-resolution Compression for Multimodal Time Series",
+      "abstract": "Wearables, mobile devices, and IoT platforms generate multimodal time-series data continuously and at scale, making efficient storage and transfer a primary concern. The same recordings are reused after collection by many downstream models, often at different temporal resolutions, so a compressed representation should be small, useful across resolutions, and produced at a bit rate known in advance. Prior work meets parts of this: symbolic and error-bounded compressors reconstruct accurately but fix resolution at compression time, learned codecs target one signal domain, and discrete tokenizers reconstruct without accounting for rate. We introduce CHORD, a coarse-to-fine compressor for heterogeneous multimodal time series. A residual cascade orders each payload from broad to fine temporal scales and synthesizes corrections through learned shapelet-inspired atoms. A shared pathway supplies a reusable synthesis basis across modalities, while private pathways retain capacity for sensor-specific morphology. Finite scalar quantization fixes the bit width of every modality and scale, so payload size is known before encoding, and scale dropout trains each coarse-to-fine prefix to be a valid reconstruction operating point. Across seven wearable-sensing and forecasting benchmarks, CHORD stays within 0.62 points of uncompressed classification accuracy on average at the 8x target, the smallest gap of any compressed method, with all resolutions decoded from one payload.",
+      "authors": [
+        "Bibhus Luitel, Payal Mohapatra, Subrata Biswas, Ekata Poudel, Sunwoong Kim, Qi Zhu, Bashima Islam"
+      ],
+      "published": "2026-11-09T05:35:51Z",
+      "updated": "2026-11-09T05:35:51Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.11913",
+      "pdf_url": "https://arxiv.org/pdf/2611.11913",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.11170",
+      "title": "ClusLoad: Cluster-Guided Model Sharing for Scalable Distribution Transformer Load Forecasting",
+      "abstract": "Large-scale device-level load forecasting for distribution transformers is challenged by substantial cross-device heterogeneity and the deployment burden of maintaining device-specific forecasting models. Existing approaches typically rely either on device-specific models, which are difficult to scale to large transformer populations, or on global models, which reduce deployment complexity but may overlook heterogeneous load patterns across devices. To address this trade-off, this study develops a trend-clustered forecasting framework that enables model sharing among transformers with similar temporal behaviors. Representation Learning for Time Series using Time-Embeddings (T-Rep) is employed to learn compact temporal representations of transformer load series, which are subsequently grouped using a Gaussian mixture model (GMM). Representative transformers are sampled within each cluster to train cluster-specific Patch Time Series Transformer (PatchTST) models while retaining device-level predictions. The framework is evaluated using real-world 15-min operational data from nearly one thousand distribution transformers. The proposed framework reduces mean absolute error (MAE) by approximately 20% relative to the direct PatchTST baseline, achieves a high-load warning accuracy of 95.66%, while requiring only seven cluster-specific forecasting models. These results demonstrate that behavior-based device organization provides an effective balance between forecasting accuracy, deployment scalability, and risk-oriented operational support for distribution transformer management.",
+      "authors": [
+        "Fangzhou Lin, Guoshun He, Yi Wang, S. Supraja"
+      ],
+      "published": "2026-11-08T06:25:58Z",
+      "updated": "2026-11-08T06:25:58Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.11170",
+      "pdf_url": "https://arxiv.org/pdf/2611.11170",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.11075",
+      "title": "Season by season causal analysis of the continuum and velocity-resolved H$\\beta$ emission of NGC 5548",
+      "abstract": "We investigate possible causal influences in five historical seasons (1989-1993) of NGC 5548 using a version of the Synergistic-Unique-Redundant Decomposition (SURD) method adapted for this analysis, an information-theoretic causal discovery method for time series. Two four-variable sets contain the blue wing (B), core (C) and red wing (R) of H-beta together with either total H-beta (H) or the 5100 Angstrom continuum (F). We examine 7200 decompositions with common and unequal lags, two or three seasonal flux states, and base delays of 1-30 d. We rank the individual named components within each information family, reporting their amplitudes and simultaneous leakage. In 1989, unique continuum information about the core reaches 0.799 and 0.387 of target entropy for two and three states, with leakage 0.047 and 0.276. In 1992, the red-wing history supplies unique information about the future blue wing in both variable sets and both state counts, with peak target-entropy fractions 0.106-0.166. Distinct joint influences also emerge: for the 1991 core, the two-state S(F,B) and S(F,R) components contribute 0.187 and 0.125 at 20 d with leakage 0.087, although the unique continuum term vanishes. Strong core-wing redundancy identifies candidate inputs for simpler predictive models. Large late-lag leakage, reaching approximately 0.97 in the total set, identifies targets for additional driver measurements and richer temporal histories. The resulting seasonal map of individual, shared and joint influences complements the response delays and velocity structure measured by reverberation mapping, and provides specific causal hypotheses for the evolving broad-line region.",
+      "authors": [
+        "Ayan Mitra, Vasilios Zarikas"
+      ],
+      "published": "2026-11-08T02:22:15Z",
+      "updated": "2026-11-08T02:22:15Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.11075",
+      "pdf_url": "https://arxiv.org/pdf/2611.11075",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.10861",
+      "title": "SWXAI: A Unified Multimodal Explainability Library for Space Weather Forecasting and Heliophysics",
+      "abstract": "Space weather forecasting and heliophysics increasingly rely on machine learning models that process heterogeneous inputs such as multi-viewpoint multi-wavelength solar images and rasters, multivariate time series, spatial annotations, and tabular event-level data. However, explainability workflows remain fragmented across libraries, model interfaces, and output formats, limiting reuse and reproducibility. We present SWXAI, an open-source library that unifies explainable AI (XAI) workflows for image, time-series, and tabular data in space weather forecasting and heliophysics. SWXAI provides a common, extensible interface across commonly used vision, time-series, and tabular learning models, with validation, adaptation, and persistent explanation objects. It also includes domain-grounded examples, reproducible notebooks, tests, and documentation, enabling users to inspect outputs, swap models or explainers, and extend workflows to new heliophysics datasets. SWXAI reduces modality-specific engineering overhead and supports comparable, reusable explanations across heterogeneous scientific machine learning pipelines. A benchmark against direct backend implementations shows that SWXAI substantially reduces the code users write to produce an explanation, with no practical runtime cost.",
+      "authors": [
+        "Benedict Antonio Mervyn, Anli Ji, Manolis K. Georgoulis, Berkay Aydin"
+      ],
+      "published": "2026-11-07T17:22:48Z",
+      "updated": "2026-11-07T17:22:48Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.10861",
+      "pdf_url": "https://arxiv.org/pdf/2611.10861",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.10579",
+      "title": "Predictive Modelling of Solid Waste Generation through Time Series Analysis",
+      "abstract": "Reliable forecasting of Municipal Solid Waste (MSW) production is pivotal for sustainable urban management, as it enables efficient resource planning, optimized collection schedules, and reduced environmental impacts. Existing works on MSW forecasting have some limitations, such as unavailability of granular data from lower administrative units, small datasets, limited or sometimes no consideration of important factors that can affect MSW generation, including holidays, weekends, seasonality, changes in temperature or humidity. This work presents a comprehensive comparative analysis of four popularly used time series forecasting models, namely Seasonal Autoregressive Integrated Moving Average with Exogenous Regressors (SARIMAX), Prophet, Long Short Term Memory (LSTM) and Gated Recurrent Unit (GRU), using a real-world MSW dataset from Sri Lanka spanning 2012-2018. A detailed factor-wise analysis is conducted to examine waste generation behaviour considering holidays, weekday-weekend variations, seasonal patterns, temperature and humidity. The results show lower waste generation during holidays and weekends, higher generation during Summer and Winter, and comparatively lower generation during Monsoon and Post-Monsoon. Temperature and humidity do not exhibit a direct linear relationship with waste generation, although their seasonal variations are associated with the changes in waste generation across different seasons. All model performances are evaluated using Mean Absolute Error (MAE), Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and the coefficient of determination (R2). Among the evaluated models, LSTM and SARIMAX achieve the best overall forecasting performance.",
+      "authors": [
+        "Mitra Tithi Dey, Punyasha Chatterjee and Amlan Chakrabarti"
+      ],
+      "published": "2026-11-07T08:40:46Z",
+      "updated": "2026-11-07T08:40:46Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.10579",
+      "pdf_url": "https://arxiv.org/pdf/2611.10579",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.10364",
+      "title": "Bias, Measurement Error, and Double-Dipping: When Can GNN Convolutions Help Brain Connectome Prediction?",
+      "abstract": "Graph Neural Networks (GNNs) are an important tool for fMRI prediction, where empirical functional connectivity matrices serve both as features and for graph construction. However, recent studies and our own experiments show that these methods often fail to outperform simpler graph-agnostic baselines. We propose a statistical explanation for this failure by formulating connectome prediction as an errors-in-variables (EIV) problem: the true connectome is latent, while the observed covariance matrix is a noisy finite-time-series estimate. In a linear asymptotic setting, we decompose the effect of graph convolution into three mechanisms: smoothing-induced bias and variance reduction, graph estimation error, and a double-dipping effect arising when the same noisy matrix determines both graph and features. Under a latent community model adapted to neuroscience, we identify a narrow favorable regime, set by the brain community structure, the predictive signal, the graph construction and the recording length, in which message passing can improve prediction. Simulations validate this decomposition, while real-data experiments illustrate that connectome GNN pipelines often fall outside this regime. Our results provide a first step towards explaining when graph convolutions can help brain connectome prediction, and why they often do not.",
+      "authors": [
+        "Tommaso Castellani, Jiaqi Li, Muriah D. Wheelock, Rezwana Rosen Razzaque, Helmut Laufs, Hong Chen, Claire Donnat"
+      ],
+      "published": "2026-11-07T01:00:11Z",
+      "updated": "2026-11-07T01:00:11Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.10364",
+      "pdf_url": "https://arxiv.org/pdf/2611.10364",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.10247",
+      "title": "Can Time Series Foundation Models Serve as Surrogates for Power Systems Dynamic Simulation?",
+      "abstract": "High-fidelity dynamic simulation is essential for scientific and engineering applications, but its computational cost limits large-scale scenario screening. We investigate the use of pretrained time-series foundation models (TSFMs) as computationally efficient surrogates to address this limitation. In-context learning and post-training strategies, including retrieval-augmented reference sample selection and physics-informed regularization, are considered in the investigation. Results are benchmarked against a traditional AI model representative of the state-of-the-art in the domain. Experiments using an open-source TSFM and data from a simulated 9-bus power system indicate promising results. Retrieval augmentation improves in-context learning performance, and fine-tuning leads to superior results compared to the traditional AI model, especially when including physics-informed regularization. The fine-tuned TSFMs achieve lower errors and improved computational costs compared to the traditional AI model, and a 563$\\times$ speedup compared to the original physics-based simulation.",
+      "authors": [
+        "Sandy Miguel, Bruno Paes Leao, Cheng Feng"
+      ],
+      "published": "2026-11-06T21:32:40Z",
+      "updated": "2026-11-06T21:32:40Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.10247",
+      "pdf_url": "https://arxiv.org/pdf/2611.10247",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.09176",
+      "title": "TailDART: Compute-Efficient Foundation Models for Financial Time-Series Forecasting",
+      "abstract": "Although time-series foundation models (TSFMs) achieve strong zero-shot transferability across high-information-density physical systems, applying overparameterized TSFMs to quantitative finance is fundamentally constrained by low signal-to-noise ratios, non-stationarity, and prohibitive autoregressive decoding latency. To reconcile representation learning with institutional operational constraints, this study presents TailDART, a dense 2.68 million-parameter foundation model engineered for financial time-series forecasting. By integrating grouped-query attention into a lightweight backbone, the architecture drastically reduces Key-Value cache memory bandwidth overhead, achieving major inference acceleration (up to 48.1%) over prevailing state-of-the-art TSFMs to enable low-latency, high-throughput streaming execution. Furthermore, multi-asset benchmarks across varying temporal resolutions show that a compact model can remain competitive for market forecasting: TailDART matches the predictive fidelity of substantially larger baselines while demonstrating superior error resilience in high-volatility regimes.",
+      "authors": [
+        "Chiang Qin Zhi, Ranjan Satapathy, Erik Cambria, Joyjit Chattoraj"
+      ],
+      "published": "2026-11-06T08:56:09Z",
+      "updated": "2026-11-06T08:56:09Z",
+      "metadata_updated": "2026-11-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.09176",
+      "pdf_url": "https://arxiv.org/pdf/2611.09176",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.08993",
+      "title": "When2What: A Timing-Conditioned Framework for Long-Horizon Forecasting of Continuous Cardiovascular Waveforms",
+      "abstract": "Long-horizon forecasting of quasi-periodic cardiovascular waveforms, such as the electrocardiogram (ECG), arterial blood pressure (ABP), and photoplethysmogram (PPG), requires predicting both when future cardiac events will occur (beat timing) and what the local structural pattern looks like around each event (beat morphology). However, standard sequence forecasters trained with pointwise mean squared error (MSE) average across uncertain future heartbeat phases, flattening sharp R peaks and pulse upstrokes into featureless baselines. Our analysis of intraoperative ECG reveals a clear temporal asymmetry: beat-time predictability from history decays within seconds due to stochastic heart-rate variability, whereas local beat morphology aligned at true beat times remains stable over several minutes. Guided by this insight, we introduce When2What, a timing-conditioned framework comprising three stages: Predict, Commit, and Generate. Given a 120-s history, When2What predicts a dense 60-s timing map, selects and sharpens discrete beat events into unit-height Gaussian impulses, and conditions a neural waveform generator on both these committed events and the observed history. Across intraoperative ECG, When2What substantially outperforms existing time-series and physiological forecasters, achieving a near-term waveform event skill of 0.644 and reproducing 95.62% of its predicted heartbeats in the generated waveform where direct long-horizon forecasters collapse into flat baselines. Furthermore, When2What transfers zero-shot to external hospital and atrial fibrillation cohorts, extends effectively to ABP and PPG pulse waveforms, and is supported by ablations and synthetic analyses that establish explicit timing conditioning as an effective paradigm for quasi-periodic long-horizon waveform forecasting.",
+      "authors": [
+        "Chaoqi Zhang, Shujie Yan, Zhao Zhang, Yanhua Sun, Yu Wang, Li Li, Lingzhong Meng, Xiaoyi Chen, and Haixu Tang"
+      ],
+      "published": "2026-11-06T05:06:08Z",
+      "updated": "2026-11-06T05:06:08Z",
+      "metadata_updated": "2026-11-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.08993",
+      "pdf_url": "https://arxiv.org/pdf/2611.08993",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.08766",
+      "title": "The Complex Magnetic Anatomy of a White Dwarf Chromosphere",
+      "abstract": "This study presents phase-resolved spectroscopy and spectropolarimetry of the DAHe white dwarf LP 705-64. Here, two apparently discrete chromospheric regions are observed to alternate in visibility and magnetic polarity with rotation, with field strengths of 9.5 and 22 MG based on the measured Zeeman splitting in H{\\alpha}. As in the class prototype GD 356, emission line equivalent widths vary in antiphase with the broadband light curve. The 9.5 MG field is visible for 60 per cent of the stellar rotation and stays nearly constant, whereas the 22 MG field increases modestly during the remaining phases. Notably, the time-series transitions between magnetic regions are abrupt and transit-like in morphology, requiring at least one magnetic region to be highly localised and significantly smaller than the areas inferred for the dark surface spots. Both the intensity and the Stokes V/I spectra indicate a field configuration significantly more complex than an offset dipole, but higher-cadence data are necessary to distinguish between a global field and localised magnetic regions. All data are consistent with magnetic, chromospheric, and dark surface regions that are co-located and thus physically related. These findings support a model of chromospheric emission that is intrinsic and localised, consistent with predictions of dynamo-driven electrical currents that heat the upper atmosphere near magnetic poles.",
+      "authors": [
+        "Leyla Iskandarli, Jay Farihi, Stefano Bagnulo, John D. Landstreet, Akshay Robert, J.J. Hermes, Steven G. Parsons, Nikolay Walters, Nick Achilleos"
+      ],
+      "published": "2026-11-05T22:28:35Z",
+      "updated": "2026-11-05T22:28:35Z",
+      "metadata_updated": "2026-11-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.08766",
+      "pdf_url": "https://arxiv.org/pdf/2611.08766",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.08568",
+      "title": "Personalized health coaching via coachable health age and counterfactual wearable trajectories",
+      "abstract": "Personalized health coaching requires moving beyond retrospective wearable summaries toward quantitative, actionable behavioral prescriptions. We introduce Coachable Health Age (CHA), an interpretable health-age metric built from modifiable physiological and behavioral signals passively captured by consumer wearables. Across the WEAR-ME (N=2,780), All of Us (N=22,748), and longitudinal Fitbit (N=1,464) cohorts, CHA aligns with established cardiometabolic health constructs and improves prognostic discrimination for incident cardiovascular and metabolic disease beyond age, sex, and body mass index. To enable prospective behavioral optimization, we developed Sensor World Model (SensorWM), an action-conditioned wearable world model pretrained on over 2.2 million person-weeks of longitudinal sensor data from approximately 100,000 participants. SensorWM accurately forecasts multi-week physiological responses to candidate lifestyle changes ($R^2=0.664$), outperforming generic time-series foundation models while preserving downstream clinical signal for diabetes, hypertension, and other health outcomes. Finally, we integrate CHA and SensorWM into an agentic counterfactual coaching system to synthesize personalized 12-week coaching plans. In blinded paired reviews, certified lifestyle coaches preferred counterfactual-grounded plans over plans grounded in wearable history alone for overall quality (71.4%, P < 0.001) and anticipated adherence (71.0%, P < 0.001), and board-certified clinicians judged 99.2% of counterfactual-grounded plans to meet clinical safety criteria (vs. 97.6% of comparison plans). Automated evaluations across the full cohort (N=2,780) also favored counterfactual-grounded plans. By closing the loop between longitudinal tracking, trajectory prediction, and counterfactual coaching, our framework provides a scalable path to systematically improve cardiometabolic health.",
+      "authors": [
+        "Simon A. Lee, Zeinab Esmaeilpour, Menglian Zhou, Marius Guerard, Sohrab Sidhu, Alexandru Solot, Hamid Palangi, Pramod Rudrapatna, Ming-Zher Poh, Max A. Xu, Daniel McDuff, Dimitrios Antos, Yuzhe Yang, Jeffrey N. Chiang, Anthony Z. Faranesh, Lindsey Sunden, Mark Malhotra, Shwetak Patel, A. Ali Heydari, Ahmed A. Metwally"
+      ],
+      "published": "2026-11-05T17:52:57Z",
+      "updated": "2026-11-05T17:52:57Z",
+      "metadata_updated": "2026-11-09T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.08568",
+      "pdf_url": "https://arxiv.org/pdf/2611.08568",
+      "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
       "id": "2611.08303",
       "title": "First-Token Attraction in Mamba Dynamics",
       "abstract": "We study token dynamics in deep Mamba models, with a particular focus on the attracting role of the first token. Unlike attention mechanisms, where token interactions are governed by positive scalar coefficients, Mamba dynamics involve full matrix-valued interaction coefficients with no positivity or definiteness guarantees. This structural difference makes Mamba dynamics substantially harder to analyze and prevents the direct application of existing techniques for attention-based models. To overcome this challenge, we introduce a new analytical framework based on a high-dimensional invariant box and a sharp exit-time argument, which together recover an effective form of sign-definiteness. Using this framework, we characterize the possible limit points of token trajectories and prove explicit exponential convergence rates. Our analysis reveals that the first token has privileged dynamics: its limiting direction attracts subsequent tokens, inducing token clustering and attention-sink phenomena in deep Mamba models. We further show that this attraction mechanism extends to broader sequence dynamics, including state-space models, causal attention, and classical time-series models. Experiments on Falcon-Mamba-7B validate our predictions, showing that concentration on the first token increases with depth and dominates in later layers.",
@@ -3999,8 +4258,8 @@
         "Sherri Hadian, Adrian Rebmann, Atacan Korkmaz, Gregor Berg, Ulf Brackmann"
       ],
       "published": "2026-10-07T11:58:50Z",
-      "updated": "2026-10-07T11:58:50Z",
-      "metadata_updated": "2026-10-08T00:00:00Z",
+      "updated": "2026-11-09T13:47:45Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.09903",
       "pdf_url": "https://arxiv.org/pdf/2610.09903",
       "first_seen": "2026-10-08T22:05:31.432246Z",
@@ -4079,13 +4338,13 @@
     {
       "id": "2610.08443",
       "title": "GPU-accelerated Regularized Vector Multiplicative Error Models for Positive-valued Financial Time Series",
-      "abstract": "The logarithmic vector multiplicative error model (log-vMEM) provides a methodology for modeling and forecasting multivariate positive-valued time series. However, the number of autoregressive parameters increases rapidly with the system dimension and lag order, posing challenges for estimation and model selection. This paper develops a regularized estimation framework for the log-vMEM with multivariate Gamma errors by incorporating hierarchical lag structures to induce sparsity and accommodate heterogeneous lag dynamics. We consider three hierarchical lag structures: componentwise, own-other, and elementwise, in combination with group lasso, group MCP, and group SCAD, adaptive group lasso penalties. Parameter estimation is carried out through an alternating block-coordinate optimization algorithm with sequential Gauss-Seidel updates, while GPU-accelerated numerical quadrature is employed to address the computational burden of evaluating the multivariate Gamma likelihood. Simulation experiments investigate parameter recovery and lag selection under different sparsity structures. The real data analysis is carried out on the realized volatility measures for Microsoft (NASDAQ:MSFT) which allows a comparison of the competing regularization approaches in an empirical financial setting. Together, these developments provide a computational framework for sparse multivariate volatility modeling with flexible lag structures and dependent Gamma errors.",
+      "abstract": "The logarithmic vector multiplicative error model (log-vMEM) provides a methodology for modeling and forecasting multivariate positive-valued time series. However, the number of autoregressive parameters increases rapidly with the system dimension and lag order, posing challenges for estimation and model selection. This paper develops a regularized estimation framework for the log-vMEM with multivariate Gamma errors by incorporating hierarchical lag structures to induce sparsity and accommodate heterogeneous lag dynamics. We consider three hierarchical lag structures: componentwise, own-other, and elementwise, in combination with group lasso, adaptive group lasso, group MCP, and group SCAD penalties. Parameter estimation is carried out through an alternating block-coordinate optimization algorithm with sequential Gauss-Seidel updates, while GPU-accelerated numerical quadrature is employed to address the computational burden of evaluating the multivariate Gamma likelihood. Simulation experiments investigate parameter recovery and lag selection under different sparsity structures. The real data analysis is carried out on the realized volatility measures for Microsoft (NASDAQ:MSFT) which allows a comparison of the competing regularization approaches in an empirical financial setting. Together, these developments provide a computational framework for sparse multivariate volatility modeling with flexible lag structures and dependent Gamma errors.",
       "authors": [
         "Rohan Hemant Chhatre, Chiranjit Dutta, Nalini Ravishanker, and Sumanta Basu"
       ],
       "published": "2026-10-06T14:35:04Z",
-      "updated": "2026-11-05T18:05:21Z",
-      "metadata_updated": "2026-11-06T00:00:00Z",
+      "updated": "2026-11-08T16:27:30Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.08443",
       "pdf_url": "https://arxiv.org/pdf/2610.08443",
       "first_seen": "2026-10-07T21:59:28.995566Z",
@@ -6292,13 +6551,13 @@
     {
       "id": "2609.31351",
       "title": "Progressive Memory Transformer: Memory-Aware Attention for Time-Series",
-      "abstract": "Time-series carry structure simultaneously at multiple scales (fine-grained variation, mid-range motifs, and global properties) and downstream tasks operate at correspondingly different scales. Most existing self-supervised learning approaches supervise representations globally via instance-level contrastive losses and limited temporal neighborhood supervision, but do not explicitly exploit the structural hierarchy. We propose a learning framework that explicitly enforces a structural hierarchy across three scales independently: a local objective for token continuity, a mid-range objective for window-level motifs, and a global objective for sequence-level agreement. Realizing this framework requires the backbone to expose a representation at each scale; we introduce \\textbf{Progressive Memory Transformer} (PMT), which augments a transformer with writable, window-aligned memory that exposes the mid-range scale alongside the token and sequence-level representations conventional transformers already provide. Across seven UCR/UEA/UCI classification benchmarks, a cue-retention probe, and forecasting benchmarks, PMT learns representations that probe well at the global, mid-range, and local scales---strong low-label classification (1--5\\% labels), competitive forecasting performance across multiple horizons, and quantitative and qualitative evidence that memory states capture mid-range motifs.",
+      "abstract": "Time-series carry structure simultaneously at multiple scales (fine-grained variation, mid-range motifs, and global properties) and downstream tasks operate at correspondingly different scales. Most existing self-supervised learning approaches supervise representations globally via instance-level contrastive losses and limited temporal neighborhood supervision, but do not explicitly exploit the structural hierarchy. We propose a learning framework that explicitly enforces a structural hierarchy across three scales independently: a local objective for token alignment, a mid-range objective for window-level motifs, and a global objective for sequence-level agreement. Realizing this framework requires the backbone to expose a representation at each scale; we introduce \\textbf{Progressive Memory Transformer} (PMT), which augments a transformer with writable, window-aligned memory that exposes the mid-range scale alongside the token and sequence-level representations conventional transformers already provide. Across eight UCR/UEA/UCI classification benchmarks, a cue-retention probe, and forecasting benchmarks, PMT learns representations that probe well at the global, mid-range, and local scales---strong low-label classification (1--5\\% labels), competitive forecasting performance across multiple horizons, and quantitative and qualitative evidence that memory states capture mid-range motifs.",
       "authors": [
-        "Tord Sture Stangeland, Andreas K\\\"ohler, Steffen M{\\ae}land, Ad\\'in Ram\\'ires Rivera"
+        "Tord Sture Stangeland, Andreas K\\\"ohler, Steffen M{\\ae}land, Ad\\'in Ram\\'irez Rivera"
       ],
       "published": "2026-09-25T14:49:42Z",
-      "updated": "2026-09-25T14:49:42Z",
-      "metadata_updated": "2026-09-28T00:00:00Z",
+      "updated": "2026-11-06T20:01:33Z",
+      "metadata_updated": "2026-11-10T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.31351",
       "pdf_url": "https://arxiv.org/pdf/2609.31351",
       "first_seen": "2026-09-28T22:02:30.993606Z",
@@ -11794,31 +12053,33 @@
       ]
     }
   ],
-  "last_success": "2026-11-07T02:49:16.666759Z",
-  "last_attempt": "2026-11-10T09:52:32.084034Z",
+  "last_success": "2026-11-10T23:24:17.107571Z",
+  "last_attempt": "2026-11-10T23:24:17.107571Z",
   "last_new_ids": [
-    "2611.06988",
-    "2611.07096",
-    "2611.07473",
-    "2611.07720",
-    "2611.07784",
-    "2611.07858",
-    "2611.07870",
-    "2611.08153",
-    "2611.08158",
-    "2611.08160",
-    "2611.08252",
-    "2611.08300",
-    "2611.08303"
+    "2611.08568",
+    "2611.08766",
+    "2611.08993",
+    "2611.09176",
+    "2611.10247",
+    "2611.10364",
+    "2611.10579",
+    "2611.10861",
+    "2611.11075",
+    "2611.11170",
+    "2611.11913",
+    "2611.12004",
+    "2611.12141",
+    "2611.12285",
+    "2611.12368"
   ],
-  "error": "本次检索失败，已保留上次结果；下次运行将自动补抓。",
+  "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
-  "error_detail": "TimeoutError: The read operation timed out",
+  "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 0,
-    "records": 0,
+    "pages": 9,
+    "records": 10637,
     "duplicates": 0
   }
 }
