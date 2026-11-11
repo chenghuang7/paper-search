@@ -2,6 +2,113 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.14491",
+      "title": "TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics",
+      "abstract": "Time series analytics has been widely applied across various domains. While existing time series foundation models (TSFMs) have demonstrated promising results, they still face two major challenges: 1) Most TSFMs mainly rely on stacking Transformer layers to increase parameter size, lacking the ability to adaptively model complex time series patterns from multi-domain data. 2) Current TSFMs are primarily pre-trained for specific tasks, e.g., forecasting or anomaly detection, and a few models support multiple tasks, but they fail to fully leverage task specificity and commonality, resulting in suboptimal performance. To address these challenges, we propose TimeSeek, a novel generalized time series analytics model that adaptively models time series patterns from multi-domain data and unifies multiple tasks in pre-training. Conceptually, TimeSeek is guided by selective information sharing under domain and task heterogeneity. From the perspective of multi-domain data, we propose a Multi-Domain Feature Extractor that adaptively captures temporal dependencies and channel correlations based on domain-specific characteristics, including progressive multi-scale modeling and adaptive slot channel modeling. From the perspective of the diversity of tasks, we propose multi-task collaborative training, which leverages task specificity and task commonality through task customization and cross-task training, effectively unifying multiple tasks in pre-training and better adapting to diverse downstream scenarios. After pre-training on large-scale time series data, TimeSeek achieves state-of-the-art performance in forecasting, anomaly detection, and classification tasks across both few-shot learning and zero-shot situations, together with favorable inference efficiency.",
+      "authors": [
+        "Peng Chen and Yihang Wang and Zhongwen Rao and Yang Shu and Yuying Qiu and Yuxuan Chen and Lujia Pan and Bin Yang and Chenjuan Guo"
+      ],
+      "published": "2026-11-10T18:49:26Z",
+      "updated": "2026-11-10T18:49:26Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.14491",
+      "pdf_url": "https://arxiv.org/pdf/2611.14491",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.14425",
+      "title": "Quantifying the Sampling Frequency Invariance of Time-Series Foundation Models for Sensor Data Applications",
+      "abstract": "Time-Series Foundation Models (TSFMs) are increasingly used in sensor applications, where sampling frequency (SF) varies across sensors, devices, and operating modes (e.g., power saving). Ideally, TSFMs must remain effective during such SF changes, provided the SF retains task-critical bandwidth. In this paper, we stress-test 4 prominent TSFMs: MOMENT, Chronos-2, Moirai-MoE, and TimesFM, to quantify their SF-invariance and investigate whether their behavior tracks the resulting loss of information bandwidth rather than the SF value itself. Our stress-test probes 3 dimensions: (i) the shift in embeddings, (ii) the degradation in forecasting performance, and (iii) the degradation in downstream performance, quantified by three novel metrics: FSI, FDI, and CDI, respectively. To our knowledge, this is the first study to place SF-invariance at the core of TSFM evaluations. Our results characterize: (i) how SF-invariance depends on the margin between signal's native-SF and the bandwidth its task requires, (ii) how much of that invariance the choice of TSFM explains, and (iii) how much of TSFM's performance degradation under a lower SF reflects information loss rather than a limitation of their abilities. These findings reframe SF-invariance as a measurable, signal-aware property of the (signal X TSFM) pair, and guide practitioners on when TSFMs display SF-invariance.",
+      "authors": [
+        "Sourish Gunesh Dhekane, Abinaya Kumar, Torsten Woertwein, Yan-Bo Lin, Thomas Ploetz, Shabnam Ghaffarzadegan"
+      ],
+      "published": "2026-11-10T18:01:23Z",
+      "updated": "2026-11-10T18:01:23Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.14425",
+      "pdf_url": "https://arxiv.org/pdf/2611.14425",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.14357",
+      "title": "The Unused Input: The Initial State as a Conditioning Interface for Recurrent TSFMs",
+      "abstract": "Time series foundation models (TSFMs) forecast unseen series without task-specific training. Increasingly they are built on recurrent backbones, whose constant per-step cost makes long-context inference cheap, and which, unlike transformers, carry a state. A recurrent backbone computes its prediction from two inputs: the observed context window and the initial recurrent state. In practice only the first is utilised and the initial state is unused by convention. We ask whether the initial state can be utilised in recurrent TSFMs. Using the xLSTM-based zero-shot forecaster TiRex as a case study, we freeze the backbone and train only a small head that writes a context vector into the initial state, so that any change in accuracy is attributable to the injected state rather than to adapted weights. A spectral summary of the input window, learned once and applied unchanged to every series, lowers mean GiftEval MASE by 0.175%, with every seed improving, which neither a parameter-matched LoRA adapter nor a learnable static state reproduces. An embedding of text attached to each series, evaluated on six MoTime datasets, reveals two roles for the state. As a per-dataset adaptation surface, a static state lowers MASE by 0.04-6.96% of the zero-shot baseline (8-70% of the gain of full fine-tuning). As a channel for exogenous information, the text-conditioned state lowers it by a further 0.15-0.41% of the zero-shot baseline on four of six datasets and, combined with a LoRA adapter, exceeds full fine-tuning, which has no access to the text, on one of them. In TiRex, the effect concentrates in the mLSTM blocks and is strongest at short context. The results are preliminary and the improvements small, but they point to the initial state as a direction for further research.",
+      "authors": [
+        "Bernhard Voggenberger, Christian Ganh\\\"or, Levente Z\\'olyomi, Sebastian B\\\"ock, Sepp Hochreiter"
+      ],
+      "published": "2026-11-10T17:16:54Z",
+      "updated": "2026-11-10T17:16:54Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.14357",
+      "pdf_url": "https://arxiv.org/pdf/2611.14357",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.13882",
+      "title": "Backtesting High-Dimensional Expected Shortfall",
+      "abstract": "Forecast evaluation increasingly uses high-dimensional predictors, but estimation and regularization of large predictive models can distort conventional backtests. This issue is particularly important for forecasting downside risk, where the signal-to-noise ratio is low. We develop out-of-sample Expected Shortfall (ES) backtests that remove the large first-order bias effects of estimating high-dimensional Value-at-Risk, ES, and the evaluation instrument. In a linear ES specification, the proposed methods are easily implemented as Double Lasso with a tail-size-adjusted score as a generated dependent variable. More generally, we characterize orthogonal ES backtesting moments, and establish oracle equivalence and valid inference under time-series dependence and repeated estimation with overlapping and expanding training windows. Simulations show that conventional backtests can severely overreject ES optimal forecasts, whereas orthogonalization improves size control. An application to downside-growth forecasting for G7 economies finds evidence against a US growth-only ES specification, even though forecast-oriented regularization selects no additional financial predictors. The application also shows that accounting for estimation can change rejection decisions in either direction. These findings highlight the distinct roles of predictive variable selection and backtesting in the evaluation of high-dimensional tail-risk models.",
+      "authors": [
+        "Zaichao Du, Juan Carlos Escanciano, Pei Pei"
+      ],
+      "published": "2026-11-10T10:40:04Z",
+      "updated": "2026-11-10T10:40:04Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.13882",
+      "pdf_url": "https://arxiv.org/pdf/2611.13882",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.13794",
+      "title": "AnchorMTS: Multi-View Signal Representation and Forecast-Anchored Fusion for Long-Term Time-Series Forecasting",
+      "abstract": "Long-term time-series forecasters typically optimize a single numerical representation, even though the same history exposes complementary geometry, recurrence, and semantic structure. We propose AnchorMTS, which derives self-aligned visual and textual views from each observed window and uses them only to refine a complete numerical forecast. A trainable evidence path produces a candidate forecast, while a parameter-free output projection enforces an exact per-variable bound on its displacement from the numerical anchor. Across six benchmarks and four horizons, AnchorMTS achieves the best macro MSE/MAE (0.336/0.367) among seven supervised baselines and wins 18 of 24 MSE settings against the cellwise baseline envelope; removing the auxiliary path raises macro MSE to 0.340. The projection leaves 95.8% of candidate refinements unchanged while yielding zero bound violations, showing that complementary multi-view evidence can improve forecasting while its final influence remains explicitly controlled.",
+      "authors": [
+        "Gao Wu, Tingting Xu, Changning Wu, Tengfei Long, Yong Liu, Jiabin Jin, Kexin Zhang"
+      ],
+      "published": "2026-11-10T09:27:55Z",
+      "updated": "2026-11-10T09:27:55Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.13794",
+      "pdf_url": "https://arxiv.org/pdf/2611.13794",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.13572",
+      "title": "Market-Conditioned JEPA: Learning from Unpredictable Market Shocks",
+      "abstract": "Much of the variation in financial time series is driven by market-wide shocks that cannot be predicted from an asset's own history. Per-asset self-supervised learning treats this variation as irreducible noise. Under a latent factor model, we show that conditioning prediction on the realized market factor makes the asset's market exposure necessary for optimal prediction, while reducing the noise against which the asset-specific component is learned. Building on this insight, we introduce Market-Conditioned JEPA (MC-JEPA), a joint-embedding predictive architecture for financial time series. During training, we construct a leave-one-out market condition for each asset from the future target embeddings of other assets and incorporate it through factor loadings derived from the asset's own representation. On 11 years of minute-level Chinese A-share data, MC-JEPA improves over per-asset JEPA across nine targets spanning returns, market exposure, risk, and liquidity, with the strongest and most statistically significant gains in exposure, risk, and liquidity. It achieves the best RankIC on all liquidity targets and on return horizons from two hours to five days, outperforming time-series foundation models and self-supervised baselines, and delivers the best portfolio performance in a historical backtest. Ablations show that the return and exposure gains require the condition to be aligned with the realized market movement. After restoring the volatility scale removed by normalization, the predictor's factor loadings rank stocks by market beta nearly as well as a supervised probe, without labels. A synthetic factor-model study with known parameters shows that conditioning improves the recovery of both market exposure and the asset-specific component.",
+      "authors": [
+        "Yuqi Wang, Fengyuan Liu, Mukai Li, Haochen Luo, Lei Li, Qi Liu"
+      ],
+      "published": "2026-11-10T04:40:04Z",
+      "updated": "2026-11-10T04:40:04Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.13572",
+      "pdf_url": "https://arxiv.org/pdf/2611.13572",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
       "id": "2611.12368",
       "title": "Bayesian precision factor models for high-dimensional macroeconomic time series",
       "abstract": "Series in a macroeconomic panel are almost all correlated with one another, which makes correlation a poor guide to which pairs are directly linked. For example, Treasury rates at different maturities are all highly correlated, yet a short and a long rate may be related only through the rates at maturities between them; similarly, sectors of the economy such as output, employment, prices, and interest rates may be related directly or only through other series. Both are questions about the inverse covariance matrix. Recovering it from quarterly data is difficult: contemporaneous dependence is entangled with temporal dynamics, the innovations remain densely dependent once those dynamics are removed, and the number of series is comparable to the number of quarters observed. We propose VAPOR (Vector Autoregressive Precision factOR), a Bayesian model that estimates vector autoregressive dynamics jointly with a factor-structured innovation precision matrix, inferring the partial correlations directly from the fitted precision rather than imposing a zero pattern. Applied to 100 quarterly FRED-QD series, VAPOR learns from the data that each Treasury rate is directly related only to the rates at adjacent maturities, places all 26 selected dependencies within a single FRED-QD group, and attains the lowest held-out prediction error among the estimators compared.",
@@ -112,11 +219,28 @@
         "Ayan Mitra, Vasilios Zarikas"
       ],
       "published": "2026-11-08T02:22:15Z",
-      "updated": "2026-11-08T02:22:15Z",
-      "metadata_updated": "2026-11-10T00:00:00Z",
+      "updated": "2026-11-10T14:57:58Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.11075",
       "pdf_url": "https://arxiv.org/pdf/2611.11075",
       "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.12974",
+      "title": "StatPrompt-LLM: A Lightweight Statistical Refinement for Foundation-Style Time-Series Forecasting",
+      "abstract": "Time-series forecasting has recently seen a paradigm shift with the introduction of foundation-style models that adapt large pretrained language architectures to sequential data. However, effectively exposing fundamental temporal structures, such as trend, scale, and temporal dependence, to these models remains an open challenge, particularly when the available observations are limited. In this paper, we conduct an exploratory empirical study across different generations of forecasting architectures and propose StatPrompt-LLM, a lightweight statistical refinement of Time-LLM. StatPrompt-LLM augments the existing Time-LLM prompting mechanism with dataset-level statistical information and introduces a zero-initialised autoregressive bypass as a complementary linear forecasting pathway. We evaluate our framework on electricity and meteorological time-series benchmarks, including ETTh1, ETTh2, and Weather, under full-prefix and reduced-prefix configurations. Under the 10% reduced-prefix configuration, StatPrompt-LLM achieved lower in-sample prediction errors than Time-LLM, with unweighted average relative reductions across datasets of 40.2% in MSE and 21.4% in MAE. Full-prefix results were more dataset-dependent. Ablation analyses revealed relatively modest and dataset-dependent changes when selected additional statistical descriptor groups were masked within the combined architecture. Computational profiling indicated additional model parameters and runtime overhead relative to Time-LLM.",
+      "authors": [
+        "Aniket Sinha, Veronica W. Tsou"
+      ],
+      "published": "2026-11-08T01:56:51Z",
+      "updated": "2026-11-08T01:56:51Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.12974",
+      "pdf_url": "https://arxiv.org/pdf/2611.12974",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -151,6 +275,23 @@
       "url": "https://arxiv.org/abs/2611.10579",
       "pdf_url": "https://arxiv.org/pdf/2611.10579",
       "first_seen": "2026-11-10T23:24:17.107571Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.12955",
+      "title": "Predictive Surprise as Self-Grounding Concept Bottleneck for Interpretable Time Series",
+      "abstract": "Time-series classifiers deployed in risk-sensitive domains must be (1) accurate, (2) interpretable, and (3) able to abstain when evidence is weak. Existing methods do not deliver all 3 at once, and the obstacle is structural, rather than logistical. Meaningful temporal patterns cannot be defined without knowing segment boundaries, yet meaningful boundaries cannot be placed without knowing which patterns to expect. Existing approaches break this circularity by using fixed windows or expert-annotated vocabularies, thereby sacrificing at least one of the 3 properties. We introduce ConceptTime, which closes the loop through a single self-supervised signal. A frozen probabilistic forecaster predicts a distribution over the next observation at every timestep of the sequence. We call the mismatch between its prediction and the realized signal the predictive surprise. This signal both locates segment boundaries and characterizes each resulting segment through the forecaster. Segments are thus grounded by how they behaved relative to expectation, not by what they look like. These summaries cluster into a vocabulary of dynamical regimes that we call concepts. A lightweight head classifies from the concept sequence, and the distance to the nearest concept yields reliability by design. Across 17 public benchmarks, ConceptTime is competitive with state-of-the-art black-box accuracy, beats every interpretable baseline, and retains near-98% accuracy on Epilepsy with 1% of labels. It further remains competitive with softmax, prototype-distance, and SHAP/TimeX/TimeX++ on OOD detection and deletion faithfulness, without a single annotation, language model call, or domain expert. Code is available at: https://github.com/Sachithx/ConceptTime.git.",
+      "authors": [
+        "Sachith Abeywickrama, Emadeldeen Eldele, Min Wu, Xiaoli Li, Chau Yuen"
+      ],
+      "published": "2026-11-07T06:18:39Z",
+      "updated": "2026-11-07T06:18:39Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.12955",
+      "pdf_url": "https://arxiv.org/pdf/2611.12955",
+      "first_seen": "2026-11-11T21:59:46.704455Z",
       "topics": [
         "time-series-forecasting"
       ]
@@ -8839,7 +8980,7 @@
       ],
       "published": "2026-09-07T13:41:33Z",
       "updated": "2026-09-07T13:41:33Z",
-      "metadata_updated": "2026-09-09T00:00:00Z",
+      "metadata_updated": "2026-11-11T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.07493",
       "pdf_url": "https://arxiv.org/pdf/2609.07493",
       "first_seen": "2026-09-09T19:46:51.853258Z",
@@ -12053,24 +12194,17 @@
       ]
     }
   ],
-  "last_success": "2026-11-10T23:24:17.107571Z",
-  "last_attempt": "2026-11-10T23:24:17.107571Z",
+  "last_success": "2026-11-11T21:59:46.704455Z",
+  "last_attempt": "2026-11-11T21:59:46.704455Z",
   "last_new_ids": [
-    "2611.08568",
-    "2611.08766",
-    "2611.08993",
-    "2611.09176",
-    "2611.10247",
-    "2611.10364",
-    "2611.10579",
-    "2611.10861",
-    "2611.11075",
-    "2611.11170",
-    "2611.11913",
-    "2611.12004",
-    "2611.12141",
-    "2611.12285",
-    "2611.12368"
+    "2611.12955",
+    "2611.12974",
+    "2611.13572",
+    "2611.13794",
+    "2611.13882",
+    "2611.14357",
+    "2611.14425",
+    "2611.14491"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -12079,7 +12213,7 @@
   "source": "oai",
   "retrieval_stats": {
     "pages": 9,
-    "records": 10637,
+    "records": 10755,
     "duplicates": 0
   }
 }
