@@ -2,6 +2,318 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.16934",
+      "title": "Time Flies When You Parallelise: Pareto-efficient Time Series Foundation Models with Linear Recurrences",
+      "abstract": "Time series foundation models have demonstrated strong zero-shot forecasting performance, but computational efficiency remains a central architectural challenge. Temporal self-attention incurs quadratic cost in the number of temporal tokens, while nonlinear recurrent state transitions restrict parallel computation along the temporal dimension. We introduce ci-proto, a family of time series foundation models based on Mamba-3, whose linear state recurrences support chunk-wise parallel-in-time computation during training, and inference costs that scale linearly with sequence length. The architecture alternates recurrent temporal processing with cross-variate attention, supporting multivariate probabilistic forecasting with past-only and future-known covariates. Across fev-bench's 100 forecasting tasks, ci-proto XL sets a new state of the art among time series foundation models. The five ci-proto variants also make up the entire Pareto frontier for mean scaled quantile loss and mean absolute scaled error against both parameter count and median runtime.",
+      "authors": [
+        "Torben Berndt, Lingyi Yang, Federico Nardi, Yi Heng Lim, AJ Shears, Benjamin Walker"
+      ],
+      "published": "2026-11-12T15:20:31Z",
+      "updated": "2026-11-12T15:20:31Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16934",
+      "pdf_url": "https://arxiv.org/pdf/2611.16934",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.16706",
+      "title": "Data-Driven Discovery and Rigorous Certification of Periodic Solutions in Infinite-Dimensional Dynamical Systems",
+      "abstract": "In this work, we consider a standard regression technique for time series analysis which fits a low-dimensional proxy system to a higher (even infinite) dimensional target model. We then propose a novel diagnostic that exploits a-posteriori computer-assisted proofs, and try to certify the existence of a true periodic solution of the target, nearby. When successful, this certification procedure provides mathematically rigorous information about how well an invariant structure in the proxy approximates a corresponding invariant structure in the target model. To illustrate the utility of the procedure, we develop surrogates using time series data from the Mackey--Glass delay differential equation, and for the Kuramoto--Sivashinsky (KS) partial differential equation, using periodic boundary conditions for forecasting and Neumann boundary conditions for certification. In both test cases we extract invariant dynamics from low-dimensional proxies and use this to validate the existence of corresponding structures in the targets.",
+      "authors": [
+        "Aaron Loh and J.D. Mireles James"
+      ],
+      "published": "2026-11-12T12:23:18Z",
+      "updated": "2026-11-12T12:23:18Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16706",
+      "pdf_url": "https://arxiv.org/pdf/2611.16706",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.16623",
+      "title": "DySR-GNN: Dynamic Sensor-Relationship Graph Neural Network for Root Cause Analysis in Automotive HiL Multivariate Time Series",
+      "abstract": "Root-cause analysis in automotive Hardware-in-the-Loop (HiL) systems is challenging because faults can propagate across multiple interacting signals, making the most abnormal sensor different from the actual fault origin. This work proposes DySR-GNN, a Dynamic Sensor-Relationship Graph Neural Network for supervised multi-label root-cause identification in multivariate HiL time series. The approach jointly extracts temporal patterns within individual sensor signals and structural relationships across sensors. Each sensor is processed by a shared temporal encoder and combined with a trainable sensor-identity representation, from which a sparse relationship graph is reconstructed independently for every input window. This window-specific structure provides an explicit representation of the sensor relationships used for graph message passing and direct root-location prediction. Under a recording-disjoint evaluation protocol, the proposed model outperforms CNN--LSTM, Static GCN, Static GAT, and context-based variants, achieving a recording-level Macro-F1 of 0.9524, MCC of 0.9302, and strict exact-match accuracy of 0.8519. Analysis of the learned graphs reveals both persistent and state-dependent relationships among sensor variables. The results demonstrate that extracting adaptive relational structure alongside temporal representations can improve multi-label root-cause identification in complex automotive cyber--physical systems.",
+      "authors": [
+        "Hamza Ouarrad, Mohammad Abboush, and Andreas Rausch"
+      ],
+      "published": "2026-11-12T10:58:55Z",
+      "updated": "2026-11-12T10:58:55Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16623",
+      "pdf_url": "https://arxiv.org/pdf/2611.16623",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.16566",
+      "title": "Towards Automated Recommendation of Steady-State Detection Algorithms for Software Performance Benchmarks",
+      "abstract": "Steady-state detection is a central step in software performance benchmarking, yet different detection methods rely on different assumptions and may perform best on different execution profiles. This paper formulates steady-state detection as an algorithm-recommendation problem: given a benchmark time series, predict which of two complementary detectors is more appropriate. The first, CP-SSD, identifies steady state through changepoint-based segmentation of the execution trace, whereas the second, KB-KSSD, uses a kernel-based approach to identify stable behaviour. We propose a data-driven recommender that characterises benchmark time series using automatically extracted features and combines supervised prediction with information derived from groups of time series exhibiting similar behaviour. The approach is evaluated on 407 labelled benchmark time series for which one of the two detectors can be identified as preferable with respect to a reference steady-state index. The proposed recommender selects the better detector correctly for 72.97% of the series, compared with 62.65% when always selecting the detector that performs best most often, corresponding to an absolute improvement of 10.32 percentage points. Paired statistical testing and bootstrap confidence intervals support this improvement. A comparison with a recommender using time-series features alone shows that the cluster-derived information mainly improves interpretability rather than predictive accuracy. Recommendations also remain highly stable when the unsupervised representation is learned from either the labelled subset or the full collection of 5,860 time series. These results demonstrate the feasibility of per-series steady-state detector recommendation while highlighting the need for broader labelled data, particularly for execution profiles favouring the changepoint-based detector.",
+      "authors": [
+        "Martin Beseda, Vittorio Cortellessa, Federico Di Menna, Daniele Di Pompeo, Luca Traini"
+      ],
+      "published": "2026-11-12T09:51:53Z",
+      "updated": "2026-11-12T09:51:53Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16566",
+      "pdf_url": "https://arxiv.org/pdf/2611.16566",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.16514",
+      "title": "Learning Temporal Dynamics with Derivative Representations for Time Series Forecasting",
+      "abstract": "Time series forecasting aims to predict the future evolution of complex systems by learning their underlying dynamics from past observations. Despite recent advances in deep learning, Transformers in particular still struggle to capture the temporal evolution of system dynamics. Existing approaches have been largely driven by architectural innovation, with comparatively little attention paid to training strategies that explicitly exploit the temporal structure governing system dynamics. In this work, we introduce DeltaTSF, a dynamics-aware forecasting framework based on discrete derivative representations of time series. Specifically, DeltaTSF jointly learns the series and their discrete temporal derivatives across both input and forecast horizons within a unified, model-agnostic framework. By coupling these representations over time, the model is encouraged to maintain temporal consistency, a property we show to induce a form of discrete Taylor consistency during training. This formulation enables the model to better reflect the underlying system dynamics, resulting in more stable and physically coherent forecasts. Notably, DeltaTSF does not require explicit derivative computation and introduces no additional computational overhead at inference time. Extensive experiments across diverse benchmarks and backbone architectures demonstrate that DeltaTSF consistently improves forecasting performance and yields more dynamically coherent predictions than strong SOTA methods. These results highlight the effectiveness of enforcing dynamic coherence through derivative representations as a model-agnostic paradigm that operates alongside and complements architectural design. Source code will be made publicly available upon acceptance.",
+      "authors": [
+        "Shujie Duan, Jia Hong Puah, Haocheng Wu, Yifei Mao, Hongting Zhou, Chenxuan Li, Zitao Fang, Yang Lu, Sim Kuan Goh"
+      ],
+      "published": "2026-11-12T09:12:03Z",
+      "updated": "2026-11-12T09:12:03Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16514",
+      "pdf_url": "https://arxiv.org/pdf/2611.16514",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.16336",
+      "title": "Visibility graphs of irregularly sampled two-dimensional fields via Voronoi tessellations",
+      "abstract": "Visibility graphs map a time series into a network by linking two data whenever the straight line between them is not obstructed by intermediate data. Their extension to two-dimensional fields has so far been restricted to regular lattices, where visibility is checked along a finite number of lattice directions. We propose a definition for scalar data sampled at arbitrary, irregularly scattered points of the plane. Each point is assigned its Voronoi cell, so that the data become a landscape of prisms, and two points are linked when the line of sight between them clears the cells crossed by the connecting segment. This yields horizontal ($\\HVGV$) and natural ($\\NVGV$) Voronoi visibility graphs that reduce exactly to the classical horizontal and natural visibility graphs when the points are collinear, contain the Gabriel graph of the point set, and can be built by an exact walk through the Delaunay triangulation. For uncorrelated heights, the horizontal graph depends only on the ranks of the data, so its statistics are independent of the marginal distribution. The probability that two points see each other is $2/[(M+1)(M+2)]$, where $M$ is the number of Voronoi cells crossed, which reduces the problem to the geometry of the tessellation. For Poisson points this gives a degree distribution with a scale-free tail $P(k)\\simeq(\\pi^3/4)\\,k^{-2}$ and a mean degree that grows as $(\\pi^3/8)\\ln N$, in contrast with the finite value $\\langle k\\rangle=4$ of one-dimensional series. Two dimensions are therefore the marginal case in which isotropic horizontal visibility ceases to be local. Numerical simulations with up to $N=1.28\\times10^5$ points support these predictions.",
+      "authors": [
+        "Francisco J. Mu\\~noz and Juan Carlos Nu\\~no"
+      ],
+      "published": "2026-11-12T05:58:11Z",
+      "updated": "2026-11-12T05:58:11Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16336",
+      "pdf_url": "https://arxiv.org/pdf/2611.16336",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.16172",
+      "title": "Self-Supervised Attention-Based Virtual Metrology for CMP MRR Prediction",
+      "abstract": "Chemical mechanical planarization (CMP) is a critical semiconductor manufacturing process where material removal rate (MRR) is a key metric for process monitoring and advanced process control (APC). Virtual metrology enables MRR estimation from process time series signals, supporting run-to-run(R2R) control and process optimization while reducing reliance on physical metrology. Existing approaches typically rely on simplified linear assumptions or require handcrafted feature engineering. In this paper, we propose Global Regression Pretraining(GREP), a self-supervised, attention-based framework for CMP MRR prediction. GREP learns temporal representations from unlabeled sensor signals through global proxy-target regression, followed by supervised fine-tuning for MRR estimation. The framework is evaluated against a feature-engineered supervised baseline under three conditions: limited labeled data, sensor noise, and temporal process drift. Experiments on the PHM 2016 CMP dataset demonstrate competitive performance under limited labeled-data conditions, with improvements in selected cases and performance largely comparable to the baseline across different labeled-data fractions. Both models exhibit relatively small changes in prediction error with increasing noise, while GREP achieves a 17.0% RMSE reduction in the final temporal interval.",
+      "authors": [
+        "Jonathan Adam Rico, Nagarajan Raghavan, Senthilnath Jayavelu"
+      ],
+      "published": "2026-11-12T02:01:24Z",
+      "updated": "2026-11-12T02:01:24Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16172",
+      "pdf_url": "https://arxiv.org/pdf/2611.16172",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.16063",
+      "title": "Vocabulary-Free Next-Event Prediction on Temporal Graphs",
+      "abstract": "Autoregressive transformer training through next-token prediction has driven remarkable advances in language modeling and has become increasingly effective for time-series modeling. Yet its success in temporal graph learning remains limited, and most temporal link-prediction methods are discriminative rather than autoregressive. While temporal graphs can have a natural serialization through chronological ordering edges, they lack an obvious graph-independent tokenization: existing node tokenization often uses a vocabulary that grows with the number of nodes, limiting scalability and cross-graph training. We propose GTGT, Generative Temporal Graph Transformer, a simple yet powerful vocabulary-free framework for self-supervised next-event prediction on temporal graphs. It predicts events for observed destinations, behavioral descriptors for novel destinations, and time gaps before new event. These targets have shared meanings across graphs, allowing one transformer to train across disjoint node sets without node-specific learned parameters. Local node identifiers let attention capture graph structure: Theoretically, we can show that our transformer-based model has the capacity for time-respecting message passing mechanisms. On Temporal Graph Benchmark (TGB), our GTGT not only achieves comparable or better link-prediction performance than established baselines, but also has much lower training cost. These results open the door to temporal graph pretraining for forecasting and other downstream tasks, providing a concrete step toward temporal graph foundation models.",
+      "authors": [
+        "Zhishang Luo, Venu Madhav Tammali, Amila Weerasinghe, Osso Vahabzadeh, Olcay Boz, Xue Hao, Yusu Wang"
+      ],
+      "published": "2026-11-11T22:20:27Z",
+      "updated": "2026-11-11T22:20:27Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.16063",
+      "pdf_url": "https://arxiv.org/pdf/2611.16063",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.15657",
+      "title": "Global Seasonality Factor Investing",
+      "abstract": "We study seasonality as a factor for predicting risk-adjusted returns across global futures markets. We document five seasonality anomalies that, in aggregate, are pervasive across bond, commodity and equity markets. We demonstrate that each seasonality factor produces excess returns that are not reasonably explained by established global time series carry, momentum and skewness factors. We apply recent innovations in statistical learning and fit nonlinear seasonality models at the individual market level, thereby allowing each feature-market pair to express its unique seasonal prediction pattern. We discuss candidate economic rationales for the existence and persistence of each seasonality anomaly. Walk-forward out-of-sample testing demonstrates that fast-moving seasonal patterns, such as day-of-week and day-of-month, produce strong gross performance but with extremely high turnover, resulting in negative performance net of transaction costs. In contrast, slower-moving seasonal patterns, such as day-of-quarter, day-of-half-year and day-of-year, produce positive gross performance and, with the exception of day-of-quarter, positive net performance. An equal-weight ensemble of seasonality models produces an out-of-sample Sharpe ratio that is competitive with, and uncorrelated to, established global time series factor portfolios. Empirical results demonstrate that adding seasonality to a global factor portfolio increases the out-of-sample Sharpe ratio by approximately $30\\%$ over the full evaluation period.",
+      "authors": [
+        "Andrew Butler, Adam Butler, Maciej Zawadzki"
+      ],
+      "published": "2026-11-11T16:06:34Z",
+      "updated": "2026-11-11T16:06:34Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15657",
+      "pdf_url": "https://arxiv.org/pdf/2611.15657",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15646",
+      "title": "Idiosyncratic Market Effects in Global Time Series Momentum",
+      "abstract": "Time series momentum is a pervasive explanatory factor in financial markets whereby a market's recent historical average return positively predicts future returns. Recent applications of statistical learning augment the traditional linear model definition with a more descriptive global nonlinear factor model. We extend the work of \\citet{MoskowitzNonlinear} and demonstrate that models fit at the individual market level exhibit response curves that are distinct from the global factor model. We highlight the heterogeneity of forward market returns as a function of time series momentum and provide a framework that enables each feature-market pair to express its unique prediction behaviour. Empirical results demonstrate that, despite substantially smaller sample sizes, fitting nonlinear models to individual markets is a robust and often overlooked modelling approach that can result in a marginal improvement in out-of-sample performance.",
+      "authors": [
+        "Andrew Butler, Maciej Zawadzki, Adam Butler"
+      ],
+      "published": "2026-11-11T15:56:37Z",
+      "updated": "2026-11-11T15:56:37Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15646",
+      "pdf_url": "https://arxiv.org/pdf/2611.15646",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15413",
+      "title": "MORA: Correcting Time Series Forecasts with Coarse Future Signals",
+      "abstract": "Recent architectural advances have improved time-series forecasting. However, our analysis of forecasters with diverse architectures reveals a common pattern: a substantial share of residual energy is concentrated in a small number of low-frequency components. Simple linear probes further show that the forecasters' historical inputs still contain predictive information about errors in the forecast mean. Building on these findings, we propose Model-Output Residual Adaptation (MORA), a model-agnostic residual adapter that refines the outputs of frozen forecasters without requiring additional inputs. MORA estimates segment-wise means of the target sequence through structural extrapolation and learned estimation, rather than directly predicting backbone-specific residuals. It then converts discrepancies between these estimates and the corresponding statistics of the backbone forecast into stagewise corrections, scaling each update according to estimation reliability. Extensive experiments on twelve benchmarks with six forecasting backbones show average MSE reductions of 7.2% for long-term forecasting and 28.1% for short-term forecasting, with lower MSE in 96.2% of the 288 evaluated cases. The benefits also extend to three time-series foundation models evaluated at different context lengths. Together, these results demonstrate that predictable coarse-scale residuals can be effectively exploited to improve existing forecasts. Code repository: https://anonymous.4open.science/r/MORA-B0B0/.",
+      "authors": [
+        "Hu Li, Kenan Li, Haonan Xu, longlong, Shuqin Gao, Yucheng Zhang, Feng Dai"
+      ],
+      "published": "2026-11-11T12:36:58Z",
+      "updated": "2026-11-11T12:36:58Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15413",
+      "pdf_url": "https://arxiv.org/pdf/2611.15413",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.15298",
+      "title": "Quantum Recurrent Architectures for Financial Time Series Prediction",
+      "abstract": "This study evaluates quantum classical hybrid recurrent architectures for financial time-series forecasting: a Quantum Long Short-Term Memory (QLSTM) network and Quantum Reservoir Computing (QRC) with lag-based inputs. Classical lag vectors are encoded into quantum states via amplitude encoding, which compactly represents normalized observations but requires nontrivial state preparation; the QLSTM gates and the QRC reservoir are implemented with parameterized quantum circuits, while classical optimizers train the interface and readout layers. On a monthly revenue series extended to 1056 months by a Gaussian-process--hidden-Markov generator, with a fixed chronological 70/15/15 split and one-step-ahead forecasts, we compare both models against a full-size LSTM, a classical control matched in parameter budget and interface architecture, a small plain LSTM, and classical reservoir computing, over ten seeds and against persistence, seasonal-naive and SARIMA benchmark forecasts. The QLSTM, with 2,105 parameters, is statistically indistinguishable from an LSTM 126 times larger, but equally indistinguishable from the matched classical control and from a plain LSTM of the same budget, so its parameter efficiency cannot be attributed to the quantum circuits. The quantum reservoir is worse than a classical reservoir of equal feature dimension in all ten seeds and worse than SARIMA, whereas all recurrent models and both classical reservoirs improve on SARIMA by about 2\\% in RMSE. In a 24-month rolling-origin backtest the classical LSTMs degrade more slowly than the QLSTM. We find no evidence of a quantum accuracy or parameter-efficiency advantage in this low-dimensional setting.",
+      "authors": [
+        "Danyal Maheshwari, Gerhard Hellstern, Martin Zaefferer, Martin Braun and Tanja D\\\"ohler"
+      ],
+      "published": "2026-11-11T10:30:03Z",
+      "updated": "2026-11-11T10:30:03Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15298",
+      "pdf_url": "https://arxiv.org/pdf/2611.15298",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15262",
+      "title": "CastWorld: Benchmarking Context-Aware Agentic Time Series Forecasting Beyond Predictive Accuracy",
+      "abstract": "Agentic time series forecasting extends conventional approaches beyond one-shot numerical prediction toward autonomous, context-aware interaction. However, existing benchmarks offer limited integrated support for diverse contextual information, forecasting-specific adaptive interactions, and systematic evaluation of forecasting agents. In this paper, we introduce CastWorld, an agentic benchmark for context-aware time series forecasting. First, its context-rich dataset suite spans 8 domains and 25 real-world datasets, covering external variables, events, and historical cases under a unified context specification. Second, a lightweight, modular forecasting-native harness provides 49 core tools and a state-adaptive loop that tracks forecast versions and enables iterative evidence gathering and forecast revision. Intermediate forecasts can expose information gaps, while newly acquired evidence guides subsequent revisions and final version selection. Third, model-level evaluation assesses forecast quality, process execution, behavioral trustworthiness, and resource efficiency through decision trajectories and forecast-version histories. Also, systems-level evaluation compares predictive accuracy across forecasting systems. Experiments reveal distinct decision behaviors among agents with comparable accuracy. Additional interactions do not necessarily improve forecasts, and agents may fail to select their best previously generated predictions. Allowing evidence acquisition during forecast refinement improves task-aware forecast scores across all three evaluated models. CastWorld provides a reusable foundation for evaluating agentic time series forecasting under controlled conditions.",
+      "authors": [
+        "Bokai Pan, Ruijie Yang, Mingyue Cheng, Jiahao Wang, Xiaoyu Tao"
+      ],
+      "published": "2026-11-11T09:53:20Z",
+      "updated": "2026-11-11T09:53:20Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15262",
+      "pdf_url": "https://arxiv.org/pdf/2611.15262",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15155",
+      "title": "PRELUDE: Separating Common Components from Target-Specific Dependencies for Multivariate Time Series Forecasting",
+      "abstract": "Multivariate time series forecasting often improves the prediction of a target by modeling the interactions among variables, and cross-variable modules such as cross-sectional pooling, inter-variable attention, and graph structures are used to construct such interactions. However, by intervening on the cross-variable reading of existing models at inference time, we find that although these models substantially reduce forecasting error through cross-variable interaction, their reading is nearly identical for all targets: the gain appears to come from dependencies among variables but mainly comes from the common component. We term this phenomenon spurious dependency and attribute it to common-component confounding: present in every variable, the common component affects how reading distinguishes sources, so that reading tends to be shared across targets and concentrates on a few similar averages; dependencies thus make up a small share of the read-in content, and a common component composed of several drivers is only partly captured. Theoretical analysis further shows that the common component and dependencies place different requirements on reading and should therefore be handled in different ways. Accordingly, we propose PRELUDE, a separated-reading framework that estimates the common component holistically through cross-sectional pooling and multiple common factors, and reads dependencies for each target via lead-lag relations in the innovation space obtained by prewhitening. Extensive experiments on 16 real-world datasets from four domains show that PRELUDE effectively mitigates spurious dependency and achieves the best overall performance: it attains the best MSE on 23 of the 24 short-horizon and air-quality settings and reduces the average MSE by 6.1% relative to the strongest baseline.",
+      "authors": [
+        "Dongqing Song, Jianyu Xu, Haobin Ding, Xinyi Guo, Jiahao Du, Ruiqi He, Ruiqi Liu, Yuntong Xie, Chao He"
+      ],
+      "published": "2026-11-11T07:50:16Z",
+      "updated": "2026-11-11T07:50:16Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15155",
+      "pdf_url": "https://arxiv.org/pdf/2611.15155",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15067",
+      "title": "CoLaX: Context-Aware Local Explanations for Time Series Classification",
+      "abstract": "Post-hoc explanations for time series classifiers usually score local patterns, such as subsequences or shapelets, without regard to the rest of the sequence. Yet the same motif can carry different predictive meaning under different global temporal conditions, such as trends or regimes. We propose CoLaX, a context-aware post-hoc explanation framework that builds on shapelet-driven Shapley attribution and conditions local-pattern relevance on a learned representation of the full sequence. Global context acts at two levels: it produces sample-specific prototype weights and a temporally resolved signal that reweights the local activation map. The resulting context-conditioned segments are the players of a Shapley attribution game whose values come only from the frozen black-box classifier. On synthetic benchmarks where identical motifs change relevance across contexts, CoLaX improves AUPRC over the strongest baseline by 30\\% on average. On real-world data, it achieves the highest AUPRC on ECG. Additional ablations indicate that the gains come from input-dependent conditioning rather than from additional learnable weights. CoLaX is therefore most useful when recurring local motifs change relevance across sequence-level contexts.",
+      "authors": [
+        "Kexuan Zhang, Paolo Frazzetto, Xiaobei Zou, Gustau Camps-Valls, Yang Tang"
+      ],
+      "published": "2026-11-11T05:36:26Z",
+      "updated": "2026-11-11T05:36:26Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15067",
+      "pdf_url": "https://arxiv.org/pdf/2611.15067",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15023",
+      "title": "SkinAdvisor: An AI-Driven Decision Framework for Skin Production Planning via Multi-Modal Transformer Sales Forecasting",
+      "abstract": "Skins, cosmetic in-game items, are a primary revenue stream for modern online games, yet production decisions (which skins to make, when to release, how to price) remain driven by intuition and retrospective analytics. We present SkinAdvisor, an AI-driven decision framework for skin production planning, powered by SkinCast, a deployed multi-modal Transformer forecasting 180-day per-day sales trajectories for unreleased skins. SkinCast couples four encoders: a pretrained Informer for player-preference time series, a pretrained Player-Hero-Skin graph embedder for relational priors, and two lightweight Transformers for skin attributes and release context, fused through a shared backbone with a local-plus-global day-x positional encoding and decoded by an N-layer Informer in a single non-autoregressive pass. SkinAdvisor plugs these forecasts into a serving pipeline (Select -> Fill -> Infer -> Sales -> ROI -> Ranking) that ranks candidate skins by forecast-based ROI and supports multi-candidate comparison. The system has been in production for a full release cycle. Offline experiments show SkinCast reduces RMSE by ~20% over the strongest baseline (Informer) and ~60% over classical methods; stress tests on a 16-core CPU server confirm p99 latency under 8ms and peak throughput above 1100 rps. We report two deployment lessons: order-of-magnitude accuracy suffices for production decisions, and pretrained embeddings can leak temporal information, requiring season-based splitting to prevent.",
+      "authors": [
+        "Ge Fan, Kai Wang, Chaoyun Zhang, Yingjie Li, Yuze Liu, Junyang Chen"
+      ],
+      "published": "2026-11-11T04:36:07Z",
+      "updated": "2026-11-11T04:36:07Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15023",
+      "pdf_url": "https://arxiv.org/pdf/2611.15023",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.15009",
+      "title": "From Forecasting to World Modeling: Can Temporal Foundation Models Recover Causal Response?",
+      "abstract": "A model that forecasts sales accurately can still mislead a retailer about how sales respond to a price change. We evaluate released tabular and time-series foundation models, as well as a foundation model pretrained specifically to estimate causal effects. We report three findings. First, forecast accuracy does not indicate the accuracy of the predicted effect of price, both on simulated data in which the true effect is known and on real retail sales records. Second, for the tabular foundation models, additional context improves forecasts but not the predicted effect of price. Third, instrumental variables, the standard remedy in econometrics, reduce this error only when supplied in a specific form and increase it for every model under confounding when supplied as raw instruments.",
+      "authors": [
+        "Juwon Hong, Minha Hwang, Venkatesh Shankar"
+      ],
+      "published": "2026-11-11T04:08:01Z",
+      "updated": "2026-11-11T04:08:01Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.15009",
+      "pdf_url": "https://arxiv.org/pdf/2611.15009",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.14659",
+      "title": "Closing the Loop: Co-Evolving EM for Irregular Time Series Generation in Lifted Representations",
+      "abstract": "Regular time-series generation from irregular time series is typically reduced to one-shot imputation: complete each partial sequence once, freeze the completions, and train a generator on the resulting surrogate dataset. We show that this open-loop strategy is structurally flawed. Point imputers collapse ambiguous missing regions to conditional averages, while stochastic imputers become stale as the generator evolves; the binding constraint is therefore iteration, not imputer design. We introduce a co-evolving Monte Carlo EM framework that closes the imputer-generator loop. Each E-step samples missing values from the posterior of the current generator, and each M-step retrains the generator on these completions, preserving unconditional generator training. Since our diffusion prior operates in a lifted 2D representation while observations live in time-series space, we further introduce Posterior Sampling for Lifted Representations (PSLR), which enforces operator-consistent conditioning, uncertainty preservation, and manifold consistency during the E-step. Across ten datasets and four corruption regimes, our method achieves state-of-the-art performance, improving over the strongest baselines by 59% in discriminative score, 15% in predictive score, 73% in Context-FID, and 71% in feature-correlation error. Ablations show that our approach reduces average discriminative score by 73% over single-step baselines, closing most of the remaining gap to the clean-data oracle. Code is available at https://github.com/azencot-group/PSLR.",
+      "authors": [
+        "Idan Arbiv, Gal Fadlon, Omri Azencot"
+      ],
+      "published": "2026-11-10T19:09:57Z",
+      "updated": "2026-11-10T19:09:57Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.14659",
+      "pdf_url": "https://arxiv.org/pdf/2611.14659",
+      "first_seen": "2026-11-13T22:39:02.362070Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.14491",
       "title": "TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics",
       "abstract": "Time series analytics has been widely applied across various domains. While existing time series foundation models (TSFMs) have demonstrated promising results, they still face two major challenges: 1) Most TSFMs mainly rely on stacking Transformer layers to increase parameter size, lacking the ability to adaptively model complex time series patterns from multi-domain data. 2) Current TSFMs are primarily pre-trained for specific tasks, e.g., forecasting or anomaly detection, and a few models support multiple tasks, but they fail to fully leverage task specificity and commonality, resulting in suboptimal performance. To address these challenges, we propose TimeSeek, a novel generalized time series analytics model that adaptively models time series patterns from multi-domain data and unifies multiple tasks in pre-training. Conceptually, TimeSeek is guided by selective information sharing under domain and task heterogeneity. From the perspective of multi-domain data, we propose a Multi-Domain Feature Extractor that adaptively captures temporal dependencies and channel correlations based on domain-specific characteristics, including progressive multi-scale modeling and adaptive slot channel modeling. From the perspective of the diversity of tasks, we propose multi-task collaborative training, which leverages task specificity and task commonality through task customization and cross-task training, effectively unifying multiple tasks in pre-training and better adapting to diverse downstream scenarios. After pre-training on large-scale time series data, TimeSeek achieves state-of-the-art performance in forecasting, anomaly detection, and classification tasks across both few-shot learning and zero-shot situations, together with favorable inference efficiency.",
@@ -1266,13 +1578,13 @@
     {
       "id": "2610.41405",
       "title": "Conditional Neural SDEs for Financial Time-Series Generation",
-      "abstract": "Conditional generation of time-series paths is a central problem in probabilistic modeling, where the goal is to simulate future trajectories that are both realistic and responsive to external context. It has direct applications in finance and economics. Neural stochastic differential equations provide a natural framework for this task by combining continuous-time stochastic dynamics with learnable drift and diffusion functions. However, directly modeling the target state can be unstable in conditional settings, especially when the target and conditioning variables have strong level dependence, limited training data, or different dimensions.We propose a residualanchor Neural SDE architecture that decomposes the target into a learned conditional anchor and a stochastic residual. The anchor captures the context-dependent baseline, while the Neural SDE (Stochastic Differential Equation) models the residual dynamics around this baseline. This separation reduces the burden on the stochastic dynamics and generalizes spread-based representations to more general conditioning settings.We evaluate the approach on real-world financial time series, including conditional interest-rate scenarios and a comparison with a time-series foundation model. The results show that the proposed model can generate plausible conditional paths, maintain competitive point accuracy, and provide calibrated uncertainty estimates.",
+      "abstract": "Conditional generation of time-series paths is a central problem in probabilistic modeling, where the goal is to simulate future trajectories that are both realistic and responsive to external context. It has direct applications in finance and economics. Neural stochastic differential equations provide a natural framework for this task by combining continuous-time stochastic dynamics with learnable drift and diffusion functions. However, directly modeling the target state can be unstable in conditional settings, especially when the target and conditioning variables have strong level dependence, limited training data, or different dimensions. We propose a residual-anchor Neural SDE architecture that decomposes the target into a learned conditional anchor and a stochastic residual. The anchor captures the context-dependent baseline, while the Neural SDE (Stochastic Differential Equation) models the residual dynamics around this baseline. This separation reduces the burden on the stochastic dynamics and generalizes spread-based representations to more general conditioning settings. We evaluate the approach on real-world financial time series, including conditional interest-rate scenarios and a comparison with a time-series foundation model. The results show that the proposed model can generate plausible conditional paths, maintain competitive point accuracy, and provide calibrated uncertainty estimates.",
       "authors": [
         "Sina Molavipour, Alireza M. Javid, Bj\\\"orn L\\\"ofdahl and Mikhail Nechaev"
       ],
       "published": "2026-10-30T08:17:56Z",
-      "updated": "2026-10-30T08:17:56Z",
-      "metadata_updated": "2026-11-02T00:00:00Z",
+      "updated": "2026-11-11T08:32:35Z",
+      "metadata_updated": "2026-11-13T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.41405",
       "pdf_url": "https://arxiv.org/pdf/2610.41405",
       "first_seen": "2026-11-03T21:00:13.800454Z",
@@ -12194,9 +12506,28 @@
       ]
     }
   ],
-  "last_success": "2026-11-12T18:58:06.444953Z",
-  "last_attempt": "2026-11-12T18:58:06.444953Z",
-  "last_new_ids": [],
+  "last_success": "2026-11-13T22:39:02.362070Z",
+  "last_attempt": "2026-11-13T22:39:02.362070Z",
+  "last_new_ids": [
+    "2611.14659",
+    "2611.15009",
+    "2611.15023",
+    "2611.15067",
+    "2611.15155",
+    "2611.15262",
+    "2611.15298",
+    "2611.15413",
+    "2611.15646",
+    "2611.15657",
+    "2611.16063",
+    "2611.16172",
+    "2611.16336",
+    "2611.16514",
+    "2611.16566",
+    "2611.16623",
+    "2611.16706",
+    "2611.16934"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
@@ -12204,7 +12535,7 @@
   "source": "oai",
   "retrieval_stats": {
     "pages": 7,
-    "records": 8290,
+    "records": 8497,
     "duplicates": 0
   }
 }
