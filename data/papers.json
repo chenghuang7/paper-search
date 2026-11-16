@@ -2,6 +2,181 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.18235",
+      "title": "NeoResearch: Literature- and Experience-Guided Autonomous Time Series Model Discovery",
+      "abstract": "Developing effective forecasting models for diverse time-series domains requires substantial expert knowledge, evidence from scientific literature on the web, and iterative experimentation. However, translating this knowledge and research experience into model designs requires preserving source context and testing applicability under task-specific assumptions. In this paper, we propose NeoResearch, a literature- and experience-guided autonomous research framework that leverages large language models (LLMs) as researchers to discover lightweight, domain-specific forecasting models. Specifically, NeoResearch establishes an expert-inspired dual-loop research workflow, coupling hypothesis-driven architecture exploration with iterative training and hyperparameter optimization through experimental feedback. To enable knowledge-grounded discovery, the agent autonomously mines scientific literature from the Web, extracting modeling mechanisms, empirical evidence, and applicability conditions to formulate task-grounded, testable architecture hypotheses. Furthermore, a hierarchical experience memory links literature findings to experimental outcomes and consolidates conditional lessons, guiding architecture discovery and training optimization while supporting reuse across forecasting tasks. Experiments on ten datasets show competitive performance and support dual loops, literature extraction, and memory reuse. Our code is available.",
+      "authors": [
+        "Ze Guo, Mingyue Cheng, Xiaoyu Tao, Shuo Yu, Shangtong Ye"
+      ],
+      "published": "2026-11-13T14:30:36Z",
+      "updated": "2026-11-13T14:30:36Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18235",
+      "pdf_url": "https://arxiv.org/pdf/2611.18235",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.18199",
+      "title": "T2ST: Data-Efficient Spatio-Temporal Foundation Models via Temporal Data and Knowledge Transfer",
+      "abstract": "Spatio-temporal foundation models (STFMs) require large-scale training corpora, yet synchronized observations and spatial metadata are costly to acquire and curate, limiting the availability of suitable data. By contrast, time-series data are abundant and easier to collect. Since observations at each location form a time series, this motivates a natural question: can abundant time-series data enhance STFMs when spatio-temporal observations are scarce? To bridge this gap, we propose T2ST, a data-efficient training framework that augments limited spatio-temporal observations with selected auxiliary time series and transfers knowledge from a frozen time-series foundation model. Our key insight is that temporal pattern learning can benefit from abundant external time series, while spatial dependency learning remains grounded in real spatio-temporal observations. Guided by this insight, T2ST retrieves matched sequences to reinforce sparsely observed temporal patterns and selects reliable complementary sequences to broaden temporal coverage. Temporal relation distillation aligns relationships among historical patches, while multi-scale prediction distillation transfers forecasting behavior at fine and coarse temporal resolutions, enabling knowledge transfer across heterogeneous architectures. Using only 10\\% of the original spatio-temporal data, T2ST enables STFMs to achieve overall forecasting performance competitive with or superior to their full-data counterparts across six long-term and twelve short-term forecasting datasets. These results establish a new paradigm for data-efficient training of spatio-temporal foundation models. Code is available at https://anonymous.4open.science/r/T2ST-65F3/.",
+      "authors": [
+        "Yue Xu and Kaiyun Wei and Wenying Duan and Zichen Xu and Shuai Ma and Xiaoxi He"
+      ],
+      "published": "2026-11-13T14:05:40Z",
+      "updated": "2026-11-13T14:05:40Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18199",
+      "pdf_url": "https://arxiv.org/pdf/2611.18199",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.18155",
+      "title": "Dynamic Structural Causal Models for Delay Prediction",
+      "abstract": "Dynamic network key performance indicators (KPIs) such as end-to-end (E2E) delay are shaped by both contemporaneous interactions and temporal persistence. While standard predictors can forecast KPIs under a fixed regime, proactive network management requires reasoning about the effects of explicit actions (interventions) and, in time series, executing a model forward over multiple horizons. We study dynamic structural causal models (DSCMs) for E2E delay in a 5G measurement campaign, where payload and background traffic are intentionally manipulated and thus treated as do-interventions. We learn DSCM scaffolds using four time-series causal discovery methods representing score-based and constraint-based paradigms and common lag-based baselines. Using gradient-boosted decision trees, we evaluate true multi-step DSCM rollout, which recursively simulates the full system state, and a direct target-only ablation that predicts the KPI without recursive simulation. Across two held-out intervention scenarios, including high payload and 10 Mbps background traffic, we find that the inferred target parent/lag sets differ substantially across methods and that rollout behavior is strongly scenario-dependent. In particular, PCMCI+ achieves the best short-horizon rollout accuracy under the payload intervention (RMSE 2.97~ms) but exhibits pronounced horizon-dependent degradation under the background-traffic intervention (root mean squared error (RMSE) ~4.75 ms for long horizon), yielding a large positive rollout tax of up to ~0.78 ms relative to direct prediction; DyNoTEARS and VAR-based DSCMs remain comparatively stable under rollout. These results highlight that evaluating causal scaffolds only via direct prediction can be misleading, and therefore, executability under intervention and long-horizon error propagation are critical for DSCM-based KPI reasoning.",
+      "authors": [
+        "Niloofar Mehrnia, Wilson Ayyanthole Nelson, and James Gross"
+      ],
+      "published": "2026-11-13T13:30:48Z",
+      "updated": "2026-11-13T13:30:48Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18155",
+      "pdf_url": "https://arxiv.org/pdf/2611.18155",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.18149",
+      "title": "Which Model, For Which Variable? Per-Variable Forecast Combination in Sparse ICU Time Series",
+      "abstract": "Clinical forecasting papers typically report a single best architecture. We show that on multivariate ICU physiology this question conceals variable-specific differences: no architecture is best on every variable, and which model wins changes from variable to variable. Across five ICU databases (MIMIC-III, MIMIC-IV, eICU, HiRID, and UMM (University Medicine Mannheim), a German single-center ICU) we forecast 94 channels over a 24-hour horizon with a pool of 14 models, and combine them with weights fitted per variable. On test, the combination beats the best single model on all five databases by 6.1-11.0% mean squared error (mean 8.7%). The gain is concentrated where clinical data is thinnest: the sparsest third of channels improves by 11.9% and laboratory values by 7.5%, against 3.1% for the densest third. Rank-based harmonic weighting of the best five models per variable, with no fitted weights at all, recovers about four-fifths of the gain. Extending the pool afterwards with a per-channel gradient-boosted tree, ARIMA and ETS makes the tree the validation-selected best single model on all five databases; per-variable combination still improves on it by 2.9-5.9% (significant on four of five), while equal weighting of the same members does not. As on univariate benchmarks, learned combination beats simple averaging - but only once the weights are constrained. We also report which model to prefer when, and show that the ordering changes with database size.",
+      "authors": [
+        "Marius Fracarolli and Stefan Riezler"
+      ],
+      "published": "2026-11-13T13:22:35Z",
+      "updated": "2026-11-13T13:22:35Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18149",
+      "pdf_url": "https://arxiv.org/pdf/2611.18149",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.18087",
+      "title": "On the convergence of the False Nearest Neighbours algorithm",
+      "abstract": "The False Nearest Neighbours (FNN) algorithm is one of the most widely used methods for choosing the embedding dimension, i.e. the number $k$ of delay coordinates, in the time-delay reconstruction of a dynamical system from an observed scalar time series. We prove rigorous results on the behaviour of this algorithm for long time series. We consider a smooth dynamical system on a compact manifold $M$ and an invariant probability measure $\\mu$. For a typical measurement function and $\\mu$-almost every trajectory, we show that the proportion of false nearest neighbours tends to zero (provided that the tolerance threshold is large enough) once $k >\\dim M$. On the other hand, for systems with super-polynomial decay of correlations, we prove that this proportion tends to one whenever $k$ is smaller than the Hausdorff dimension of $\\mu$. Consequently, in this case, the FNN algorithm (run for long enough time series) returns an embedding dimension $k$ satisfying $\\dim_H \\mu \\leq k \\leq \\dim M + 1$. This is below the threshold $2\\dim M + 1$ required by the Takens embedding theorem, so the classical Takens embedding theory does not explain why reconstructions and predictions with $k$ chosen by the FNN algorithm work in practice. The explanation for this case is provided by a recent probabilistic theory of time-delay embeddings. We apply our results to the H\\'enon and Lorenz attractors, showing that the FNN algorithm typically returns $k=2$ for the H\\'enon map (in the chaotic case) and $k \\leq 3$ for the Lorenz system.",
+      "authors": [
+        "Adam \\'Spiewak"
+      ],
+      "published": "2026-11-13T12:11:54Z",
+      "updated": "2026-11-13T12:11:54Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18087",
+      "pdf_url": "https://arxiv.org/pdf/2611.18087",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.17915",
+      "title": "SWIFT: Sample-Wise Instance Fine-Tuning of Time-Series Foundation Models for Forecasting",
+      "abstract": "While current few-shot adaptation strategies for time series forecasting foundation models are predominantly dataset-centric, the necessity of obtaining an additional dataset for the finetuning process poses a significant hurdle for adoption. To address this constraint, we propose Sample-Wise Instance Fine-Tuning (SWIFT), a novel forecasting adaptation framework that achieves fine-grained specialization by leveraging structural priors from the target instance's own history. This shift allows the fine-tuning process to be entirely transparent to the end-user, which significantly enhances the ease of adoption. To implement this framework, SWIFT synergizes Self-Retrieval for historical mining and Frequency-Aware Loss for spectral consistency, while employing Deviation-Aware Dynamic Fusion to balance adaptation with general knowledge preservation. Extensive experiments across four TSFM backbones and three long-history benchmark subsets validate SWIFT, yielding average MASE and WQL reductions of 6.41% and 4.83% across 24 combinations of four backbones and six Chronos Benchmark II datasets. To the best of our knowledge, SWIFT is the first framework to investigate sample-wise instance fine-tuning of time-series foundation models, specializing the model for an individual prediction window using only the corresponding forecasting sample's own observed history.",
+      "authors": [
+        "Yang Chen, Feifan Tian, Cong Wang, Cheng Feng, Wenbin Li and Yang Gao"
+      ],
+      "published": "2026-11-13T08:56:51Z",
+      "updated": "2026-11-13T08:56:51Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.17915",
+      "pdf_url": "https://arxiv.org/pdf/2611.17915",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.17913",
+      "title": "Data re-uploading in Quantum Reservoir Computing",
+      "abstract": "Data re-uploading enhances the learnable function space of parameterized quantum circuits and has become standard practice in circuit-based \\ac{qml}. Its role in quantum reservoir computing, however, remains largely unexplored. Here, we introduce data re-uploading into physical quantum reservoir computing and show that repeated input encoding significantly enhances the learnability of higher-order nonlinear polynomials and improves performance on chaotic time-series prediction tasks. We consider protocols with either fixed or increasing computational cost and compare them with a complementary dissipative protocol to distinguish the effects of repeated input encoding from those of additional state overwriting. Using the information processing capacity framework, we identify a memory--nonlinearity trade-off: increasing the number of encodings shifts capacity toward higher-order nonlinearities. In contrast, the dissipative protocol does not extend the range of learnable nonlinear orders and yields only limited improvements in task performance. These results establish data re-uploading as an effective means of tuning and enhancing nonlinear processing in physical quantum reservoir computing.",
+      "authors": [
+        "Saud \\v{C}indrak, Kaito Kobayashi, Lara Giebeler, Kathy L\\\"udge"
+      ],
+      "published": "2026-11-13T08:54:57Z",
+      "updated": "2026-11-13T08:54:57Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.17913",
+      "pdf_url": "https://arxiv.org/pdf/2611.17913",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.17862",
+      "title": "FlexCast: Flexible Context Learning for Time Series Foundation Models",
+      "abstract": "Time series foundation models (TSFMs) based on autoregressive (AR) next-token prediction entangle two factors: variable-context conditioning and prediction-unit factorization with autoregressive rollout. Strong AR performance therefore does not reveal whether generalization stems from the flexible training distribution, the local prediction target, the left-to-right inference process, or their combination. We propose FlexCast, a flexible context-target learning framework that disentangles these factors. FlexCast reformulates forecasting as variable-length masked prediction over time series patches: during pretraining, it dynamically samples visible context and masked target patches, exposing the model to diverse context-target configurations without sequential decoding. At inference time, the same pretrained model supports one-step forecasting, confidence-based iterative refinement, and next-token-style generation through a unified mask-and-predict interface, enabling controlled comparison of inference schedules under identical architecture, data, and objective. Evaluated on BLAST and multiple zero-shot benchmarks, FlexCast achieves accuracy competitive with or better than strong TSFM baselines while substantially reducing inference latency. Ablations confirm that context diversity and contiguous target masking drive performance, while left-to-right decoding does not yield consistent gains once flexible context-target relationships have been learned, suggesting that the key benefit of AR-style TSFMs lies in flexible training rather than sequential inference. The code is available at https://github.com/BenchCouncil/FlexCast.",
+      "authors": [
+        "Zuyang Shen, Luqi Gong, Fanda Fan, Bingsong Wang, Xiang Ao, Yahui Wei, Minghao Liu, Chunjie Luo, Jianfeng Zhan"
+      ],
+      "published": "2026-11-13T07:50:25Z",
+      "updated": "2026-11-13T07:50:25Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.17862",
+      "pdf_url": "https://arxiv.org/pdf/2611.17862",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.17680",
+      "title": "Aligned, Conflicting, or Unspecified? A Diagnostic Benchmark for Multimodal Time Series Forecasting",
+      "abstract": "Artificial Intelligence of Things (AIoT) systems increasingly combine sensed time series with external text such as expert reports and news, yet how reliably models use text that agrees or conflicts with the sensed history remains unclear. We introduce the first real-world diagnostic benchmark organized by text-history relationship: 1,762 text-window pairs across sensor telemetry (Weather), web-service traffic (Wikipedia), and market data streams (Finance), each labeled Aligned, Conflicting, or Unspecified by whether the text's direction agrees with the historical trend, opposes it, or is not stated. Across ten pretrained models evaluated zero-shot, we investigate text selection and combination under text-history relationships (RQ1) and error diagnosis and horizon-scaled revision control (RQ2). For RQ1, we compare two types of text on paired Weather windows: one directly forecasts temperature changes, while the other describes related weather conditions, such as winds and fronts. Under Aligned, the first type yields the lowest error for most models. Under Conflicting, it increases most models' error above the no-text baseline; we therefore add only its stated magnitude and timing to the second type. Compared with either type alone, this combination lowers mean absolute scaled error (MASE) for six models and raises directional accuracy (DA) for seven. For RQ2, an error decomposition attributes the error increase to oversized revisions, and a training-free rule that limits them outperforms forecasts both with and without text for the four models with this trade-off, lowering MASE by 4.49%-21.98% and raising DA by 2.99%-9.71%. Our dataset is available at https://github.com/Shelton1202/ACU-Bench.",
+      "authors": [
+        "Xintong Wang, Haihan Nan, and Ruidong Li"
+      ],
+      "published": "2026-11-13T02:47:28Z",
+      "updated": "2026-11-13T02:47:28Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.17680",
+      "pdf_url": "https://arxiv.org/pdf/2611.17680",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.17507",
+      "title": "Parametric Modal SARIMA Models with Skewed Distributions",
+      "abstract": "Seasonal autoregressive integrated moving-average (SARIMA) models typically target the conditional mean of a time series under a Gaussian error assumption. This approach may be inadequate when the innovations are asymmetric because the conditional mean no longer represents the most likely outcome. We propose the Modal SARIMA$(p,d,q)\\times(P,D,Q)_s$ model, which links the conditional mode, rather than the conditional mean, to a multiplicative seasonal ARIMA structure. The innovations follow the Fernandez-Steel class of skewed distributions (SKD), whose location parameter is the mode, and the non-seasonal Modal ARIMA$(p,d,q)$ model is the special case without seasonal terms. We give the conditional log-likelihood for the Skew-Normal, Skewed Student-$t$, and Skewed Laplace members, establish the stationarity and invertibility conditions on the product polynomials, show that the recursive modal forecast is the joint mode of the future trajectory, and characterize the correction that yields the marginal $h$-step conditional mode. Monte Carlo experiments show that conditional maximum likelihood and its Wald inference are reliable when the seasonal factors are well separated, that the test of symmetry holds its level from about 200 observations, and that the modal estimator of the dynamic coefficients is as efficient as Gaussian least squares under symmetry and 1.2 to 2.6 times more efficient under asymmetry or heavy tails. We also show, analytically and by simulation, that nearly cancelling seasonal factors amplify the effect of the starting values, and that beyond one step the recursive forecast must be corrected to remain a forecast of the most probable value. In an application to the Canadian lynx trappings, a seasonal component for the ten-year cycle improves the non-seasonal fit for every member of the SKD family. The methods are implemented in the R package ModalForecast.",
+      "authors": [
+        "Christian E. Galarza, Sergio Luis Mercado Londo\\~no, V\\'ictor H. Lachos"
+      ],
+      "published": "2026-11-12T20:59:26Z",
+      "updated": "2026-11-12T20:59:26Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.17507",
+      "pdf_url": "https://arxiv.org/pdf/2611.17507",
+      "first_seen": "2026-11-16T22:04:50.157293Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.16934",
       "title": "Time Flies When You Parallelise: Pareto-efficient Time Series Foundation Models with Linear Recurrences",
       "abstract": "Time series foundation models have demonstrated strong zero-shot forecasting performance, but computational efficiency remains a central architectural challenge. Temporal self-attention incurs quadratic cost in the number of temporal tokens, while nonlinear recurrent state transitions restrict parallel computation along the temporal dimension. We introduce ci-proto, a family of time series foundation models based on Mamba-3, whose linear state recurrences support chunk-wise parallel-in-time computation during training, and inference costs that scale linearly with sequence length. The architecture alternates recurrent temporal processing with cross-variate attention, supporting multivariate probabilistic forecasting with past-only and future-known covariates. Across fev-bench's 100 forecasting tasks, ci-proto XL sets a new state of the art among time series foundation models. The five ci-proto variants also make up the entire Pareto frontier for mean scaled quantile loss and mean absolute scaled error against both parameter count and median runtime.",
@@ -9,8 +184,8 @@
         "Torben Berndt, Lingyi Yang, Federico Nardi, Yi Heng Lim, AJ Shears, Benjamin Walker"
       ],
       "published": "2026-11-12T15:20:31Z",
-      "updated": "2026-11-12T15:20:31Z",
-      "metadata_updated": "2026-11-13T00:00:00Z",
+      "updated": "2026-11-13T10:17:22Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.16934",
       "pdf_url": "https://arxiv.org/pdf/2611.16934",
       "first_seen": "2026-11-13T22:39:02.362070Z",
@@ -218,8 +393,8 @@
         "Bokai Pan, Ruijie Yang, Mingyue Cheng, Jiahao Wang, Xiaoyu Tao"
       ],
       "published": "2026-11-11T09:53:20Z",
-      "updated": "2026-11-11T09:53:20Z",
-      "metadata_updated": "2026-11-13T00:00:00Z",
+      "updated": "2026-11-13T18:08:52Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.15262",
       "pdf_url": "https://arxiv.org/pdf/2611.15262",
       "first_seen": "2026-11-13T22:39:02.362070Z",
@@ -2929,8 +3104,8 @@
         "Chenghao Liu, Wei Fan, Jindong Han, Dongjie Wang, Aniket Mahanti, Pengyang Wang, Hao Liu"
       ],
       "published": "2026-10-19T08:26:07Z",
-      "updated": "2026-10-31T13:14:09Z",
-      "metadata_updated": "2026-11-03T00:00:00Z",
+      "updated": "2026-11-13T12:29:10Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.26002",
       "pdf_url": "https://arxiv.org/pdf/2610.26002",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -5407,13 +5582,13 @@
     {
       "id": "2610.04474",
       "title": "Personalized Federated Vector Autoregression with Personalization Diversity",
-      "abstract": "Personalized federated learning can improve estimation for high-dimensional time series while preserving client-specific dynamics. However, parameter heterogeneity creates a fundamental ambiguity between shared and personalized structure. We introduce the principle of personalization diversity, under which genuinely personalized effects recur in only a limited fraction of clients. Based on this principle, we propose PerFeCT-VAR, Personalized Federated Vector Autoregression via Frequency-Capped Thresholding, which decomposes each client-specific transition matrix into shared low-rank dynamics, shared sparse links, and personalized sparse departures. A cross-client frequency cap yields a sharp shared--personalized separation threshold and motivates frequency-capped thresholding for federated estimation. Our theory further accounts for heterogeneous client distributions through a distributional compatibility condition and establishes joint linear convergence of the shared and personalized components. Under sufficient personalization diversity, the shared dynamics retain federated total-sample-size gains while the personalized components achieve client-level accuracy. Simulations and an application to multi-store retail revenue data demonstrate the predictive and interpretive benefits of the proposed framework.",
+      "abstract": "Personalized federated estimation of high-dimensional time series faces two challenges: identifying shared dynamics and retaining the statistical gains from pooling. We address these challenges through personalization diversity in a vector autoregressive model with shared low-rank dynamics, shared sparse links, and personalized sparse departures. A cross-client support-frequency cap yields a sharp majority threshold for shared-personalized identification, while an additional cross-client $\\ell_q$ condition captures approximate diversity and controls approximation under a smaller working personalization frequency cap. We develop PerFeCT-VAR, Personalized Federated Vector Autoregression via Frequency-Capped Thresholding, which jointly enforces clientwise sparsity and cross-client frequency constraints. Under suitable sampling and cross-component compatibility conditions, we establish initialization guarantees and joint local linear convergence for heterogeneous stationary client distributions. Our componentwise error bounds show that diversity attenuates both estimation and approximation errors transmitted from personalized to shared components, and quantify the tradeoff induced by the working cap. These bounds identify regimes in which the shared components attain pooled accuracy despite non-vanishing personalized effects, while personalized estimation achieves local-sample accuracy on average. Simulations and an application to multistore retail revenue data illustrate the estimation, forecasting, and interpretive benefits of the proposed framework.",
       "authors": [
         "Zhiyun Fan, Xiaoyu Zhang, Guodong Li, Di Wang"
       ],
       "published": "2026-10-03T12:23:12Z",
-      "updated": "2026-10-03T12:23:12Z",
-      "metadata_updated": "2026-10-06T00:00:00Z",
+      "updated": "2026-11-13T09:50:14Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.04474",
       "pdf_url": "https://arxiv.org/pdf/2610.04474",
       "first_seen": "2026-10-06T21:38:39.497037Z",
@@ -6970,13 +7145,13 @@
     {
       "id": "2609.31512",
       "title": "Tolerable Inflation, Intolerable Uncertainty",
-      "abstract": "Numerical inflation targets anchor beliefs. Across euro-area and US professional forecasts, inflation swaps and options, and realized inflation, uncertainty about inflation is compressed at the announced number and kinks exactly there. This paper identifies a cost of the same design that, to our knowledge, has not been shown before, and that appears in second moments only. Within the workhorse New Keynesian model, tolerating part of the inflation a supply shock produces is optimal, yet the optimal tolerated share is not identified: optimal look-through and an unwarranted drift of the effective target are observationally equivalent in the inflation history, so a central bank cannot demonstrate that a warranted deviation is warranted, ex post as much as in real time. Agents holding finite, heterogeneous patience then generate predictive variance that is flat below the target and rises linearly with the expected overshoot above it -- an observational-equivalence bill, zero at the announced number and accumulating with the point-years inflation spends above it. The first-order benefit of the number stands; what the cost changes is how inflation uncertainty must be measured. The distance from target explains 70% of the variation in professional forecast variance, and the bill lies within that component; Normalized Uncertainty -- to our knowledge the first such correction -- removes it. The purge changes inference substantially: on French loan-level data, raw dispersion is unrelated to corporate loan rates, while one standard deviation of the purged measure is associated with rates 89 basis points higher, and cross-country growth and time-series results shift similarly. Conventional measures of inflation uncertainty partly record inflation's distance from its anchor rather than uncertainty about the outlook.",
+      "abstract": "How much of an inflation deviation a central bank should tolerate is a well-defined optimum in the New Keynesian model, but it cannot be identified: optimal accommodation of supply shocks and an unwarranted drift of the effective inflation target are observationally equivalent. This impossibility has a cost. A public that cannot verify the bank's intention prices each expected point of overshoot, so uncertainty about inflation is flat below the announced target and rises linearly above it: the observational-equivalence effect. Professional forecasts, swap and option markets and realized inflation all show this pattern, with the kink at the announced number. A second and larger effect produces the same shape: inflation is more volatile when it is high, and in realized inflation that level effect is mostly energy. Both effects load on the distance from the target, so the data admit the observational-equivalence effect without isolating it, and its cost cannot be estimated with the data at hand. We therefore cannot say how optimal monetary policy should change on its account, but three policy conclusions survive: in the textbook model, not observing the slope of the Phillips curve and the composition of shocks never calls for tolerating less; the announced target remains worth having, because it compresses beliefs at the target; and the central bank can monitor the point-years inflation spends above target, on which the effect is charged, and read inflation uncertainty net of the distance from the target. Normalized Uncertainty provides that reading. In French loan-level data, raw inflation uncertainty is unrelated to corporate loan rates after controls, whereas a one-standard-deviation increase in Normalized Uncertainty is associated with rates 89 basis points higher. The correction also reveals a negative association with growth across countries and alters euro-area time-series results.",
       "authors": [
         "Eric Vansteenberghe"
       ],
       "published": "2026-09-25T16:52:38Z",
-      "updated": "2026-09-25T16:52:38Z",
-      "metadata_updated": "2026-09-28T00:00:00Z",
+      "updated": "2026-11-13T15:38:45Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.31512",
       "pdf_url": "https://arxiv.org/pdf/2609.31512",
       "first_seen": "2026-09-28T22:02:30.993606Z",
@@ -11160,15 +11335,11 @@
       "title": "Multi-Class Electrical and Mechanical Fault Classification Using Random Convolutional Kernels",
       "abstract": "Diagnosing faults in rotating machinery is essential for ensuring the reliability of industrial processes. Random convolutional kernel-based Time Series Classification (TSC) methods, such as ROCKET and its variants, provide an attractive trade-off between predictive performance and computational efficiency. In this work, we evaluate SelF-Rocket for the multi-class diagnosis of both mechanical and electrical faults and introduce, as a new contribution, a multivariate extension of the original method. The proposed approach is compared with leading ROCKET-based methods on two public benchmark datasets, MaFaulDa (mechanical faults) and ITSC-UDG (stator inter-turn short circuits), under both univariate and multivariate settings. Experimental results show that SelF-Rocket achieves the best overall accuracy-latency trade-off among the evaluated methods, obtaining the highest classification performance on MaFaulDa while remaining highly competitive on the more challenging ITSC-UDG dataset.",
       "authors": [
-        "Mouhamadou Mansour Lo",
-        "Mouad Talbaoui",
-        "Gildas Morvan",
-        "Mathieu Rossi",
-        "Fabrice Morganti",
-        "David Mercier"
+        "Mouhamadou Mansour Lo, Mouad Talbaoui, Gildas Morvan, Mathieu Rossi, Fabrice Morganti, David Mercier"
       ],
       "published": "2026-08-19T09:18:32Z",
       "updated": "2026-08-19T09:18:32Z",
+      "metadata_updated": "2026-11-16T00:00:00Z",
       "url": "https://arxiv.org/abs/2608.18716",
       "pdf_url": "https://arxiv.org/pdf/2608.18716",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -12506,17 +12677,28 @@
       ]
     }
   ],
-  "last_success": "2026-11-15T22:49:46.435696Z",
-  "last_attempt": "2026-11-15T22:49:46.435696Z",
-  "last_new_ids": [],
+  "last_success": "2026-11-16T22:04:50.157293Z",
+  "last_attempt": "2026-11-16T22:04:50.157293Z",
+  "last_new_ids": [
+    "2611.17507",
+    "2611.17680",
+    "2611.17862",
+    "2611.17913",
+    "2611.17915",
+    "2611.18087",
+    "2611.18149",
+    "2611.18155",
+    "2611.18199",
+    "2611.18235"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 4,
-    "records": 4835,
+    "pages": 2,
+    "records": 2179,
     "duplicates": 0
   }
 }
