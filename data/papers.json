@@ -2,6 +2,211 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.21562",
+      "title": "Severe but Harmless: Stress-Testing Shift Severity for Frozen Time-Series Forecasters",
+      "abstract": "Zero-shot time-series foundation models (TSFMs) have become attractive alternatives to task-specific models because they handle diverse downstream tasks, including anomaly detection and forecasting, without per-series training. However, time-series data undergo distribution shifts, and the dissimilarity between two regimes is commonly scored with statistical measures such as Wasserstein-1, where a higher score is read as a more severe shift. In systematic experiments using three established severity measures on nine regime shifts from three standard traffic datasets, we show that these measures do not reliably predict degradation for instance-normalized TSFMs. The regimes rated most severe are not the regimes that degrade the models most, and degradation reaches 29% in the lowest-scoring regime. In most cases, the audit shows no positive relationship between measured severity and model degradation. We provide an equivariance-based stress-testing analysis that explains why severity readings can become decoupled from model degradation.",
+      "authors": [
+        "Korede R. Bishi, Dominic Okonkwo, and Adetayo Okunoye"
+      ],
+      "published": "2026-11-16T18:40:35Z",
+      "updated": "2026-11-16T18:40:35Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.21562",
+      "pdf_url": "https://arxiv.org/pdf/2611.21562",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.21552",
+      "title": "Benchmarking memory and nonlinear processing capacity of quantum recurrent neural networks for time series prediction",
+      "abstract": "Quantum machine learning has emerged as a promising approach to time series prediction. While quantum reservoir computing has been widely explored for this setting, variational quantum models tailored to sequential data remain comparatively understudied, largely because they are difficult to train. In this work, we present a rigorous benchmark of variational quantum recurrent neural networks (QRNNs) on time series prediction tasks, focusing on two key capabilities: memory and nonlinear processing. We introduce a task-driven methodology that quantifies model capacity, enabling an intuitive and fair comparison across architectures, including classical recurrent baselines. We evaluate the proposed framework on two generic benchmark tasks and on a synthetic dataset describing a chaotic system. Overall, the quantum models achieve performance comparable to their classical counterparts, but classical models scale better with the memory size within the range studied. Notably, one QRNN variant shows higher average capacity on the task designed to jointly probe memory and nonlinear capacity. Moreover, our results show that quantum models offer better capacity when we are able to find a good parameter initialization. However, the increasing sensitivity to initialization leads to a lower probability of finding good solutions as the model size increases. These results provide a principled starting point for designing richer quantum recurrent architectures and for assessing where they may offer practical benefits.",
+      "authors": [
+        "Jos\\'e Daniel Viqueira, Andr\\'es G\\'omez, David Mera"
+      ],
+      "published": "2026-11-16T18:32:05Z",
+      "updated": "2026-11-16T18:32:05Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.21552",
+      "pdf_url": "https://arxiv.org/pdf/2611.21552",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.21319",
+      "title": "Wavelet-Energy-Driven Dynamic Patching for Time Series Forecasting",
+      "abstract": "Patch-based transformers tokenise a time series into fixed-size, uniform windows, which commits the model to a single temporal resolution even though real signals are multi-scale. The discrete wavelet transform (DWT) is a natural alternative because it decomposes a signal across scales. A growing body of work makes the wavelet filter learnable, on the assumption that a more flexible wavelet forecasts better. That assumption has rarely been tested in isolation, because a single reported improvement usually credits three things at once. These are the use of any multi-resolution decomposition, the choice of wavelet and training the filter. We introduce a forecaster that turns a learnable-DWT per-scale energy map into variable-length patches by merging adjacent windows that share a dominant scale. Three findings follow. First, most of the improvement is there before any filter is learned. A frozen wavelet beats a fixed-patch baseline on eight of the nine datasets by 1.5% to 7.8%, and on four of them it recovers all of the gain. Traffic is the one exception, where it is 1.2% worse. Second, learning the filter gives a further improvement on only some datasets. It helps on three of the nine datasets and makes Traffic 2.7% worse. Third, having variable-length patches helps, but exactly where their boundaries fall does not. A fixed-size uniform grid, even with its patch size tuned per task, is worse than our variable-length patches on 27 of 36 settings. Recomputing the boundaries from the learned filter at every step, rather than caching them once, never helps. The improvement in wavelet-based forecasting comes from the multi-resolution structure and the variable-length patches it induces, not from making the wavelet learnable. In practice, start from any valid wavelet, cache the patch boundaries once and treat training the filter as a per-dataset decision rather than a default.",
+      "authors": [
+        "Syed Hafiz Bin Salim Alsree, Stephen Roberts, Stefan Zohren"
+      ],
+      "published": "2026-11-16T16:13:20Z",
+      "updated": "2026-11-16T16:13:20Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.21319",
+      "pdf_url": "https://arxiv.org/pdf/2611.21319",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.21267",
+      "title": "Conformal Expert Pools: Training-Free Probabilistic Time-Series Forecasting Beyond Seasonality",
+      "abstract": "Conformal Seasonal Pools (CSP) showed that a forecaster with no training at all, built only from past values at the same point in the season and from past forecast errors, significantly outperformed DeepNPTS, Amazon's learned non-parametric forecaster. We propose Conformal Expert Pools (CEP), a training-free successor. CEP replaces the single seasonal-naive forecast by a pool of simple forecasters, builds its predictive distribution from their past forecast errors, and adapts both the pool and the errors to the series being forecast. No model is trained and no parameter is learned across series. On the CSP benchmark of 232 datasets and 24,502 forecast windows, CEP is better than CSP on 78% of datasets by CRPS, on 84% by MSIS and on 83% by Winkler score; on a typical dataset its CRPS is 14% lower and its MSIS 23% lower (both p < 1e-22, paired Wilcoxon test), and coverage of 95% intervals rises from 90.1% to 92.2%. CEP has a lower CRPS than DeepNPTS on 88% of datasets, than NPTS on 89% and than SeasonalNPTS on 83%. The improvement persists on dataset families outside the development set and on 36 additional fev-bench files. We also test the published claims that Laplace, an online ensemble forecaster, \"beats (almost) everything\" and \"beats\" CSP. On 228 datasets at multi-step horizons the claims do not hold: CSP outperforms Laplace on 60% of datasets by CRPS and on 64% by interval score, and Laplace ranks sixth of seven methods, with the widest intervals of all (69% wider than CEP's). Its point forecast is biased low and on 54% of datasets is less accurate than seasonal naive, and from a cold start it takes about 7,700 times longer than CSP. CEP is better than Laplace on 82% of datasets by CRPS and on 80% by MSIS, with intervals about 40% narrower, and runs 271 times faster.",
+      "authors": [
+        "Valery Manokhin"
+      ],
+      "published": "2026-11-16T15:36:24Z",
+      "updated": "2026-11-16T15:36:24Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.21267",
+      "pdf_url": "https://arxiv.org/pdf/2611.21267",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.21068",
+      "title": "Reconstruction and Forecast of Extreme Waves from a Single Observation",
+      "abstract": "The state space of a dynamical system can, under suitable conditions, be reconstructed from a single observational time-series through delay-coordinate embedding. However, reconstructing the spatiotemporal evolution of nonlinear water waves from highly sparse measurements remains a considerable challenge. Here, by combining deep learning, compressed sensing, and the self-similarity properties of unidirectional nonlinear water wave evolution equation, we show that the evolving surface elevation of a highly nonlinear wave field can be reconstructed from observations collected at a {\\it single} measurement location. We subsequently use these reconstructions to forecast rogue waves associated with self-focusing soliton dynamics from point observations obtained in controlled water wave tank experiments, demonstrating excellent agreement with measurements of the fully evolved wave field. Our results show that extreme wave events can be forecast from remarkably sparse observations and provide a framework that may be extended to other nonlinear dispersive systems governed by the interplay of dispersion and nonlinearity.",
+      "authors": [
+        "Zachary T. Hilliard and Amin Chabchoub and Mohammad Farazmand"
+      ],
+      "published": "2026-11-16T13:21:27Z",
+      "updated": "2026-11-16T13:21:27Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.21068",
+      "pdf_url": "https://arxiv.org/pdf/2611.21068",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.20905",
+      "title": "Anytime Valid Conformal Prediction on Streaming Time Series",
+      "abstract": "Sequential prediction on streaming time series is essential for continuous monitoring and risk control in applications such as finance, energy, and healthcare systems, where prediction intervals must remain valid at arbitrary stopping times and adapt to potential distributional shifts. Conventional conformal prediction provides model-agnostic uncertainty quantification but relies on exchangeability, which is violated under distributional shifts. Adaptive Conformal Inference (ACI) relaxes this assumption by updating the miscoverage level in response to the realized prediction errors, but it only guarantees that the realized average miscoverage rate along a single trajectory approaches the target level in the long run. Risk-sensitive monitoring instead requires controlling the true miscoverage rate, i.e., the conditional probability that a prediction set misses, which measures the reliability of the set itself rather than the misses that happened to be realized. We show that, without assumptions on the distributional shifts, it is impossible to have such control for every single prediction set at arbitrary stopping times. We therefore target the true running and rolling average miscoverage rates. Our methods combine ACI with anytime valid confidence sequences. With high probability, the true running average miscoverage rate stays below the target level uniformly over time, and so does the true rolling average for any window rule. The efficiency loss for the rolling average vanishes for windows that grow sufficiently fast, but not for fixed windows.",
+      "authors": [
+        "Chencheng Fang"
+      ],
+      "published": "2026-11-16T11:15:24Z",
+      "updated": "2026-11-16T11:15:24Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.20905",
+      "pdf_url": "https://arxiv.org/pdf/2611.20905",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.20714",
+      "title": "MSAR: Next-Scale Autoregressive Forecasting for Time Series via Modular Multi-Scale Decoupling",
+      "abstract": "Time series forecasting underpins critical applications in finance, energy, healthcare, and transportation. Although deep models have achieved strong results, most adopt single-scale modeling or restrict multiscale processing to the input side, causing a misalignment between multiscale inputs and single-scale outputs and limiting predictive power. We introduce the Modular Scale-wise Autoregressive Framework (MSAR), a model-agnostic design that forecasts progressively across multiple temporal resolutions. MSAR offers three advantages: (1) scale-wise aligned modeling, which disentangles heterogeneous temporal patterns by aligning inputs and outputs at each scale; (2) scale-wise autoregression, where coarse-scale predictions guide finer-scale forecasting through hierarchical information flow; and (3) a modular architecture, enabling seamless integration with diverse backbones such as CNNs, MLPs, and Transformers. Extensive experiments across a broad set of datasets and forecasting models demonstrate that MSAR achieves consistent improvements in both accuracy and inference efficiency, validating the effectiveness of scale-aligned autoregression for multiscale time series forecasting. The code is available at: https://github.com/Oryxo/MSAR.",
+      "authors": [
+        "Fanda Fan, Kuiye Ding, Liming Mao, Bingsong Wang, Yao Wang, Xiaorui Wang, Ruijie Jian, Zhipeng Liu, Luqi Gong, Zhenghua Lu, Chunjie Luo, Jianfeng Zhan"
+      ],
+      "published": "2026-11-16T08:22:36Z",
+      "updated": "2026-11-16T08:22:36Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.20714",
+      "pdf_url": "https://arxiv.org/pdf/2611.20714",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.20493",
+      "title": "A Temporal Convolutional Network with Multi-Head Attention Model: A Surrogate for Parallel DEVS Semiconductor Fab Simulation",
+      "abstract": "Semiconductor factories process many kinds of wafers organized into lots of various sizes and configurations. Different kinds of machines, each with its own operations, process wafers for hours to days, and the wafers undergo many incremental fabrication steps (with re-entry) and flows spanning days to weeks across connected machines. Fast and accurate predictions of throughput ($TH$) and turnaround time ($TA$) dynamics for individual machines and their combinations are essential for factory operations. To use machine learning methods for this purpose, this paper presents a Temporal Convolutional Network with Multi-head Attention (TCNA) architecture. It uses simulated datasets from a benchmark Parallel DEVS (PDEVS) semiconductor fabrication factory model. The factory processes configurable wafer lots with uniform and sinusoidal wafer arrival profiles and may undergo preventive maintenance. The wafer lot size, arrival profile, and factory maintenance policy are used as static covariates. TCNA is applied to a selected set of simulated discrete-event throughput and turnaround time trajectories. The $TH$ and $TA$ time series predicted by TCNA, evaluated with the common $MAPE$, $MSE$, and $R^2$ measures, show comparable or higher accuracy relative to other model architectures, with similar parameter counts and epoch times; the TCNA model size and execution time are similar to those of other architectures such as the Temporal Fusion Transformer. Although time series predictions are less accurate than high-resolution simulations, they can be deployed at a much lower computational cost. The TCNA achieves orders-of-magnitude speedup over PDEVS simulation with an acceptable loss of accuracy, enabling frequent product scheduling, capacity planning, and maintenance planning.",
+      "authors": [
+        "Vamsi Krishna Pendyala, Hessam S. Sarjoughian, Edward J. Yellig, Bharadhwaj Balasubramaniam"
+      ],
+      "published": "2026-11-16T04:04:40Z",
+      "updated": "2026-11-16T04:04:40Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.20493",
+      "pdf_url": "https://arxiv.org/pdf/2611.20493",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.20030",
+      "title": "High-Dimensional Approximate Factor Models with Score-Driven Dynamics: Estimation and Inference",
+      "abstract": "We propose a factor model for high-dimensional time series where the dynamics of the latent factors is generated by a multivariate score-driven model, thus allowing to model nonlinearities and heavy tails in both the conditional mean and the conditional variance. Estimation is in two steps: first the factors are extracted via Principal Components and then the parameters of the score-driven model are estimated via Quasi Maximum Likelihood based on the estimated factors. Since factors are not identified, we first establish set-consistency and asymptotic normality for the estimated parameters governing their dynamics, as both the number of time series and the sample size diverge to infinity. Then, we construct valid asymptotic prediction intervals, which do not depend on the chosen identifying constraints for the factors. Numerical results confirm the goodness of our estimator.",
+      "authors": [
+        "Matteo Barigozzi and Enzo D'Innocenzo"
+      ],
+      "published": "2026-11-15T14:23:12Z",
+      "updated": "2026-11-15T14:23:12Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.20030",
+      "pdf_url": "https://arxiv.org/pdf/2611.20030",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.19586",
+      "title": "SLiDE: Structured Linear Dynamics for Forecasting with Exogenous Inputs",
+      "abstract": "Accurate time series forecasting with exogenous inputs is critical across domains, including energy and retail, yet modern deep learning models often overfit to correlations that do not generalize under shifts in these inputs. We propose SLiDE, a Koopman-inspired architecture for forecasting with exogenous inputs that imposes structure on latent temporal dynamics. SLiDE approximates nonlinear system evolution using a learned linear operator in a latent space, combining (i) a history encoder that reconstructs the current latent state from past targets and inputs with (ii) a shared linear rollout driven by future exogenous variables. By enforcing a common linear recurrence across encoding and prediction, SLiDE aligns how past information is encoded with how future states evolve, reducing parameterization and preventing reliance on spurious correlations in the input history. Empirically, SLiDE achieves state-of-the-art accuracy on real-world benchmarks, including electricity price forecasting and retail demand, while maintaining a computational footprint comparable to lightweight MLP architectures. SLiDE is especially effective at generalizing to shifted exogenous inputs, reducing MSE by 20% on electricity price samples with out-of-range exogenous values and MAE by 30% in a synthetic transfer setting where the same dynamical system is driven by an unseen exogenous process. Ablations confirm the importance of both the structured history encoder and the linear latent rollout, suggesting that structured latent linear dynamics provide a useful inductive bias for forecasting with exogenous inputs.",
+      "authors": [
+        "Sebastian P\\\"utz, Theodore Glavas, Benjamin Sch\\\"afer, Boris N. Oreshkin, Mark Coates"
+      ],
+      "published": "2026-11-14T19:29:53Z",
+      "updated": "2026-11-14T19:29:53Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.19586",
+      "pdf_url": "https://arxiv.org/pdf/2611.19586",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.18868",
+      "title": "SLICES: A Benchmark and Evaluation Framework for Self-Supervised Learning on Sparse ICU Time Series",
+      "abstract": "Self-supervised learning (SSL) results for intensive care unit (ICU) time series are hard to compare when data processing, encoders, and adaptation vary together. We present SLICES, a benchmark and evaluation framework for comparing and extending SSL methods under a shared clinical setup. It fixes 24-hour value and observation-mask inputs, a Transformer encoder, patient-level splits, four endpoints, two adaptation protocols, and five matched seeds across MIMIC-IV, eICU-CRD, and their pooled union. Masked autoencoding (MAE), joint-embedding prediction (JEPA), and contrastive learning provide reference implementations. Among these objectives, MAE leads mean AUPRC in all nine frozen classification comparisons, also under converged probes, and in seven of nine fine-tuning comparisons. Fine-tuned MAE leads hospital mortality at full labels and scores higher than a supervised Transformer of the same architecture at every label fraction, and SSL fine-tuning gives the lowest length-of-stay error. Supervised baselines remain strong elsewhere: GRU-D leads 24-hour mortality and XGBoost leads acute kidney injury in all three regimes. Rankings depend on the adaptation protocol, the comparator set, and whether the probe loss matches the metric. A two-seed MIMIC-IV rerun with the maintained code stays within two across-seed SDs of the reference in all 48 downstream runs. The code repository supports new objectives, shared downstream evaluation, and regeneration of the reference results, so new SSL methods can be compared with these references under the same conditions. Generalization to unseen hospitals is not tested here and is the natural next extension.",
+      "authors": [
+        "Hannes Ill, Dimitrios Proios, Leo Anthony Celi, Peter J. Sch\\\"uffler"
+      ],
+      "published": "2026-11-13T19:16:06Z",
+      "updated": "2026-11-13T19:16:06Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18868",
+      "pdf_url": "https://arxiv.org/pdf/2611.18868",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.18844",
+      "title": "Identification and external validation of the sets of 4-, 6-, 8-, 12-, and 24-hour CGM motifs",
+      "abstract": "There is growing interest in using CGM for purposes other than those initially intended. Recent work of Lobo et al. identified $\\Omega$: a set of motifs such that almost any daily CGM profile (the 24-hour CGM time series starting at midnight) can be classified - matched to a motif in $\\Omega$. This work generalizes the prior work by identifying sets of motifs for 4-, 6-, 8-, 12-, and 24-hr CGM profiles where an $x$-hr CGM profile does not have to be 24 hours in length, and does not have to start at midnight. The prior work methods are modified to identify the five new sets of motifs using data from the same 6 studies in the original work. The newly identified sets were subjected to rigorous external validation using a data set comprised of data from 21 studies (3,455 subjects, 289,592 days of CGM data). The external validation data set has both temporal and geographic transportability and addresses limitations of the data set used to define the five new sets of motifs. The results of the external validation indicate that the prior work generalizes well: the performance of each $x$-hr set of motifs on the external validation set is almost identical to that obtained for $\\Omega$. The generalization of the original work broadens the potential use cases of the framework to include short term predictions (e.g., impending hypoglycemia) and diagnostics which rely on detecting changes in CGM time series which are less than 24 hours in length.",
+      "authors": [
+        "Benjamin Lobo"
+      ],
+      "published": "2026-11-13T19:02:17Z",
+      "updated": "2026-11-13T19:02:17Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.18844",
+      "pdf_url": "https://arxiv.org/pdf/2611.18844",
+      "first_seen": "2026-11-17T22:53:30.048672Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.18235",
       "title": "NeoResearch: Literature- and Experience-Guided Autonomous Time Series Model Discovery",
       "abstract": "Developing effective forecasting models for diverse time-series domains requires substantial expert knowledge, evidence from scientific literature on the web, and iterative experimentation. However, translating this knowledge and research experience into model designs requires preserving source context and testing applicability under task-specific assumptions. In this paper, we propose NeoResearch, a literature- and experience-guided autonomous research framework that leverages large language models (LLMs) as researchers to discover lightweight, domain-specific forecasting models. Specifically, NeoResearch establishes an expert-inspired dual-loop research workflow, coupling hypothesis-driven architecture exploration with iterative training and hyperparameter optimization through experimental feedback. To enable knowledge-grounded discovery, the agent autonomously mines scientific literature from the Web, extracting modeling mechanisms, empirical evidence, and applicability conditions to formulate task-grounded, testable architecture hypotheses. Furthermore, a hierarchical experience memory links literature findings to experimental outcomes and consolidates conditional lessons, guiding architecture discovery and training optimization while supporting reuse across forecasting tasks. Experiments on ten datasets show competitive performance and support dual loops, literature extraction, and memory reuse. Our code is available.",
@@ -352,13 +557,13 @@
     {
       "id": "2611.15413",
       "title": "MORA: Correcting Time Series Forecasts with Coarse Future Signals",
-      "abstract": "Recent architectural advances have improved time-series forecasting. However, our analysis of forecasters with diverse architectures reveals a common pattern: a substantial share of residual energy is concentrated in a small number of low-frequency components. Simple linear probes further show that the forecasters' historical inputs still contain predictive information about errors in the forecast mean. Building on these findings, we propose Model-Output Residual Adaptation (MORA), a model-agnostic residual adapter that refines the outputs of frozen forecasters without requiring additional inputs. MORA estimates segment-wise means of the target sequence through structural extrapolation and learned estimation, rather than directly predicting backbone-specific residuals. It then converts discrepancies between these estimates and the corresponding statistics of the backbone forecast into stagewise corrections, scaling each update according to estimation reliability. Extensive experiments on twelve benchmarks with six forecasting backbones show average MSE reductions of 7.2% for long-term forecasting and 28.1% for short-term forecasting, with lower MSE in 96.2% of the 288 evaluated cases. The benefits also extend to three time-series foundation models evaluated at different context lengths. Together, these results demonstrate that predictable coarse-scale residuals can be effectively exploited to improve existing forecasts. Code repository: https://anonymous.4open.science/r/MORA-B0B0/.",
+      "abstract": "Recent architectural advances have improved time-series forecasting. However, our analysis of forecasters with diverse architectures reveals a common pattern: a substantial share of residual energy is concentrated in a small number of low-frequency components. Simple linear probes further show that the forecasters' historical inputs still contain predictive information about errors in the forecast mean. Building on these findings, we propose Model-Output Residual Adaptation (MORA), a model-agnostic residual adapter that refines the outputs of frozen forecasters without requiring additional inputs. MORA estimates segment-wise means of the target sequence through structural extrapolation and learned estimation, rather than directly predicting backbone-specific residuals. It then converts discrepancies between these estimates and the corresponding statistics of the backbone forecast into stagewise corrections, scaling each update according to estimation reliability. Extensive experiments on twelve benchmarks with six forecasting backbones show average MSE reductions of 7.2% for long-term forecasting and 28.1% for short-term forecasting, with lower MSE in 96.2% of the 288 evaluated cases. The benefits also extend to three time-series foundation models evaluated at different context lengths. Together, these results demonstrate that predictable coarse-scale residuals can be effectively exploited to improve existing forecasts. Code repository: https://github.com/hugerli-1/MORA.",
       "authors": [
         "Hu Li, Kenan Li, Haonan Xu, longlong, Shuqin Gao, Yucheng Zhang, Feng Dai"
       ],
       "published": "2026-11-11T12:36:58Z",
-      "updated": "2026-11-11T12:36:58Z",
-      "metadata_updated": "2026-11-13T00:00:00Z",
+      "updated": "2026-11-16T14:26:59Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.15413",
       "pdf_url": "https://arxiv.org/pdf/2611.15413",
       "first_seen": "2026-11-13T22:39:02.362070Z",
@@ -532,8 +737,8 @@
         "Bernhard Voggenberger, Christian Ganh\\\"or, Levente Z\\'olyomi, Sebastian B\\\"ock, Sepp Hochreiter"
       ],
       "published": "2026-11-10T17:16:54Z",
-      "updated": "2026-11-10T17:16:54Z",
-      "metadata_updated": "2026-11-11T00:00:00Z",
+      "updated": "2026-11-14T14:07:10Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.14357",
       "pdf_url": "https://arxiv.org/pdf/2611.14357",
       "first_seen": "2026-11-11T21:59:46.704455Z",
@@ -3443,11 +3648,11 @@
       "title": "Look Back, Correct Forward: Error Feedback Calibration for Time Series Forecasting",
       "abstract": "Time series forecasting models are increasingly deployed in continuously evolving environments. After a forecast is issued, future observations gradually arrive and reveal how the model has failed. Existing methods mainly treat such observations as supervision for parameter updates. However, it remains unclear whether verified forecasting errors can themselves provide causal feedback for correcting future predictions. To address this, we introduce Error Feedback Calibration (EFC), a fully test-time framework for deterministic post-hoc correction of time series forecasting. EFC constructs a Causal Error Diagonal (CED) from revealed errors of overlapping historical forecasts, providing a fresh view of the frozen forecaster's recent failure behavior. Then Cumulative Error Transport (CET) maps this error state to future residuals using cumulative estimation, while temporal out-of-sample validation controls the correction strength. Temporal Residual Learning (TRL) further predicts only the residual structure left after CET from recent CED trajectories, rather than relearning the entire forecasting error. Extensive experiments across forecasting backbones and datasets show that EFC broadly improves forecasting performance while substantially controlling harmful over correction.",
       "authors": [
-        "Haonan Yang, Yulin He, Zhuo Li"
+        "Haonan Yang, Yulin He, Zhuo Li, Jing Zhao, Huibin Tan"
       ],
       "published": "2026-10-16T03:22:18Z",
-      "updated": "2026-10-16T03:22:18Z",
-      "metadata_updated": "2026-10-19T00:00:00Z",
+      "updated": "2026-11-16T08:14:35Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.22872",
       "pdf_url": "https://arxiv.org/pdf/2610.22872",
       "first_seen": "2026-10-19T21:04:24.143131Z",
@@ -10071,14 +10276,14 @@
     },
     {
       "id": "2609.01126",
-      "title": "When Does Online Adaptation Pay on the Edge? A Leakage-Free Evaluation of Warmup, Learning-Rate Selection, and Resource Trade-offs for Time-Series Forecasting",
-      "abstract": "Online adaptation can help edge time-series forecasting under distribution drift, but its measured benefit is sensitive to evaluation choices. We study six public multivariate streams, including building-sensor and smart-meter data, under a leakage-free streaming protocol. We identify two additional sources of comparison bias. First, the warmup budget of the static baseline has a two-sided effect: insufficient warmup undertrains the baseline, whereas excessive warmup can degrade its pre-drift generalization. Across six dataset-backbone settings, the estimated adaptation benefit changes by 3.0 to 18.8 percentage points (pp) over the 1,000-20,000-step warmup range. Second, comparing SGD with momentum (SGD+m) and Adam at a shared default learning rate conflates optimizer quality with rate sensitivity. We select both the warmup budget and each optimizer's online rate using a held-out pre-drift validation slice without accessing test data. Under this validation-only procedure, Adam outperforms SGD+m in 310 of 360 evaluated cells, while 4 Adam cells remain below the static baseline. We further characterize accuracy against adaptation-state memory and A100-measured per-update latency for full, head-only, and calibration-based adaptation. In the evaluated PatchTST frontier settings, several parameter-efficient variants are nondominated on the adaptation-state-memory axis. Smart-meter analyses also show that reported gains depend on meter-selection rules. These findings support a validation-only commissioning procedure, while target-device latency and energy remain to be measured. Code, data, and all reported numbers: https://github.com/keiotakmin/tsf-edge-adaptation.",
+      "title": "How Evaluation Choices Shape the Measured Benefit of Online Adaptation in Time-Series Forecasting: Warmup, Learning-Rate Selection, and Adaptation-State Memory",
+      "abstract": "Online adaptation can help edge time-series forecasting under distribution drift, but its measured benefit is sensitive to evaluation choices. We study six public multivariate streams, including building-sensor and smart-meter data, under a leakage-free streaming protocol. We identify two sources of comparison bias. First, the warmup budget of the static baseline has a two-sided effect on seed-mean curves: insufficient warmup undertrains the baseline, whereas excessive warmup can degrade its pre-drift generalization. Across six dataset-backbone settings, the estimated adaptation benefit changes by 3.0 to 18.8 percentage points (pp) over the 1,000-20,000-step warmup range. Second, comparing SGD with momentum (SGD+m) and Adam at a shared default learning rate conflates optimizer quality with rate sensitivity. We select both the warmup budget and each optimizer's online rate using a held-out pre-drift validation slice without accessing test data. Under this procedure, Adam outperforms SGD+m in 310 of 360 cells, and only 4 of its 360 cells fall below the static baseline. Third, we characterize accuracy against adaptation-state memory and A100-measured per-update latency for full, head-only, and calibration-based adaptation. In the evaluated PatchTST frontier settings, several parameter-efficient variants are nondominated on the adaptation-state-memory axis. These findings support a validation-only commissioning procedure. Code, data, and all reported numbers: https://github.com/keiotakmin/tsf-edge-adaptation",
       "authors": [
-        "Takumi Fujimoto",
-        "Hiroaki Nishi"
+        "Takumi Fujimoto, Hiroaki Nishi"
       ],
       "published": "2026-09-01T12:04:08Z",
-      "updated": "2026-09-01T12:04:08Z",
+      "updated": "2026-11-15T14:57:02Z",
+      "metadata_updated": "2026-11-17T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.01126",
       "pdf_url": "https://arxiv.org/pdf/2609.01126",
       "first_seen": "2026-09-06T12:17:31.344218Z",
@@ -12677,19 +12882,21 @@
       ]
     }
   ],
-  "last_success": "2026-11-16T22:04:50.157293Z",
-  "last_attempt": "2026-11-16T22:04:50.157293Z",
+  "last_success": "2026-11-17T22:53:30.048672Z",
+  "last_attempt": "2026-11-17T22:53:30.048672Z",
   "last_new_ids": [
-    "2611.17507",
-    "2611.17680",
-    "2611.17862",
-    "2611.17913",
-    "2611.17915",
-    "2611.18087",
-    "2611.18149",
-    "2611.18155",
-    "2611.18199",
-    "2611.18235"
+    "2611.18844",
+    "2611.18868",
+    "2611.19586",
+    "2611.20030",
+    "2611.20493",
+    "2611.20714",
+    "2611.20905",
+    "2611.21068",
+    "2611.21267",
+    "2611.21319",
+    "2611.21552",
+    "2611.21562"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -12697,8 +12904,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 2,
-    "records": 2179,
+    "pages": 6,
+    "records": 7424,
     "duplicates": 0
   }
 }
