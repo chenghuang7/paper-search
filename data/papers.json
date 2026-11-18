@@ -2,6 +2,23 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.22918",
+      "title": "Reconstructing hidden attractors with reservoir computing",
+      "abstract": "Hidden attractors are difficult to locate as their basins of attraction do not intersect with any small neighborhood of an equilibrium point. We examine the possibility of reconstructing the hidden chaotic attractor from time series via reservoir computing, where the reservoir is built by a network of driven Kuramoto oscillators. We compare all-to-all coupling, nearest-neighbour ring coupling, and a ring with one modified oscillator equation which ensures that any attractor will be hidden. The numerical results suggest that ring coupling supports accurate reconstruction over a wider range of coupling and forcing strengths than all-to-all coupling. Searches near reservoir equilibria nevertheless show why agreement in short-term prediction and long-term statistics does not establish preservation of hiddenness. Numerics for the modified ring show that it has the highest performance which coincides with our intuition that reconstructing the global dynamics would yield a more faithful attractor reconstruction. We also show that this construction precludes global forgetting of initial conditions for constant inputs, although local conditional contraction along a nonconstant signal remains possible. The distinction between reconstructing attractor dynamics and preserving basin structure provides a basis for evaluating and designing reservoir models of hidden attractors.",
+      "authors": [
+        "Mohammad Zaman, Emel Khan, and Thomas Geert de Jong"
+      ],
+      "published": "2026-11-17T15:19:07Z",
+      "updated": "2026-11-17T15:19:07Z",
+      "metadata_updated": "2026-11-18T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.22918",
+      "pdf_url": "https://arxiv.org/pdf/2611.22918",
+      "first_seen": "2026-11-18T21:57:56.126725Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.21562",
       "title": "Severe but Harmless: Stress-Testing Shift Severity for Frozen Time-Series Forecasters",
       "abstract": "Zero-shot time-series foundation models (TSFMs) have become attractive alternatives to task-specific models because they handle diverse downstream tasks, including anomaly detection and forecasting, without per-series training. However, time-series data undergo distribution shifts, and the dissimilarity between two regimes is commonly scored with statistical measures such as Wasserstein-1, where a higher score is read as a more severe shift. In systematic experiments using three established severity measures on nine regime shifts from three standard traffic datasets, we show that these measures do not reliably predict degradation for instance-normalized TSFMs. The regimes rated most severe are not the regimes that degrade the models most, and degradation reaches 29% in the lowest-scoring regime. In most cases, the audit shows no positive relationship between measured severity and model degradation. We provide an equivariance-based stress-testing analysis that explains why severity readings can become decoupled from model degradation.",
@@ -180,8 +197,8 @@
         "Hannes Ill, Dimitrios Proios, Leo Anthony Celi, Peter J. Sch\\\"uffler"
       ],
       "published": "2026-11-13T19:16:06Z",
-      "updated": "2026-11-13T19:16:06Z",
-      "metadata_updated": "2026-11-17T00:00:00Z",
+      "updated": "2026-11-17T13:26:11Z",
+      "metadata_updated": "2026-11-18T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.18868",
       "pdf_url": "https://arxiv.org/pdf/2611.18868",
       "first_seen": "2026-11-17T22:53:30.048672Z",
@@ -6407,8 +6424,8 @@
         "Yeryeong Kwak and Yoo-Min Jung and Jonghun Park"
       ],
       "published": "2026-09-30T14:10:20Z",
-      "updated": "2026-09-30T14:10:20Z",
-      "metadata_updated": "2026-10-01T00:00:00Z",
+      "updated": "2026-11-17T13:41:37Z",
+      "metadata_updated": "2026-11-18T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.39789",
       "pdf_url": "https://arxiv.org/pdf/2609.39789",
       "first_seen": "2026-10-01T19:32:32.741917Z",
@@ -9638,7 +9655,7 @@
       ],
       "published": "2026-09-07T19:45:14Z",
       "updated": "2026-09-18T20:54:56Z",
-      "metadata_updated": "2026-09-22T00:00:00Z",
+      "metadata_updated": "2026-11-18T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.07930",
       "pdf_url": "https://arxiv.org/pdf/2609.07930",
       "first_seen": "2026-09-09T19:46:51.853258Z",
@@ -12882,21 +12899,10 @@
       ]
     }
   ],
-  "last_success": "2026-11-17T22:53:30.048672Z",
-  "last_attempt": "2026-11-17T22:53:30.048672Z",
+  "last_success": "2026-11-18T21:57:56.126725Z",
+  "last_attempt": "2026-11-18T21:57:56.126725Z",
   "last_new_ids": [
-    "2611.18844",
-    "2611.18868",
-    "2611.19586",
-    "2611.20030",
-    "2611.20493",
-    "2611.20714",
-    "2611.20905",
-    "2611.21068",
-    "2611.21267",
-    "2611.21319",
-    "2611.21552",
-    "2611.21562"
+    "2611.22918"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -12904,8 +12910,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 6,
-    "records": 7424,
+    "pages": 8,
+    "records": 10195,
     "duplicates": 0
   }
 }
