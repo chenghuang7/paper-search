@@ -2,6 +2,58 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.24257",
+      "title": "TRESS: A Fixed-Size History Representation for Irregular Time Series Forecasting",
+      "abstract": "A fixed number of recent observations may span minutes for one variable and days for another. Earlier measurements can still reveal whether the latest value is unusual for that variable. We propose TRESS (Timestamped Recent Events and Statistical Summaries), a forecasting model that retains the latest observations at their original times and summarises the full history of each variable. For a given set of variables and event budget, this representation stays the same size as the record grows. Its query-conditioned event lifting module weights deviations from the latest value according to the age of each observation and the forecast horizon. A channel-specific decoder combines the resulting features with historical statistics and a summary shared across variables to predict a correction to the latest value. Retaining 8 to 16 observations per variable, TRESS records the lowest mean test MSE and MAE among the methods compared on all four benchmarks. Serving 32 successive query times from one encoded history reduces CPU inference time by a factor of 2.12--2.60 across the four datasets. The code is at https://github.com/SSMa913/NICLab-TRESS.",
+      "authors": [
+        "Shusen Ma, Yangchun Xie, Xudong Zuo, Haizhou Liang, Yun-Bo Zhao"
+      ],
+      "published": "2026-11-18T11:38:16Z",
+      "updated": "2026-11-18T11:38:16Z",
+      "metadata_updated": "2026-11-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.24257",
+      "pdf_url": "https://arxiv.org/pdf/2611.24257",
+      "first_seen": "2026-11-19T21:36:54.901528Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.24075",
+      "title": "Recurrent Domain Incremental Adaptation of Time-Series Foundation Models",
+      "abstract": "Pretrained Time-Series Foundation Models (TSFMs) provide strong representations for downstream classification tasks. Yet adapting a TSFM under changing operating conditions remains challenging. A model must improve on each newly observed condition without sacrificing conditions it has already learned, often from only a small labeled calibration set and without knowing the operating condition at inference time. We find that this difficulty has an important geometric structure. Under an operating-condition shift, the embedding space of a TSFM does not move uniformly: some local regions change substantially, while others remain nearly unchanged. Consequently, a global adaptation can unnecessarily move embeddings that were already correctly classified. To address this, we propose the novel PACT (Piecewise Adaptation via Chart Transport). PACT partitions the frozen source embedding space into local charts and learns lightweight residual transports for the regions affected by each new condition. An explicit identity path is always retained, and a learned gate softly selects among the identity and accumulated transports for each input. The pretrained TSFM encoder, classifier head, and previously learned transports remain fixed. With only 5% labeled calibration data per arriving condition and no condition identity at test time, PACT maintains an average macro-F1 above 0.95 across a four-condition bearing-fault stream. Under homogeneous tasks and label spaces, similar retention-adaptation behavior is observed across public benchmarks. Code is available at https://github.com/Sachithx/PACT.",
+      "authors": [
+        "Sachith Abeywickrama, Peiliang Gong, Emadeldeen Eldele, Min Wu, Chau Yuen"
+      ],
+      "published": "2026-11-18T09:05:22Z",
+      "updated": "2026-11-18T09:05:22Z",
+      "metadata_updated": "2026-11-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.24075",
+      "pdf_url": "https://arxiv.org/pdf/2611.24075",
+      "first_seen": "2026-11-19T21:36:54.901528Z",
+      "topics": [
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.23518",
+      "title": "From Arraignment to Resolution: Transformer Models of Court Cases",
+      "abstract": "The criminal legal system is composed of many complex decision points, such as which charges are pursued, how bond is determined, plea deal negotiations, and sentencing. Given the profound impact of such decisions, there is a growing need to increase the transparency within this system. While prior machine learning approaches have focused on modeling single decisions (e.g., recidivism), this paper proposes a transformer-based time series model to forecast the outcome of the next proceeding in a case (e.g., charges accepted, bond set, plea deal made, etc.). By modeling a case as an event sequence, we enable a more nuanced analysis to support better oversight and understanding of decision making. We conduct an empirical analysis of thousands of cases using a newly constructed dataset derived from publicly available court records of a mid-sized U.S. city. We fit models that combine textual data from clerk notes with structured information about the defendant, prior charges, and courtroom. Our transformer model achieves $.57$ micro-F1 on a 20-class multi-label task, a significant improvement over several baselines and comparable to a GRU trained on the same input. We demonstrate how the model can be used to provide insights into decision-making and help court observers identify emerging issues within the jurisdiction studied.",
+      "authors": [
+        "Kory Rosen, Aron Culotta"
+      ],
+      "published": "2026-11-17T21:08:52Z",
+      "updated": "2026-11-17T21:08:52Z",
+      "metadata_updated": "2026-11-19T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.23518",
+      "pdf_url": "https://arxiv.org/pdf/2611.23518",
+      "first_seen": "2026-11-19T21:36:54.901528Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.22918",
       "title": "Reconstructing hidden attractors with reservoir computing",
       "abstract": "Hidden attractors are difficult to locate as their basins of attraction do not intersect with any small neighborhood of an equilibrium point. We examine the possibility of reconstructing the hidden chaotic attractor from time series via reservoir computing, where the reservoir is built by a network of driven Kuramoto oscillators. We compare all-to-all coupling, nearest-neighbour ring coupling, and a ring with one modified oscillator equation which ensures that any attractor will be hidden. The numerical results suggest that ring coupling supports accurate reconstruction over a wider range of coupling and forcing strengths than all-to-all coupling. Searches near reservoir equilibria nevertheless show why agreement in short-term prediction and long-term statistics does not establish preservation of hiddenness. Numerics for the modified ring show that it has the highest performance which coincides with our intuition that reconstructing the global dynamics would yield a more faithful attractor reconstruction. We also show that this construction precludes global forgetting of initial conditions for constant inputs, although local conditional contraction along a nonconstant signal remains possible. The distinction between reconstructing attractor dynamics and preserving basin structure provides a basis for evaluating and designing reservoir models of hidden attractors.",
@@ -12899,10 +12951,12 @@
       ]
     }
   ],
-  "last_success": "2026-11-18T21:57:56.126725Z",
-  "last_attempt": "2026-11-18T21:57:56.126725Z",
+  "last_success": "2026-11-19T21:36:54.901528Z",
+  "last_attempt": "2026-11-19T21:36:54.901528Z",
   "last_new_ids": [
-    "2611.22918"
+    "2611.23518",
+    "2611.24075",
+    "2611.24257"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -12910,8 +12964,8 @@
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 8,
-    "records": 10195,
+    "pages": 9,
+    "records": 10729,
     "duplicates": 0
   }
 }
