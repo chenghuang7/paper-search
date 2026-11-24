@@ -2,6 +2,110 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.27766",
+      "title": "Critical slowing down in hive temperature does not provide actionable early warnings of honey bee colony collapse",
+      "abstract": "Early warning signals (EWS) based on critical slowing down (CSD) have been proposed as model-independent indicators of approaching ecological regime shifts and may help anticipate honeybee colony collapse. However, whether theoretically expected signals can be reliably observed and provide useful prediction in real-world systems remains uncertain. Here, we combine structural analysis, mechanistic modeling and longitudinal observations to assess the dynamical plausibility, detectability and predictive accuracy of CSD-based EWS for honeybee colony collapse. Our results show that the presence of EWS is not equivalent to successful prediction of the transition. The analyzed models exhibit regime shifts accompanied by CSD, but detecting these signals in finite and noisy observations requires longer and more densely sampled time series than typically available for practical monitoring. Moreover, in empirical temperature records, CSD-like trends were detectable but provided limited discrimination between colonies that subsequently collapsed and those that survived. Declining mean temperature provided slightly greater discrimination than conventional CSD indicators, although its predictive value remained modest. Non-Gaussian correlated noise and the imperfect correspondence between hive temperature and colony strength further constrained EWS performance. These findings show that EWS can exist at the dynamical level without becoming useful predictors at the observational level, at least for our case study, thus cautioning against treating CSD-based indicators as generic predictors of ecological collapse.",
+      "authors": [
+        "Daniele Proverbio, Els Weinans, Davide Frizzera, Desiderato Annoscia, Francesco Nazzi, Giulia Giordano"
+      ],
+      "published": "2026-11-20T15:56:59Z",
+      "updated": "2026-11-20T15:56:59Z",
+      "metadata_updated": "2026-11-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.27766",
+      "pdf_url": "https://arxiv.org/pdf/2611.27766",
+      "first_seen": "2026-11-24T00:52:36.553269Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.27191",
+      "title": "Lift Out, Kick In: Decoupling Event Effects for Time Series Forecasting",
+      "abstract": "Real-world time series are often shaped by exogenous events whose effects are superimposed on the system's underlying temporal dynamics. Historical observations therefore entangle persistent dynamics with event-induced deviations, making it difficult to determine which patterns should be extrapolated and which should be attributed to specific event contexts. Existing event-aware forecasting methods can incorporate event information or model event-related variation, but typically treat historical event attribution and future event generation separately. We propose Loki (Lift Out, Kick In), a general event-aware forecasting framework built on a shared Event Response Function (ERF). The ERF models event effects according to event type and relative temporal position and is shared across the historical and forecast windows. Loki lifts out estimated event-induced deviations from historical observations before forecasting, then uses the same ERF to kick in responses to known future events. This formulation separates event-response modeling from temporal forecasting while coupling historical attribution and future generation through a shared mechanism. Across five forecasting benchmarks, Loki achieves the best standardized MAE on all five datasets, reducing error by approximately 2.2%-11.7% over the strongest non-Loki baseline. Ablations and controlled analyses further support the roles of Lift Out, Kick In, shared response modeling, and compatibility across forecasting backbones.",
+      "authors": [
+        "Yunying Zhu, Zichun Cao, Siwei Sun, Xiaocen Guo, Shengsheng Lin, Jing Hu, Enyun Yu, Zhichao Zou"
+      ],
+      "published": "2026-11-20T06:24:06Z",
+      "updated": "2026-11-20T06:24:06Z",
+      "metadata_updated": "2026-11-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.27191",
+      "pdf_url": "https://arxiv.org/pdf/2611.27191",
+      "first_seen": "2026-11-24T00:52:36.553269Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.27065",
+      "title": "COMPASS: Cross-modal Observation with Multi-Path Adaptive Stopping and Selection for Early Time Series Classification",
+      "abstract": "Early time-series classification (ETSC) balances predictive performance against the amount of observed data. In multimodal settings, modality-associated and fused branches may differ in predictive ability at the same observed prefix, motivating joint decisions about when to stop and which branch should provide the final prediction. We propose COMPASS, a two-stage framework that preserves two modality-associated temporal branches and one fusion branch. The first stage combines cross-modal feature exchange and gated fusion with branch-wise supervision at every prefix. The second stage optimizes a shared four-action controller to continue observation or terminate through one of the frozen branches. Experiments on six physiological and wearable datasets compare COMPASS with multimodal adaptations of five ETSC baselines. COMPASS achieves the best average ranks in accuracy-earliness harmonic mean, AUROC, and earliness within this comparison set. At identical learned stopping times, branch selection improves mean accuracy over fusion readout on five of the six datasets, with gains of 2.35 and 2.16 percentage points on ISRUC-Sleep and UCDDB, respectively. To the best of our knowledge, this is the first work on joint stopping and branch selection for multimodal early time series classification.",
+      "authors": [
+        "Cheng-En Chung, Yujia Wu, Oscar Tai-Yuan Chen, Vincent S. Tseng"
+      ],
+      "published": "2026-11-20T03:33:54Z",
+      "updated": "2026-11-20T03:33:54Z",
+      "metadata_updated": "2026-11-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.27065",
+      "pdf_url": "https://arxiv.org/pdf/2611.27065",
+      "first_seen": "2026-11-24T00:52:36.553269Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.26967",
+      "title": "Data-Driven Detection of Volatility Regimes and Sector-Level Asymmetry During Sovereign Default",
+      "abstract": "We present a data-driven framework for detecting changes in stock-market volatility and characterising their effects across industry sectors. The framework identifies volatility regimes directly from historical returns using dynamic programming, validated with a sup-F test and a Markov-switching model. We apply it to 1,559 trading days of the Sri Lankan All Share Price Index (ASPI) and 13 sector indices, covering pre-COVID, COVID-19, sovereign-default, and recovery periods. Within each regime, Student-$t$ EGARCH models quantify volatility response, persistence, and asymmetry between positive and negative shocks. The results reveal a distinct regime-specific pattern: significant negative-shock asymmetry occurs in 9 of 14 series during the sovereign default, compared with none during COVID-19 despite 2.6 times higher volatility than pre-COVID. For the ASPI, volatility persistence decreases from 0.936 during COVID-19 to 0.647 during the default. Cross-sector correlations increase during the default but largely disappear after adjusting for increased variance, providing little evidence of stronger shock propagation. Macroeconomic variables explain less than 4% of ASPI forecast-error variance at a 30-day horizon. These findings demonstrate how combining automated regime detection with interpretable time-series models can uncover structural changes hidden by aggregate analysis.",
+      "authors": [
+        "M.J.S. Ahamed, M.R. Hatheem, M.A.H. Ahamed, U.I. Jayasekara, H.Y. Ahamed, Madara Mendis, Nevidu Jayatilleke, Nisansa de Silva, Sandareka Wickramanayake"
+      ],
+      "published": "2026-11-20T01:42:50Z",
+      "updated": "2026-11-20T01:42:50Z",
+      "metadata_updated": "2026-11-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.26967",
+      "pdf_url": "https://arxiv.org/pdf/2611.26967",
+      "first_seen": "2026-11-24T00:52:36.553269Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.26856",
+      "title": "Self-Supervised Learning with Recursive Quadrature Filters for Neural Time Series",
+      "abstract": "We develop self-supervised methods for training Recursive Quadrature Filter (RQF) encoders on unlabeled time series. RQFs are biologically motivated, complex-valued temporal filters that form a special class of diagonal state-space models (SSMs). Each RQF acts as a band-pass filter whose selectivity is determined by two learnable parameters: its tuning frequency and bandwidth. We separately introduce a self-supervised learning objective based on prediction error; the encoder is trained so that its current state predicts its own future activity. In the windowed mode, the summary of the current window predicts the summary of a later window; in the dense mode, the state at the current timestep predicts future log-power. Each RQF encoder is pretrained on a dataset and then a readout (e.g., a task-specific classifier) is trained on the output of the RQF encoder, with the encoder either frozen or fully fine-tuned. For multichannel EEG and intracranial recordings, a shared encoder processes each channel separately, and a spatial readout combines the channel representations using electrode locations. Across four neural benchmarks using scalp or intracranial EEG, the pretrained RQF system performs close to the state of the art while using a small fraction of the parameters of the competing models. For example, a 110k-parameter RQF system achieves 0.9247 +/- 0.0022 test AUROC on 100-s TUAB segments, above SAMBA (0.9054) at the same context with 9 times as many parameters, and 0.9040 +/- 0.0019 on 10-s segments, comparable to EEG foundation models with 3.2M-369M parameters.",
+      "authors": [
+        "Mirko Morello, Shivang Rawat, David J. Heeger"
+      ],
+      "published": "2026-11-19T22:17:55Z",
+      "updated": "2026-11-19T22:17:55Z",
+      "metadata_updated": "2026-11-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.26856",
+      "pdf_url": "https://arxiv.org/pdf/2611.26856",
+      "first_seen": "2026-11-24T00:52:36.553269Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.26762",
+      "title": "Harnessing Dephasing for Quantum Reservoir Computing with a Minimum Complexity Architecture: Applications to Nonlinear Time-Series Prediction",
+      "abstract": "Quantum reservoir computing (QRC) exploits quantum dynamics for temporal information processing. Quantum noise affects the reservoir dynamics and can either impair computational performance or serve as a computational resource. However, the role of pure dephasing in Hamiltonian encoding QRC remains unclear. In this work, we propose a minimum complexity QRC model that harnesses pure dephasing in an open uniform XX chain. We show that, under suitable input encoding, pure dephasing can ensure the echo state and fading memory properties even without amplitude damping. Furthermore, in the presence of amplitude damping, the proposed quantum reservoir has distinct stationary states for distinct inputs, and introducing pure dephasing alters these states, thereby affecting the reservoir dynamics. Information processing capacity analysis shows that joint control of the two decoherence mechanisms regulates memory and nonlinearity, providing access to diverse capacity profiles. The proposed QRC achieves promising performance on synthetic benchmarks, while its 6-qubit configuration outperforms all three multi-reservoir echo state network baselines on over half of the real-world prediction tasks. These findings highlight pure dephasing as a computational resource for QRC.",
+      "authors": [
+        "Yicheng Song, Zhipeng Yang, Heng Fan, Gouhei Tanaka"
+      ],
+      "published": "2026-11-19T19:58:55Z",
+      "updated": "2026-11-19T19:58:55Z",
+      "metadata_updated": "2026-11-23T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.26762",
+      "pdf_url": "https://arxiv.org/pdf/2611.26762",
+      "first_seen": "2026-11-24T00:52:36.553269Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.26351",
       "title": "TRCF: Temporal-Reference Complementary Forecasting for Irregular Multivariate Time Series",
       "abstract": "Irregular multivariate time series forecasting supports healthcare monitoring, environmental analysis, and activity recognition. Channel-independent (CI) approaches capture each variable's temporal patterns but do not explicitly use observations from other variables. Channel-dependent (CD) modeling exploits relationships among variables, yet asynchronous measurements make these relationships difficult to learn. Incorporating cross-variable information while preserving each variable's irregular history therefore remains a key challenge. We propose Temporal-Reference Complementary Forecasting (TRCF), a framework that augments a compact CI forecaster with a complementary CD branch. ANCHOR aggregates observed values and timestamps at shared temporal locations, retaining observation support to form compact CI features. BRIDGE constructs complementary features through history completion. It first estimates each variable's historical values from its own observations, then uses differences between other variables' observed and estimated values at nearby times to correct missing entries. The completed history preserves observed values and is encoded to supply context alongside the direct CI representation. Finally, the two representations are fused, combined with the query-time embedding, and passed to a shallow multilayer perceptron for forecasting. Experiments on four real-world datasets show that TRCF achieves the lowest mean squared error and mean absolute error in the main benchmark comparison, while reducing measured peak inference memory by 17.28% to 87.98% relative to APN.",
@@ -13023,17 +13127,24 @@
       ]
     }
   ],
-  "last_success": "2026-11-22T21:47:08.411031Z",
-  "last_attempt": "2026-11-22T21:47:08.411031Z",
-  "last_new_ids": [],
+  "last_success": "2026-11-24T00:52:36.553269Z",
+  "last_attempt": "2026-11-24T00:52:36.553269Z",
+  "last_new_ids": [
+    "2611.26762",
+    "2611.26856",
+    "2611.26967",
+    "2611.27065",
+    "2611.27191",
+    "2611.27766"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 3,
-    "records": 2850,
+    "pages": 2,
+    "records": 2396,
     "duplicates": 0
   }
 }
