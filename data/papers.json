@@ -2,6 +2,128 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.32894",
+      "title": "Alert-Preserving Lossy Compression of Monitoring Time Series",
+      "abstract": "Monitoring systems store large volumes of floating-point time series, and most of these data are read only by alerting rules: threshold tests on window aggregates with a hold duration. A lossy compressor with one error bound for all samples either wastes space far from the thresholds or changes alerts near them. We use the alert decisions as the correctness criterion. For every rule, the reconstructed series must produce the same sequence of alert states (Inactive, Pending, Firing) as the original, at any evaluation interval and phase. For PromQL threshold rules over last, avg/sum/min/max_over_time and rate we derive a sound error budget for each sample, computable in linear time. It is the smallest value, over all windows that contain the sample, of the window's distance to the threshold divided by a Lipschitz constant. Because the aggregates are monotone, the budget splits into separate bounds for downward and upward errors. For Prometheus' extrapolated rate, an order-preserving quantizer leaves only the first and last sample of each window constrained. Our codec combines predictive coding, a range coder and a lazy step choice that keeps the prediction whenever the budget allows, which suits the asymmetric budget. After encoding, it decodes the output, re-evaluates every rule and repairs any changed decision, so the guarantee holds for the floating-point output. Parts of the floating-point argument are machine-checked with Kani. On 13 real series from the public Prometheus demo servers (7 and 30 days), the codec keeps every alert decision (9,055 firings) at 1.0-1.5 bits per value. This is 4-6.5 times less than a uniform bound tuned on the same data and less than Compression Safeguards over SZ3 on 19 of 26 rule variants. In an ablation, the one-sided budget and the lazy step choice together reduce the size by a factor of 2.4-2.5",
+      "authors": [
+        "Bogdan Serykh"
+      ],
+      "published": "2026-11-24T16:22:46Z",
+      "updated": "2026-11-24T16:22:46Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.32894",
+      "pdf_url": "https://arxiv.org/pdf/2611.32894",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.31970",
+      "title": "Predict Backbone, Graft Dynamics: A Decoupled Paradigm for Time Series Forecasting",
+      "abstract": "Modern long-term forecasters are typically optimized for point-wise accuracy, which rewards dominant low-frequency backbones but often suppresses high-utility local dynamics such as abrupt variations, transient surges, and turning points. We propose Predict Backbone, Graft Dynamics, a decoupled forecasting paradigm that separates stable structural prediction from grounded dynamic restoration. We instantiate it as GRAFT, where a base forecaster predicts the reliable trajectory backbone, and a dedicated grafting path restores historically recurrent dynamics through retrieval-based evidence, phase-aware release, channel-wise control, and restoration-cooperative optimization. Unlike generic post-hoc revision methods that correct residual errors, GRAFT formulates the second stage as grounded dynamic grafting, where historical response evidence is calibrated into transferable dynamics and selectively grafted onto the backbone under phase-, channel-, and confidence-aware constraints. Across the full evaluation grid of seven benchmarks, two metrics, four horizons, and six backbones, GRAFT improves over the corresponding backbone in 87% of all comparisons, with average MSE/MAE reductions of 4.6%/3.9%. Dynamic-window analyses show that GRAFT restores local dynamics while preserving the stable backbone structure. These results suggest a new principle for high-utility forecasting: predict the backbone, then graft the dynamics.",
+      "authors": [
+        "Lin Zhang, Zilin Li, Jingmei Zhao, Jiayang Wu"
+      ],
+      "published": "2026-11-24T05:20:34Z",
+      "updated": "2026-11-24T05:20:34Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.31970",
+      "pdf_url": "https://arxiv.org/pdf/2611.31970",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.31921",
+      "title": "Rethinking Universal Time Series Foundation Models from Unified Representations to Shared Dynamics (UniTFU)",
+      "abstract": "Time series foundation models (TSFMs) have attracted increasing attention in cross-domain forecasting. Existing works mainly rely on large-scale pre-training and general modeling paradigms. However, the former heavily relies on the diversity and domain coverage of pre-training data. Meanwhile, the latter learns unified representations across heterogeneous domains without explicitly identifying the temporal regularities shared among them, limiting robust cross-domain generalization. This work explores cross-domain generalization by characterizing commonalities in recurring local dynamics across domains, rather than relying solely on implicitly learned temporal representations. To capture such cross-domain commonalities, we propose Time Series Foundation Units (TFUs) as reusable building blocks discovered from multi-scale temporal segments, each characterizing a recurring local dynamic pattern shared across domains. Building on TFUs, we develop a unified time series foundation model (UniTFU) that explicitly reuses and composes shared temporal regularities across domains for forecasting. Experiments on seven public datasets show that UniTFU substantially outperforms existing TSFMs in cross-domain forecasting and can efficiently adapt to target-domain dynamics by updating its reusable components with limited target data. UniTFU also achieves strong forecasting performance compared with state-of-the-art methods.",
+      "authors": [
+        "Shuxin Li, Yingjie Zhou, Le Zhang, Jingyuan Xia, Shengxi Li, Ce Zhu, Anderson Rocha"
+      ],
+      "published": "2026-11-24T04:27:46Z",
+      "updated": "2026-11-24T04:27:46Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.31921",
+      "pdf_url": "https://arxiv.org/pdf/2611.31921",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.31905",
+      "title": "OrangeTree: A Linear and Tree-based Time Series Forecasting Model Supporting Multiple Input and Output Lengths",
+      "abstract": "Time series forecasting (TSF) models suffer from a critical rigidity: the inability to handle Multiple Input and Output Lengths (MIOL) within a single architecture. Current workarounds, such as padding or autoregression, often incur computational redundancy or suffer from error accumulation. We propose OrangeTree, a linear and tree-based architecture that decouples model parameters from sequence lengths. It employs a Segment Tree Encoder and an Inverse Tree Decoder to translate multi-length input history into multi-length output predictions within a unified framework. Crucially, a Range Weighter and a Feature Fuser bridge these components, dynamically selecting and fusing relevant ranges into optimal contexts for forecasting. Experiments on six benchmarks confirm OrangeTree achieves the SOTA performance. In MIOL settings, it matches the accuracy of length-fixed models without substantial accuracy degradation or a substantial increase in inference latency typical of heuristic methods. Code is available at https://github.com/Tang-Yiqi/OrangeTree.",
+      "authors": [
+        "Yiqi Tang, Zhichen Lai, Yuxuan Yang, Dalin Zhang, Jinpeng Chen, Gang Chen, Huan Li"
+      ],
+      "published": "2026-11-24T04:04:14Z",
+      "updated": "2026-11-24T04:04:14Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.31905",
+      "pdf_url": "https://arxiv.org/pdf/2611.31905",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.31780",
+      "title": "VISOR: A Vision-Language Selector for Multimodal Time-Series Forecasting",
+      "abstract": "Recent time-series foundation models (TSFMs) forecast a distribution over futures, and multimodal time-series (TS) forecasting further exploits other modalities to improve forecasting accuracy. However, existing works have two limitations: 1) TSFMs reduce the predictive distribution to its median or mean, flattening diverse futures into a calm line, and 2) multimodal TS forecasting models incorporate text into the forecaster through TS-language alignment, which is substantially weaker than vision-language alignment. To address these limitations, we propose the VIsion-language SelectOR (VISOR), a multimodal TS forecasting framework that selects one plausible future instead of averaging across candidates, leveraging the alignment capabilities of vision-language models (VLMs) to select the most suitable candidate based on textual information. VISOR consists of two components: 1) a text-free stochastic predictor that samples diverse candidate futures, and 2) a VLM selector that reads the candidates as a single chart image and selects one based on the text. To avoid overly calm forecasting paths, we train the selector with a shape-aware target that evaluates each candidate based on both point-wise error and path shape. Across three benchmarks covering ten datasets, VISOR achieves the best average ranking in both point and volatility errors compared with TSFMs and multimodal TS forecasting models. Code: https://github.com/seunghan96/VISOR.",
+      "authors": [
+        "Seunghan Lee, Jun Seo, Junhyeok Kang, Jaehoon Lee, Sangjun Han, Sungdong Yoo, Minjae Kim, Tae Yoon Lim, Dongwan Kang, Hwanil Choi, Soonyoung Lee, Wonbin Ahn"
+      ],
+      "published": "2026-11-24T01:31:41Z",
+      "updated": "2026-11-24T01:31:41Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.31780",
+      "pdf_url": "https://arxiv.org/pdf/2611.31780",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.31730",
+      "title": "Tokenization and Architecture Jointly Allocate Component Roles in Time Series Transformers",
+      "abstract": "Time series transformers have achieved strong forecasting performance, yet it remains unclear which of their components, attention or the feed-forward network (FFN), constructs temporal features, and how tokenization such as patching changes this. We propose a temporal probing framework that uses 15 token-level diagnostic tasks to measure feature construction as the gain in linear decodability of temporal properties from one sub-layer to the next (a matched MLP probe already saturates at the embedding). It targets models whose probed representations are read by a linear forecasting head. Applied to 5 supervised models trained on 8 long-term forecasting benchmarks, it finds that the constructing component is not fixed but allocated by the interaction of tokenization and architecture. Under patch tokenization (PatchTST), the FFN's gain exceeds attention's in probing on all 8 datasets, and its 8-dataset mean is 3.2x attention's. Without attention, the FFN alone reaches nearly the same total gain, both when attention is removed from a trained model and when PatchTST is trained without it, and the retrained model forecasts within a few percent of the full model. In probing, attention dominates under variate tokenization (iTransformer); in CATS, cross-attention is the only input path. In a controlled manipulation of PatchTST, single-scalar tokens (P=1) nearly eliminate the FFN's construction, while one more point per token (P=2) restores it. Our forecasting-side interventions (activation patching, knockout, and training without attention) establish component-level reliance and sufficiency. These results offer a representational reading of prior findings on the gains from patching, the competitiveness of self-attention-free models (TSMixer, PatchMLP), and the distinct role of cross-attention in CATS.",
+      "authors": [
+        "Mingyu Kim, Doguk Kim"
+      ],
+      "published": "2026-11-24T00:36:28Z",
+      "updated": "2026-11-24T00:36:28Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.31730",
+      "pdf_url": "https://arxiv.org/pdf/2611.31730",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.31619",
+      "title": "What a Forecasting Leaderboard Can Establish: Resolution Reporting for Zero-Shot Time-Series Models",
+      "abstract": "A foundation model for time series is pretrained once and then asked to forecast series it has never seen, so the evidence for it is its score on held-out datasets. Such datasets are scarce, and a few public leaderboards carry most comparisons, yet none of them states how small a difference its datasets can detect. We call that quantity the resolution of a board and introduce Vernier, a tool that computes it from the files a board already publishes. Vernier also reports which entries a board cannot separate from its leader and whether its order changes when unrelated parties submit. GIFT-Eval resolves 6.8 rank places, and its displayed neighbours sit 0.91 apart. The ten places of its top ten hold fewer than two resolvable steps. fev-bench, Chronos Benchmark II and TIME show the same pattern: their resolution is 3.6 to 19 times the gap between neighbours. With each of its 2,554 series as an independent source, BOOM is the one board that resolves its top ten. Below the resolution the order depends on who else submitted: across four boards, rules that rank against the pool reversed 43 top-ten pairs with neither entry rerun, in one update in seven. Boards also do not record how much history a model receives. On 70 configurations, shortening it raised the error of three of four open models, two of them by 15%. We release Vernier, which runs this report with one command on any leaderboard that publishes per-dataset scores: https://github.com/therealram18/vernier",
+      "authors": [
+        "Arya Sikder, Sriram Pillutla"
+      ],
+      "published": "2026-11-23T22:05:17Z",
+      "updated": "2026-11-23T22:05:17Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.31619",
+      "pdf_url": "https://arxiv.org/pdf/2611.31619",
+      "first_seen": "2026-11-25T23:38:04.125613Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models"
+      ]
+    },
+    {
       "id": "2611.30685",
       "title": "How Many Parameters Does Forecasting Need? A Survey and Code-Level Audit of Lightweight Long-Term Time Series Forecasting",
       "abstract": "Long-term time series forecasting supports decisions in energy, transportation, weather and finance, where forecasts are produced continuously and often on constrained hardware. Recent work has moved in two directions. One scales Transformers and pre-trained foundation models to millions or hundreds of millions of parameters. The other shows that models with only hundreds to tens of thousands of parameters remain competitive on the standard benchmarks. Existing surveys organize forecasting models by backbone and treat efficiency as a side topic, so the reasons these small models work, and the way their sizes are reported, remain unexamined. This survey focuses on lightweight long-term forecasting. It provides a taxonomy of about thirty-five models in six families, with a common notation and an architecture diagram for each core model. It offers a structured-linear view in which the smallest models are linear maps restricted by frequency truncation or period folding, and it tests each restriction in closed form on eight benchmarks. It complements the literature review with an audit of sixteen official code repositories, which reproduces published parameter counts and reveals reporting gaps of up to 289 times. Finally, it gives practical guidance on model selection and reporting, and summarizes open problems.",
@@ -271,7 +393,7 @@
       ],
       "published": "2026-11-19T19:58:55Z",
       "updated": "2026-11-19T19:58:55Z",
-      "metadata_updated": "2026-11-23T00:00:00Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.26762",
       "pdf_url": "https://arxiv.org/pdf/2611.26762",
       "first_seen": "2026-11-24T00:52:36.553269Z",
@@ -411,8 +533,8 @@
         "Mohammad Zaman, Emel Khan, and Thomas Geert de Jong"
       ],
       "published": "2026-11-17T15:19:07Z",
-      "updated": "2026-11-17T15:19:07Z",
-      "metadata_updated": "2026-11-18T00:00:00Z",
+      "updated": "2026-11-24T04:58:47Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2611.22918",
       "pdf_url": "https://arxiv.org/pdf/2611.22918",
       "first_seen": "2026-11-18T21:57:56.126725Z",
@@ -3669,13 +3791,13 @@
     {
       "id": "2610.26251",
       "title": "Beyond Static Leaderboards: Capability-Focused Evaluation with Structural Diversity for Time Series Foundation Models",
-      "abstract": "Static public benchmarks for time series foundation models (TSFMs) typically have fixed and narrow test distributions. Their repeated reuse encourages benchmark-specific tuning, making reported performance reflect adaptation to the fixed test set rather than genuine forecasting generalization. In addition, a single aggregate score cannot fully characterize model capabilities across distinct temporal structures and input relationships. We propose CaFE (Capability-Focused Evaluation), a refreshable evaluation extension grounded in original benchmark data that enriches static benchmarks with structural diversity and enriches single-score black-box evaluation with multi-dimensional, capability-oriented assessment. CaFE first profiles the original benchmark and defines eight Structural Features (SFs) that characterize its temporal structure. For each SF, it resamples the original data according to its structural support, removes edge-of-distribution samples, and augments the retained samples by varying the SF's salience, producing samples with different structural profiles. After filtering out out-of-distribution samples while preserving diversity, CaFE yields a refreshed evaluation set. TSFMs are then evaluated on this set using both conventional forecast-error metrics and intervention-response metrics, giving each model a per-feature capability profile alongside endpoint accuracy. Experiments on GIFT-Eval and FEV-Mini20 show that CaFE yields stable evaluation results and reveals per-feature strengths and weaknesses that a single aggregate score hides. Moreover, on genuine data filtered by structural condition, models selected by CaFE outperform those chosen by the aggregate leaderboard. CaFE therefore makes model selection conditional on the structural response of interest.",
+      "abstract": "Static public benchmarks for time series foundation models (TSFMs) typically have fixed and narrow test distributions. Their repeated reuse encourages benchmark-specific tuning, making reported performance reflect adaptation to the fixed test set rather than genuine forecasting generalization. In addition, a single aggregate score cannot fully characterize model capabilities across distinct temporal structures and input relationships. We propose CaFE (Capability-Focused Evaluation), a refreshable evaluation extension grounded in original benchmark data that enriches static benchmarks with structural diversity and enriches single-score black-box evaluation with multi-dimensional, capability-oriented assessment. CaFE first profiles the original benchmark and defines eight Structural Features (SFs) that characterize its temporal structure. For each SF, it resamples the original data according to its structural support, removes edge-of-distribution samples, and augments the retained samples by varying the SF's salience, producing samples with different structural profiles. After filtering out out-of-distribution samples while preserving diversity, CaFE yields a refreshed evaluation set. TSFMs are then evaluated on this set using both conventional forecast-error metrics and our proposed intervention-response metrics, giving each model a per-feature capability profile alongside endpoint accuracy. Experiments on GIFT-Eval and FEV-Mini20 show that CaFE yields stable evaluation results and reveals per-feature strengths and weaknesses that a single aggregate score hides. Moreover, on genuine data filtered by structural condition, models selected by CaFE outperform those chosen by the aggregate leaderboard. CaFE therefore makes model selection conditional on the structural response of interest.",
       "authors": [
         "Hongyin Zhang, Mingyi Xiang, Rongzhao Chen, Yankai Wang, Jialin Qiao, Xiangdong Huang, Xiaoou Ding, Chen Wang, Zhongyi Pei, Jianmin Wang"
       ],
       "published": "2026-10-19T12:10:42Z",
-      "updated": "2026-10-19T12:10:42Z",
-      "metadata_updated": "2026-10-20T00:00:00Z",
+      "updated": "2026-11-23T23:30:30Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.26251",
       "pdf_url": "https://arxiv.org/pdf/2610.26251",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -3898,8 +4020,8 @@
         "Zhaodong Guo (Imperial College London), Haoyun Feng (Imperial College London)"
       ],
       "published": "2026-10-17T06:52:49Z",
-      "updated": "2026-10-28T10:05:34Z",
-      "metadata_updated": "2026-10-30T00:00:00Z",
+      "updated": "2026-11-24T02:24:39Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.24501",
       "pdf_url": "https://arxiv.org/pdf/2610.24501",
       "first_seen": "2026-10-20T20:36:27.661141Z",
@@ -5251,7 +5373,7 @@
       ],
       "published": "2026-10-08T11:46:44Z",
       "updated": "2026-10-08T11:46:44Z",
-      "metadata_updated": "2026-10-09T00:00:00Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2610.11762",
       "pdf_url": "https://arxiv.org/pdf/2610.11762",
       "first_seen": "2026-10-09T20:57:39.840442Z",
@@ -8991,13 +9113,13 @@
     {
       "id": "2609.20274",
       "title": "Exponential Smoothing for Time Series of Random Objects",
-      "abstract": "Time series of random objects, such as covariance matrices, probability distributions, and functional data, call for forecasting methods that do not rely on standard arithmetic operations. We introduce geodesic exponential smoothing, a generalization of exponential smoothing to time series in Hadamard spaces: the forecast level moves a fixed fraction of the way along the geodesic toward each new observation. The smoothing parameter is estimated by minimizing the average squared distance between observations and their forecasts. We further introduce an innovations mechanism under which each observation has conditional Fr\\'echet mean equal to the current level, providing the metric-space analog of the innovations state-space model. In contrast to autoregressive models for object-valued time series, the framework involves a single scalar parameter, assumes no stationarity, and updates online in constant time per observation. Under this mechanism, we establish sample-path properties of the generative process via the quasilinearization available in Hadamard spaces, and prove almost-sure consistency of the smoothing-parameter estimator. Three real-data applications, spanning covariance-matrix, distributional, and functional time series, assess the forecasting performance of the method against structurally heavier alternatives.",
+      "abstract": "Time series of random objects, such as covariance matrices, probability distributions, and functional data, call for forecasting methods that do not rely on arithmetic operations. We introduce geodesic exponential smoothing for time series in Hadamard spaces. The forecast level moves a fixed fraction of the way along the geodesic towards each new observation. The smoothing parameter is estimated by minimising the average squared distance between observations and forecasts. The method involves a single scalar parameter, assumes no stationarity, and updates online in constant time per observation. We further introduce an innovations mechanism under which each observation has conditional Fr\\'echet mean equal to the current level, the metric-space analogue of the innovations state-space model. We show via the quasilinearisation of Hadamard spaces that the level is a martingale in a nonlinear sense, that the spread of the data from the initial state grows at least linearly in time, and that their quasi-autocorrelation at any fixed lag tends to one. We prove almost-sure consistency and asymptotic normality of the smoothing-parameter estimator. Three real-data applications, spanning covariance-matrix, distributional, and functional time series, assess the forecasting performance against structurally heavier alternatives.",
       "authors": [
         "Takuo Matsubara, Peiwen Jiang, Wilson Ye Chen, Minh-Ngoc Tran"
       ],
       "published": "2026-09-17T12:53:45Z",
-      "updated": "2026-09-17T12:53:45Z",
-      "metadata_updated": "2026-09-18T00:00:00Z",
+      "updated": "2026-11-24T10:21:46Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.20274",
       "pdf_url": "https://arxiv.org/pdf/2609.20274",
       "first_seen": "2026-09-23T01:03:01.516195Z",
@@ -9586,8 +9708,8 @@
         "Donia Besher, Rajdeep Pathak, Madhurima Panja, Tanujit Chakraborty"
       ],
       "published": "2026-09-11T13:26:47Z",
-      "updated": "2026-09-11T13:26:47Z",
-      "metadata_updated": "2026-09-15T00:00:00Z",
+      "updated": "2026-11-24T11:12:17Z",
+      "metadata_updated": "2026-11-25T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.13345",
       "pdf_url": "https://arxiv.org/pdf/2609.13345",
       "first_seen": "2026-09-15T21:23:42.787432Z",
@@ -13301,17 +13423,25 @@
       ]
     }
   ],
-  "last_success": "2026-11-24T21:12:45.079059Z",
-  "last_attempt": "2026-11-24T21:12:45.079059Z",
-  "last_new_ids": [],
+  "last_success": "2026-11-25T23:38:04.125613Z",
+  "last_attempt": "2026-11-25T23:38:04.125613Z",
+  "last_new_ids": [
+    "2611.31619",
+    "2611.31730",
+    "2611.31780",
+    "2611.31905",
+    "2611.31921",
+    "2611.31970",
+    "2611.32894"
+  ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
   "error_detail": null,
   "retry_not_before": null,
   "source": "oai",
   "retrieval_stats": {
-    "pages": 6,
-    "records": 7734,
+    "pages": 9,
+    "records": 10925,
     "duplicates": 0
   }
 }
