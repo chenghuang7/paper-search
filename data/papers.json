@@ -2,6 +2,129 @@
   "schema_version": 1,
   "papers": [
     {
+      "id": "2611.34527",
+      "title": "Resilience Analysis Through Automated Stage Identification and Quantitative Assessment",
+      "abstract": "This paper introduced an ML-based approach, designed to be domain- and threat-agnostic, for automated recognition of PARA (Plan/Prepare, Absorb, Recover, Adapt) resilience stages in system-performance time series, enabling subsequent quantitative resilience analysis across different systems. We investigate four ML models for resilience stage recognition: Random Forest (RF), Support Vector Machine (SVM), Light Gradient Boosting Machine (LightGBM), and Extreme Gradient Boosting (XGBoost). We then use the ML models' predictions to quantify system resilience by computing corresponding resilience metrics from system-performance data observed before, during, and after disruptive events. We evaluate the proposed approach using datasets from two distinct operational domain network systems and an airport transportation system, demonstrating its domain-agnostic applicability to resilience assessment. The results demonstrate the effectiveness of resilience stage classification, with the best F1-scores ranging from 74.3% to 99.4% across all resilience stages. The overall resilience metrics R_t and RL are estimated, with the best models' MAPE ranging from 0.35-0.82% on IEEE 802.11 and LTE to 1.65-9.56% for the airport. These results provide a basis for threat-agnostic resilience analysis of complex engineering systems, enabling further assessment of how effectively a system withstands, absorbs, and recovers from disruptive events and stress conditions.",
+      "authors": [
+        "Anna Strzoda, Krzysztof Grochla, Rafael Munoz-Carpena"
+      ],
+      "published": "2026-11-25T15:14:41Z",
+      "updated": "2026-11-25T15:14:41Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.34527",
+      "pdf_url": "https://arxiv.org/pdf/2611.34527",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.34240",
+      "title": "Analemma $\\infty$: A Temporal Benchmark for Geospatial Foundation Models",
+      "abstract": "Satellite time series capture how land surfaces change over time. Pixel-wise temporal foundation models read a year of satellite observations per pixel, yet public benchmarks lack a temporal axis or subsample it to a few dates. We introduce Analemma, a temporal benchmark of six datasets that carry every 10 and 20 m Sentinel-2 band and a time series spanning a growing season, completed where their releases omit geometry, dates, or cloud masks. One frozen-encoder protocol evaluates all models across label ratios and three seeds, with two baselines without pretraining. The TESSERA model ranks first overall. A from-scratch model on monthly composites outranks every foundation model except OlmoEarth v1.3-Base, suggesting that temporal input explains most of the performance. Three evaluation choices left unstated by the source publications each shift TESSERA v1 by 7.6 to 18.6 mIoU, against top-two gaps of 0.6 to 2.8. Data, harness and leaderboard will be publicly released soon.",
+      "authors": [
+        "Alex L\\'opez-Cifuentes, Laura Mart\\'inez-Ferrer, Juan Ignacio Bravo P\\'erez-Villar (Xoople)"
+      ],
+      "published": "2026-11-25T12:03:40Z",
+      "updated": "2026-11-25T12:03:40Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.34240",
+      "pdf_url": "https://arxiv.org/pdf/2611.34240",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.34206",
+      "title": "Text-Conditioned Low-Rank Adaptation of Time-Series Foundation Models for Multimodal Forecasting",
+      "abstract": "Time-series foundation models (TSFMs) provide transferable numerical forecasting priors. However, forecast-relevant information may be conveyed in text without being reflected in the observed series. Many multimodal forecasting methods integrate such context through model inputs or intermediate representations. We investigate a complementary mechanism: text-conditioned parameter adaptation. We propose Context-to-LoRA for Time Series (C2LoRA-TS), which encodes text and generates temporary Low-Rank Adaptation (LoRA) updates for selected weight matrices of a frozen TSFM. Both the numerical backbone and text encoder remain frozen, and the method exactly recovers the frozen TSFM output when context is absent. Evaluated on Time-MMD across nine domains and three TSFM architectures, C2LoRA-TS achieves lower aggregate forecasting error than the frozen-TSFM and Static LoRA baselines for every architecture and seed. Replacing the instance-specific text with a single globally fixed context degrades performance for every architecture. These results support text-conditioned parameter generation as a viable strategy for multimodal forecasting with frozen TSFMs.",
+      "authors": [
+        "Kunqi Li, Bin Liang, Zhidong Li"
+      ],
+      "published": "2026-11-25T11:31:39Z",
+      "updated": "2026-11-25T11:31:39Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.34206",
+      "pdf_url": "https://arxiv.org/pdf/2611.34206",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.34019",
+      "title": "Assessing the Physical Interpretability of AlphaEarth Foundation Embeddings Through Multi-Sensor Satellite Time-Series Benchmarking for Agricultural Mapping",
+      "abstract": "Accurate and dynamic maps of agricultural LULC are important for agricultural water resource management, particularly in areas where water scarcity is prevalent, such as Morocco. Here, we evaluate the utility of AlphaEarth Foundation Model (AEF) embeddings for agricultural LULC and irrigation-type mapping in Morocco. AEF embeddings were compared to single-date and time-series remote-sensing features using three machine-learning classifiers: XGBoost, CatBoost, and TabPFN. We also evaluated whether AEF embeddings can: (a) provide an efficient and transferable alternative to conventional direct use of Earth observation products and (b) reconstruct biophysical information. Results showed that multi-temporal feature time series achieved the highest performance, with accuracies of 0.93 for agricultural LULC and 0.87 for irrigation-type mapping when using TabPFN. However, AEF embeddings yielded comparable results, achieving accuracies of 0.91 for agricultural LULC and 0.85 for irrigation-type mapping, while reducing the need for extensive data processing and manual feature engineering typically required for satellite products. Spatial LULC mapping using TabPFN achieved comparable overall accuracies (0.85-0.86) across the three feature configurations, but revealed substantial differences in mapped tree cover, ranging from 14.57% for surface reflectance to 29.79% for AFE. Physical probing revealed that AEF embeddings strongly encode spectral indices (A30-SWIR: rho=0.58-0.67), (A38-NDMI: rho=-0.72), vegetation (A49-NDVI: rho = 0.72-0.73), and SAR structure (A25-VH: rho = 0.71). Future research should focus on enhancing the interpretability of embedding-based approaches by incorporating physical knowledge to develop more transparent and trustworthy AI systems for agricultural applications.",
+      "authors": [
+        "El Houcine El Moussaoui, Chouaib El Hachimi, Sa\\\"id Khabba, Salwa Belaqziz, Bouchra Ait Hssaine, Abderrahman Lahrouni, Salah Er-Raki, Abdelghani Chehbouni"
+      ],
+      "published": "2026-11-25T09:07:05Z",
+      "updated": "2026-11-25T09:07:05Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.34019",
+      "pdf_url": "https://arxiv.org/pdf/2611.34019",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-foundation-models"
+      ]
+    },
+    {
+      "id": "2611.33806",
+      "title": "QPAT: A Universal Quantum Machine Learning Framework for Quantum-Assisted Training and Classical Inference",
+      "abstract": "Deep learning models often struggle with sharp local optima and overfitting in limited-data regimes, and exhibit limited capacity for capturing high-order, complex probability distributions. Quantum Machine Learning (QML) models, by operating in exponentially large Hilbert spaces, can efficiently represent such distributions and provide favorable inductive biases for learning, offering a promising pathway to overcome these limitations. However, their practical deployment in the Noisy Intermediate-Scale Quantum (NISQ) era is severely hindered by gradient coupling, barren plateaus, data-loading bottlenecks, and high inference latency. To bridge classical AI and QML, we propose QPAT (QCBM-Prior-Assisted Training), a universal framework that employs a Quantum Circuit Born Machine (QCBM) as a learnable generative prior to provide a task-aligned structured inductive bias during classical model training. The framework can be seamlessly integrated into any classical backbone, including LSTMs, CNNs, and Transformers. We introduce a decoupled fitness-based scoring mechanism and a stochastic \"Drop-Prior\" mechanism to implicitly distill quantum structural knowledge into the classical weights during training. Evaluated extensively on six benchmarks spanning time-series forecasting, computer vision, and natural language processing, our framework consistently outperforms purely classical backbones in both predictive performance and stability across random seeds; ablation studies further show that these gains are not reproduced by unstructured random priors or a classically learned generative prior. Remarkably, our approach enables completely classical inference, bypassing quantum latency while preserving quantum-enhanced accuracy, paving a highly practical path for QML deployment.",
+      "authors": [
+        "Yixiong Chen"
+      ],
+      "published": "2026-11-25T05:35:25Z",
+      "updated": "2026-11-25T05:35:25Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.33806",
+      "pdf_url": "https://arxiv.org/pdf/2611.33806",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.33732",
+      "title": "CovNovBench: A Benchmark for Evaluating Time Series Foundation Models under Covariate Novelty",
+      "abstract": "Covariate-aware time-series foundation models (TSFMs) condition their forecasts on additional input variables, called covariates, that are supplied over the future horizon. This capability makes them appealing for interventional forecasting, in which a target is predicted under a planned action such as a new product pricing policy or a new patient treatment schedule. We refer to covariates that encode such actions as treatment covariates. Current covariate-aware TSFMs, however, are trained on observed patterns, and their behavior is unclear when future treatment covariates fall outside the range seen in the history. Examples include a numerical treatment that leaves its historical range and a categorical treatment that takes a previously unseen policy. We call this practically common setting covariate novelty, and note that it is not systematically represented in existing benchmarks. We introduce an operational definition of covariate novelty and use it to construct CovNovBench, a benchmark of 88,476 evaluation series generated or filtered from four simulator-based and real-world datasets. The benchmark spans categorical and numerical treatment covariates as well as stable and trending targets. We evaluate six covariate-aware TSFMs zero-shot using point and directional accuracy metrics. No model is consistently reliable in our benchmark: point error almost always increases under covariate novelty, directional performance changes non-uniformly, and the best observed model varies across datasets and metrics. CovNovBench provides a systematic testbed for developing TSFMs that forecast more reliably under covariate novelty.",
+      "authors": [
+        "Wenhao Pan, Ravi Kiran Selvam, Michael W. Mahoney, Mayank Jauhari, Mengfei Cao, Dmitry Efimov, Boris N. Oreshkin"
+      ],
+      "published": "2026-11-25T03:53:23Z",
+      "updated": "2026-11-25T03:53:23Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.33732",
+      "pdf_url": "https://arxiv.org/pdf/2611.33732",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-forecasting",
+        "time-series-foundation-models",
+        "time-series-foundation-model-enhancement"
+      ]
+    },
+    {
+      "id": "2611.33332",
+      "title": "Online Prediction System for Proactive Autoscaling",
+      "abstract": "We present an online learning system for short-term time series forecasting that enables proactive autoscaling in large-scale distributed systems. Unlike traditional forecasting methods that focus on modeling seasonality and long-term trends, the system targets high-accuracy, low-latency predictions for immediate future intervals for dynamic resource management in internet-scale infrastructures. The system employs a two-stage architecture: a seasonality decomposition stage followed by a residual correction stage using lightweight linear models with engineered features. By retraining models on-the-fly for every prediction cycle, the online prediction system continuously adapts to changing demand patterns without requiring persistent model storage or feature drift monitoring. Deployed across many heterogeneous services, the system processes over 900K predictions per hour; in an offline evaluation on production traffic, its STL-based configuration reduces prediction error (MAPE) by 18.6\\% relative to the previous production model. In production, the system has saved an estimated 118K servers daily.",
+      "authors": [
+        "Jun Gao, Areg Poghosyan, Pavel Paulau, Sumit Mohanty, Tengfei Mu, Shawn Chen"
+      ],
+      "published": "2026-11-24T19:19:36Z",
+      "updated": "2026-11-24T19:19:36Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.33332",
+      "pdf_url": "https://arxiv.org/pdf/2611.33332",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-forecasting"
+      ]
+    },
+    {
       "id": "2611.32894",
       "title": "Alert-Preserving Lossy Compression of Monitoring Time Series",
       "abstract": "Monitoring systems store large volumes of floating-point time series, and most of these data are read only by alerting rules: threshold tests on window aggregates with a hold duration. A lossy compressor with one error bound for all samples either wastes space far from the thresholds or changes alerts near them. We use the alert decisions as the correctness criterion. For every rule, the reconstructed series must produce the same sequence of alert states (Inactive, Pending, Firing) as the original, at any evaluation interval and phase. For PromQL threshold rules over last, avg/sum/min/max_over_time and rate we derive a sound error budget for each sample, computable in linear time. It is the smallest value, over all windows that contain the sample, of the window's distance to the threshold divided by a Lipschitz constant. Because the aggregates are monotone, the budget splits into separate bounds for downward and upward errors. For Prometheus' extrapolated rate, an order-preserving quantizer leaves only the first and last sample of each window constrained. Our codec combines predictive coding, a range coder and a lazy step choice that keeps the prediction whenever the budget allows, which suits the asymmetric budget. After encoding, it decodes the output, re-evaluates every rule and repairs any changed decision, so the guarantee holds for the floating-point output. Parts of the floating-point argument are machine-checked with Kani. On 13 real series from the public Prometheus demo servers (7 and 30 days), the codec keeps every alert decision (9,055 firings) at 1.0-1.5 bits per value. This is 4-6.5 times less than a uniform bound tuned on the same data and less than Compression Safeguards over SZ3 on 19 of 26 rule variants. In an ablation, the one-sided budget and the lazy step choice together reduce the size by a factor of 2.4-2.5",
@@ -16,6 +139,23 @@
       "first_seen": "2026-11-25T23:38:04.125613Z",
       "topics": [
         "time-series-forecasting"
+      ]
+    },
+    {
+      "id": "2611.33249",
+      "title": "FERRETS: A Scalable Symbolic Transform for Time Series Classification",
+      "abstract": "Dictionary methods for time series build bags of symbolic words from subsequences, but the accurate ones scale poorly. Against other families of methods, their accuracy no longer pays for their cost. We present FERRETS, a label-free dictionary transform built on WEASEL~2. It keys windows of random length and dilation into exact eight-bit words, adds a level word of each window's mean and spread, and on multivariate data adds cross-channel words. We compare it with leading classifiers, deep networks and foundation models included, on the UCR, Multiverse and MONSTER archives. FERRETS is the fastest of the eleven methods timed on UCR under a ten-thread budget. Of the ten others, only MultiRocket-Hydra is significantly more accurate, taking 24.7 times as long. FERRETS is not significantly different from WEASEL~2, the most accurate earlier dictionary method, which takes 125 times as long, and is significantly ahead of the other dictionary methods. On the Multiverse core, it is not significantly different in accuracy from HIVE-COTE~2 and MultiRocket-Hydra, though behind both on UCR. It is also significantly more accurate than five frozen foundation models on UCR's published split. On the MONSTER problems both complete, MiniRocket takes 3.7 times as long to fit as the streaming FERRETS classifier, which is significantly more accurate.",
+      "authors": [
+        "Antoine Guillaume"
+      ],
+      "published": "2026-11-24T16:06:18Z",
+      "updated": "2026-11-24T16:06:18Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
+      "url": "https://arxiv.org/abs/2611.33249",
+      "pdf_url": "https://arxiv.org/pdf/2611.33249",
+      "first_seen": "2026-11-26T08:21:08.676679Z",
+      "topics": [
+        "time-series-foundation-models"
       ]
     },
     {
@@ -9619,8 +9759,8 @@
         "Shifeng Xie, Bahaeddine Abdessalem, Zehao Xiao, Youssef Attia El Hili, Ambroise Odonnat, Zhiwei Dong, Lei Zan, Themis Palpanas, Jianfeng Zhang, Lujia Pan, Keli Zhang, Malik Tiomoko"
       ],
       "published": "2026-09-12T13:58:39Z",
-      "updated": "2026-09-29T16:45:23Z",
-      "metadata_updated": "2026-09-30T00:00:00Z",
+      "updated": "2026-11-25T09:57:19Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.13956",
       "pdf_url": "https://arxiv.org/pdf/2609.13956",
       "first_seen": "2026-09-15T21:23:42.787432Z",
@@ -9674,7 +9814,7 @@
       ],
       "published": "2026-09-11T19:14:52Z",
       "updated": "2026-10-26T09:49:22Z",
-      "metadata_updated": "2026-10-27T00:00:00Z",
+      "metadata_updated": "2026-11-26T00:00:00Z",
       "url": "https://arxiv.org/abs/2609.13453",
       "pdf_url": "https://arxiv.org/pdf/2609.13453",
       "first_seen": "2026-09-15T21:23:42.787432Z",
@@ -13423,16 +13563,17 @@
       ]
     }
   ],
-  "last_success": "2026-11-25T23:38:04.125613Z",
-  "last_attempt": "2026-11-25T23:38:04.125613Z",
+  "last_success": "2026-11-26T08:21:08.676679Z",
+  "last_attempt": "2026-11-26T08:21:08.676679Z",
   "last_new_ids": [
-    "2611.31619",
-    "2611.31730",
-    "2611.31780",
-    "2611.31905",
-    "2611.31921",
-    "2611.31970",
-    "2611.32894"
+    "2611.33249",
+    "2611.33332",
+    "2611.33732",
+    "2611.33806",
+    "2611.34019",
+    "2611.34206",
+    "2611.34240",
+    "2611.34527"
   ],
   "error": null,
   "config_fingerprint": "5b23eae3deca1a6cddd7cce5e799d96db5fbee7f2875c19241b30a1fee161c46",
@@ -13441,7 +13582,7 @@
   "source": "oai",
   "retrieval_stats": {
     "pages": 9,
-    "records": 10925,
+    "records": 11393,
     "duplicates": 0
   }
 }
